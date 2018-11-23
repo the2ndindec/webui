@@ -52,4 +52,14 @@ public class ReportDangerListPageTests extends TestBaseCase {
 			Assertion.VerityCationString(rdlpa.getSearchData("专业").get(i), "采煤");
 		}
 	}
+
+	@Test(description = "关联风险点")
+	public void TC_chooseAddress() throws IOException {
+		rdlpa.chooseAddress();
+		ea.switchToDefaultFrame();
+		log.info("切换frame");
+		ea.switchToFrame(rdlp.iframe_addresslist());
+		log.info("=============");
+		Assertion.AssertElementIsDispaly(rdlp.data_tbody());
+	}
 }

@@ -24,7 +24,7 @@
 		
 		<!-- 左侧菜单 -->
 		<!--<locator type="xpath" timeout="3" value=".//*[@id='aqfxfjgkLi']/a" desc="安全风险分级管控">aqfxfjgk_menu</locator>-->
-		<locator type="xpath" timeout="3" value=".//span[text()='安全风险辨识评估']" desc="安全风险辨识评估">aqfxfjgk_menu</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='安全风险分级管控']" desc="安全风险分级管控">aqfxfjgk_menu</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='年度风险辨识']" desc="年度风险辨识-list">ndfxbs_list</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='本矿风险汇总']" desc="本矿风险汇总">reportDangerList</locator>
 	</page>

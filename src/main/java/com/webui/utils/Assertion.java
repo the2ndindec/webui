@@ -532,8 +532,8 @@ public class Assertion extends TestBaseCase {
         ElementAction action = new ElementAction();
         Boolean flag = false;
         try {
-            WebElement webElement = action.findElement(locator);
-            if (webElement.isDisplayed()) {
+//            WebElement webElement = action.findElement(locator);
+            if (action.isElementDisplayedByLocator(locator)) {
                 flag = true;
             } else {
                 flag = false;

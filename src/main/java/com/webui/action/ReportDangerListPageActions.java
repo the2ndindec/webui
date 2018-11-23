@@ -279,83 +279,30 @@ public class ReportDangerListPageActions extends TestBaseCase {
 	public void setDefult() throws IOException {
 
 		// 判断风险点类型是否为默认值
-		if (ea.getText(rdlp.addressCate_select()).trim().equals("")) {
-			System.out.println("风险点类型为默认值");
-		} else {
-			ea.selectByIndex(rdlp.addressCate_select(), 0);
-		}
+        ea.selectByIndex(rdlp.addressCate_select(), 0);
 		// 判断辨识开始时间输入框是否为空
-		if (ea.getAttribute(rdlp.yeRecognizeTime_begin_textarea(), "value").isEmpty()) {
-			System.out.println("辨识开始时间输入框为空");
-		} else {
-			ea.clear(rdlp.yeRecognizeTime_begin_textarea());
-		}
+        ea.clear(rdlp.yeRecognizeTime_begin_textarea());
 		// 判断辨识结束时间输入框是否为空
-		if (ea.getAttribute(rdlp.yeRecognizeTime_end_textarea(), "value").isEmpty()) {
-			System.out.println("辨识结束时间输入框为空");
-		} else {
-			ea.clear(rdlp.yeRecognizeTime_end_textarea());
-		}
+        ea.clear(rdlp.yeRecognizeTime_end_textarea());
 		// 判断隐患描述输入框是否为空
-		if (ea.getAttribute(rdlp.yeMhazardDesc_textarea(), "value").isEmpty()) {
-			System.out.println("隐患描述输入框为空");
-		} else {
-			System.out.println(ea.getAttribute(rdlp.yeMhazardDesc_textarea(), "value"));
-			ea.clear(rdlp.yeMhazardDesc_textarea());
-		}
+        ea.clear(rdlp.yeMhazardDesc_textarea());
 		// 判断专业是否为默认值
-		if (ea.getText(rdlp.yeProfession_select()).trim().equals("")) {
-			System.out.println("专业为默认值");
-		} else {
-			ea.selectByIndex(rdlp.yeProfession_select(), 0);
-		}
+        ea.selectByIndex(rdlp.yeProfession_select(), 0);
 		// 判断伤害类别是否为默认值
-		if (ea.getText(rdlp.damageType_select()).trim().equals("")) {
-			System.out.println("伤害类别为默认值");
-		} else {
-			ea.selectByIndex(rdlp.damageType_select(), 0);
-		}
+        ea.selectByIndex(rdlp.damageType_select(), 0);
 		// 判断风险描述输入框是否为空
-		if (ea.getAttribute(rdlp.yePossiblyHazard_textarea(), "value").isEmpty()) {
-			System.out.println("风险描述输入框为空");
-		} else {
-			ea.clear(rdlp.yePossiblyHazard_textarea());
-		}
+        ea.clear(rdlp.yePossiblyHazard_textarea());
 		// 判断作业活动是否为默认值
-		if (ea.getText(rdlp.activityId_select()).trim().equals("")) {
-			System.out.println("作业活动为默认值");
-		} else {
-			ea.selectByIndex(rdlp.activityId_select(), 0);
-		}
+        ea.selectByIndex(rdlp.activityId_select(), 0);
 		// 判断风险等级是否为默认值
-		if (ea.getText(rdlp.yeRiskGrade_select()).trim().equals("")) {
-			System.out.println("风险等级为默认值");
-		} else {
-			ea.selectByIndex(rdlp.yeRiskGrade_select(), 0);
-		}
+        ea.selectByIndex(rdlp.yeRiskGrade_select(), 0);
 		// 判断风险类型是否为默认值
-		if (ea.getText(rdlp.yeHazardCate_select()).trim().equals("")) {
-			System.out.println("风险类型为默认值");
-		} else {
-			ea.selectByIndex(rdlp.yeHazardCate_select(), 0);
-		}
+        ea.selectByIndex(rdlp.yeHazardCate_select(), 0);
 		// 判断管控标准来源输入框是否为空
-		if (ea.getAttribute(rdlp.docSource_textarea(), "value").isEmpty()) {
-			System.out.println("管控标准来源输入框为空");
-		} else {
-			ea.clear(rdlp.docSource_textarea());
-		}
+        ea.clear(rdlp.docSource_textarea());
 		// 判断标准内容输入框是否为空
-		if (ea.getAttribute(rdlp.yeStandard_textarea(), "value").isEmpty()) {
-			System.out.println("标准内容输入框为空");
-		} else {
-			ea.clear(rdlp.yeStandard_textarea());
-		}
+        ea.clear(rdlp.yeStandard_textarea());
 		// 判断隐患等级是否为默认值
-		if (ea.getText(rdlp.hiddenLevel_select()).trim().equals("")) {
-			System.out.println("隐患等级为默认值");
-		} else {
-			ea.selectByIndex(rdlp.hiddenLevel_select(), 0);
-		}
+        ea.selectByIndex(rdlp.hiddenLevel_select(), 0);
 	}
 }

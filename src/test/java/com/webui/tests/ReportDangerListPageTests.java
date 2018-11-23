@@ -57,9 +57,8 @@ public class ReportDangerListPageTests extends TestBaseCase {
 	public void TC_chooseAddress() throws IOException {
 		rdlpa.chooseAddress();
 		ea.switchToDefaultFrame();
-		log.info("切换frame");
 		ea.switchToFrame(rdlp.iframe_addresslist());
-		log.info("=============");
+
 		Assertion.AssertElementIsDispaly(rdlp.data_tbody());
 	}
 }

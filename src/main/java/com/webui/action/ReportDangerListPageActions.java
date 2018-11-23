@@ -43,7 +43,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
 
 	/**
 	 * 
-	 * @param yeMhazardDesc隐患描述字段值
+	 * @param yeMhazardDesc 隐患描述字段值
 	 * @throws IOException
 	 * @Description:根据隐患描述执行查询操作
 	 */
@@ -57,7 +57,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
 
 	/**
 	 * 
-	 * @param yeProfession专业字段值
+	 * @param yeProfession 专业字段值
 	 * @throws IOException
 	 * @Description:根据专业执行查询操作
 	 */
@@ -152,6 +152,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
 		dataElements.get(temp).click();
 		ea.click(rdlp.chooseAddress_Button());
 	}
+
 
 	/**
 	 * 

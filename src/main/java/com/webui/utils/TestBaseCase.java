@@ -30,7 +30,7 @@ public class TestBaseCase {
 			e.printStackTrace();
 		}
 		TestBaseCase.driver.manage().window().maximize();
-		TestBaseCase.driver.get("http://192.168.3.242:8080/sdzk-mine/");
+		TestBaseCase.driver.get("http://192.168.3.242:8080/ty/");
 		TestBaseCase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 

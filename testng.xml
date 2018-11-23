@@ -9,6 +9,7 @@
                     <include name="TC_searchByAddressCate"/>
                     <include name="TC_searchByYeMhazardDesc"/>
                     <include name="TC_searchByYeProfession"/>
+                    <include name="TC_chooseAddress"/>
                 </methods>
             </class>
         </classes>

@@ -48,7 +48,7 @@ public Locator logout_btn() throws IOException
  }
 
 /***
-* 安全风险辨识评估
+* 安全风险分级管控
 * @return
 * @throws IOException
 */

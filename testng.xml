@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="通用矿版">
+    <parameter name="driver" value="FirefoxDriver" />
+    <test verbose="2" preserve-order="true" name="查询功能">
+        <classes>
+            <class name="com.webui.tests.ReportDangerListPageTests">
+                <methods>
+                    <include name="TC_searchByAddressCate"/>
+                    <include name="TC_searchByYeMhazardDesc"/>
+                    <include name="TC_searchByYeProfession"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

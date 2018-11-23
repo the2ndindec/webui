@@ -210,7 +210,6 @@ public class ReportDangerListPageActions extends TestBaseCase {
 			} else {
 				log.info("根据查询条件>>无相关结果");
 			}
-
 			break;
 		case "伤害类别":
 			if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {

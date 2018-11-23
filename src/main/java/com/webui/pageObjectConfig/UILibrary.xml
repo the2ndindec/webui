@@ -26,12 +26,12 @@
 		<!--<locator type="xpath" timeout="3" value=".//*[@id='aqfxfjgkLi']/a" desc="安全风险分级管控">aqfxfjgk_menu</locator>-->
 		<locator type="xpath" timeout="3" value=".//span[text()='安全风险辨识评估']" desc="安全风险辨识评估">aqfxfjgk_menu</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='年度风险辨识']" desc="年度风险辨识-list">ndfxbs_list</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='本矿风险上报']" desc="本矿风险汇总">reportDangerList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='本矿风险汇总']" desc="本矿风险汇总">reportDangerList</locator>
 	</page>
 	
 	<page pagename="com.webui.pageObject.ReportDangerListPage" value="" desc="本矿风险汇总页面">
 	
-		<locator type="name" timeout="3" value="iframe6" desc="本矿风险汇总页面iframe标记">iframe_reportDangerList</locator>
+		<locator type="name" timeout="3" value="iframe3" desc="本矿风险汇总页面iframe标记">iframe_reportDangerList</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goDetail')]" desc="数据详情部分iframe标记">iframe_detail</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'addresslist')]" desc="关联风险点-风险点部分iframe标记">iframe_addresslist</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'addressAddlist')]" desc="关联风险点-选择风险点部分iframe标记">iframe_addressAddlist</locator>

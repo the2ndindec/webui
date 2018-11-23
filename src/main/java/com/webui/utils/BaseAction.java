@@ -32,7 +32,6 @@ public class BaseAction extends TestBaseCase {
 	}
 
 	public BaseAction() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public void getLocatorMap() {

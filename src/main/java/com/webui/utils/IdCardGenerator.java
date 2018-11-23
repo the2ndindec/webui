@@ -47,7 +47,7 @@ public class IdCardGenerator {
 	}
 
 	private String randomCityCode(int max) {
-		// TODO 随机生成两位数的字符串（01-max）,不足两位的前面补0
+		// 随机生成两位数的字符串（01-max）,不足两位的前面补0
 		int i = new Random().nextInt(max) + 1;
 		return i > 9 ? i + "" : "0" + i;
 	}

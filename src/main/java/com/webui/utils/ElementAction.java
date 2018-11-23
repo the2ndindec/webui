@@ -53,7 +53,6 @@ public class ElementAction extends TestBaseCase {
 
 				@Override
 				public List<WebElement> apply(WebDriver driver) {
-					// TODO 自动生成的方法存根
 					List<WebElement> element = null;
 					element = getElements(locator);
 					return element;
@@ -61,7 +60,6 @@ public class ElementAction extends TestBaseCase {
 			});
 			return webElements;
 		} catch (NoSuchElementException e) {
-			// TODO: handle exception
 			log.info("无法定位页面元素");
 			e.printStackTrace();
 			Assertion.assertInfolList.add(
@@ -91,7 +89,6 @@ public class ElementAction extends TestBaseCase {
 			// Assertion.assertInfolList.add(arg0)
 			return webElements;
 		} catch (TimeoutException e) {
-			// TODO: handle exception
 			log.info("查找页面元素超时");
 			e.printStackTrace();
 			Assertion.assertInfolList.add(
@@ -125,10 +122,8 @@ public class ElementAction extends TestBaseCase {
 					+ "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;"
 					+ "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
 			log.info(this.formatDate(nowDate));
-			// Assertion.assertInfolList.add(arg0)
 			return webElements;
 		} catch (ElementNotVisibleException e) {
-			// TODO: handle exception
 			log.info("查找页面元素超时");
 			e.printStackTrace();
 			Assertion.assertInfolList.add(
@@ -155,7 +150,6 @@ public class ElementAction extends TestBaseCase {
 					+ "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;"
 					+ "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
 			log.info(this.formatDate(nowDate));
-			// Assertion.assertInfolList.add(arg0)
 			return webElements;
 		}
 	}
@@ -205,7 +199,6 @@ public class ElementAction extends TestBaseCase {
 			log.info(this.formatDate(nowDate));
 			return webElement;
 		} catch (TimeoutException e) {
-			// TODO: handle exception
 			log.info("超时无法定位页面元素");
 			e.printStackTrace();
 			Assertion.assertInfolList.add(
@@ -234,7 +227,6 @@ public class ElementAction extends TestBaseCase {
 			log.info(this.formatDate(nowDate));
 			return webElement;
 		} catch (ElementNotVisibleException e) {
-			// TODO: handle exception
 			log.info("超时无法定位页面元素");
 			e.printStackTrace();
 			Assertion.assertInfolList.add(
@@ -384,11 +376,9 @@ public class ElementAction extends TestBaseCase {
 			log.info("input输入：" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement()
 					+ "value:" + value + "]");
 		} catch (NoSuchElementException e) {
-			// TODO: handle exception
 			log.error("找不到元素，input输入失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
 					+ locator.getElement() + "]");
 			e.printStackTrace();
-			// throw e;
 		}
 	}
 
@@ -416,7 +406,6 @@ public class ElementAction extends TestBaseCase {
 			log.info("click元素：" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement()
 					+ "]成功！");
 		} catch (NoSuchElementException e) {
-			// TODO: handle exception
 			log.error("找不到元素，click失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
 					+ locator.getElement() + "]");
 			e.printStackTrace();
@@ -442,12 +431,10 @@ public class ElementAction extends TestBaseCase {
 				log.info("选择下拉列表项：" + text);
 
 			} catch (NoSuchElementException notByValue) {
-				// TODO: handle exception
 				log.info("找不到下拉值，选择下拉列表项失败 " + text);
 				throw notByValue;
 			}
 		} catch (NoSuchElementException e) {
-			// TODO: handle exception
 			log.error("找不到元素，选择select标签失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
 					+ locator.getElement() + "]");
 			throw e;
@@ -468,7 +455,6 @@ public class ElementAction extends TestBaseCase {
 			log.info("选择select标签:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
 					+ locator.getElement() + "]");
 		} catch (NoSuchElementException e) {
-			// TODO: handle exception
 			log.error("找不到元素，选择select标签失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
 					+ locator.getElement() + "]");
 			throw e;
@@ -476,9 +462,7 @@ public class ElementAction extends TestBaseCase {
 		try {
 			select.selectByValue(value);
 			log.info("选择下拉列表项：" + value);
-
 		} catch (NoSuchElementException notByValue) {
-			// TODO: handle exception
 			log.info("找不到下拉值，选择下拉列表项失败 " + value);
 			throw notByValue;
 		}
@@ -498,7 +482,6 @@ public class ElementAction extends TestBaseCase {
 			log.info("选择select标签:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
 					+ locator.getElement() + "]");
 		} catch (NoSuchElementException e) {
-			// TODO: handle exception
 			log.error("找不到元素，选择select标签失败" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
 					+ locator.getElement() + "]");
 			throw e;
@@ -508,7 +491,6 @@ public class ElementAction extends TestBaseCase {
 			log.info("选择下拉列表项：" + index);
 
 		} catch (NoSuchElementException notByindex) {
-			// TODO: handle exception
 			log.info("找不到下拉值，选择下拉列表项失败 " + index);
 			throw notByindex;
 		}
@@ -518,7 +500,7 @@ public class ElementAction extends TestBaseCase {
 	 * 获取下拉列表的value属性值
 	 * 
 	 * @param selectLocator 下拉列表 select标签定位信息
-	 * @param optinValue    下拉列表文本值
+	 * @param optinText  下拉列表文本值
 	 * @return 返回String
 	 */
 	public String getSelectOptionValue(Locator selectLocator, String optinText) {
@@ -542,8 +524,6 @@ public class ElementAction extends TestBaseCase {
 			alert.accept();
 			log.info("点击确认按钮");
 		} catch (NoAlertPresentException notFindAlert) {
-			// TODO: handle exception
-			// throw notFindAlert;
 			log.error("找不到确认按钮");
 			throw notFindAlert;
 		}
@@ -558,8 +538,6 @@ public class ElementAction extends TestBaseCase {
 			alert.dismiss();
 			log.info("点击取消按钮");
 		} catch (NoAlertPresentException notFindAlert) {
-			// TODO: handle exception
-			// throw notFindAlert;
 			log.error("找不到取消按钮");
 			throw notFindAlert;
 		}
@@ -577,10 +555,8 @@ public class ElementAction extends TestBaseCase {
 			log.info("获取对话框文本：" + text);
 			return text;
 		} catch (NoAlertPresentException notFindAlert) {
-			// TODO: handle exception
 			log.error("找不到对话框");
 			throw notFindAlert;
-
 		}
 	}
 
@@ -645,7 +621,6 @@ public class ElementAction extends TestBaseCase {
 			log.info("清除input值:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement()
 					+ "]");
 		} catch (Exception e) {
-			// TODO: handle exception
 			log.error("清除input值失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
 					+ locator.getElement() + "]");
 			throw e;
@@ -753,7 +728,6 @@ public class ElementAction extends TestBaseCase {
 			Files.copy(scrFile, new File(FileDriver + Filename));
 			System.out.println("错误截图：" + FileDriver + Filename);
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			throw e;
 		}
@@ -768,7 +742,6 @@ public class ElementAction extends TestBaseCase {
 		try {
 			Thread.sleep(time * 1000);
 		} catch (InterruptedException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 	}

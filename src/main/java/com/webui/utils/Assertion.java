@@ -165,7 +165,6 @@ public class Assertion extends TestBaseCase {
                 flag = false;
             }
         } catch (NoSuchElementException e) {
-            // TODO: handle exception
             flag = false;
             ElementAction.noSuchElementExceptions.add(e);
             e.printStackTrace();
@@ -201,7 +200,6 @@ public class Assertion extends TestBaseCase {
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
         } catch (Error e) {
-            // TODO: handle exception
             AssertFailedLog();
             errors.add(e);
             errorIndex++;
@@ -229,7 +227,6 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(Message + verityStr + ":pass");
             messageList.add(Message + ":pass");
         } catch (Error e) {
-            // TODO: handle exception
             AssertFailedLog();
             errors.add(e);
             errorIndex++;
@@ -258,7 +255,6 @@ public class Assertion extends TestBaseCase {
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
         } catch (Error e) {
-            // TODO: handle exception
             AssertPassLog();
             errorIndex++;
             errors.add(e);
@@ -287,14 +283,12 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(Message + verityStr + ":pass");
             messageList.add(Message + ":pass");
         } catch (Error e) {
-            // TODO: handle exception
             AssertPassLog();
             errorIndex++;
             errors.add(e);
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
             Assertion.snapshotInfo();
-            // throw e;
         }
     }
 
@@ -317,7 +311,6 @@ public class Assertion extends TestBaseCase {
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
         } catch (Error e) {
-            // TODO: handle exception
             AssertFailedLog();
             errorIndex++;
             errors.add(e);
@@ -350,7 +343,6 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(Message + verityStr + ":pass");
             messageList.add(Message + ":pass");
         } catch (Error e) {
-            // TODO: handle exception
             AssertFailedLog();
             errorIndex++;
             errors.add(e);
@@ -386,15 +378,12 @@ public class Assertion extends TestBaseCase {
             Assert.assertTrue(status);
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
-
         } catch (Error e) {
-            // TODO: handle exception
             AssertFailedLog();
             errorIndex++;
             errors.add(e);
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
-            // throw e;
         }
     }
 
@@ -422,18 +411,15 @@ public class Assertion extends TestBaseCase {
         try {
             Assert.assertTrue(status);
             AssertPassLog();
-
             assertInfolList.add(Message + verityStr + ":pass");
             messageList.add(Message + ":pass");
         } catch (Error e) {
-            // TODO: handle exception
             AssertFailedLog();
             errorIndex++;
             errors.add(e);
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
             Assertion.snapshotInfo();
-            // throw e;
         }
     }
 
@@ -463,13 +449,11 @@ public class Assertion extends TestBaseCase {
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
         } catch (Error e) {
-            // TODO: handle exception
             AssertFailedLog();
             errors.add(e);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
-            // throw e;
         }
     }
 
@@ -498,20 +482,15 @@ public class Assertion extends TestBaseCase {
         try {
             Assert.assertTrue(status);
             AssertPassLog();
-
             assertInfolList.add(Message + verityStr + ":pass");
             messageList.add(Message + ":pass");
-
         } catch (Error e) {
-            // TODO: handle exception
             AssertFailedLog();
             errors.add(e);
             errorIndex++;
-
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
             Assertion.snapshotInfo();
-            // throw e;
         }
     }
 
@@ -530,11 +509,9 @@ public class Assertion extends TestBaseCase {
             driver.findElement(By.xpath(exceptStr));
             flag = true;
         } catch (NoSuchElementException e) {
-            // TODO: handle exception
             flag = false;
             ElementAction.noSuchElementExceptions.add(e);
             e.printStackTrace();
-            /// AssertFailedLog();
         }
         System.out.println(false);
         try {
@@ -542,17 +519,15 @@ public class Assertion extends TestBaseCase {
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
         } catch (Error f) {
-            // TODO: handle exception
             AssertFailedLog();
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
-            // throw f;
         }
     }
 
-    
+
     public static void AssertElementIsDispaly(Locator locator) {
         ElementAction action = new ElementAction();
         Boolean flag = false;
@@ -564,7 +539,6 @@ public class Assertion extends TestBaseCase {
                 flag = false;
             }
         } catch (NoSuchElementException e) {
-            // TODO: handle exception
             flag = false;
             ElementAction.noSuchElementExceptions.add(e);
             e.printStackTrace();

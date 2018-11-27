@@ -634,6 +634,7 @@ public class ElementAction extends TestBaseCase {
 	 */
 	public void switchToFrame(Locator locator) {
 		WebElement frameElement = findElement(locator);
+		driver.switchTo().defaultContent();
 		driver.switchTo().frame(frameElement);
 	}
 
@@ -657,8 +658,6 @@ public class ElementAction extends TestBaseCase {
 
 	/**
 	 * 隐式等待
-	 * 
-	 * @param driver 浏览器driver
 	 * @param t      最大等待时间，秒为单位
 	 **/
 	public void Waitformax(int t) {
@@ -770,7 +769,7 @@ public class ElementAction extends TestBaseCase {
 	/**
 	 * 使用JS滚动到该元素，
 	 * 
-	 * @param element
+	 * @param locator
 	 */
 	public void moveToElement(Locator locator) {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;

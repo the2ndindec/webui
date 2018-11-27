@@ -20,13 +20,14 @@
 		<locator type="xpath" timeout="3" value=".//*[@id='page-wrapper']/div[1]/nav/ul/li[1]/a/span[1]/strong" desc="登陆用户的名称">userName_1</locator>
 		<locator type="xpath" timeout="3" value=".//li[@class='dropdown']/a/span[2]" desc="登陆用户的名称">userName</locator>
 		<locator type="xpath" timeout="3" value=".//a[contains(@href,'logout')]" desc="退出按钮">logout_btn</locator>
-		
-		
+
 		<!-- 左侧菜单 -->
 		<!--<locator type="xpath" timeout="3" value=".//*[@id='aqfxfjgkLi']/a" desc="安全风险分级管控">aqfxfjgk_menu</locator>-->
 		<locator type="xpath" timeout="3" value=".//span[text()='安全风险分级管控']" desc="安全风险分级管控">aqfxfjgk_menu</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='年度风险辨识']" desc="年度风险辨识-list">ndfxbs_list</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='本矿风险汇总']" desc="本矿风险汇总">reportDangerList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='风险审核']" desc="风险审核">reviewDangerList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='部门风险上报']" desc="部门风险上报">departReportDangerList</locator>
 	</page>
 	
 	<page pagename="com.webui.pageObject.ReportDangerListPage" value="" desc="本矿风险汇总页面">

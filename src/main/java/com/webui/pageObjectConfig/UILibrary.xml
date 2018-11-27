@@ -85,19 +85,21 @@
 	<page pagename="com.webui.pageObject.ReviewDangerListPage" value="" desc="风险审核页面">
 		<locator type="name" timeout="3" value="iframe4" desc="风险审核页面页面iframe标记">iframe_reviewDangerList</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goDetail')]" desc="数据详情部分iframe标记">iframe_detail</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goReviewDangerSource')]" desc="审核弹框部分iframe标记">iframe_reviewDangerSource</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdateDangerSourceOnCheck')]" desc="编辑页面iframe标记">iframe_goUpdateDangerSourceOnCheck</locator>
 
 		<!-- 操作按钮 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='导出']" desc="导出按钮">ExportXls_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='查看']" desc="查看按钮">detail_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='审核']" desc="审核按钮">goReview_Button</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='关联风险点']" desc="关联风险点">chooseAddress_Button</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='上报省局平台']" desc="上报省局平台">goReport_Button</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='全部上报省局平台']" desc="全部上报省局平台">goReportAll_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='全部审核']" desc="全部审核">reviewAll_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='编辑']" desc="编辑">editDangerSource_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='批量删除']" desc="批量删除">deleteAllSelectedLogic_Button</locator>
 		<!-- 搜索条件 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
 		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]" desc="全部 ">all_radio</locator>
-		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[2]" desc="待上报">toBeReported_radio</locator>
-		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]" desc="待上报">beenReported_radio</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[2]" desc="待审核">checkPending_radio</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]" desc="已审核">checked_radio</locator>
 		<!-- <locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="重置按钮">reload_Button</locator> -->
 		<locator type="xpath" timeout="3" value=".//select[@name='addressCate']" desc="查询条件--风险点类型">addressCate_select</locator>
 		<locator type="xpath" timeout="3" value=".//input[@name='yeRecognizeTime_begin']" desc="查询条件--辨识时间开始输入框">yeRecognizeTime_begin_textarea</locator>
@@ -112,17 +114,41 @@
 		<locator type="xpath" timeout="3" value=".//input[@name='docSource']" desc="查询条件--管控标准来源输入框">docSource_textarea</locator>
 		<locator type="xpath" timeout="3" value=".//input[@name='yeStandard']" desc="查询条件--标准内容输入框">yeStandard_textarea</locator>
 		<locator type="xpath" timeout="3" value=".//select[@name='hiddenLevel']" desc="查询条件--隐患等级">hiddenLevel_select</locator>
-		<!-- 关联风险点-风险点部分 -->
-		<locator type="xpath" timeout="3" value=".//input[@name='address']" desc="关联风险点-风险点部分：查询条件--地点输入框">addresslist_address_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-search')]" desc="关联风险点-风险点部分：查询按钮">addresslist_search_Button</locator>
-		<locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="关联风险点-风险点部分：重置按钮">addresslist_reload_Button</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='选择风险点']" desc="关联风险点-风险点部分：选择风险点按钮">addresslist_chooseAddress_Button</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='删除关联']" desc="关联风险点-风险点部分：删除关联按钮">addresslist_delAddressRel_Button</locator>
-		<!-- 关联风险点-选择风险点部分 -->
-		<locator type="xpath" timeout="3" value=".//input[@name='address']" desc="关联风险点-选择风险点部分：查询条件--地点输入框">addressAddlist_address_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-search')]" desc="关联风险点-选择风险点部分：查询按钮">addressAddlist_search_Button</locator>
-		<locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="关联风险点-选择风险点部分：重置按钮">addressAddlist_reload_Button</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='删除关联']" desc="关联风险点-选择风险点部分：关联按钮">addressAddlist_addRelFunction_Button</locator>
+		<!-- 审核弹框部分 -->
+		<locator type="xpath" timeout="3" value=".//input[@value='确定']" desc="审核弹框部分：确定按钮">check_confirm_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="审核弹框部分：关闭按钮">check_close_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="审核弹框部分：取消按钮">check_cancel_btn</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tbody/tr[1]/td[2]/label[1]/input" desc="审核弹框部分：备注输入框">check_pass_radio</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tbody/tr[1]/td[2]/label[2]/input" desc="审核弹框部分：备注输入框">check_dismiss_radio</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//textarea[@id='remark']" desc="审核弹框部分：备注输入框">check_remark_textarea</locator>
+		<!-- 编辑部分 -->
+		<locator type="xpath" timeout="3" value=".//select[@id='addressCate']" desc="编辑页面--风险点类型">update_addressCate_select</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='yeRecognizeTime']" desc="编辑页面--辨识时间输入框">update_yeRecognizeTime_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@id='yeProfession']" desc="编辑页面--专业选择框">update_yeProfession_select</locator>
+		<locator type="xpath" timeout="3" value=".//textarea[@id='yePossiblyHazard']" desc="编辑页面--风险描述输入框">update_yePossiblyHazard_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='请填写风险描述！']" desc="编辑页面--风险描述内容为空时提示信息">update_yePossiblyHazard_errormsg</locator>
+		<locator type="xpath" timeout="3" value=".//select[@id='yeProbability']" desc="编辑页面--风险可能性选择框">update_yeProbability_select</locator>
+		<locator type="xpath" timeout="3" value=".//select[@id='yeCost']" desc="编辑页面--风险损失选择框">update_yeCost_select</locator>
+		<locator type="xpath" timeout="3" value=".//select[@id='yeHazardCate']" desc="编辑页面--风险类型">update_yeHazardCate_select</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='docSource']" desc="编辑页面--管控标准来源输入框">update_docSource_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='sectionName']" desc="编辑页面--章节条款输入框">update_sectionName_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//textarea[@id='yeStandard']" desc="编辑页面--标准内容输入框">update_yeStandard_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//textarea[@id='manageMeasure']" desc="编辑页面--管控措施输入框">update_manageMeasure_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//textarea[@id='yeMhazardDesc']" desc="编辑页面--隐患描述输入框">update_yeMhazardDesc_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@id='hiddenLevel']" desc="编辑页面--隐患等级">update_hiddenLevel_select</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='fineMoney']" desc="编辑页面--罚款金额输入框">update_fineMoney_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='btn_save']" desc="编辑页面--保存按钮">update_btn_save</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='closeBtn']" desc="编辑页面--关闭按钮">update_closeBtn</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='hazardname']" desc="编辑页面--危险源名称">update_hazardName_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='hazardname']/div[2]" desc="编辑页面--危险源名称下拉按钮">update_hazardNameList</locator>
+		<!-- .//*[@id='hazardname']//div[text()='顶板'] -->
+		<locator type="xpath" timeout="3" value=".//div[@id='postname']" desc="编辑页面--责任岗位">update_postName_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='postname']/div[2]" desc="编辑页面--责任岗位下拉按钮">update_postNameList</locator>
+		<!-- .//*[@id='postname']//div[text()='队长'] -->
+
+		<!-- .//*[@id='formobj']//tbody/tr[3]/td[2]/label[1]/input   伤害类别 -->
+		<!-- .//*[@id='formobj']//tbody/tr[4]/td[2]/label[1]   事故类型 -->
+
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
 		<locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>
@@ -130,9 +156,6 @@
 		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-prev')]" desc="底部信息--上一页按钮">data_prevPage</locator>
 		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-next')]" desc="底部信息--下一页按钮">data_nexttPage</locator>
 		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-last')]" desc="底部信息--尾页按钮">data_lastPage</locator>
-		<locator type="xpath" timeout="3" value=".//a[@class='ui_min']" desc="弹窗--最小化按钮">min_ui</locator>
-		<locator type="xpath" timeout="3" value=".//a[@class='ui_max']" desc="弹窗--最大化按钮">max_ui</locator>
-		<locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
 
 	</page>
 

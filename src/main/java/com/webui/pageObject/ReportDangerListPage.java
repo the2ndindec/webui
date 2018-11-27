@@ -400,7 +400,7 @@ public Locator addressAddlist_reload_Button() throws IOException
  }
 
 /***
-* 关联风险点-选择风险点部分：删除关联按钮
+* 关联风险点-选择风险点部分：关联风险点按钮
 * @return
 * @throws IOException
 */
@@ -484,6 +484,39 @@ public Locator data_nexttPage() throws IOException
 public Locator data_lastPage() throws IOException
  {
    Locator locator=getLocator("data_lastPage");
+   return locator;
+ }
+
+/***
+* 弹窗--最小化按钮
+* @return
+* @throws IOException
+*/
+public Locator min_ui() throws IOException
+ {
+   Locator locator=getLocator("min_ui");
+   return locator;
+ }
+
+/***
+* 弹窗--最大化按钮
+* @return
+* @throws IOException
+*/
+public Locator max_ui() throws IOException
+ {
+   Locator locator=getLocator("max_ui");
+   return locator;
+ }
+
+/***
+* 弹窗--关闭按钮
+* @return
+* @throws IOException
+*/
+public Locator close_ui() throws IOException
+ {
+   Locator locator=getLocator("close_ui");
    return locator;
  }
 }

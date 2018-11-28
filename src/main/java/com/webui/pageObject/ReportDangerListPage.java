@@ -16,7 +16,6 @@ getLocatorMap();
 }
 /***
 * 本矿风险汇总页面iframe标记
-* @return
 * @throws IOException
 */
 public Locator iframe_reportDangerList() throws IOException
@@ -27,7 +26,6 @@ public Locator iframe_reportDangerList() throws IOException
 
 /***
 * 数据详情部分iframe标记
-* @return
 * @throws IOException
 */
 public Locator iframe_detail() throws IOException
@@ -38,7 +36,6 @@ public Locator iframe_detail() throws IOException
 
 /***
 * 关联风险点-风险点部分iframe标记
-* @return
 * @throws IOException
 */
 public Locator iframe_addresslist() throws IOException
@@ -49,7 +46,6 @@ public Locator iframe_addresslist() throws IOException
 
 /***
 * 关联风险点-选择风险点部分iframe标记
-* @return
 * @throws IOException
 */
 public Locator iframe_addressAddlist() throws IOException
@@ -60,7 +56,6 @@ public Locator iframe_addressAddlist() throws IOException
 
 /***
 * 导出按钮
-* @return
 * @throws IOException
 */
 public Locator ExportXls_Button() throws IOException
@@ -71,7 +66,6 @@ public Locator ExportXls_Button() throws IOException
 
 /***
 * 查看按钮
-* @return
 * @throws IOException
 */
 public Locator detail_Button() throws IOException
@@ -82,7 +76,6 @@ public Locator detail_Button() throws IOException
 
 /***
 * 一键复制按钮
-* @return
 * @throws IOException
 */
 public Locator copy_Button() throws IOException
@@ -93,7 +86,6 @@ public Locator copy_Button() throws IOException
 
 /***
 * 关联风险点
-* @return
 * @throws IOException
 */
 public Locator chooseAddress_Button() throws IOException
@@ -104,7 +96,6 @@ public Locator chooseAddress_Button() throws IOException
 
 /***
 * 上报省局平台
-* @return
 * @throws IOException
 */
 public Locator goReport_Button() throws IOException
@@ -115,7 +106,6 @@ public Locator goReport_Button() throws IOException
 
 /***
 * 全部上报省局平台
-* @return
 * @throws IOException
 */
 public Locator goReportAll_Button() throws IOException
@@ -126,7 +116,6 @@ public Locator goReportAll_Button() throws IOException
 
 /***
 * 查询按钮
-* @return
 * @throws IOException
 */
 public Locator search_Button() throws IOException
@@ -137,7 +126,6 @@ public Locator search_Button() throws IOException
 
 /***
 * 全部 
-* @return
 * @throws IOException
 */
 public Locator all_radio() throws IOException
@@ -148,7 +136,6 @@ public Locator all_radio() throws IOException
 
 /***
 * 待上报
-* @return
 * @throws IOException
 */
 public Locator toBeReported_radio() throws IOException
@@ -159,7 +146,6 @@ public Locator toBeReported_radio() throws IOException
 
 /***
 * 待上报
-* @return
 * @throws IOException
 */
 public Locator beenReported_radio() throws IOException
@@ -170,7 +156,6 @@ public Locator beenReported_radio() throws IOException
 
 /***
 * 查询条件--风险点类型
-* @return
 * @throws IOException
 */
 public Locator addressCate_select() throws IOException
@@ -181,7 +166,6 @@ public Locator addressCate_select() throws IOException
 
 /***
 * 查询条件--辨识时间开始输入框
-* @return
 * @throws IOException
 */
 public Locator yeRecognizeTime_begin_textarea() throws IOException
@@ -192,7 +176,6 @@ public Locator yeRecognizeTime_begin_textarea() throws IOException
 
 /***
 * 查询条件--辨识时间结束输入框
-* @return
 * @throws IOException
 */
 public Locator yeRecognizeTime_end_textarea() throws IOException
@@ -203,7 +186,6 @@ public Locator yeRecognizeTime_end_textarea() throws IOException
 
 /***
 * 查询条件--隐患描述输入框
-* @return
 * @throws IOException
 */
 public Locator yeMhazardDesc_textarea() throws IOException
@@ -214,7 +196,6 @@ public Locator yeMhazardDesc_textarea() throws IOException
 
 /***
 * 查询条件--专业选择框
-* @return
 * @throws IOException
 */
 public Locator yeProfession_select() throws IOException
@@ -225,7 +206,6 @@ public Locator yeProfession_select() throws IOException
 
 /***
 * 查询条件--伤害类别
-* @return
 * @throws IOException
 */
 public Locator damageType_select() throws IOException
@@ -236,7 +216,6 @@ public Locator damageType_select() throws IOException
 
 /***
 * 查询条件--风险描述输入框
-* @return
 * @throws IOException
 */
 public Locator yePossiblyHazard_textarea() throws IOException
@@ -247,7 +226,6 @@ public Locator yePossiblyHazard_textarea() throws IOException
 
 /***
 * 查询条件--作业活动
-* @return
 * @throws IOException
 */
 public Locator activityId_select() throws IOException
@@ -258,7 +236,6 @@ public Locator activityId_select() throws IOException
 
 /***
 * 查询条件--风险等级
-* @return
 * @throws IOException
 */
 public Locator yeRiskGrade_select() throws IOException
@@ -269,7 +246,6 @@ public Locator yeRiskGrade_select() throws IOException
 
 /***
 * 查询条件--风险类型
-* @return
 * @throws IOException
 */
 public Locator yeHazardCate_select() throws IOException
@@ -280,7 +256,6 @@ public Locator yeHazardCate_select() throws IOException
 
 /***
 * 查询条件--管控标准来源输入框
-* @return
 * @throws IOException
 */
 public Locator docSource_textarea() throws IOException
@@ -291,7 +266,6 @@ public Locator docSource_textarea() throws IOException
 
 /***
 * 查询条件--标准内容输入框
-* @return
 * @throws IOException
 */
 public Locator yeStandard_textarea() throws IOException
@@ -302,7 +276,6 @@ public Locator yeStandard_textarea() throws IOException
 
 /***
 * 查询条件--隐患等级
-* @return
 * @throws IOException
 */
 public Locator hiddenLevel_select() throws IOException
@@ -313,7 +286,6 @@ public Locator hiddenLevel_select() throws IOException
 
 /***
 * 关联风险点-风险点部分：查询条件--地点输入框
-* @return
 * @throws IOException
 */
 public Locator addresslist_address_textarea() throws IOException
@@ -324,7 +296,6 @@ public Locator addresslist_address_textarea() throws IOException
 
 /***
 * 关联风险点-风险点部分：查询按钮
-* @return
 * @throws IOException
 */
 public Locator addresslist_search_Button() throws IOException
@@ -335,7 +306,6 @@ public Locator addresslist_search_Button() throws IOException
 
 /***
 * 关联风险点-风险点部分：重置按钮
-* @return
 * @throws IOException
 */
 public Locator addresslist_reload_Button() throws IOException
@@ -346,7 +316,6 @@ public Locator addresslist_reload_Button() throws IOException
 
 /***
 * 关联风险点-风险点部分：选择风险点按钮
-* @return
 * @throws IOException
 */
 public Locator addresslist_chooseAddress_Button() throws IOException
@@ -357,7 +326,6 @@ public Locator addresslist_chooseAddress_Button() throws IOException
 
 /***
 * 关联风险点-风险点部分：删除关联按钮
-* @return
 * @throws IOException
 */
 public Locator addresslist_delAddressRel_Button() throws IOException
@@ -368,7 +336,6 @@ public Locator addresslist_delAddressRel_Button() throws IOException
 
 /***
 * 关联风险点-选择风险点部分：查询条件--地点输入框
-* @return
 * @throws IOException
 */
 public Locator addressAddlist_address_textarea() throws IOException
@@ -379,7 +346,6 @@ public Locator addressAddlist_address_textarea() throws IOException
 
 /***
 * 关联风险点-选择风险点部分：查询按钮
-* @return
 * @throws IOException
 */
 public Locator addressAddlist_search_Button() throws IOException
@@ -390,7 +356,6 @@ public Locator addressAddlist_search_Button() throws IOException
 
 /***
 * 关联风险点-选择风险点部分：重置按钮
-* @return
 * @throws IOException
 */
 public Locator addressAddlist_reload_Button() throws IOException
@@ -401,7 +366,6 @@ public Locator addressAddlist_reload_Button() throws IOException
 
 /***
 * 关联风险点-选择风险点部分：关联风险点按钮
-* @return
 * @throws IOException
 */
 public Locator addressAddlist_addRelFunction_Button() throws IOException
@@ -412,7 +376,6 @@ public Locator addressAddlist_addRelFunction_Button() throws IOException
 
 /***
 * 数据列表
-* @return
 * @throws IOException
 */
 public Locator data_tbody() throws IOException
@@ -423,7 +386,6 @@ public Locator data_tbody() throws IOException
 
 /***
 * 底部信息--数据总量
-* @return
 * @throws IOException
 */
 public Locator data_num() throws IOException
@@ -434,7 +396,6 @@ public Locator data_num() throws IOException
 
 /***
 * 底部信息--每页显示数量
-* @return
 * @throws IOException
 */
 public Locator data_pagelist() throws IOException
@@ -445,7 +406,6 @@ public Locator data_pagelist() throws IOException
 
 /***
 * 底部信息--首页按钮
-* @return
 * @throws IOException
 */
 public Locator data_firstPage() throws IOException
@@ -456,7 +416,6 @@ public Locator data_firstPage() throws IOException
 
 /***
 * 底部信息--上一页按钮
-* @return
 * @throws IOException
 */
 public Locator data_prevPage() throws IOException
@@ -467,7 +426,6 @@ public Locator data_prevPage() throws IOException
 
 /***
 * 底部信息--下一页按钮
-* @return
 * @throws IOException
 */
 public Locator data_nexttPage() throws IOException
@@ -478,7 +436,6 @@ public Locator data_nexttPage() throws IOException
 
 /***
 * 底部信息--尾页按钮
-* @return
 * @throws IOException
 */
 public Locator data_lastPage() throws IOException
@@ -489,7 +446,6 @@ public Locator data_lastPage() throws IOException
 
 /***
 * 弹窗--最小化按钮
-* @return
 * @throws IOException
 */
 public Locator min_ui() throws IOException
@@ -500,7 +456,6 @@ public Locator min_ui() throws IOException
 
 /***
 * 弹窗--最大化按钮
-* @return
 * @throws IOException
 */
 public Locator max_ui() throws IOException
@@ -511,7 +466,6 @@ public Locator max_ui() throws IOException
 
 /***
 * 弹窗--关闭按钮
-* @return
 * @throws IOException
 */
 public Locator close_ui() throws IOException

@@ -1,11 +1,9 @@
 package com.webui.action;
 
 import com.webui.pageObject.DefultPage;
-import com.webui.pageObject.ReviewDangerListPage;
 import com.webui.utils.ElementAction;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
-import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,11 +18,10 @@ import java.util.Random;
 
 /**
  * @author the2n
- * @description 风险审核页面包含的功能
- * @Data 2018/11/27 14:00
+ * @description
+ * @Data 2018/11/28 14:15
  */
 public class ReviewDangerListPageActions extends TestBaseCase {
-
     ElementAction elementAction = new ElementAction();
     DefultPageActions defultPageActions = new DefultPageActions();
 

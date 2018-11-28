@@ -117,7 +117,7 @@
 		<locator type="xpath" timeout="3" value=".//select[@name='hiddenLevel']" desc="查询条件--隐患等级">hiddenLevel_select</locator>
 
         <locator type="xpath" timeout="3" value=".//*[@id='formobj']/table/tbody" desc="詳情框--数据">dateDetail</locator>
-		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
+		<!--<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>-->
 
 		<!-- 审核弹框部分 -->
 		<locator type="xpath" timeout="3" value=".//input[@value='确定']" desc="审核弹框部分：确定按钮">check_confirm_btn</locator>
@@ -126,6 +126,8 @@
 		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tbody/tr[1]/td[2]/label[1]/input" desc="审核弹框部分：通过选择项">check_pass_radio</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tbody/tr[1]/td[2]/label[2]/input" desc="审核弹框部分：驳回选择项">check_dismiss_radio</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//textarea[@id='remark']" desc="审核弹框部分：备注输入框">check_remark_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']/table/tbody/tr[2]/td[2]/span" desc="审核弹框部分：审核驳回备注为空时提示信息">check_remark_error</locator>
+
 		<!-- 编辑部分 -->
 		<locator type="xpath" timeout="3" value=".//select[@id='addressCate']" desc="编辑页面--风险点类型">update_addressCate_select</locator>
 		<locator type="xpath" timeout="3" value=".//input[@id='yeRecognizeTime']" desc="编辑页面--辨识时间输入框">update_yeRecognizeTime_textarea</locator>

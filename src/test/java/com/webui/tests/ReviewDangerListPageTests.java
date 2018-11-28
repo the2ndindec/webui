@@ -1,8 +1,6 @@
 package com.webui.tests;
 
-import com.webui.action.ReviewDangerListPageActions;
 import com.webui.pageObject.DefultPage;
-import com.webui.pageObject.ReviewDangerListPage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
 import com.webui.utils.TestBaseCase;

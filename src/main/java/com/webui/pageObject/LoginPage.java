@@ -16,7 +16,6 @@ getLocatorMap();
 }
 /***
 * 用户名
-* @return
 * @throws IOException
 */
 public Locator userName_Text() throws IOException
@@ -27,7 +26,6 @@ public Locator userName_Text() throws IOException
 
 /***
 * 密码
-* @return
 * @throws IOException
 */
 public Locator password_Text() throws IOException
@@ -38,7 +36,6 @@ public Locator password_Text() throws IOException
 
 /***
 * 登录
-* @return
 * @throws IOException
 */
 public Locator login_btn() throws IOException
@@ -49,7 +46,6 @@ public Locator login_btn() throws IOException
 
 /***
 * 用户名密码为空时提示
-* @return
 * @throws IOException
 */
 public Locator error_tip() throws IOException
@@ -60,7 +56,6 @@ public Locator error_tip() throws IOException
 
 /***
 * 密码为空时提示
-* @return
 * @throws IOException
 */
 public Locator errorwithoutpassword_tip() throws IOException

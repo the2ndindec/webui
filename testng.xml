@@ -2,21 +2,31 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="通用矿版">
     <parameter name="driver" value="FirefoxDriver" />
-    <test verbose="2" preserve-order="true" name="查询功能">
+    <parameter name="remark" value="webui自动化测试,自动输入内容" />
+    <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
-            <class name="com.webui.tests.ReportDangerListPageTests">
+            <class name="com.webui.tests.LoginPageTests">
                 <methods>
-                    <include name="TC_searchByAddressCate"/>
-                    <exclude name="TC_searchByYeMhazardDesc"/>
+                    <include name="TC_login"/>
+                    <!--<exclude name="TC_searchByYeMhazardDesc"/>-->
                 </methods>
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="关联风险点">
+    <!--<test verbose="2" preserve-order="true" name="关联风险点">-->
+        <!--<classes>-->
+            <!--<class name="com.webui.tests.ReportDangerListPageTests">-->
+                <!--<methods>-->
+                    <!--<exclude name="TC_chooseAddress"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+    <test verbose="2" preserve-order="true" name="风险审核">
         <classes>
-            <class name="com.webui.tests.ReportDangerListPageTests">
+            <class name="com.webui.tests.ReviewDangerListPageTests">
                 <methods>
-                    <include name="TC_chooseAddress"/>
+                    <include name="TC_goReviewPass"/>
                 </methods>
             </class>
         </classes>

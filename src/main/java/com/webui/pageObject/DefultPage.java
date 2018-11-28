@@ -16,7 +16,6 @@ getLocatorMap();
 }
 /***
 * 登陆用户的名称
-* @return
 * @throws IOException
 */
 public Locator userName_1() throws IOException
@@ -27,7 +26,6 @@ public Locator userName_1() throws IOException
 
 /***
 * 登陆用户的名称
-* @return
 * @throws IOException
 */
 public Locator userName() throws IOException
@@ -38,7 +36,6 @@ public Locator userName() throws IOException
 
 /***
 * 退出按钮
-* @return
 * @throws IOException
 */
 public Locator logout_btn() throws IOException
@@ -49,7 +46,6 @@ public Locator logout_btn() throws IOException
 
 /***
 * 安全风险分级管控
-* @return
 * @throws IOException
 */
 public Locator aqfxfjgk_menu() throws IOException
@@ -60,7 +56,6 @@ public Locator aqfxfjgk_menu() throws IOException
 
 /***
 * 年度风险辨识-list
-* @return
 * @throws IOException
 */
 public Locator ndfxbs_list() throws IOException
@@ -71,7 +66,6 @@ public Locator ndfxbs_list() throws IOException
 
 /***
 * 本矿风险汇总
-* @return
 * @throws IOException
 */
 public Locator reportDangerList() throws IOException
@@ -82,7 +76,6 @@ public Locator reportDangerList() throws IOException
 
 /***
 * 风险审核
-* @return
 * @throws IOException
 */
 public Locator reviewDangerList() throws IOException
@@ -93,7 +86,6 @@ public Locator reviewDangerList() throws IOException
 
 /***
 * 部门风险上报
-* @return
 * @throws IOException
 */
 public Locator departReportDangerList() throws IOException

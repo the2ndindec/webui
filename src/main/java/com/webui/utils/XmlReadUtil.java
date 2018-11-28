@@ -126,7 +126,7 @@ public class XmlReadUtil {
 		return locatorMap;
 	}
 
-	private static ByType getByType(String type) {
+	public static ByType getByType(String type) {
 		ByType byType = ByType.xpath;
 		if (type == null || type.equalsIgnoreCase("xpath")) {
 			byType = ByType.xpath;
@@ -148,7 +148,7 @@ public class XmlReadUtil {
 		return byType;
 	}
 
-	private static String getXmlPageURL(InputStream path, String pageName) {
+	public static String getXmlPageURL(InputStream path, String pageName) {
 		// System.out.print(pageName);
 		String URL = null;
 		try {
@@ -182,7 +182,7 @@ public class XmlReadUtil {
 		return URL;
 	}
 
-	private static String getXmlPageURL(String path, String pageName) {
+	public static String getXmlPageURL(String path, String pageName) {
 		// System.out.print(pageName);
 		String URL = null;
 		File file = new File(path);

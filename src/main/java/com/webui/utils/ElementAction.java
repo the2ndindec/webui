@@ -581,7 +581,7 @@ public class ElementAction extends TestBaseCase {
 		Actions actions = new Actions(driver);
 //		actions.click(webElement).perform();
 		actions.moveToElement(webElement).click().perform();
-		// actions.perform();
+		log.info("click" +locator+"suc");
 	}
 
 	/**
@@ -634,7 +634,7 @@ public class ElementAction extends TestBaseCase {
 	 */
 	public void switchToFrame(Locator locator) {
 		WebElement frameElement = findElement(locator);
-		driver.switchTo().defaultContent();
+//		driver.switchTo().defaultContent();
 		driver.switchTo().frame(frameElement);
 	}
 

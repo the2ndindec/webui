@@ -5,6 +5,7 @@ import com.webui.pageObject.ReviewDangerListPage;
 import com.webui.utils.ElementAction;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -37,7 +38,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "切换到风险审核页面")
     public void modifyMenu(Locator locator) throws IOException {
-        elementAction.switchToDefaultFrame();
         defultPageActions.openMenu(defultPage.reviewDangerList());
     }
 
@@ -240,6 +240,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         int temp = random.nextInt(trElements.size());
         trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
         elementAction.click_left(reviewDangerListPage.goReview_Button());
+        elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
         if (elementAction.getAttribute(reviewDangerListPage.check_pass_radio(), "checked").equals("checked")) {
             elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);

@@ -105,7 +105,7 @@ public class Assertion extends TestBaseCase {
      * @param exceptStr
      */
     public static void VerityString(String actual, String exceptStr) {
-        String verityStr = "Assert验证：{" + "实际值：" + actual + "," + "预期值" + exceptStr + "} 实际值与预期值是否一致";
+        String verityStr = "Assert验证：{" + "实际值：" + actual + "," + "预期值:" + exceptStr + "} 实际值与预期值是否一致";
         log.info(verityStr);
         try {
             Assert.assertEquals(actual, exceptStr);
@@ -128,7 +128,7 @@ public class Assertion extends TestBaseCase {
      * @param Message
      */
     public static void VerityString(String actual, String exceptStr, String Message) {
-        String verityStr = "Assert验证：{" + "实际值" + actual + "," + "预期值" + exceptStr + "} 实际值与预期值是否一致";
+        String verityStr = "Assert验证：{" + "实际值" + actual + "," + "预期值:" + exceptStr + "} 实际值与预期值是否一致";
         log.info(Message + ":" + verityStr);
         try {
             Assert.assertEquals(actual, exceptStr);
@@ -142,7 +142,6 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
             Assertion.snapshotInfo();
-            // e.printStackTrace();
         }
     }
 
@@ -168,20 +167,17 @@ public class Assertion extends TestBaseCase {
             flag = false;
             ElementAction.noSuchElementExceptions.add(e);
             e.printStackTrace();
-            /// AssertFailedLog();
         }
         try {
             Assert.assertTrue(flag);
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
         } catch (Error f) {
-
             AssertFailedLog();
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
-            // throw f;
         }
     }
 
@@ -206,7 +202,6 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
             e.printStackTrace();
-            // throw e;
         }
     }
 
@@ -234,7 +229,6 @@ public class Assertion extends TestBaseCase {
             messageList.add(Message + ":failed");
             Assertion.snapshotInfo();
             e.printStackTrace();
-            // throw e;
         }
     }
 
@@ -260,7 +254,6 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
-            // throw e;
         }
     }
 
@@ -316,7 +309,6 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
-            // throw e;
         }
     }
 
@@ -333,8 +325,7 @@ public class Assertion extends TestBaseCase {
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
         String attribute = webElement.getAttribute(AttributeName);
-        String verityStr = "Assert验证：某属性值是否与预期值一致{" + "实际属性值：" + attribute + "," + "预期属性值：" + exceptAttributeValue
-                + "}";
+        String verityStr = "Assert验证：某属性值是否与预期值一致{" + "实际属性值：" + attribute + "," + "预期属性值：" + exceptAttributeValue + "}";
         log.info(Message + ":" + verityStr);
         try {
             Assert.assertEquals(attribute, exceptAttributeValue);
@@ -346,11 +337,9 @@ public class Assertion extends TestBaseCase {
             AssertFailedLog();
             errorIndex++;
             errors.add(e);
-
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
             Assertion.snapshotInfo();
-            // throw e;
         }
     }
 
@@ -532,7 +521,6 @@ public class Assertion extends TestBaseCase {
         ElementAction action = new ElementAction();
         Boolean flag = false;
         try {
-//            WebElement webElement = action.findElement(locator);
             if (action.isElementDisplayedByLocator(locator)) {
                 flag = true;
             } else {

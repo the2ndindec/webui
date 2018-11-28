@@ -182,6 +182,36 @@ public class Assertion extends TestBaseCase {
     }
 
     /**
+     * @param: [exceptStr] 预期值
+     * @return: void
+     * @Description: 验证页面是否没有出现莫文本exceptStr
+     * @throws:
+     */
+    public void verityNotTextPresent(String exceptStr) {
+        String verityStr = "【Assert验证】:" + "页面是否没有出现" + "【" + "预期值：" + exceptStr + "】" + "字符串";
+        Boolean flag = false;
+        log.info(verityStr);
+        try {
+            exceptStr = "//*[contains(.,'" + exceptStr + "')]";
+            driver.findElement(By.xpath(exceptStr));
+            flag = false;
+        } catch (NoSuchElementException e) {
+            flag = true;
+        }
+        try {
+            Assert.assertTrue(flag);
+            AssertPassLog();
+            assertInfolList.add(verityStr + ":pass");
+        } catch (Error f) {
+            AssertFailedLog();
+            errors.add(f);
+            errorIndex++;
+            assertInfolList.add(verityStr + ":failed");
+            Assertion.snapshotInfo();
+        }
+    }
+
+    /**
      * 验证浏览器标题是否与预期值exceptTitle相同
      *
      * @param exceptTitle 预期标题
@@ -516,6 +546,38 @@ public class Assertion extends TestBaseCase {
         }
     }
 
+    /**
+     *
+     *@param: [exceptStr] 预期值
+     *@return: void
+     *@Description: 验证页面是否没有出现某文本--精确匹配
+     *@throws: 
+     */
+    public void verityNotTextPresentPrecision(String exceptStr) {
+        String verityStr = "【Assert验证】:" + "页面是否没有出现" + "【" + "预期值：" + exceptStr + "】" + "字符串";
+        Boolean flag = false;
+        log.info(verityStr);
+        try {
+            exceptStr = "//*[text()=\"" + exceptStr + "\"]";
+            driver.findElement(By.xpath(exceptStr));
+            flag = false;
+        } catch (NoSuchElementException e) {
+            flag = true;
+            ElementAction.noSuchElementExceptions.add(e);
+            e.printStackTrace();
+        }
+        try {
+            Assert.assertTrue(flag);
+            AssertPassLog();
+            assertInfolList.add(verityStr + ":pass");
+        } catch (Error f) {
+            AssertFailedLog();
+            errors.add(f);
+            errorIndex++;
+            assertInfolList.add(verityStr + ":failed");
+            Assertion.snapshotInfo();
+        }
+    }
 
     public static void AssertElementIsDispaly(Locator locator) {
         ElementAction action = new ElementAction();

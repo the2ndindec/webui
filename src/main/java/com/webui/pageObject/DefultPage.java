@@ -79,4 +79,26 @@ public Locator reportDangerList() throws IOException
    Locator locator=getLocator("reportDangerList");
    return locator;
  }
+
+/***
+* 风险审核
+* @return
+* @throws IOException
+*/
+public Locator reviewDangerList() throws IOException
+ {
+   Locator locator=getLocator("reviewDangerList");
+   return locator;
+ }
+
+/***
+* 部门风险上报
+* @return
+* @throws IOException
+*/
+public Locator departReportDangerList() throws IOException
+ {
+   Locator locator=getLocator("departReportDangerList");
+   return locator;
+ }
 }

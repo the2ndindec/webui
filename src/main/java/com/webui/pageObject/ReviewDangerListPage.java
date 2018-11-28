@@ -312,6 +312,17 @@ public Locator hiddenLevel_select() throws IOException
  }
 
 /***
+* 詳情框--数据
+* @return
+* @throws IOException
+*/
+public Locator dateDetail() throws IOException
+ {
+   Locator locator=getLocator("dateDetail");
+   return locator;
+ }
+
+/***
 * 审核弹框部分：确定按钮
 * @return
 * @throws IOException

@@ -65,7 +65,6 @@ public class XmlReadUtil {
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 
@@ -127,7 +126,7 @@ public class XmlReadUtil {
 		return locatorMap;
 	}
 
-	public static ByType getByType(String type) {
+	private static ByType getByType(String type) {
 		ByType byType = ByType.xpath;
 		if (type == null || type.equalsIgnoreCase("xpath")) {
 			byType = ByType.xpath;
@@ -149,7 +148,7 @@ public class XmlReadUtil {
 		return byType;
 	}
 
-	public static String getXmlPageURL(InputStream path, String pageName) {
+	private static String getXmlPageURL(InputStream path, String pageName) {
 		// System.out.print(pageName);
 		String URL = null;
 		try {
@@ -178,13 +177,12 @@ public class XmlReadUtil {
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return URL;
 	}
 
-	public static String getXmlPageURL(String path, String pageName) {
+	private static String getXmlPageURL(String path, String pageName) {
 		// System.out.print(pageName);
 		String URL = null;
 		File file = new File(path);
@@ -216,7 +214,6 @@ public class XmlReadUtil {
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return URL;

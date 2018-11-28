@@ -34,9 +34,8 @@ public class TimeUtil extends TestBaseCase {
 	 */
 	public static String formatDate(Date date, String format) {
 		SimpleDateFormat formatter = new SimpleDateFormat(format);
-		System.out.println(formatter.format(date).toString());
-		return formatter.format(date).toString();
-
+		System.out.println(formatter.format(date));
+		return formatter.format(date);
 	}
 
 	/**
@@ -48,7 +47,7 @@ public class TimeUtil extends TestBaseCase {
 	 *            格式化表达式
 	 * @return 返回格式化时间字符串
 	 */
-	public static String formatDate(String date, String format) {
+	private static String formatDate(String date, String format) {
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
 		SimpleDateFormat sdf2 = new SimpleDateFormat(format);
 		String sss = null;
@@ -56,7 +55,6 @@ public class TimeUtil extends TestBaseCase {
 			sss = sdf2.format(sdf.parse(date));
 			// System.out.println(sss);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return sss;
@@ -91,9 +89,9 @@ public class TimeUtil extends TestBaseCase {
 	/**
 	 * 获取两个时间之间相差的天数
 	 * 
-	 * @param start_time
-	 * @param end_time
-	 * @return
+	 * @param start_time 开始时间
+	 * @param end_time	结束时间
+	 * @return 相差的天数
 	 */
 	public static long getDaySub(String start_time, String end_time) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

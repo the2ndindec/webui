@@ -17,7 +17,7 @@ public class Locator {
 	private ByType byType;
 	
 	public Locator() {
-		// TODO Auto-generated constructor stub
+
 	}
 	public Locator(String element) {
 		this.element = element;

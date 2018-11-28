@@ -75,7 +75,8 @@ public class PageObjAutoCode {
 				Element locator = (Element) j.next();
 				String locatorName = locator.getTextTrim();
 				if (locator.attributeCount() > 3) {
-					sb.append("\n/***\n" + "* " + locator.attribute(3).getValue() + "\n" + "* @return\n"
+					sb.append("\n/***\n" + "* " + locator.attribute(3).getValue() + "\n"
+//							+ "* @return\n"
 							+ "* @throws IOException\n" + "*/\n");
 				} else {
 					sb.append("\n");

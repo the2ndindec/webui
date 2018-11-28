@@ -10,10 +10,10 @@ public class IdCardGenerator {
 	/**
 	 * 获取随机生成的身份证号码
 	 * 
-	 * @return
+	 * @return id 返回身份证号码
 	 */
-	public String getRandomID() {
-		String id = null;
+	private String getRandomID() {
+		String id ;
 		// 随机生成省、自治区、直辖市代码 1-2
 		String provinces[] = { "11", "12", "13", "14", "15", "21", "22", "23", "31", "32", "33", "34", "35", "36", "37",
 				"41", "42", "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", "64", "65", "71",
@@ -36,7 +36,7 @@ public class IdCardGenerator {
 	}
 
 	private String randomBirth(int minAge, int maxAge) {
-		// TODO 随机生成minAge到maxAge年龄段的人的生日日期
+		// 随机生成minAge到maxAge年龄段的人的生日日期
 		SimpleDateFormat dft = new SimpleDateFormat("yyyyMMdd");// 设置日期格式
 		Calendar date = Calendar.getInstance();
 		date.setTime(new Date());// 设置当前日期
@@ -53,7 +53,7 @@ public class IdCardGenerator {
 	}
 
 	private String randomOne(String s[]) {
-		// TODO 从String[] 数组中随机取出其中一个String字符串
+		// 从String[] 数组中随机取出其中一个String字符串
 		return s[new Random().nextInt(s.length - 1)];
 	}
 	

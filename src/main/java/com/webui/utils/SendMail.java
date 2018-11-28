@@ -20,12 +20,10 @@ public class SendMail {
 		Properties smtpProper = setSmtp(smtpHost, smtpPort, userName, passWord);
 		Auth authenticator = new Auth(userName, passWord);
 		try {
-
 			// 创建session实例
 			Session session = Session.getInstance(smtpProper, authenticator);
 			MimeMessage message = new MimeMessage(session);
 			session.setDebug(true);
-
 			// 设置from发件人邮箱地址
 			message.setFrom(new InternetAddress(from));
 			// 收件人to LIST
@@ -50,13 +48,10 @@ public class SendMail {
 			transport.connect(smtpHost, userName, passWord);
 			transport.sendMessage(message, addresses);
 			log.info("发送邮件成功！");
-
 		} catch (Exception e) {
-			// TODO: handle exception
 			log.error("发送邮件失败！");
 			e.printStackTrace();
 		}
-
 	}
 
 	private Properties setSmtp(String smtpHost, String smtpPort, String userName, String passWord) {

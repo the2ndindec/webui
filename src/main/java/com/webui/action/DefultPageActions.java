@@ -14,6 +14,7 @@ public class DefultPageActions extends TestBaseCase {
 	 * @Description:同级目录下切换菜单
 	 */
 	public void openMenu(Locator locator) {
+		ea.switchToDefaultFrame();
 		ea.click(locator);
 	}
 
@@ -24,6 +25,7 @@ public class DefultPageActions extends TestBaseCase {
 	 * @Description:同父级目录下切换菜单, ！！注意菜单顺序
 	 */
 	public void openMenu(Locator locator1, Locator locator2) {
+		ea.switchToDefaultFrame();
 		ea.click(locator1);
 		ea.click(locator2);
 	}
@@ -36,6 +38,7 @@ public class DefultPageActions extends TestBaseCase {
 	 * @Description:不同模块切换菜单, ！！注意菜单顺序
 	 */
 	public void openMenu(Locator locator1, Locator locator2, Locator locator3) {
+		ea.switchToDefaultFrame();
 		ea.click(locator1);
 		ea.click(locator2);
 		ea.click(locator3);

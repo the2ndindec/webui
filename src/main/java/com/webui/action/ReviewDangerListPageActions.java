@@ -2,6 +2,7 @@ package com.webui.action;
 
 import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReviewDangerListPage;
+import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
@@ -39,6 +40,10 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         defultPageActions.openMenu(defultPage.reviewDangerList());
     }
 
+    public void modifyMenu() throws IOException {
+        defultPageActions.openMenu(defultPage.aqfxfjgk_menu(),defultPage.ndfxbs_list(),defultPage.reviewDangerList());
+    }
+
     /**
      * @param addressCate 风险点字段值
      * @throws IOException
@@ -57,6 +62,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "输入辨识开始时间")
     public void searchByyeRecognizeTimeBegin(String yeRecognizeTime) throws IOException {
+        setDefult();
         elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -68,6 +74,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "输入辨识结束时间")
     public void searchByyeRecognizeTimeEnd(String yeRecognizeTime) throws IOException {
+        setDefult();
         elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -80,7 +87,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "输入辨识开始/结束时间")
     public void searchByRecognizeTime(String yeRecognizeTime_begin, String yeRecognizeTime_end) throws IOException, ParseException {
-
+        setDefult();
         if (compareTime(yeRecognizeTime_begin, yeRecognizeTime_end)) {
             elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);
             elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime_end);
@@ -98,6 +105,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "输入隐患描述")
     public void searchByYeMhazardDesc(String yeMhazardDesc) throws IOException {
+        setDefult();
         elementAction.type(reviewDangerListPage.yeMhazardDesc_textarea(), yeMhazardDesc);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -124,6 +132,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     public void searchByDamageType(String damageType) throws IOException {
         elementAction.selectByText(reviewDangerListPage.damageType_select(), damageType);
         doSearch(reviewDangerListPage.search_Button(), 2);
+
     }
 
     /**
@@ -226,11 +235,10 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
-     *
-     *@param: [remark] 备注信息
-     *@return: void
-     *@Description: 审核通过
-     *@throws:
+     * @param: [remark] 备注信息
+     * @return: void
+     * @Description: 审核通过
+     * @throws:
      */
     public void goReviewPassByRandom(String remark) throws IOException {
         List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
@@ -251,6 +259,76 @@ public class ReviewDangerListPageActions extends TestBaseCase {
             elementAction.click_left(reviewDangerListPage.check_confirm_btn());
         }
     }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 审核通过, 不输入备注信息
+     * @throws:
+     */
+    public void goReviewPassWithoutRemark() throws IOException {
+        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
+        Random random = new Random();
+        int temp = random.nextInt(trElements.size());
+        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        elementAction.click_left(reviewDangerListPage.goReview_Button());
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
+        if (elementAction.getAttribute(reviewDangerListPage.check_pass_radio(), "checked").equals("checked")) {
+            elementAction.switchToDefaultFrame();
+            elementAction.click_left(reviewDangerListPage.check_confirm_btn());
+        } else {
+            elementAction.click_left(reviewDangerListPage.check_pass_radio());
+            elementAction.switchToDefaultFrame();
+            elementAction.click_left(reviewDangerListPage.check_confirm_btn());
+        }
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 审核驳回, 不输入备注信息
+     * @throws:
+     */
+    public void goReviewDismissWithoutRemark() throws IOException {
+        setDefult();
+        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
+        Random random = new Random();
+        int temp = random.nextInt(trElements.size());
+        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        elementAction.click_left(reviewDangerListPage.goReview_Button());
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
+
+        elementAction.click_left(reviewDangerListPage.check_dismiss_radio()); //选择驳回
+        elementAction.switchToDefaultFrame();
+        elementAction.click_left(reviewDangerListPage.check_confirm_btn());
+    }
+
+    /**
+     *
+     *@param: [remark] 备注信息
+     *@return: void
+     *@Description: 审核驳回,输入备注信息
+     *@throws: 
+     */
+    public void goReviewDismissByRandom(String remark) throws IOException {
+        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
+        Random random = new Random();
+        int temp = random.nextInt(trElements.size());
+        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        elementAction.click_left(reviewDangerListPage.goReview_Button());
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
+
+        elementAction.click_left(reviewDangerListPage.check_dismiss_radio()); //选择驳回
+        elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
+        elementAction.switchToDefaultFrame();
+        elementAction.click_left(reviewDangerListPage.check_confirm_btn());
+
+    }
+
+
 
     /**
      * @param: [yeRecognizeTime_begin, yeRecognizeTime_end]
@@ -282,7 +360,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
 
     /**
      * @param fieldStr 需要获取值的字段
-     * @return
+     * @return 数据列表,text
      * @throws IOException
      * @throws InterruptedException
      * @description 获取查询结果中指定字段值

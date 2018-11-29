@@ -579,29 +579,18 @@ public class Assertion extends TestBaseCase {
         }
     }
 
-    public static void AssertElementIsDispaly(Locator locator) {
-        ElementAction action = new ElementAction();
-        Boolean flag = false;
+    public boolean AssertElementIsDispaly(Locator locator) {
+        ElementAction elementAction = new ElementAction();
+        Boolean flag ;
         try {
-            if (action.isElementDisplayedByLocator(locator)) {
-                flag = true;
-            } else {
-                flag = false;
-            }
-        } catch (NoSuchElementException e) {
-            flag = false;
+            elementAction.findElement(locator);
+            flag =false;
+        } catch (NoSuchElementException e){
+            flag = true;
             ElementAction.noSuchElementExceptions.add(e);
             e.printStackTrace();
         }
-        try {
-            Assert.assertTrue(flag);
-            AssertPassLog();
-        } catch (Error f) {
-            AssertFailedLog();
-            errors.add(f);
-            errorIndex++;
-            Assertion.snapshotInfo();
-        }
+        return flag;
     }
 
     // 断言失败日志内容
@@ -627,4 +616,6 @@ public class Assertion extends TestBaseCase {
         // 有找不到元素的异常也认为用例失败
         Assert.assertEquals(ElementAction.noSuchElementExceptions.size(), 0);
     }
+
+
 }

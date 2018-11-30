@@ -237,7 +237,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void goDetailbByRandom() throws IOException {
-        getElement();
+        clickElement();
         elementAction.click_left(reviewDangerListPage.detail_Button());
     }
 
@@ -248,10 +248,8 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void goReviewPassByRandom(String remark) throws IOException {
-        getElement();
-        elementAction.click_left(reviewDangerListPage.goReview_Button());
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
+        clickElement();
+        switchToReviewFrame();
         if (elementAction.getAttribute(reviewDangerListPage.check_pass_radio(), "checked").equals("checked")) {
             elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
             elementAction.switchToDefaultFrame();
@@ -272,10 +270,8 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void goReviewPassWithoutRemark() throws IOException {
-        getElement();
-        elementAction.click_left(reviewDangerListPage.goReview_Button());
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
+        clickElement();
+        switchToReviewFrame();
         if (elementAction.getAttribute(reviewDangerListPage.check_pass_radio(), "checked").equals("checked")) {
             elementAction.switchToDefaultFrame();
             elementAction.click_left(reviewDangerListPage.check_confirm_btn());
@@ -289,16 +285,25 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     /**
      * @param: []
      * @return: void
+     * @Description: 切换到审核frame上, 审核弹框
+     * @throws:
+     */
+    private void switchToReviewFrame() throws IOException {
+        elementAction.click_left(reviewDangerListPage.goReview_Button());
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
+    }
+
+    /**
+     * @param: []
+     * @return: void
      * @Description: 审核驳回, 不输入备注信息
      * @throws:
      */
     public void goReviewDismissWithoutRemark() throws IOException {
         setDefult();
-        getElement();
-        elementAction.click_left(reviewDangerListPage.goReview_Button());
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
-
+        clickElement();
+        switchToReviewFrame();
         elementAction.click_left(reviewDangerListPage.check_dismiss_radio()); //选择驳回
         elementAction.switchToDefaultFrame();
         elementAction.click_left(reviewDangerListPage.check_confirm_btn());
@@ -312,11 +317,8 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     public void goReviewDismissByRandom(String remark) throws IOException {
         if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
-            getElement();
-            elementAction.click_left(reviewDangerListPage.goReview_Button());
-            elementAction.switchToDefaultFrame();
-            elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
-
+            clickElement();
+            switchToReviewFrame();
             elementAction.click_left(reviewDangerListPage.check_dismiss_radio()); //选择驳回
             elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
             elementAction.switchToDefaultFrame();
@@ -349,23 +351,33 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
-     *
-     *@param: []
-     *@return: void
-     *@Description: 随机点击当前页面上的一条数据,若没有数据则提示"当前页面上暂无数据"
-     *@throws:
+     * @param: []
+     * @return: void
+     * @Description: 随机点击当前页面上的一条数据, 若没有数据则提示"当前页面上暂无数据"
+     * @throws:
      */
-    public void getElement() throws IOException {
+    public void clickElement() throws IOException {
         if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
             List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
             Random random = new Random();
             int temp = random.nextInt(trElements.size());
             trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+            tempString = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+temp+"]/td[@field='yePossiblyHazard']/div")).getText();
+            System.out.println(temp+"=="+tempString);
         } else {
             log.info("当前页面上暂无数据");
         }
     }
 
+    public String getTempString() {
+        return tempString;
+    }
+
+    public void setTempString(String tempString) {
+        this.tempString = tempString;
+    }
+
+    public String tempString;
     /**
      * @param: []
      * @return: void
@@ -373,7 +385,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void switchToUpdatePage() throws IOException {
-        getElement();
+        clickElement();
         elementAction.click_left(reviewDangerListPage.editDangerSource_Button());
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(reviewDangerListPage.iframe_goUpdateDangerSourceOnCheck());  //切换到编辑页面
@@ -386,6 +398,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void updateHazardnameDefault() throws IOException {
+        switchToUpdatePage();
         elementAction.click_left(reviewDangerListPage.update_ms_close());   //清除原内容
         elementAction.click_left(reviewDangerListPage.update_btn_save());
     }
@@ -616,5 +629,16 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         // 判断隐患等级是否为默认值
         elementAction.selectByIndex(reviewDangerListPage.hiddenLevel_select(), 0);
         elementAction.click_left(reviewDangerListPage.search_Button());
+    }
+
+    /**
+     * @param: [locator] 需要切换的frame
+     * @return: void
+     * @Description: 切换iframe
+     * @throws:
+     */
+    public void switchFrame(Locator locator) {
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(locator);
     }
 }

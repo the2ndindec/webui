@@ -83,13 +83,13 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     }
 
     @Feature("审核")
-    @Test(description = "审核通过测试")
+    @Test(description = "审核通过测试,该方法暂时只能验证已审核列表中只有一条数据的情况")
     @Parameters({"remark"})
-    public void TC_goReviewPass(String remark) throws IOException {
-        reviewDangerListPageActions.modifyMenu(defultPage.reviewDangerList());
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
+    public void TC_goReviewPass(String remark) throws IOException, InterruptedException {
         reviewDangerListPageActions.goReviewPassByRandom(remark);
+        reviewDangerListPageActions.checkChecked();
+        elementAction.sleep(2);
+        Assertion.VerityString(reviewDangerListPageActions.getSearchData("风险描述").get(reviewDangerListPageActions.tempNum - 1), reviewDangerListPageActions.tempString);
     }
 
     @Feature("审核")
@@ -97,15 +97,13 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_goReviewDismiss() throws IOException {
 //        reviewDangerListPageActions.modifyMenu(defultPage.reviewDangerList());
         reviewDangerListPageActions.modifyMenu();
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
         reviewDangerListPageActions.goReviewDismissWithoutRemark();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
         Assertion.VerityString(elementAction.getText(reviewDangerListPage.check_remark_error()).trim(), "请填写备注！");
     }
 
     @Feature("修改风险")
-    @Test(description = "修改辨识时间为不正确的字段值,验证是否判断正确")
+    @Test(description = "修改辨识时间为不正确的字段值,验证是否判断正确", enabled = false)
     public void TC_updateYeRecognizeTime() throws IOException {
         reviewDangerListPageActions.updateYeRecognizeTime("2015/5285//5");
         Assertion.VerityCationString(elementAction.getAlertText(), "不合法的日期格式");
@@ -123,8 +121,6 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Test(description = "危险源名称为空,验证是否判断正确")
     public void TC_updateHazardnameDefault() throws IOException {
         reviewDangerListPageActions.modifyMenu();
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
         reviewDangerListPageActions.updateHazardnameDefault();
         Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请填写危险源");
     }

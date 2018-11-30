@@ -237,10 +237,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void goDetailbByRandom() throws IOException {
-        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
-        Random random = new Random();
-        int temp = random.nextInt(trElements.size());
-        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        getElement();
         elementAction.click_left(reviewDangerListPage.detail_Button());
     }
 
@@ -251,10 +248,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void goReviewPassByRandom(String remark) throws IOException {
-        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
-        Random random = new Random();
-        int temp = random.nextInt(trElements.size());
-        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        getElement();
         elementAction.click_left(reviewDangerListPage.goReview_Button());
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
@@ -270,6 +264,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         }
     }
 
+
     /**
      * @param: []
      * @return: void
@@ -277,10 +272,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void goReviewPassWithoutRemark() throws IOException {
-        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
-        Random random = new Random();
-        int temp = random.nextInt(trElements.size());
-        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        getElement();
         elementAction.click_left(reviewDangerListPage.goReview_Button());
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
@@ -302,10 +294,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     public void goReviewDismissWithoutRemark() throws IOException {
         setDefult();
-        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
-        Random random = new Random();
-        int temp = random.nextInt(trElements.size());
-        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        getElement();
         elementAction.click_left(reviewDangerListPage.goReview_Button());
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
@@ -323,10 +312,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     public void goReviewDismissByRandom(String remark) throws IOException {
         if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
-            List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
-            Random random = new Random();
-            int temp = random.nextInt(trElements.size());
-            trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+            getElement();
             elementAction.click_left(reviewDangerListPage.goReview_Button());
             elementAction.switchToDefaultFrame();
             elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
@@ -363,23 +349,34 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
+     *
+     *@param: []
+     *@return: void
+     *@Description: 随机点击当前页面上的一条数据,若没有数据则提示"当前页面上暂无数据"
+     *@throws:
+     */
+    public void getElement() throws IOException {
+        if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
+            List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
+            Random random = new Random();
+            int temp = random.nextInt(trElements.size());
+            trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        } else {
+            log.info("当前页面上暂无数据");
+        }
+    }
+
+    /**
      * @param: []
      * @return: void
      * @Description: 打开编辑页面
      * @throws:
      */
     public void switchToUpdatePage() throws IOException {
-        if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
-            List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
-            Random random = new Random();
-            int temp = random.nextInt(trElements.size());
-            trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
-            elementAction.click_left(reviewDangerListPage.editDangerSource_Button());
-            elementAction.switchToDefaultFrame();
-            elementAction.switchToFrame(reviewDangerListPage.iframe_goUpdateDangerSourceOnCheck());  //切换到编辑页面
-        } else {
-            log.info("当前页面上暂无数据");
-        }
+        getElement();
+        elementAction.click_left(reviewDangerListPage.editDangerSource_Button());
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(reviewDangerListPage.iframe_goUpdateDangerSourceOnCheck());  //切换到编辑页面
     }
 
     /**

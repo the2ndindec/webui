@@ -96,6 +96,8 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='全部审核']" desc="全部审核">reviewAll_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='编辑']" desc="编辑">editDangerSource_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='批量删除']" desc="批量删除">deleteAllSelectedLogic_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='去审']" desc="去审">reviewCallback_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='全部去审']" desc="全部去审">undoReviewAll_Button</locator>
 		<!-- 搜索条件 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
 		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]" desc="全部 ">all_radio</locator>

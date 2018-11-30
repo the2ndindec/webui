@@ -13,11 +13,12 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="关联风险点">
+    <test verbose="2" preserve-order="true" name="风险审核">
         <classes>
             <class name="com.webui.tests.ReviewDangerListPageTests">
                 <methods>
-                    <include name="TC_updateHazardnameDefault"/>
+                    <include name="TC_undoReviewAll"/>
+                    <include name="TC_goReviewPass"/>
                 </methods>
             </class>
         </classes>

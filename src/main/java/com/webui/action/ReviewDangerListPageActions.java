@@ -253,6 +253,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void goReviewPassByRandom(String remark) throws IOException {
+        unCHecked();
         clickElement();
         switchToReviewFrame();
         if (elementAction.getAttribute(reviewDangerListPage.check_pass_radio(), "checked").equals("checked")) {
@@ -363,12 +364,14 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void clickElement() throws IOException {
+        elementAction.sleep(2);
         if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
             List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
             Random random = new Random();
             int temp = random.nextInt(trElements.size());
+            tempString = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + (temp + 1) + "]/td[@field='yePossiblyHazard']/div")).getText();
+            elementAction.highlightElementByXpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + (temp + 1) + "]/td[@field='yePossiblyHazard']/div");
             trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
-            tempString = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + temp + "]/td[@field='yePossiblyHazard']/div")).getText();
         } else {
             log.info("当前页面上暂无数据");
         }
@@ -382,7 +385,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         this.tempString = tempString;
     }
 
-    public String tempString;
+    private String tempString;
 
     /**
      * @param: []
@@ -416,11 +419,10 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
-     *
-     *@param: []
-     *@return: void
-     *@Description: 全部去审
-     *@throws: 
+     * @param: []
+     * @return: void
+     * @Description: 全部去审
+     * @throws:
      */
     public void undoReviewAll() throws IOException {
         checkChecked();
@@ -692,10 +694,10 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
         elementAction.click_left(reviewDangerListPage.checked_radio());
     }
+
     //选择待审核状态
     public void unCHecked() throws IOException {
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
+
         elementAction.click_left(reviewDangerListPage.checkPending_radio());
     }
 }

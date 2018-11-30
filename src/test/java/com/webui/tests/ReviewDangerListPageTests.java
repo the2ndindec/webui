@@ -89,17 +89,23 @@ public class ReviewDangerListPageTests extends TestBaseCase {
         reviewDangerListPageActions.goReviewPassByRandom(remark);
         reviewDangerListPageActions.checkChecked();
         elementAction.sleep(2);
-        Assertion.VerityString(reviewDangerListPageActions.getSearchData("风险描述").get(reviewDangerListPageActions.tempNum - 1), reviewDangerListPageActions.tempString);
+        Assertion.VerityString(reviewDangerListPageActions.getSearchData("风险描述").get(reviewDangerListPageActions.tempNum - 1), reviewDangerListPageActions.getTempString());
     }
 
     @Feature("审核")
     @Test(description = "审核驳回,不输入备注信息测试")
     public void TC_goReviewDismiss() throws IOException {
 //        reviewDangerListPageActions.modifyMenu(defultPage.reviewDangerList());
-        reviewDangerListPageActions.modifyMenu();
         reviewDangerListPageActions.goReviewDismissWithoutRemark();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
         Assertion.VerityString(elementAction.getText(reviewDangerListPage.check_remark_error()).trim(), "请填写备注！");
+    }
+    @Feature("审核")
+    @Test(description = "全部去审功能")
+    public void TC_undoReviewAll() throws IOException {
+        reviewDangerListPageActions.modifyMenu();
+        reviewDangerListPageActions.undoReviewAll();
+        assertion.AssertElementIsDispaly(reviewDangerListPage.data_tbody());
     }
 
     @Feature("修改风险")

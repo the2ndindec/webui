@@ -859,4 +859,24 @@ public class ElementAction extends TestBaseCase {
 			lastpage.click();
 		}
 	}
+
+	public void highlightElementByLocator(Locator locator){
+		WebElement element = findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("element = arguments[0];" +
+				"original_style = element.getAttribute('style');" +
+				"element.setAttribute('style', original_style + \";" +
+				"background: yellow; border: 2px solid red;\");" +
+				"setTimeout(function(){element.setAttribute('style', original_style);}, 1000);", element);
+	}
+
+	public void highlightElementByXpath(String xpath){
+	  WebElement element = driver.findElement(By.xpath(xpath));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("element = arguments[0];" +
+				"original_style = element.getAttribute('style');" +
+				"element.setAttribute('style', original_style + \";" +
+				"background: yellow; border: 2px solid red;\");" +
+				"setTimeout(function(){element.setAttribute('style', original_style);}, 1000);", element);
+	}
 }

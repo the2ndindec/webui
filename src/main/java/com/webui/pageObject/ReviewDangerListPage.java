@@ -115,6 +115,26 @@ public Locator deleteAllSelectedLogic_Button() throws IOException
  }
 
 /***
+* 去审
+* @throws IOException
+*/
+public Locator reviewCallback_Button() throws IOException
+ {
+   Locator locator=getLocator("reviewCallback_Button");
+   return locator;
+ }
+
+/***
+* 全部去审
+* @throws IOException
+*/
+public Locator undoReviewAll_Button() throws IOException
+ {
+   Locator locator=getLocator("undoReviewAll_Button");
+   return locator;
+ }
+
+/***
 * 查询按钮
 * @throws IOException
 */

@@ -545,6 +545,16 @@ public Locator update_hazardName_textarea() throws IOException
  }
 
 /***
+* 编辑页面--危险源名称输入框
+* @throws IOException
+*/
+public Locator update_hazardName_input() throws IOException
+ {
+   Locator locator=getLocator("update_hazardName_input");
+   return locator;
+ }
+
+/***
 * 编辑页面--危险源名称下拉按钮
 * @throws IOException
 */
@@ -571,6 +581,26 @@ public Locator update_postName_textarea() throws IOException
 public Locator update_postNameList() throws IOException
  {
    Locator locator=getLocator("update_postNameList");
+   return locator;
+ }
+
+/***
+* 删除危险源
+* @throws IOException
+*/
+public Locator update_ms_close() throws IOException
+ {
+   Locator locator=getLocator("update_ms_close");
+   return locator;
+ }
+
+/***
+* 提示信息
+* @throws IOException
+*/
+public Locator update_tip() throws IOException
+ {
+   Locator locator=getLocator("update_tip");
    return locator;
  }
 

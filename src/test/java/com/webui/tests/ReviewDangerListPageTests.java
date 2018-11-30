@@ -36,9 +36,9 @@ public class ReviewDangerListPageTests extends TestBaseCase {
         reviewDangerListPageActions.modifyMenu();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
         reviewDangerListPageActions.searchByAddressCate("材料库");
-        if (assertion.AssertElementIsDispaly(reviewDangerListPage.data_tbody())){
+        if (assertion.AssertElementIsDispaly(reviewDangerListPage.data_tbody())) {
             log.info("根据查询条件为查询到相关数据");
-        }else {
+        } else {
             for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险点类型").size(); i++) {
                 Assertion.VerityString(reviewDangerListPageActions.getSearchData("风险点类型").get(i), "洗煤厂");
             }
@@ -102,5 +102,30 @@ public class ReviewDangerListPageTests extends TestBaseCase {
         reviewDangerListPageActions.goReviewDismissWithoutRemark();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
         Assertion.VerityString(elementAction.getText(reviewDangerListPage.check_remark_error()).trim(), "请填写备注！");
+    }
+
+    @Feature("修改风险")
+    @Test(description = "修改辨识时间为不正确的字段值,验证是否判断正确")
+    public void TC_updateYeRecognizeTime() throws IOException {
+        reviewDangerListPageActions.updateYeRecognizeTime("2015/5285//5");
+        Assertion.VerityCationString(elementAction.getAlertText(), "不合法的日期格式");
+        elementAction.alertConfirm();
+    }
+
+    @Feature("修改风险")
+    @Test(description = "专业为默认字段值,验证是否判断正确")
+    public void TC_updateYeProfessionSelectDefault() throws IOException {
+        reviewDangerListPageActions.updateYeProfessionSelectDefault();
+        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请选择专业");
+    }
+
+    @Feature("修改风险")
+    @Test(description = "危险源名称为空,验证是否判断正确")
+    public void TC_updateHazardnameDefault() throws IOException {
+        reviewDangerListPageActions.modifyMenu();
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
+        reviewDangerListPageActions.updateHazardnameDefault();
+        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请填写危险源");
     }
 }

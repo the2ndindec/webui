@@ -147,6 +147,7 @@
 		<locator type="xpath" timeout="3" value=".//input[@id='btn_save']" desc="编辑页面--保存按钮">update_btn_save</locator>
 		<locator type="xpath" timeout="3" value=".//input[@id='closeBtn']" desc="编辑页面--关闭按钮">update_closeBtn</locator>
 		<locator type="xpath" timeout="3" value=".//div[@id='hazardname']" desc="编辑页面--危险源名称">update_hazardName_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='magicsuggestInputId']" desc="编辑页面--危险源名称输入框">update_hazardName_input</locator>
 		<locator type="xpath" timeout="3" value=".//div[@id='hazardname']/div[2]" desc="编辑页面--危险源名称下拉按钮">update_hazardNameList</locator>
 		<!-- .//*[@id='hazardname']//div[text()='顶板'] -->
 		<locator type="xpath" timeout="3" value=".//div[@id='postname']" desc="编辑页面--责任岗位">update_postName_textarea</locator>
@@ -155,7 +156,8 @@
 
 		<!-- .//*[@id='formobj']//tbody/tr[3]/td[2]/label[1]/input   伤害类别 -->
 		<!-- .//*[@id='formobj']//tbody/tr[4]/td[2]/label[1]   事故类型 -->
-
+		<locator type="xpath" timeout="3" value=".//div[@id='hazardname']//span[contains(@class,'ms-close-btn')]" desc="删除危险源">update_ms_close</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'Validform_checktip Validform_wrong')]" desc="提示信息">update_tip</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
 		<locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>

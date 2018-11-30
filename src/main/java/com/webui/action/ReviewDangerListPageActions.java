@@ -6,6 +6,7 @@ import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -41,7 +42,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     public void modifyMenu() throws IOException {
-        defultPageActions.openMenu(defultPage.aqfxfjgk_menu(),defultPage.ndfxbs_list(),defultPage.reviewDangerList());
+        defultPageActions.openMenu(defultPage.aqfxfjgk_menu(), defultPage.ndfxbs_list(), defultPage.reviewDangerList());
     }
 
     /**
@@ -118,6 +119,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "选择专业")
     public void searchByYeProfession(String yeProfession) throws IOException {
+        setDefult();
         elementAction.selectByText(reviewDangerListPage.yeProfession_select(), yeProfession);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -130,6 +132,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "选择伤害类别")
     public void searchByDamageType(String damageType) throws IOException {
+        setDefult();
         elementAction.selectByText(reviewDangerListPage.damageType_select(), damageType);
         doSearch(reviewDangerListPage.search_Button(), 2);
 
@@ -143,6 +146,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "输入风险描述")
     public void searchByYePossiblyHazard(String yePossiblyHazard) throws IOException {
+        setDefult();
         elementAction.type(reviewDangerListPage.yeProfession_select(), yePossiblyHazard);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -155,6 +159,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "选择作业活动")
     public void searchByActivityid(String activityid) throws IOException {
+        setDefult();
         elementAction.selectByText(reviewDangerListPage.activityId_select(), activityid);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -167,6 +172,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "选择风险等级")
     public void searchByYeRiskGrade(String yeRiskGrade) throws IOException {
+        setDefult();
         elementAction.selectByText(reviewDangerListPage.yeRiskGrade_select(), yeRiskGrade);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -179,6 +185,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "选择风险类型")
     public void searchByYeHazardCate(String yeHazardCate) throws IOException {
+        setDefult();
         elementAction.selectByText(reviewDangerListPage.yeHazardCate_select(), yeHazardCate);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -191,6 +198,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "输入管控标准来源")
     public void searchByDocSource(String docSource) throws IOException {
+        setDefult();
         elementAction.type(reviewDangerListPage.docSource_textarea(), docSource);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -203,6 +211,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "输入标准内容")
     public void searchByYeStandard(String yeStandard) throws IOException {
+        setDefult();
         elementAction.type(reviewDangerListPage.yeStandard_textarea(), yeStandard);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -215,6 +224,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     @Step(value = "选择隐患等级")
     public void searchByHiddenLevel(String hiddenLevel) throws IOException {
+        setDefult();
         elementAction.selectByText(reviewDangerListPage.hiddenLevel_select(), hiddenLevel);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
@@ -306,29 +316,88 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
-     *
-     *@param: [remark] 备注信息
-     *@return: void
-     *@Description: 审核驳回,输入备注信息
-     *@throws: 
+     * @param: [remark] 备注信息
+     * @return: void
+     * @Description: 审核驳回, 输入备注信息
+     * @throws:
      */
     public void goReviewDismissByRandom(String remark) throws IOException {
-        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
-        Random random = new Random();
-        int temp = random.nextInt(trElements.size());
-        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
-        elementAction.click_left(reviewDangerListPage.goReview_Button());
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
+        if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
+            List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
+            Random random = new Random();
+            int temp = random.nextInt(trElements.size());
+            trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+            elementAction.click_left(reviewDangerListPage.goReview_Button());
+            elementAction.switchToDefaultFrame();
+            elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
 
-        elementAction.click_left(reviewDangerListPage.check_dismiss_radio()); //选择驳回
-        elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
-        elementAction.switchToDefaultFrame();
-        elementAction.click_left(reviewDangerListPage.check_confirm_btn());
-
+            elementAction.click_left(reviewDangerListPage.check_dismiss_radio()); //选择驳回
+            elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
+            elementAction.switchToDefaultFrame();
+            elementAction.click_left(reviewDangerListPage.check_confirm_btn());
+        } else {
+            log.info("当前页面上暂无数据");
+        }
     }
 
+    /**
+     * @param: [yeRecognizeTime] 辨识时间字段
+     * @return: void
+     * @Description: 修改辨识时间, 格式不正确, 日期错误等
+     * @throws: ========弹框暂时无法处理
+     */
+    public void updateYeRecognizeTime(String yeRecognizeTime) throws IOException {
+        elementAction.type(reviewDangerListPage.update_yeRecognizeTime_textarea(), yeRecognizeTime);
+        elementAction.click_left(reviewDangerListPage.update_btn_save());
+    }
 
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 修改专业值为默认值, 用于验证专业为空的验证
+     * @throws:
+     */
+    public void updateYeProfessionSelectDefault() throws IOException {
+        elementAction.selectByIndex(reviewDangerListPage.update_yeProfession_select(), 0);   //设置为默认值:请选择
+        elementAction.click_left(reviewDangerListPage.update_btn_save());
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 打开编辑页面
+     * @throws:
+     */
+    public void switchToUpdatePage() throws IOException {
+        if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
+            List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
+            Random random = new Random();
+            int temp = random.nextInt(trElements.size());
+            trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+            elementAction.click_left(reviewDangerListPage.editDangerSource_Button());
+            elementAction.switchToDefaultFrame();
+            elementAction.switchToFrame(reviewDangerListPage.iframe_goUpdateDangerSourceOnCheck());  //切换到编辑页面
+        } else {
+            log.info("当前页面上暂无数据");
+        }
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 修改危险源名称为空, 用于危险源名称为空的验证
+     * @throws:
+     */
+    public void updateHazardnameDefault() throws IOException {
+        elementAction.click_left(reviewDangerListPage.update_ms_close());   //清除原内容
+        elementAction.click_left(reviewDangerListPage.update_btn_save());
+    }
+
+    public void updateYePossiblyHazard() throws IOException {
+        //elementAction.clear(reviewDangerListPage.update_hazardName_input());   //清除原内容
+        elementAction.click_left(reviewDangerListPage.update_ms_close());   //清除原内容
+        elementAction.click_left(reviewDangerListPage.update_btn_save());
+    }
 
     /**
      * @param: [yeRecognizeTime_begin, yeRecognizeTime_end]
@@ -360,7 +429,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
 
     /**
      * @param fieldStr 需要获取值的字段
-     * @return 数据列表,text
+     * @return 数据列表, text
      * @throws IOException
      * @throws InterruptedException
      * @description 获取查询结果中指定字段值
@@ -549,5 +618,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         elementAction.clear(reviewDangerListPage.yeStandard_textarea());
         // 判断隐患等级是否为默认值
         elementAction.selectByIndex(reviewDangerListPage.hiddenLevel_select(), 0);
+        elementAction.click_left(reviewDangerListPage.search_Button());
     }
 }

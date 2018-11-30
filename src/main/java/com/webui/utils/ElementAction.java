@@ -807,7 +807,6 @@ public class ElementAction extends TestBaseCase {
 		ElementAction action = new ElementAction();
 		WebElement webElement = action.findElement(locator);
 		webElement.isEnabled();
-		log.info("元素显示状态为：" + webElement.isDisplayed());
 		return webElement.isDisplayed();
 	}
 

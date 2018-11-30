@@ -416,6 +416,21 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
+     *
+     *@param: []
+     *@return: void
+     *@Description: 全部去审
+     *@throws: 
+     */
+    public void undoReviewAll() throws IOException {
+        checkChecked();
+        elementAction.click_left(reviewDangerListPage.undoReviewAll_Button());
+        elementAction.switchToDefaultFrame();   //切换到默认iframe上,执行点击确定按钮的操作
+        elementAction.click_left(reviewDangerListPage.check_confirm_btn());
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());    //切换到数据列表的iframe上
+    }
+
+    /**
      * @param: [yeRecognizeTime_begin, yeRecognizeTime_end]
      * @return: true 开始时间早于等于结束时间 false 开始时间晚于结束时间
      * @Description: 判断时间段是否正确
@@ -519,7 +534,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> activityidElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='activity.id']/div"));
-                    tempNum=activityidElements.size();
+                    tempNum = activityidElements.size();
                     for (int j = 0; j < activityidElements.size(); j++) {
                         addressCateList.add(activityidElements.get(j).getText());
                     }
@@ -531,7 +546,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeRiskGradeTempElements = driver.findElements(By
                             .xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRiskGradeTemp']//input"));
-                    tempNum=yeRiskGradeTempElements.size();
+                    tempNum = yeRiskGradeTempElements.size();
                     for (int j = 0; j < yeRiskGradeTempElements.size(); j++) {
                         addressCateList.add(yeRiskGradeTempElements.get(j).getText());
                     }
@@ -543,7 +558,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeHazardCate']/div"));
-                    tempNum=yeHazardCateElements.size();
+                    tempNum = yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
@@ -555,7 +570,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='address']/div"));
-                    tempNum=yeHazardCateElements.size();
+                    tempNum = yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
@@ -591,7 +606,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='hiddenLevel']/div"));
-                    tempNum=yeHazardCateElements.size();
+                    tempNum = yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
@@ -676,5 +691,11 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
         elementAction.click_left(reviewDangerListPage.checked_radio());
+    }
+    //选择待审核状态
+    public void unCHecked() throws IOException {
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
+        elementAction.click_left(reviewDangerListPage.checkPending_radio());
     }
 }

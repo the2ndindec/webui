@@ -10,6 +10,9 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -39,10 +42,12 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     @Step(value = "切换到风险审核页面")
     public void modifyMenu(Locator locator) throws IOException {
         defultPageActions.openMenu(defultPage.reviewDangerList());
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
     }
 
     public void modifyMenu() throws IOException {
         defultPageActions.openMenu(defultPage.aqfxfjgk_menu(), defultPage.ndfxbs_list(), defultPage.reviewDangerList());
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
     }
 
     /**
@@ -259,6 +264,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
             elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
             elementAction.switchToDefaultFrame();
             elementAction.click_left(reviewDangerListPage.check_confirm_btn());
+
         }
     }
 
@@ -362,8 +368,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
             Random random = new Random();
             int temp = random.nextInt(trElements.size());
             trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
-            tempString = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+temp+"]/td[@field='yePossiblyHazard']/div")).getText();
-            System.out.println(temp+"=="+tempString);
+            tempString = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + temp + "]/td[@field='yePossiblyHazard']/div")).getText();
         } else {
             log.info("当前页面上暂无数据");
         }
@@ -378,6 +383,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     public String tempString;
+
     /**
      * @param: []
      * @return: void
@@ -451,6 +457,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> addressCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='addressCate']/div"));
+                    tempNum = addressCateElements.size();
                     for (int j = 0; j < addressCateElements.size(); j++) {
                         addressCateList.add(addressCateElements.get(j).getText());
                     }
@@ -462,6 +469,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeMhazardDescElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeMhazardDesc']/div"));
+                    tempNum = yeMhazardDescElements.size();
                     for (int j = 0; j < yeMhazardDescElements.size(); j++) {
                         addressCateList.add(yeMhazardDescElements.get(j).getText());
                     }
@@ -473,6 +481,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeProfessionElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeProfession']/div"));
+                    tempNum = yeProfessionElements.size();
                     for (int j = 0; j < yeProfessionElements.size(); j++) {
                         addressCateList.add(yeProfessionElements.get(j).getText());
                     }
@@ -484,6 +493,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> damageTypeElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='damageType']/div"));
+                    tempNum = damageTypeElements.size();
                     for (int j = 0; j < damageTypeElements.size(); j++) {
                         addressCateList.add(damageTypeElements.get(j).getText());
                     }
@@ -493,8 +503,11 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 break;
             case "风险描述":
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
+//                    List<WebElement> yePossiblyHazardElements1 = (new WebDriverWait(driver, 10))
+//                            .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yePossiblyHazard']/div")));
                     List<WebElement> yePossiblyHazardElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yePossiblyHazard']/div"));
+                    tempNum = yePossiblyHazardElements.size();
                     for (int j = 0; j < yePossiblyHazardElements.size(); j++) {
                         addressCateList.add(yePossiblyHazardElements.get(j).getText());
                     }
@@ -506,6 +519,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> activityidElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='activity.id']/div"));
+                    tempNum=activityidElements.size();
                     for (int j = 0; j < activityidElements.size(); j++) {
                         addressCateList.add(activityidElements.get(j).getText());
                     }
@@ -517,6 +531,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeRiskGradeTempElements = driver.findElements(By
                             .xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRiskGradeTemp']//input"));
+                    tempNum=yeRiskGradeTempElements.size();
                     for (int j = 0; j < yeRiskGradeTempElements.size(); j++) {
                         addressCateList.add(yeRiskGradeTempElements.get(j).getText());
                     }
@@ -528,6 +543,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeHazardCate']/div"));
+                    tempNum=yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
@@ -539,6 +555,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='address']/div"));
+                    tempNum=yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
@@ -550,6 +567,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='docSource']/div"));
+                    tempNum = yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
@@ -561,6 +579,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeStandard']/div"));
+                    tempNum = yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
@@ -572,6 +591,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='hiddenLevel']/div"));
+                    tempNum=yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
@@ -594,13 +614,21 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         return addressCateList;
     }
 
+    public int getTempNum() {
+        return tempNum;
+    }
+
+    public void setTempNum(int tempNum) {
+        this.tempNum = tempNum;
+    }
+
+    public int tempNum;
+
     /**
      * @throws IOException
      * @description 还原查询条件为默认值
      */
     public void setDefult() throws IOException {
-
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
 
         // 判断风险点类型是否为默认值
         elementAction.selectByIndex(reviewDangerListPage.addressCate_select(), 0);
@@ -640,5 +668,13 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     public void switchFrame(Locator locator) {
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(locator);
+    }
+
+    // 选择已审核状态
+    public void checkChecked() throws IOException {
+        elementAction.sleep(2);
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
+        elementAction.click_left(reviewDangerListPage.checked_radio());
     }
 }

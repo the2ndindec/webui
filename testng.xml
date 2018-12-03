@@ -17,8 +17,8 @@
         <classes>
             <class name="com.webui.tests.ReviewDangerListPageTests">
                 <methods>
-                    <include name="TC_undoReviewAll"/>
-                    <include name="TC_goReviewPass"/>
+                    <include name="TC_updateYeMhazardDescDefault"/>
+                    <exclude name="TC_goReviewPass"/>
                 </methods>
             </class>
         </classes>

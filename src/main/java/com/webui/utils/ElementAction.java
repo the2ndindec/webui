@@ -521,10 +521,29 @@ public class ElementAction extends TestBaseCase {
 		return webElement.getAttribute("value");
 	}
 
+	/**
+	 *
+	 *@param: [selectLocator,下拉框元素 optinValue 属性值]
+	 *@return: java.lang.String 返回下拉列表中 optionvalue 属性值
+	 *@Description: 返回optionvalue属性值
+	 *@throws: 
+	 */
 	public String getSelectOptionText(Locator selectLocator, String optinValue) {
 		WebElement webElement = driver
 				.findElement(By.xpath(selectLocator.getElement() + "//option[text()='" + optinValue + "']"));
 		return webElement.getText();
+	}
+
+	/**
+	 *
+	 *@param: [locator] 下拉框
+	 *@return: int 下拉框中option的个数
+	 *@Description: 返回下拉列表中option的个数
+	 *@throws:
+	 */
+	public int getOptionCount(Locator locator){
+	  Select select  = new Select(findElement(locator));
+	  return select.getOptions().size();
 	}
 
 	/**

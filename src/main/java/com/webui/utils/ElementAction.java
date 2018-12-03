@@ -395,6 +395,18 @@ public class ElementAction extends TestBaseCase {
 	}
 
 	/**
+	 *
+	 *@param: [locator] 需要操作的对象元素
+	 *@return: void
+	 *@Description: 失去焦点.通过js实现失去焦点的方法
+	 *@throws:
+	 */
+	public void fireEventBlur(Locator locator){
+		WebElement weElement = findElement(locator);
+		((JavascriptExecutor) driver).executeScript("return arguments[0].blur()",weElement);
+	}
+
+	/**
 	 * 普通单击操作
 	 * 
 	 * @param locator 元素locator

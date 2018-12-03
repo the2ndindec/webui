@@ -708,6 +708,20 @@ public class ElementAction extends TestBaseCase {
 	}
 
 	/**
+	 *
+	 *@param: [locator] 被操作的元素
+	 *@return: java.lang.String 元素的值
+	 *@Description: 通过js方法返回元素的值
+	 *@throws:
+	 */
+	public String getTextByJS(Locator locator){
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement webElement = findElement(locator);
+		String value = (String)js.executeScript("return arguments[0].value;",webElement);
+		return value;
+	}
+
+	/**
 	 * 获取元素某属性的值
 	 * 
 	 * @param locator       元素locator
@@ -851,29 +865,6 @@ public class ElementAction extends TestBaseCase {
 		WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
 		webDriverWait.until(ExpectedConditions.visibilityOf(action.findElement(locator))).isDisplayed();
 
-	}
-
-	/**
-	 * 获取指定单元格内的数据 - 先定位到table，在定位行数，在定位列数
-	 * 
-	 * @param tableLocator table的定位值
-	 * @param num          列数
-	 * @return
-	 */
-	public String getCellValue(Locator tableLocator, int num) {
-		String vellValue = null;
-		try {
-			List<WebElement> rows = findElement(tableLocator).findElements(By.tagName("tr"));// 获取tr标签，列表行数
-			for (int i = 0; i < rows.size(); i++) {
-				WebElement roWebElement = rows.get(i);
-				List<WebElement> coList = roWebElement.findElements(By.tagName("td")); // 获取td标签，列表列数
-				WebElement col = coList.get(num);
-				vellValue = col.getText();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return vellValue;
 	}
 
 	/**

@@ -135,9 +135,11 @@
 		<locator type="xpath" timeout="3" value=".//input[@id='yeRecognizeTime']" desc="编辑页面--辨识时间输入框">update_yeRecognizeTime_textarea</locator>
 		<locator type="xpath" timeout="3" value=".//select[@id='yeProfession']" desc="编辑页面--专业选择框">update_yeProfession_select</locator>
 		<locator type="xpath" timeout="3" value=".//textarea[@id='yePossiblyHazard']" desc="编辑页面--风险描述输入框">update_yePossiblyHazard_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='请填写风险描述！']" desc="编辑页面--风险描述内容为空时提示信息">update_yePossiblyHazard_errormsg</locator>
+
 		<locator type="xpath" timeout="3" value=".//select[@id='yeProbability']" desc="编辑页面--风险可能性选择框">update_yeProbability_select</locator>
 		<locator type="xpath" timeout="3" value=".//select[@id='yeCost']" desc="编辑页面--风险损失选择框">update_yeCost_select</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='riskValue']" desc="编辑页面--风险值">update_riskValue_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='yeRiskGrade']" desc="编辑页面--风险等级">update_yeRiskGrade_textarea</locator>
 		<locator type="xpath" timeout="3" value=".//select[@id='yeHazardCate']" desc="编辑页面--风险类型">update_yeHazardCate_select</locator>
 		<locator type="xpath" timeout="3" value=".//input[@id='docSource']" desc="编辑页面--管控标准来源输入框">update_docSource_textarea</locator>
 		<locator type="xpath" timeout="3" value=".//input[@id='sectionName']" desc="编辑页面--章节条款输入框">update_sectionName_textarea</locator>
@@ -159,6 +161,7 @@
 		<!-- .//*[@id='formobj']//tbody/tr[3]/td[2]/label[1]/input   伤害类别 -->
 		<!-- .//*[@id='formobj']//tbody/tr[4]/td[2]/label[1]   事故类型 -->
 		<locator type="xpath" timeout="3" value=".//div[@id='hazardname']//span[contains(@class,'ms-close-btn')]" desc="删除危险源">update_ms_close</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='postname']//span[contains(@class,'ms-close-btn')]" desc="责任岗位删除">update_postName_del</locator>
 		<locator type="xpath" timeout="3" value=".//span[contains(@class,'Validform_checktip Validform_wrong')]" desc="提示信息">update_tip</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>

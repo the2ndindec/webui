@@ -425,16 +425,6 @@ public Locator update_yePossiblyHazard_textarea() throws IOException
  }
 
 /***
-* 编辑页面--风险描述内容为空时提示信息
-* @throws IOException
-*/
-public Locator update_yePossiblyHazard_errormsg() throws IOException
- {
-   Locator locator=getLocator("update_yePossiblyHazard_errormsg");
-   return locator;
- }
-
-/***
 * 编辑页面--风险可能性选择框
 * @throws IOException
 */
@@ -451,6 +441,26 @@ public Locator update_yeProbability_select() throws IOException
 public Locator update_yeCost_select() throws IOException
  {
    Locator locator=getLocator("update_yeCost_select");
+   return locator;
+ }
+
+/***
+* 编辑页面--风险值
+* @throws IOException
+*/
+public Locator update_riskValue_textarea() throws IOException
+ {
+   Locator locator=getLocator("update_riskValue_textarea");
+   return locator;
+ }
+
+/***
+* 编辑页面--风险等级
+* @throws IOException
+*/
+public Locator update_yeRiskGrade_textarea() throws IOException
+ {
+   Locator locator=getLocator("update_yeRiskGrade_textarea");
    return locator;
  }
 
@@ -611,6 +621,16 @@ public Locator update_postNameList() throws IOException
 public Locator update_ms_close() throws IOException
  {
    Locator locator=getLocator("update_ms_close");
+   return locator;
+ }
+
+/***
+* 责任岗位删除
+* @throws IOException
+*/
+public Locator update_postName_del() throws IOException
+ {
+   Locator locator=getLocator("update_postName_del");
    return locator;
  }
 

@@ -1,18 +1,15 @@
 package com.webui.action;
 
+import com.thoughtworks.selenium.webdriven.commands.FireEvent;
 import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReviewDangerListPage;
-import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
-import io.qameta.allure.Feature;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -71,6 +68,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         setDefult();
         elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime);
         doSearch(reviewDangerListPage.search_Button(), 2);
+
     }
 
     /**
@@ -354,7 +352,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     public void updateYeProfessionSelectDefault() throws IOException {
         elementAction.selectByIndex(reviewDangerListPage.update_yeProfession_select(), 0);   //设置为默认值:请选择
-        elementAction.click_left(reviewDangerListPage.update_btn_save());
+        elementAction.fireEventBlur(reviewDangerListPage.update_yeProfession_select());
     }
 
     /**
@@ -407,15 +405,192 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void updateHazardnameDefault() throws IOException {
-        switchToUpdatePage();
         elementAction.click_left(reviewDangerListPage.update_ms_close());   //清除原内容
-        elementAction.click_left(reviewDangerListPage.update_btn_save());
+//        elementAction.fireEventBlur(reviewDangerListPage.update_hazardName_input());
+        elementAction.click(reviewDangerListPage.update_btn_save());
     }
 
-    public void updateYePossiblyHazard() throws IOException {
-        //elementAction.clear(reviewDangerListPage.update_hazardName_input());   //清除原内容
-        elementAction.click_left(reviewDangerListPage.update_ms_close());   //清除原内容
-        elementAction.click_left(reviewDangerListPage.update_btn_save());
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 删除风险描述原内容, 用于验证在修改风险时, 该字段是否可以为空
+     * @throws:
+     */
+    public void updateYePossiblyHazardDefault() throws IOException {
+        elementAction.clear(reviewDangerListPage.update_yePossiblyHazard_textarea());//清空风险描述内容
+        elementAction.fireEventBlur(reviewDangerListPage.update_yePossiblyHazard_textarea());
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 修改风险可能性字段值为默认值, 用于验证在修改风险时, 该字段是否可以为空
+     * @throws:
+     */
+    public void updateYeProbabilityDefault() throws IOException {
+        elementAction.selectByIndex(reviewDangerListPage.update_yeProbability_select(), 0);//选择默认值
+        elementAction.fireEventBlur(reviewDangerListPage.update_yeProbability_select());
+    }
+
+    /**
+     * @param: [locator] 下拉框
+     * @return: int
+     * @Description: 针对下拉框, 生成随机数据
+     * @throws:
+     */
+    public int selectOptionCount(Locator locator) {
+        Random random = new Random();
+        int optionCount = random.nextInt(elementAction.getOptionCount(locator) - 1) + 1;
+        return optionCount;
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 随机选择风险可能性值
+     * @throws:
+     */
+    public void updateYeProbability() throws IOException {
+        elementAction.selectByIndex(reviewDangerListPage.update_yeProbability_select(), selectOptionCount(reviewDangerListPage.update_yeProbability_select()));//修改风险可能性
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 修改风险损失字段值为默认值, 用于验证在修改风险时, 该字段是否可以为空
+     * @throws:
+     */
+    public void updateYeCostDefault() throws IOException {
+//        updateYeProbability();
+        updateYeCost();
+        elementAction.selectByIndex(reviewDangerListPage.update_yeCost_select(), 0);//选择默认值
+        elementAction.fireEventBlur(reviewDangerListPage.update_yeCost_select());
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 随机修改风险损失值
+     * @throws:
+     */
+    public void updateYeCost() throws IOException {
+        elementAction.selectByIndex(reviewDangerListPage.update_yeCost_select(), selectOptionCount(reviewDangerListPage.update_yeCost_select()));//修改风险可能性
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 修改风险类型字段值为默认值, 用于验证在修改风险时, 该字段是否可以为空
+     * @throws:
+     */
+    public void updateYeHazardCateDefault() throws IOException {
+        elementAction.selectByIndex(reviewDangerListPage.update_yeHazardCate_select(), 0);//选择默认值
+        elementAction.fireEventBlur(reviewDangerListPage.update_yeHazardCate_select());
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 随机修改风险类型值
+     * @throws:
+     */
+    public void updateYeHazardCate() throws IOException {
+        elementAction.selectByIndex(reviewDangerListPage.update_yeHazardCate_select(), selectOptionCount(reviewDangerListPage.update_yeHazardCate_select()));
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 清空标准内容字段值, 用于验证在修改风险时, 该字段是否可以为空
+     * @throws:
+     */
+    public void updateYeStandardDefault() throws IOException {
+        elementAction.clear(reviewDangerListPage.update_yeStandard_textarea());
+        elementAction.fireEventBlur(reviewDangerListPage.update_yeStandard_textarea());
+    }
+
+    /**
+     * @param: [yeStandard] 标准内容
+     * @return: void
+     * @Description: 修改标准内容
+     * @throws:
+     */
+    public void updateYeStandard(String yeStandard) throws IOException {
+        elementAction.clear(reviewDangerListPage.update_yeStandard_textarea());
+        elementAction.type(reviewDangerListPage.update_yeStandard_textarea(), yeStandard);
+        elementAction.fireEventBlur(reviewDangerListPage.update_yeStandard_textarea());
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 清空管控内容值
+     * @throws:
+     */
+    public void updateManageMeasureDefault() throws IOException {
+        elementAction.clear(reviewDangerListPage.update_manageMeasure_textarea());
+        elementAction.fireEventBlur(reviewDangerListPage.update_manageMeasure_textarea());
+    }
+
+    /**
+     * @param: [manageMeasure 管控内容值]
+     * @return: void
+     * @Description: 修改管控内容为指定值
+     * @throws:
+     */
+    public void updateManageMeasure(String manageMeasure) throws IOException {
+        elementAction.clear(reviewDangerListPage.update_manageMeasure_textarea());
+        elementAction.type(reviewDangerListPage.update_manageMeasure_textarea(), manageMeasure);
+        elementAction.fireEventBlur(reviewDangerListPage.update_manageMeasure_textarea());
+    }
+
+    /**
+     * @param: []
+     * @return: void
+     * @Description: 清空责任岗位字段值, 用于验证在修改风险时, 该字段是否可以为空
+     * @throws:
+     */
+    public void updatePostNameDefault() throws IOException {
+        elementAction.click_left(reviewDangerListPage.update_postName_del());
+//        elementAction.fireEventBlur(reviewDangerListPage.update_postName_textarea());
+        elementAction.click(reviewDangerListPage.update_btn_save());
+    }
+
+
+    /**
+     * @param: [postName 责任岗位名称]
+     * @return: void
+     * @Description: 修改责任岗位
+     * @throws:
+     */
+    public void updatePostName(String postName) throws IOException {
+        elementAction.click_left(reviewDangerListPage.update_postNameList());
+        elementAction.click(".//*[@id='postname']//div[text()='" + postName + "']");
+    }
+
+    /**
+     *
+     *@param: [yeMhazardDesc 隐患描述字段值]
+     *@return: void
+     *@Description: 修改隐患描述
+     *@throws: 
+     */
+    public void updateYeMhazardDesc(String yeMhazardDesc) throws IOException {
+        elementAction.clear(reviewDangerListPage.update_yeMhazardDesc_textarea());
+        elementAction.type(reviewDangerListPage.update_yeMhazardDesc_textarea(), yeMhazardDesc);
+        elementAction.fireEventBlur(reviewDangerListPage.update_yeMhazardDesc_textarea());
+    }
+
+    /**
+     *
+     *@param: []
+     *@return: void
+     *@Description:  清空隐患描述字段值, 用于验证在修改风险时, 该字段是否可以为空
+     *@throws:
+     */
+    public void updateYeMhazardDescDefault() throws IOException {
+        elementAction.clear(reviewDangerListPage.update_yeMhazardDesc_textarea());
+        elementAction.fireEventBlur(reviewDangerListPage.update_yeMhazardDesc_textarea());
     }
 
     /**
@@ -429,8 +604,9 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         elementAction.click_left(reviewDangerListPage.undoReviewAll_Button());
         elementAction.switchToDefaultFrame();   //切换到默认iframe上,执行点击确定按钮的操作
         elementAction.click_left(reviewDangerListPage.check_confirm_btn());
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());    //切换到数据列表的iframe上
+        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());    //切换到数据列表的iframe
     }
+
 
     /**
      * @param: [yeRecognizeTime_begin, yeRecognizeTime_end]

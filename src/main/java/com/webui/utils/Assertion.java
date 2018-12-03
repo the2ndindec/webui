@@ -60,6 +60,7 @@ public class Assertion extends TestBaseCase {
     public static void VerityCationString(String actual, String exceptStr) {
         String verityStr = "Assert验证：{" + "实际值：" + actual + "," + "预期值：" + exceptStr + "} 实际值是否包含预期值";
         Boolean flagBoolean = actual.contains(exceptStr);
+        log.info(verityStr);
         log.info(flagBoolean.toString());
         try {
             Assert.assertTrue(flagBoolean);

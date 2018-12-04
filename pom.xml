@@ -117,7 +117,7 @@
                 <version>3.1</version>
                 <configuration>
                     <fork>true</fork>
-                    <executable>/usr/lib/jvm/java-8-oracle/bin/javac</executable>
+                    <executable>D:\Program Files\Java\jdk1.8.0_191\bin\javac.exe</executable>
                 </configuration>
             </plugin>
             <plugin>

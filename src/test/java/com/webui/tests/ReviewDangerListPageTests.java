@@ -7,6 +7,7 @@ import com.webui.utils.ElementAction;
 import com.webui.utils.TestBaseCase;
 import io.qameta.allure.Feature;
 
+import io.qameta.allure.Step;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -29,16 +30,16 @@ public class ReviewDangerListPageTests extends TestBaseCase {
 
     @Feature("查询")
     @Test(description = "根据风险点类型验证查询功能")
-    public void TC_searchByAddressCate() throws IOException, InterruptedException {
-//        reviewDangerListPageActions.modifyMenu(defultPage.reviewDangerList());
+    @Step("输入查询条件:{0}")
+    @Parameters({"AddressCate"})
+    public void TC_searchByAddressCate(String AddressCate) throws IOException, InterruptedException {
         reviewDangerListPageActions.modifyMenu();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
-        reviewDangerListPageActions.searchByAddressCate("材料库");
+        reviewDangerListPageActions.searchByAddressCate(AddressCate);
         if (assertion.AssertElementIsDispaly(reviewDangerListPage.data_tbody())) {
             log.info("根据查询条件为查询到相关数据");
         } else {
             for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险点类型").size(); i++) {
-                Assertion.VerityString(reviewDangerListPageActions.getSearchData("风险点类型").get(i), "洗煤厂");
+                Assertion.VerityString(reviewDangerListPageActions.getSearchData("风险点类型").get(i), AddressCate);
             }
         }
     }
@@ -77,6 +78,83 @@ public class ReviewDangerListPageTests extends TestBaseCase {
                 log.info("根据辨识时间验证查询功能==通过");
             else
                 log.warn("根据辨识时间验证查询功能==失败");
+        }
+    }
+
+    @Feature("查询")
+    @Test(description = "根据隐患描述验证查询功能")
+    @Step("输入查询条件:{0}")
+    @Parameters({"hazardDesc"})
+    public void TC_searchByYeMhazardDesc(String hazardDesc) throws IOException, InterruptedException {
+        reviewDangerListPageActions.searchByYeMhazardDesc(hazardDesc);
+        for (int i = 0; i < reviewDangerListPageActions.getSearchData("隐患描述").size(); i++) {
+            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("隐患描述").get(i), hazardDesc);
+        }
+    }
+
+    @Feature("查询")
+    @Test(description = "根据专业验证查询功能")
+    @Step("输入查询条件:{0}")
+    @Parameters({"profession"})
+    public void TC_searchByYeProfession(String profession) throws IOException, InterruptedException {
+        reviewDangerListPageActions.searchByYeProfession(profession);
+        for (int i = 0; i < reviewDangerListPageActions.getSearchData("专业").size(); i++) {
+            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("专业").get(i), profession);
+        }
+    }
+
+    @Feature("查询")
+    @Test(description = "根据伤害类别验证查询功能")
+    @Step("输入查询条件:{0}")
+    @Parameters({"damageType"})
+    public void TC_searchByDamageType(String damageType) throws IOException, InterruptedException {
+        reviewDangerListPageActions.searchByDamageType(damageType);
+        for (int i = 0; i < reviewDangerListPageActions.getSearchData("伤害类别").size(); i++) {
+            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("伤害类别").get(i), damageType);
+        }
+    }
+
+    @Feature("查询")
+    @Test(description = "根据风险描述验证查询功能")
+    @Step("输入查询条件:{0}")
+    @Parameters({"YePossiblyHazard"})
+    public void TC_searchByYePossiblyHazard(String YePossiblyHazard) throws IOException, InterruptedException {
+        reviewDangerListPageActions.searchByYePossiblyHazard(YePossiblyHazard);
+        for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险描述").size(); i++) {
+            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("风险描述").get(i), YePossiblyHazard);
+        }
+    }
+
+    @Feature("查询")
+    @Test(description = "根据作业活动验证查询功能")
+    @Step("输入查询条件:{0}")
+    @Parameters({"activityid"})
+    public void TC_searchByActivityid(String activityid) throws IOException, InterruptedException {
+        reviewDangerListPageActions.searchByActivityid(activityid);
+        for (int i = 0; i < reviewDangerListPageActions.getSearchData("作业活动").size(); i++) {
+            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("作业活动").get(i), activityid);
+        }
+    }
+
+    @Feature("查询")
+    @Test(description = "根据风险等级验证查询功能")
+    @Step("输入查询条件:{0}")
+    @Parameters({"riskGrade"})
+    public void TC_searchByYeRiskGrade(String riskGrade) throws IOException, InterruptedException {
+        reviewDangerListPageActions.searchByYeRiskGrade(riskGrade);
+        for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险等级").size(); i++) {
+            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("风险等级").get(i), riskGrade);
+        }
+    }
+
+    @Feature("查询")
+    @Test(description = "根据风险类型验证查询功能")
+    @Step("输入查询条件:{0}")
+    @Parameters({"hazardCate"})
+    public void TC_searchByYeHazardCate(String hazardCate) throws IOException, InterruptedException {
+        reviewDangerListPageActions.searchByYeHazardCate(hazardCate);
+        for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险类型").size(); i++) {
+            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("风险类型").get(i), hazardCate);
         }
     }
 

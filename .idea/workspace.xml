@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f9322f82-8dbb-4962-80eb-898685cf2863" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,7 +16,7 @@
     <session id="-1804754673">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.22" value="1" />
@@ -35,14 +33,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="8138" />
-          <entry key="txt" value="410" />
+          <entry key="txt" value="416" />
           <entry key="xml" value="681" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="8138" />
-          <entry key="PLAIN_TEXT" value="410" />
+          <entry key="PLAIN_TEXT" value="416" />
           <entry key="XML" value="681" />
         </counts>
       </usages-collector>
@@ -290,7 +288,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543897437154" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543905817717" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="D:/Program Files/Git/cmd/git.exe" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -398,13 +396,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542943593934</updated>
-    </task>
-    <task id="LOCAL-00003" summary="添加 TC_chooseAddress 测试方法">
-      <created>1542961305172</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1542961305172</updated>
     </task>
     <task id="LOCAL-00004" summary="更新元素信息">
       <created>1542961353246</created>
@@ -742,7 +733,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543894398545</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="update">
+      <created>1543897466378</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1543897466379</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -840,13 +838,13 @@
     <MESSAGE value="添加click方法" />
     <MESSAGE value="添加方法" />
     <MESSAGE value="添加验证方法" />
-    <MESSAGE value="update" />
     <MESSAGE value="update project" />
     <MESSAGE value="更新EmployeeInfoListPage页面信息" />
     <MESSAGE value="自动生成EmployeeInfoListPage页面信息" />
     <MESSAGE value="更新employeeInfoList信息" />
     <MESSAGE value="ReviewDangerListPageTests中更新方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReviewDangerListPageTests中更新方法" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/resources/allure.properties">

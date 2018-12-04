@@ -28,6 +28,10 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='本矿风险汇总']" desc="本矿风险汇总">reportDangerList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='风险审核']" desc="风险审核">reviewDangerList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='部门风险上报']" desc="部门风险上报">departReportDangerList</locator>
+
+		<locator type="xpath" timeout="3" value=".//span[text()='辅助管理']" desc="辅助管理">fzgl</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='职业卫生']" desc="职业卫生">zyws</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='职工个人基本信息']" desc="职工个人基本信息">employeeInfoList</locator>
 	</page>
 	
 	<page pagename="com.webui.pageObject.ReportDangerListPage" value="" desc="本矿风险汇总页面">
@@ -170,7 +174,59 @@
 		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-prev')]" desc="底部信息--上一页按钮">data_prevPage</locator>
 		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-next')]" desc="底部信息--下一页按钮">data_nexttPage</locator>
 		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-last')]" desc="底部信息--尾页按钮">data_lastPage</locator>
+	</page>
+	<page pagename="com.webui.pageObject.EmployeeInfoListPage" value="" desc="职工个人基本信息页面">
+		<locator type="name" timeout="3" value="iframe102" desc="职工个人基本信息页面iframe标记">iframe_employeeInfoList</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdate')]" desc="职工信息编辑部分iframe标记">iframe_goUpdate</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'detail')]" desc="职工信息详情部分iframe标记">iframe_detail</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAdd')]" desc="添加职工信息部分iframe标记">iframe_goAdd</locator>
+		<!-- 操作按钮 -->
+		<locator type="xpath" timeout="3" value=".//span[text()='导出']" desc="导出按钮">exportXlsByT_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='查看']" desc="查看按钮">detail_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='录入']" desc="录入按钮">add_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='编辑']" desc="编辑按钮">update_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='批量删除']" desc="批量删除按钮">deleteALLSelect_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='导入']" desc="导入按钮">importXls_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='导入模板下载']" desc="导入模板下载按钮">importXlsT_Button</locator>
+		<!-- 搜索条件 -->
+		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
+		 <locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="重置按钮">reload_Button</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='fileNo']" desc="查询条件--档案号输入框">fileNo_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='postNumber']" desc="查询条件--在岗编号输入框">postNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='retireNumber']" desc="查询条件--退休编号输入框">retireNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@name='name']" desc="查询条件-姓名输入框">name_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@name='cardNumber']" desc="查询条件-身份证号输入框">cardNumber_textarea</locator>
 
+		<!-- 添加职工信息 -->
+		<locator type="xpath" timeout="3" value=".//input[@name='fileNo']" desc="添加职工信息部分：档案号输入框">fileNo_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='postNumber']" desc="添加职工信息部分：在岗编号输入框">postNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='retireNumber']" desc="添加职工信息部分：退休编号输入框">retireNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='name']" desc="添加职工信息部分：姓名输入框">name_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@name='gender']" desc="添加职工信息部分：性别">gender_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='cardNumber']" desc="添加职工信息部分：身份证号输入框">cardNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='partiWorkDate']" desc="添加职工信息部分：参加工作时间输入框">partiWorkDate_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='currWorkUnits']" desc="添加职工信息部分：现工作单位输入框">currWorkUnits_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='currTrade']" desc="添加职工信息部分：现从事工种输入框">currTrade_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='jobHazardCategory']" desc="添加职工信息部分：接触职业危害种类输入框">jobHazardCategory_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@name='postCategory']" desc="添加职工信息部分：岗位类别">postCategory_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@name='postStatus']" desc="添加职工信息部分：岗位状态">postStatus_textarea</locator>
+
+		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
+
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'Validform_checktip Validform_wrong')]" desc="提示信息">error_tip</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='确定']" desc="审核弹框部分：确定按钮">check_confirm_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="审核弹框部分：关闭按钮">check_close_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="审核弹框部分：取消按钮">check_cancel_btn</locator>
+
+		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
+		<locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-first')]" desc="底部信息--首页按钮">data_firstPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-prev')]" desc="底部信息--上一页按钮">data_prevPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-next')]" desc="底部信息--下一页按钮">data_nexttPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-last')]" desc="底部信息--尾页按钮">data_lastPage</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_min']" desc="弹窗--最小化按钮">min_ui</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_max']" desc="弹窗--最大化按钮">max_ui</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
 	</page>
 
 </map>

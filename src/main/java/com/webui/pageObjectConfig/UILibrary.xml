@@ -191,11 +191,11 @@
 		<!-- 搜索条件 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
 		 <locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="重置按钮">reload_Button</locator>
-		<locator type="xpath" timeout="3" value=".//input[@name='fileNo']" desc="查询条件--档案号输入框">fileNo_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//input[@name='postNumber']" desc="查询条件--在岗编号输入框">postNumber_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//input[@name='retireNumber']" desc="查询条件--退休编号输入框">retireNumber_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//select[@name='name']" desc="查询条件-姓名输入框">name_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//select[@name='cardNumber']" desc="查询条件-身份证号输入框">cardNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='fileNo']" desc="查询条件--档案号输入框">search_fileNo_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='postNumber']" desc="查询条件--在岗编号输入框">search_postNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='retireNumber']" desc="查询条件--退休编号输入框">search_retireNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@name='name']" desc="查询条件-姓名输入框">search_name_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//select[@name='cardNumber']" desc="查询条件-身份证号输入框">search_cardNumber_textarea</locator>
 
 		<!-- 添加职工信息 -->
 		<locator type="xpath" timeout="3" value=".//input[@name='fileNo']" desc="添加职工信息部分：档案号输入框">fileNo_textarea</locator>

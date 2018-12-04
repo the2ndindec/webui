@@ -148,9 +148,9 @@ public Locator reload_Button() throws IOException
 * 查询条件--档案号输入框
 * @throws IOException
 */
-public Locator fileNo_textarea() throws IOException
+public Locator search_fileNo_textarea() throws IOException
  {
-   Locator locator=getLocator("fileNo_textarea");
+   Locator locator=getLocator("search_fileNo_textarea");
    return locator;
  }
 
@@ -158,9 +158,9 @@ public Locator fileNo_textarea() throws IOException
 * 查询条件--在岗编号输入框
 * @throws IOException
 */
-public Locator postNumber_textarea() throws IOException
+public Locator search_postNumber_textarea() throws IOException
  {
-   Locator locator=getLocator("postNumber_textarea");
+   Locator locator=getLocator("search_postNumber_textarea");
    return locator;
  }
 
@@ -168,9 +168,9 @@ public Locator postNumber_textarea() throws IOException
 * 查询条件--退休编号输入框
 * @throws IOException
 */
-public Locator retireNumber_textarea() throws IOException
+public Locator search_retireNumber_textarea() throws IOException
  {
-   Locator locator=getLocator("retireNumber_textarea");
+   Locator locator=getLocator("search_retireNumber_textarea");
    return locator;
  }
 
@@ -178,9 +178,9 @@ public Locator retireNumber_textarea() throws IOException
 * 查询条件-姓名输入框
 * @throws IOException
 */
-public Locator name_textarea() throws IOException
+public Locator search_name_textarea() throws IOException
  {
-   Locator locator=getLocator("name_textarea");
+   Locator locator=getLocator("search_name_textarea");
    return locator;
  }
 
@@ -188,9 +188,9 @@ public Locator name_textarea() throws IOException
 * 查询条件-身份证号输入框
 * @throws IOException
 */
-public Locator cardNumber_textarea() throws IOException
+public Locator search_cardNumber_textarea() throws IOException
  {
-   Locator locator=getLocator("cardNumber_textarea");
+   Locator locator=getLocator("search_cardNumber_textarea");
    return locator;
  }
 

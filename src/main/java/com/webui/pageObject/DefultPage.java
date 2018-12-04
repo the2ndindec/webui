@@ -93,4 +93,34 @@ public Locator departReportDangerList() throws IOException
    Locator locator=getLocator("departReportDangerList");
    return locator;
  }
+
+/***
+* 辅助管理
+* @throws IOException
+*/
+public Locator fzgl() throws IOException
+ {
+   Locator locator=getLocator("fzgl");
+   return locator;
+ }
+
+/***
+* 职业卫生
+* @throws IOException
+*/
+public Locator zyws() throws IOException
+ {
+   Locator locator=getLocator("zyws");
+   return locator;
+ }
+
+/***
+* 职工个人基本信息
+* @throws IOException
+*/
+public Locator employeeInfoList() throws IOException
+ {
+   Locator locator=getLocator("employeeInfoList");
+   return locator;
+ }
 }

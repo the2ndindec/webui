@@ -1,6 +1,5 @@
 package com.webui.action;
 
-import com.thoughtworks.selenium.webdriven.commands.FireEvent;
 import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReviewDangerListPage;
 import com.webui.utils.ElementAction;
@@ -36,7 +35,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws IOException
      * @description 切换到风险审核页面
      */
-    @Step(value = "切换到风险审核页面")
     public void modifyMenu(Locator locator) throws IOException {
         defultPageActions.openMenu(defultPage.reviewDangerList());
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
@@ -52,7 +50,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws IOException
      * @description 根据风险点类型查询
      */
-    @Step(value = "根据风险点类型查询")
     public void searchByAddressCate(String addressCate) throws IOException {
         elementAction.selectByText(reviewDangerListPage.addressCate_select(), addressCate);
         doSearch(reviewDangerListPage.search_Button(), 2);
@@ -63,7 +60,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @return: void
      * @Description: 根据辨识开始时间查询
      */
-    @Step(value = "输入辨识开始时间")
     public void searchByyeRecognizeTimeBegin(String yeRecognizeTime) throws IOException {
         setDefult();
         elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime);
@@ -76,7 +72,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @return: void
      * @Description: 根据辨识开始结束查询
      */
-    @Step(value = "输入辨识结束时间")
     public void searchByyeRecognizeTimeEnd(String yeRecognizeTime) throws IOException {
         setDefult();
         elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime);
@@ -89,7 +84,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据辨识时间段查询
      * @throws:
      */
-    @Step(value = "输入辨识开始/结束时间")
     public void searchByRecognizeTime(String yeRecognizeTime_begin, String yeRecognizeTime_end) throws IOException, ParseException {
         setDefult();
         if (compareTime(yeRecognizeTime_begin, yeRecognizeTime_end)) {
@@ -107,7 +101,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据隐患描述字段值查询
      * @throws:
      */
-    @Step(value = "输入隐患描述")
     public void searchByYeMhazardDesc(String yeMhazardDesc) throws IOException {
         setDefult();
         elementAction.type(reviewDangerListPage.yeMhazardDesc_textarea(), yeMhazardDesc);
@@ -120,7 +113,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据专业查询
      * @throws:
      */
-    @Step(value = "选择专业")
     public void searchByYeProfession(String yeProfession) throws IOException {
         setDefult();
         elementAction.selectByText(reviewDangerListPage.yeProfession_select(), yeProfession);
@@ -133,7 +125,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据伤害类别查询
      * @throws:
      */
-    @Step(value = "选择伤害类别")
     public void searchByDamageType(String damageType) throws IOException {
         setDefult();
         elementAction.selectByText(reviewDangerListPage.damageType_select(), damageType);
@@ -147,10 +138,9 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据风险描述查询
      * @throws:
      */
-    @Step(value = "输入风险描述")
     public void searchByYePossiblyHazard(String yePossiblyHazard) throws IOException {
         setDefult();
-        elementAction.type(reviewDangerListPage.yeProfession_select(), yePossiblyHazard);
+        elementAction.type(reviewDangerListPage.yePossiblyHazard_textarea(), yePossiblyHazard);
         doSearch(reviewDangerListPage.search_Button(), 2);
     }
 
@@ -160,7 +150,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据作业活动查询
      * @throws:
      */
-    @Step(value = "选择作业活动")
     public void searchByActivityid(String activityid) throws IOException {
         setDefult();
         elementAction.selectByText(reviewDangerListPage.activityId_select(), activityid);
@@ -173,7 +162,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据风险等级查询
      * @throws:
      */
-    @Step(value = "选择风险等级")
     public void searchByYeRiskGrade(String yeRiskGrade) throws IOException {
         setDefult();
         elementAction.selectByText(reviewDangerListPage.yeRiskGrade_select(), yeRiskGrade);
@@ -186,7 +174,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据风险类型查询
      * @throws:
      */
-    @Step(value = "选择风险类型")
     public void searchByYeHazardCate(String yeHazardCate) throws IOException {
         setDefult();
         elementAction.selectByText(reviewDangerListPage.yeHazardCate_select(), yeHazardCate);
@@ -199,7 +186,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据管控标准来源查询
      * @throws:
      */
-    @Step(value = "输入管控标准来源")
     public void searchByDocSource(String docSource) throws IOException {
         setDefult();
         elementAction.type(reviewDangerListPage.docSource_textarea(), docSource);
@@ -212,7 +198,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据标准内容查询
      * @throws:
      */
-    @Step(value = "输入标准内容")
     public void searchByYeStandard(String yeStandard) throws IOException {
         setDefult();
         elementAction.type(reviewDangerListPage.yeStandard_textarea(), yeStandard);
@@ -225,7 +210,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 根据隐患等级查询
      * @throws:
      */
-    @Step(value = "选择隐患等级")
     public void searchByHiddenLevel(String hiddenLevel) throws IOException {
         setDefult();
         elementAction.selectByText(reviewDangerListPage.hiddenLevel_select(), hiddenLevel);

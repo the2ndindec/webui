@@ -13,12 +13,26 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="风险审核">
+    <test verbose="2" preserve-order="true" name="风险审核-查询">
         <classes>
             <class name="com.webui.tests.ReviewDangerListPageTests">
                 <methods>
-                    <include name="TC_updateYeMhazardDescDefault"/>
-                    <exclude name="TC_goReviewPass"/>
+                    <parameter name="AddressCate" value="办公楼" />
+                    <include name="TC_searchByAddressCate"/>
+                    <parameter name="hazardDesc" value="顶板伤人" />
+                    <include name="TC_searchByYeMhazardDesc"/>
+                    <parameter name="profession" value="运输" />
+                    <include name="TC_searchByYeProfession"/>
+                    <parameter name="damageType" value="瓦斯爆炸"/>
+                    <include name="TC_searchByDamageType"/>
+                    <parameter name="YePossiblyHazard" value="10-103工作面带压开采" />
+                    <include name="TC_searchByYePossiblyHazard"/>
+                    <parameter name="activityid" value="回采"/>
+                    <include name="TC_searchByActivityid"/>
+                    <parameter name="riskGrade" value="一般风险"/>
+                    <include name="TC_searchByYeRiskGrade"/>
+                    <parameter name="hazardCate" value="机"/>
+                    <include name="TC_searchByYeHazardCate"/>
                 </methods>
             </class>
         </classes>

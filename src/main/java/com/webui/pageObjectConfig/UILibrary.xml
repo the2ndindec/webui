@@ -30,7 +30,7 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='部门风险上报']" desc="部门风险上报">departReportDangerList</locator>
 
 		<locator type="xpath" timeout="3" value=".//span[text()='辅助管理']" desc="辅助管理">fzgl</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='职业卫生']" desc="职业卫生">zyws</locator>
+		<locator type="xpath" timeout="3" value=".//li[@id='fzglLi']//span[text()='职业卫生']" desc="职业卫生">zyws</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='职工个人基本信息']" desc="职工个人基本信息">employeeInfoList</locator>
 	</page>
 	
@@ -194,8 +194,8 @@
 		<locator type="xpath" timeout="3" value=".//input[@name='fileNo']" desc="查询条件--档案号输入框">search_fileNo_textarea</locator>
 		<locator type="xpath" timeout="3" value=".//input[@name='postNumber']" desc="查询条件--在岗编号输入框">search_postNumber_textarea</locator>
 		<locator type="xpath" timeout="3" value=".//input[@name='retireNumber']" desc="查询条件--退休编号输入框">search_retireNumber_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//select[@name='name']" desc="查询条件-姓名输入框">search_name_textarea</locator>
-		<locator type="xpath" timeout="3" value=".//select[@name='cardNumber']" desc="查询条件-身份证号输入框">search_cardNumber_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='name']" desc="查询条件-姓名输入框">search_name_textarea</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='cardNumber']" desc="查询条件-身份证号输入框">search_cardNumber_textarea</locator>
 
 		<!-- 添加职工信息 -->
 		<locator type="xpath" timeout="3" value=".//input[@name='fileNo']" desc="添加职工信息部分：档案号输入框">fileNo_textarea</locator>

@@ -358,7 +358,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void clickElement() throws IOException {
-        elementAction.sleep(2);
+        elementAction.sleep(1);
         if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
             List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
             Random random = new Random();
@@ -879,4 +879,5 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         elementAction.switchToDefaultFrame();
         elementAction.click_left(reviewDangerListPage.check_confirm_btn());
     }
+
 }

@@ -268,7 +268,7 @@ public class ElementAction extends TestBaseCase {
         /**
          * locator.getElement(),获取对象库对象定位信息
          */
-        log.info("查找元素：" + locator.getLocalorName() + "方式" + "[" + "By." + locator.getBy() + ":" + locator.getElement()
+        log.info("查找元素：" + locator.getLocalorName() + ">>>方式:" + "[" + "By." + locator.getBy() + ":" + locator.getElement()
                 + "]");
         WebElement webElement;
         switch (locator.getBy()) {
@@ -315,7 +315,7 @@ public class ElementAction extends TestBaseCase {
          * locator.getElement(),获取对象库对象定位信息
          */
         // locator=getLocator(locatorMap.get(key));
-        log.info("查找一组元素：" + locator.getLocalorName() + " 方式" + "[" + "By." + locator.getBy() + ":"
+        log.info("查找一组元素：" + locator.getLocalorName() + " >>>方式:" + "[" + "By." + locator.getBy() + ":"
                 + locator.getElement() + "]");
         List<WebElement> webElements;
         switch (locator.getBy()) {
@@ -864,7 +864,9 @@ public class ElementAction extends TestBaseCase {
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
         webElement.isEnabled();
-        return webElement.isDisplayed();
+        boolean flag = webElement.isDisplayed();
+        log.info(""+flag);
+        return flag;
     }
 
     /**

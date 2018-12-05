@@ -10,6 +10,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+//import org.testng.annotations.Ignore;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -171,7 +172,6 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Feature("审核")
     @Test(description = "审核驳回,不输入备注信息测试")
     public void TC_goReviewDismiss() throws IOException {
-//        reviewDangerListPageActions.modifyMenu(defultPage.reviewDangerList());
         reviewDangerListPageActions.goReviewDismissWithoutRemark();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
         Assertion.VerityString(elementAction.getText(reviewDangerListPage.check_remark_error()).trim(), "请填写备注！");
@@ -203,7 +203,6 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Feature("修改风险")
     @Test(description = "危险源名称为空,验证是否判断正确")
     public void TC_updateHazardnameDefault() throws IOException {
-//        reviewDangerListPageActions.modifyMenu();
         reviewDangerListPageActions.updateHazardnameDefault();
         Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请填写危险源");
     }
@@ -262,7 +261,6 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Feature("修改风险")
     @Test(description = "验证风险类型值是否可以为空")
     public void TC_updateYeHazardCateDefault() throws IOException {
-
         reviewDangerListPageActions.updateYeHazardCateDefault();
         Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "选择风险类型");
     }
@@ -285,7 +283,6 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Feature("修改风险")
     @Test(description = "验证管控措施值是否可以为空")
     public void TC_updatePostNameDefault() throws IOException {
-
         reviewDangerListPageActions.updateYeProbability();
         reviewDangerListPageActions.updateYeCost();
         reviewDangerListPageActions.updatePostNameDefault();
@@ -295,9 +292,23 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Feature("修改风险")
     @Test(description = "验证管控措施值是否可以为空")
     public void TC_updateYeMhazardDescDefault() throws IOException {
-        reviewDangerListPageActions.modifyMenu();
         reviewDangerListPageActions.switchToUpdatePage();
         reviewDangerListPageActions.updateYeMhazardDescDefault();
         Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写隐患描述");
+    }
+
+    @Feature("修改风险")
+    @Test(description = "导出数据")
+    public void TC_export() throws IOException {
+        reviewDangerListPageActions.modifyMenu();
+        reviewDangerListPageActions.exportXls();
+    }
+
+    @Feature("修改风险")
+    @Test(description = "去审操作")
+    public void TC_reviewCallback() throws IOException {
+        reviewDangerListPageActions.modifyMenu();
+        reviewDangerListPageActions.reviewCallback();
+        assertion.verityNotTextPresent(reviewDangerListPageActions.getTempString());
     }
 }

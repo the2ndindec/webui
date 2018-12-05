@@ -2,13 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="通用矿版">
     <parameter name="driver" value="FirefoxDriver" />
+    <parameter name="url" value="http://192.168.3.186:8080/ty/"/> <!--测试地址-->
     <parameter name="remark" value="webui自动化测试,自动输入内容" />
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
             <class name="com.webui.tests.LoginPageTests">
                 <methods>
                     <include name="TC_login"/>
-                    <!--<exclude name="TC_searchByYeMhazardDesc"/>-->
                 </methods>
             </class>
         </classes>
@@ -33,17 +33,32 @@
                     <include name="TC_searchByYeRiskGrade"/>
                     <parameter name="hazardCate" value="机"/>
                     <include name="TC_searchByYeHazardCate"/>
+                    <!--<include name="TC_reviewCallback"/>-->
                 </methods>
             </class>
         </classes>
     </test>
-    <!--<test verbose="2" preserve-order="true" name="风险审核">-->
-        <!--<classes>-->
-            <!--<class name="com.webui.tests.ReviewDangerListPageTests">-->
-                <!--<methods>-->
-                    <!--<include name="TC_goReviewDismiss"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test preserve-order="true" name="职工个人基本信息">
+        <classes>
+            <class name="com.webui.tests.EmployeeInfoListPageTests">
+                <methods>
+                    <parameter name="fileNo" value="01"/>
+                    <parameter name="searchfileNo" value="档案号"/>
+                    <include name="TC_searchByFileNo"/>
+                    <parameter name="postNo" value="01"/>
+                    <parameter name="searchpostNo" value="在岗编号"/>
+                    <include name="TC_searchByPostNumber"/>
+                    <parameter name="retireNumber" value="01"/>
+                    <parameter name="searchretireNumber" value="退休编号"/>
+                    <include name="TC_searchByRetireNumber"/>
+                    <parameter name="name" value="xxx"/>
+                    <parameter name="searchname" value="姓名"/>
+                    <include name="TB_searchByName"/>
+                    <parameter name="cardNumber" value="321111198901077615"/>
+                    <parameter name="searchcardNumber" value="身份证号"/>
+                    <include name="TC_searchByCardNumber"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

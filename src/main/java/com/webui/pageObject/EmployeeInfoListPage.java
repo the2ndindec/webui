@@ -335,32 +335,32 @@ public Locator error_tip() throws IOException
  }
 
 /***
-* 审核弹框部分：确定按钮
+* 确定按钮
 * @throws IOException
 */
-public Locator check_confirm_btn() throws IOException
+public Locator confirm_btn() throws IOException
  {
-   Locator locator=getLocator("check_confirm_btn");
+   Locator locator=getLocator("confirm_btn");
    return locator;
  }
 
 /***
-* 审核弹框部分：关闭按钮
+* 关闭按钮
 * @throws IOException
 */
-public Locator check_close_btn() throws IOException
+public Locator close_btn() throws IOException
  {
-   Locator locator=getLocator("check_close_btn");
+   Locator locator=getLocator("close_btn");
    return locator;
  }
 
 /***
-* 审核弹框部分：取消按钮
+* 取消按钮
 * @throws IOException
 */
-public Locator check_cancel_btn() throws IOException
+public Locator cancel_btn() throws IOException
  {
-   Locator locator=getLocator("check_cancel_btn");
+   Locator locator=getLocator("cancel_btn");
    return locator;
  }
 

@@ -43,6 +43,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     public void modifyMenu() throws IOException {
         defultPageActions.openMenu(defultPage.aqfxfjgk_menu(), defultPage.ndfxbs_list(), defultPage.reviewDangerList());
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
+        elementAction.sleep(1);
     }
 
     /**
@@ -229,6 +230,17 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
+     *
+     *@param: []
+     *@return: void
+     *@Description: 导出数据
+     *@throws: 
+     */
+    public void exportXls() throws IOException {
+        elementAction.click_left(reviewDangerListPage.ExportXls_Button());
+    }
+
+    /**
      * @param: [remark] 备注信息
      * @return: void
      * @Description: 审核通过
@@ -390,7 +402,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     public void updateHazardnameDefault() throws IOException {
         elementAction.click_left(reviewDangerListPage.update_ms_close());   //清除原内容
-//        elementAction.fireEventBlur(reviewDangerListPage.update_hazardName_input());
         elementAction.click(reviewDangerListPage.update_btn_save());
     }
 
@@ -536,7 +547,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     public void updatePostNameDefault() throws IOException {
         elementAction.click_left(reviewDangerListPage.update_postName_del());
-//        elementAction.fireEventBlur(reviewDangerListPage.update_postName_textarea());
         elementAction.click(reviewDangerListPage.update_btn_save());
     }
 
@@ -553,11 +563,10 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
-     *
-     *@param: [yeMhazardDesc 隐患描述字段值]
-     *@return: void
-     *@Description: 修改隐患描述
-     *@throws: 
+     * @param: [yeMhazardDesc 隐患描述字段值]
+     * @return: void
+     * @Description: 修改隐患描述
+     * @throws:
      */
     public void updateYeMhazardDesc(String yeMhazardDesc) throws IOException {
         elementAction.clear(reviewDangerListPage.update_yeMhazardDesc_textarea());
@@ -566,11 +575,10 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
-     *
-     *@param: []
-     *@return: void
-     *@Description:  清空隐患描述字段值, 用于验证在修改风险时, 该字段是否可以为空
-     *@throws:
+     * @param: []
+     * @return: void
+     * @Description: 清空隐患描述字段值, 用于验证在修改风险时, 该字段是否可以为空
+     * @throws:
      */
     public void updateYeMhazardDescDefault() throws IOException {
         elementAction.clear(reviewDangerListPage.update_yeMhazardDesc_textarea());
@@ -849,15 +857,26 @@ public class ReviewDangerListPageActions extends TestBaseCase {
 
     // 选择已审核状态
     public void checkChecked() throws IOException {
-        elementAction.sleep(2);
-        elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
         elementAction.click_left(reviewDangerListPage.checked_radio());
     }
 
     //选择待审核状态
     public void unCHecked() throws IOException {
-
         elementAction.click_left(reviewDangerListPage.checkPending_radio());
+    }
+
+    /**
+     *
+     *@param: []
+     *@return: void
+     *@Description: 针对已审核的数据,执行去审操作
+     *@throws: 
+     */
+    public void reviewCallback() throws IOException {
+        checkChecked();
+        clickElement();
+        elementAction.click_left(reviewDangerListPage.reviewCallback_Button());
+        elementAction.switchToDefaultFrame();
+        elementAction.click_left(reviewDangerListPage.check_confirm_btn());
     }
 }

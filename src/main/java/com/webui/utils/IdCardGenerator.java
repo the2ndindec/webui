@@ -12,7 +12,7 @@ public class IdCardGenerator {
 	 * 
 	 * @return id 返回身份证号码
 	 */
-	private String getRandomID() {
+	public String getRandomID() {
 		String id ;
 		// 随机生成省、自治区、直辖市代码 1-2
 		String provinces[] = { "11", "12", "13", "14", "15", "21", "22", "23", "31", "32", "33", "34", "35", "36", "37",
@@ -59,7 +59,7 @@ public class IdCardGenerator {
 	
 	public static void main(String[] args) {
 		IdCardGenerator cre = new IdCardGenerator();  
-        String randomID = cre.getRandomID();  
-        System.out.println(randomID);
+//        String randomID = cre.getRandomID();
+        System.out.println(cre.getRandomID());
 	}
 }

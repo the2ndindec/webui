@@ -229,4 +229,89 @@
 		<locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
 	</page>
 
+    <page pagename="com.webui.pageObject.DepartReportDangerListPage" value="" desc="部门风险上报页面">
+        <locator type="name" timeout="3" value="iframe5" desc="部门风险上报页面iframe标记">iframe_departReportDangerList</locator>
+        <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goCloneYearDanger')]" desc="年度辨识复制部分iframe标记">iframe_goCloneYearDanger</locator>
+        <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'associateMajorGeneralDangerSource')]" desc="从通用库复制部分iframe标记">iframe_associateMajorGeneralDangerSource</locator>
+        <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAddDepartDangerSource')]" desc="添加风险部分iframe标记">iframe_goAddDepartDangerSource</locator>
+
+        <!-- 操作按钮 -->
+        <locator type="xpath" timeout="3" value=".//span[text()='年度辨识复制']" desc="年度辨识复制按钮">goCloneYearDanger_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='从通用库复制']" desc="从通用库复制按钮">chooseDangerSource_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='导出']" desc="导出按钮">exportXls_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='查看']" desc="查看按钮">detail_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='录入']" desc="录入按钮">add_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='编辑']" desc="编辑按钮">update_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='上报审核']" desc="上报审核按钮">goReport_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='全部上报审核']" desc="全部上报审核按钮">doReportAll_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='批量删除']" desc="批量删除按钮">deleteALLSelect_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='导入']" desc="导入按钮">importXls_Button</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='模板下载']" desc="模板下载按钮">importXlsT_Button</locator>
+        <!-- 搜索条件 -->
+        <locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]/input" desc="全部 ">all_radio</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[2]/input" desc="待上报">toBeReported_radio</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]/input" desc="待上报">beenReported_radio</locator>
+        <locator type="xpath" timeout="3" value=".//input[@name='yeRecognizeTime_begin']" desc="查询条件--辨识时间开始输入框">s_yeRecognizeTime_begin_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//input[@name='yeRecognizeTime_end']" desc="查询条件--辨识时间结束输入框">s_yeRecognizeTime_end_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//input[@name='yeMhazardDesc']" desc="查询条件--隐患描述输入框">s_yeMhazardDesc_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//select[@name='yeProfession']" desc="查询条件--专业选择框">s_yeProfession_select</locator>
+        <locator type="xpath" timeout="3" value=".//select[@name='damageType']" desc="查询条件--伤害类别">s_damageType_select</locator>
+        <locator type="xpath" timeout="3" value=".//input[@name='yePossiblyHazard']" desc="查询条件--风险描述输入框">s_yePossiblyHazard_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//select[@name='activity.id']" desc="查询条件--作业活动">s_activityId_select</locator>
+        <locator type="xpath" timeout="3" value=".//select[@name='yeRiskGrade']" desc="查询条件--风险等级">s_yeRiskGrade_select</locator>
+        <locator type="xpath" timeout="3" value=".//select[@name='yeHazardCate']" desc="查询条件--风险类型">s_yeHazardCate_select</locator>
+        <locator type="xpath" timeout="3" value=".//input[@name='docSource']" desc="查询条件--管控标准来源输入框">s_docSource_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//input[@name='yeStandard']" desc="查询条件--标准内容输入框">s_yeStandard_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//select[@name='hiddenLevel']" desc="查询条件--隐患等级">s_hiddenLevel_select</locator>
+
+        <!-- 录入风险信息 -->
+        <locator type="xpath" timeout="3" value=".//select[@id='addressCate']" desc="风险点类型">addressCate_select</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='yeRecognizeTime']" desc="编辨识时间输入框">yeRecognizeTime_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//select[@id='yeProfession']" desc="专业选择框">yeProfession_select</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='magicsuggestInputId']" desc="危险源名称输入框">hazardName_input</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='hazardname']/div[2]" desc="危险源名称下拉按钮">hazardNameList</locator>
+        <!-- .//*[@id='hazardname']//div[text()='顶板'] -->
+        <locator type="xpath" timeout="3" value=".//div[@id='hazardname']//span[contains(@class,'ms-close-btn')]" desc="删除危险源">hazard_ms_close</locator>
+        <!-- .//*[@id='formobj']//tbody/tr[3]/td[2]/label[1]/input   伤害类别 -->
+        <!-- .//*[@id='formobj']//tbody/tr[4]/td[2]/label[1]   事故类型 -->
+        <locator type="xpath" timeout="3" value=".//textarea[@id='yePossiblyHazard']" desc="风险描述输入框">yePossiblyHazard_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//select[@id='yeProbability']" desc="风险可能性选择框">yeProbability_select</locator>
+        <locator type="xpath" timeout="3" value=".//select[@id='yeCost']" desc="风险损失选择框">yeCost_select</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='riskValue']" desc="风险值">riskValue_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='yeRiskGrade']" desc="风险等级">yeRiskGrade_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//select[@id='yeHazardCate']" desc="风险类型">yeHazardCate_select</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='activityname']/div[2]" desc="作业活动下拉按钮">activityNameList</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='activityname']//span[contains(@class,'ms-close-btn')]" desc="删除作业活动">activity_ms_close</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='docSource']" desc="管控标准来源输入框">docSource_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='sectionName']" desc="章节条款输入框">ectionName_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//textarea[@id='yeStandard']" desc="标准内容输入框">yeStandard_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//textarea[@id='manageMeasure']" desc="管控措施输入框">manageMeasure_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='postname']/div[2]" desc="责任岗位下拉按钮">postNameList</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='postname']//span[contains(@class,'ms-close-btn')]" desc="删除责任岗位">postname_ms_close</locator>
+        <locator type="xpath" timeout="3" value=".//textarea[@id='yeMhazardDesc']" desc="隐患描述输入框">yeMhazardDesc_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//select[@id='hiddenLevel']" desc="隐患等级">hiddenLevel_select</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='fineMoney']" desc="罚款金额输入框">fineMoney_textarea</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='btn_save']" desc="保存按钮">save_btn</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='btn_subRep']" desc="保存并提交按钮">subRep_btn</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='closeBtn']" desc="关闭按钮">closeBtn</locator>
+
+        <locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
+
+        <locator type="xpath" timeout="3" value=".//span[contains(@class,'Validform_checktip Validform_wrong')]" desc="提示信息">error_tip</locator>
+        <locator type="xpath" timeout="3" value=".//input[@value='确定']" desc="确定按钮">confirm_btn</locator>
+        <locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
+        <locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>
+
+        <locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
+        <locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>
+        <locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-first')]" desc="底部信息--首页按钮">data_firstPage</locator>
+        <locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-prev')]" desc="底部信息--上一页按钮">data_prevPage</locator>
+        <locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-next')]" desc="底部信息--下一页按钮">data_nexttPage</locator>
+        <locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-last')]" desc="底部信息--尾页按钮">data_lastPage</locator>
+        <locator type="xpath" timeout="3" value=".//a[@class='ui_min']" desc="弹窗--最小化按钮">min_ui</locator>
+        <locator type="xpath" timeout="3" value=".//a[@class='ui_max']" desc="弹窗--最大化按钮">max_ui</locator>
+        <locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
+    </page>
+
 </map>

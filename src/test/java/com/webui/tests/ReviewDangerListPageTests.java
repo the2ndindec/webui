@@ -10,7 +10,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-//import org.testng.annotations.Ignore;
+import org.testng.annotations.Ignore;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -20,6 +20,7 @@ import java.text.ParseException;
  * @description 风险审核模块相关的测试案例
  * @Data 2018/11/27 16:56
  */
+@Ignore
 public class ReviewDangerListPageTests extends TestBaseCase {
 
     ElementAction elementAction = new ElementAction();
@@ -300,14 +301,12 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Feature("修改风险")
     @Test(description = "导出数据")
     public void TC_export() throws IOException {
-        reviewDangerListPageActions.modifyMenu();
         reviewDangerListPageActions.exportXls();
     }
 
     @Feature("修改风险")
     @Test(description = "去审操作")
     public void TC_reviewCallback() throws IOException {
-        reviewDangerListPageActions.modifyMenu();
         reviewDangerListPageActions.reviewCallback();
         assertion.verityNotTextPresent(reviewDangerListPageActions.getTempString());
     }

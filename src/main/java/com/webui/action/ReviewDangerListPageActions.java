@@ -3,18 +3,16 @@ package com.webui.action;
 import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReviewDangerListPage;
 import com.webui.utils.ElementAction;
+import com.webui.utils.FunctionUtil;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -29,6 +27,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
 
     ReviewDangerListPage reviewDangerListPage = new ReviewDangerListPage();
     DefultPage defultPage = new DefultPage();
+    FunctionUtil functionUtil = new FunctionUtil();
 
     /**
      * @param locator
@@ -87,7 +86,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      */
     public void searchByRecognizeTime(String yeRecognizeTime_begin, String yeRecognizeTime_end) throws IOException, ParseException {
         setDefult();
-        if (compareTime(yeRecognizeTime_begin, yeRecognizeTime_end)) {
+        if (functionUtil.compareTime(yeRecognizeTime_begin, yeRecognizeTime_end)) {
             elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);
             elementAction.type(reviewDangerListPage.yeRecognizeTime_begin_textarea(), yeRecognizeTime_end);
             doSearch(reviewDangerListPage.search_Button(), 2);
@@ -428,25 +427,13 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     /**
-     * @param: [locator] 下拉框
-     * @return: int
-     * @Description: 针对下拉框, 生成随机数据
-     * @throws:
-     */
-    public int selectOptionCount(Locator locator) {
-        Random random = new Random();
-        int optionCount = random.nextInt(elementAction.getOptionCount(locator) - 1) + 1;
-        return optionCount;
-    }
-
-    /**
      * @param: []
      * @return: void
      * @Description: 随机选择风险可能性值
      * @throws:
      */
     public void updateYeProbability() throws IOException {
-        elementAction.selectByIndex(reviewDangerListPage.update_yeProbability_select(), selectOptionCount(reviewDangerListPage.update_yeProbability_select()));//修改风险可能性
+        elementAction.selectByIndex(reviewDangerListPage.update_yeProbability_select(), elementAction.getOption(reviewDangerListPage.update_yeProbability_select()));//修改风险可能性
     }
 
     /**
@@ -469,7 +456,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void updateYeCost() throws IOException {
-        elementAction.selectByIndex(reviewDangerListPage.update_yeCost_select(), selectOptionCount(reviewDangerListPage.update_yeCost_select()));//修改风险可能性
+        elementAction.selectByIndex(reviewDangerListPage.update_yeCost_select(), elementAction.getOption(reviewDangerListPage.update_yeCost_select()));//修改风险可能性
     }
 
     /**
@@ -490,7 +477,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     public void updateYeHazardCate() throws IOException {
-        elementAction.selectByIndex(reviewDangerListPage.update_yeHazardCate_select(), selectOptionCount(reviewDangerListPage.update_yeHazardCate_select()));
+        elementAction.selectByIndex(reviewDangerListPage.update_yeHazardCate_select(), elementAction.getOption(reviewDangerListPage.update_yeHazardCate_select()));
     }
 
     /**
@@ -601,22 +588,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
 
 
     /**
-     * @param: [yeRecognizeTime_begin, yeRecognizeTime_end]
-     * @return: true 开始时间早于等于结束时间 false 开始时间晚于结束时间
-     * @Description: 判断时间段是否正确
-     * @throws:
-     */
-    public boolean compareTime(String yeRecognizeTime_begin, String yeRecognizeTime_end) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date bt = sdf.parse(yeRecognizeTime_begin);
-        Date et = sdf.parse(yeRecognizeTime_end);
-        if (bt.before(et) || bt.equals(et))
-            return true;
-        else
-            return false;
-    }
-
-    /**
      * 封装点击查询按钮的操作
      *
      * @param locator 查询按钮元素
@@ -688,8 +659,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
                 break;
             case "风险描述":
                 if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
-//                    List<WebElement> yePossiblyHazardElements1 = (new WebDriverWait(driver, 10))
-//                            .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yePossiblyHazard']/div")));
                     List<WebElement> yePossiblyHazardElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yePossiblyHazard']/div"));
                     tempNum = yePossiblyHazardElements.size();

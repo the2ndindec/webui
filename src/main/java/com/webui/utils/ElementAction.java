@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -395,9 +396,10 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
+     * 失去焦点.通过js实现失去焦点的方法
+     *
      * @param: [locator] 需要操作的对象元素
      * @return: void
-     * @Description: 失去焦点.通过js实现失去焦点的方法
      * @throws:
      */
     public void fireEventBlur(Locator locator) {
@@ -549,14 +551,23 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
+     * 随机获取select列表中某个option
+     *
      * @param: [locator] 下拉框
      * @return: int 下拉框中option的个数
-     * @Description: 返回下拉列表中option的个数
      * @throws:
      */
-    public int getOptionCount(Locator locator) {
+    public int getOption(Locator locator) {
         Select select = new Select(findElement(locator));
-        return select.getOptions().size();
+        List<WebElement> webElements = select.getOptions();
+        List<String> downs = new ArrayList<>();
+        for (WebElement webElement : webElements
+        ) {
+            downs.add(webElement.getText());
+        }
+        int num = webElements.size();
+        Random random = new Random();
+        return random.nextInt(num - 1) + 1;
     }
 
     /**
@@ -865,7 +876,7 @@ public class ElementAction extends TestBaseCase {
         WebElement webElement = action.findElement(locator);
         webElement.isEnabled();
         boolean flag = webElement.isDisplayed();
-        log.info(""+flag);
+        log.info("" + flag);
         return flag;
     }
 

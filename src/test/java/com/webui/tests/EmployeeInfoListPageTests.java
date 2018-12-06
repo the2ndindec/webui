@@ -1,14 +1,14 @@
 package com.webui.tests;
 
 import com.webui.action.EmployeeInfoListPageActions;
-import com.webui.utils.Assertion;
-import com.webui.utils.ElementAction;
-import com.webui.utils.TestBaseCase;
+import com.webui.pageObject.EmployeeInfoListPage;
+import com.webui.utils.*;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * @author the2n
@@ -18,6 +18,7 @@ import java.io.IOException;
 public class EmployeeInfoListPageTests extends TestBaseCase {
     ElementAction elementAction = new ElementAction();
     EmployeeInfoListPageActions employeeInfoListPageActions = new EmployeeInfoListPageActions();
+    EmployeeInfoListPage employeeInfoListPage = new EmployeeInfoListPage();
 
     @Feature("查询")
     @Test(description = "验证根据档案号查询功能")
@@ -73,4 +74,37 @@ public class EmployeeInfoListPageTests extends TestBaseCase {
             Assertion.VerityCationString(employeeInfoListPageActions.getSearchData(searchcardNumber).get(i), cardNumber.trim());
         }
     }
+
+    @Feature("添加数据")
+    @Test(description = "验证档案号是否可以为空")
+    public void TC_verifyFileNo() throws IOException {
+        employeeInfoListPageActions.setfileNo();
+        Assertion.VerityCationString(elementAction.getText(employeeInfoListPage.error_tip()), "填写档案号");
+    }
+
+    @Feature("添加数据")
+    @Test(description = "验证在岗编号是否可以为空")
+    public void TC_verifyPostNumber() throws IOException {
+        employeeInfoListPageActions.setPostNumber();
+        Assertion.VerityCationString(elementAction.getText(employeeInfoListPage.error_tip()), "填写在岗编号");
+    }
+
+    @Feature("添加数据")
+    @Test(description = "添加员工信息")
+    public void TC_addEmInfo() throws IOException {
+        employeeInfoListPageActions.modifyMenu();
+        employeeInfoListPageActions.goAdd();
+        employeeInfoListPageActions.typefileNo("recordNO" + employeeInfoListPageActions.getDateString() + employeeInfoListPageActions.getNumber());
+        employeeInfoListPageActions.typePostNumber("postNO" + employeeInfoListPageActions.getDateString() + employeeInfoListPageActions.getNumber());
+        employeeInfoListPageActions.typeName(employeeInfoListPageActions.getName());
+        employeeInfoListPageActions.selectGender();
+        employeeInfoListPageActions.typeCardNumber(employeeInfoListPageActions.getIdNo());
+        employeeInfoListPageActions.selectPostCategory();
+        employeeInfoListPageActions.selectPostStatus();
+        employeeInfoListPageActions.doConfirm();
+        employeeInfoListPageActions.swFrame(employeeInfoListPage.iframe_employeeInfoList());
+        Assertion.VerityTextPresentPrecision(employeeInfoListPageActions.getName());
+    }
+
+
 }

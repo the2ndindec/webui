@@ -38,7 +38,7 @@
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="职工个人基本信息">
+    <test preserve-order="true" name="职工个人基本信息:查询" enabled="false">
         <classes>
             <class name="com.webui.tests.EmployeeInfoListPageTests">
                 <methods>
@@ -57,6 +57,16 @@
                     <parameter name="cardNumber" value="321111198901077615"/>
                     <parameter name="searchcardNumber" value="身份证号"/>
                     <include name="TC_searchByCardNumber"/>
+                    <include name="TC_verifyFileNo"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="职工个人基本信息:添加数据">
+        <classes>
+            <class name="com.webui.tests.EmployeeInfoListPageTests">
+                <methods>
+                    <include name="TC_addEmInfo"/>
                 </methods>
             </class>
         </classes>

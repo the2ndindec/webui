@@ -524,7 +524,7 @@ public class Assertion extends TestBaseCase {
         Boolean flag = false;
         log.info(verityStr);
         try {
-            exceptStr = "//*[text()=\"" + exceptStr + "\"]";
+            exceptStr = ".//*[text()=\"" + exceptStr + "\"]";
             System.out.println(exceptStr);
             driver.findElement(By.xpath(exceptStr));
             flag = true;
@@ -533,7 +533,6 @@ public class Assertion extends TestBaseCase {
             ElementAction.noSuchElementExceptions.add(e);
             e.printStackTrace();
         }
-        System.out.println(false);
         try {
             Assert.assertTrue(flag);
             AssertPassLog();

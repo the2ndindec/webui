@@ -9,11 +9,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author the2n
- * @description
+ * @description 部门风险上报页面
  * @Data 2018/12/06 15:49
  */
 public class DepartReportDangerListActions extends TestBaseCase {
@@ -30,9 +31,16 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.switchToFrame(departReportDangerListPage.iframe_departReportDangerList());
     }
 
+    // 切换到主页面页面
+    public void goDepartReportDangerList() throws IOException {
+        elementAction.switchToDefaultFrame();
+        elementAction.switchToFrame(departReportDangerListPage.iframe_departReportDangerList());
+    }
+
     // 切换到录入界面
     public void goAdd() throws IOException {
         elementAction.click_left(departReportDangerListPage.add_Button());
+        elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(departReportDangerListPage.iframe_goAddDepartDangerSource());
     }
 
@@ -54,6 +62,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
     //  选择危险源
     public void selectHazardName(String hazardName) throws IOException {
         elementAction.click_left(departReportDangerListPage.hazardNameList());
+        elementAction.sleep(1);
         WebElement hazard = driver.findElement(By.xpath(".//*[@id='hazardname']//div[text()='" + hazardName + "']"));
         hazard.click();
     }
@@ -197,5 +206,259 @@ public class DepartReportDangerListActions extends TestBaseCase {
     //  输入风险描述
     public void typeYePossiblyHazard(String yePossiblyHazard) throws IOException {
         elementAction.type(departReportDangerListPage.yePossiblyHazard_textarea(), yePossiblyHazard);
+    }
+
+    // 选择风险可能性
+    public void selectYeProbability(String yeProbability) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.yeProbability_select(),yeProbability);
+    }
+    //  选择风险损失
+    public void selectYeCost(String yeCost) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.yeCost_select(),yeCost);
+    }
+
+    //  选择风险类型
+    public void selectYeHazardCate(String yeHazardCate) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.yeHazardCate_select(),yeHazardCate);
+    }
+
+    //  选择作业活动
+    public void selectActivityName(String activityname) throws IOException {
+        elementAction.click_left(departReportDangerListPage.activityNameList());
+        elementAction.sleep(1);
+        WebElement activity = driver.findElement(By.xpath(".//*[@id='activityname']//div[text()='" + activityname + "']"));
+        activity.click();
+    }
+
+    //  输入管控标准来源
+    public void typeDocSource(String docSource) throws IOException {
+        elementAction.type(departReportDangerListPage.docSource_textarea(), docSource);
+    }
+    //  输入章节条款
+    public void typeSectionName(String sectionName) throws IOException {
+        elementAction.type(departReportDangerListPage.ectionName_textarea(), sectionName);
+    }
+    //  输入标准内容
+    public void typeYeStandard(String yeStandard) throws IOException {
+        elementAction.type(departReportDangerListPage.yeStandard_textarea(), yeStandard);
+    }
+    //  输入管控措施
+    public void typeManageMeasure(String manageMeasure) throws IOException {
+        elementAction.type(departReportDangerListPage.manageMeasure_textarea(), manageMeasure);
+    }
+
+    //  选择责任岗位
+    public void selectPostName(String postname) throws IOException {
+        elementAction.click_left(departReportDangerListPage.postNameList());
+        elementAction.sleep(1);
+        WebElement post = driver.findElement(By.xpath(".//*[@id='postname']//div[text()='" + postname + "']"));
+        post.click();
+    }
+    //  输入隐患描述
+    public void typeYeMhazardDesc(String yeMhazardDesc) throws IOException {
+        elementAction.type(departReportDangerListPage.yeMhazardDesc_textarea(), yeMhazardDesc);
+    }
+    //  选择隐患等级
+    public void selectHiddenLevel(String hiddenLevel) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.hiddenLevel_select(),hiddenLevel);
+    }
+
+    //  输入隐患描述
+    public void typeFineMoney(String fineMoney) throws IOException {
+        elementAction.type(departReportDangerListPage.fineMoney_textarea(), fineMoney);
+    }
+
+    //  点击保存按钮
+    public void doSave() throws IOException {
+        elementAction.click_left(departReportDangerListPage.save_btn());
+    }
+
+    //  点击保存并提交按钮
+    public void doSubRep() throws IOException {
+        elementAction.click_left(departReportDangerListPage.subRep_btn());
+    }
+
+    //  点击关闭按钮
+    public void doClose() throws IOException {
+        elementAction.click_left(departReportDangerListPage.closeBtn());
+    }
+
+
+    public int getTempNum() {
+        return tempNum;
+    }
+
+    public void setTempNum(int tempNum) {
+        this.tempNum = tempNum;
+    }
+
+    public int tempNum;
+    /**
+     * @param fieldStr 需要获取值的字段
+     * @return 数据列表, text
+     * @throws IOException
+     * @throws InterruptedException
+     * @description 获取查询结果中指定字段值
+     */
+    public List<String> getSearchData(String fieldStr) throws IOException, InterruptedException {
+        List<String> addressCateList = new ArrayList<>();
+        switch (fieldStr) {
+            case "风险点类型":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> addressCateElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='addressCate']/div"));
+                    tempNum = addressCateElements.size();
+                    for (int j = 0; j < addressCateElements.size(); j++) {
+                        addressCateList.add(addressCateElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "隐患描述":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeMhazardDescElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeMhazardDesc']/div"));
+                    tempNum = yeMhazardDescElements.size();
+                    for (int j = 0; j < yeMhazardDescElements.size(); j++) {
+                        addressCateList.add(yeMhazardDescElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "专业":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeProfessionElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeProfession']/div"));
+                    tempNum = yeProfessionElements.size();
+                    for (int j = 0; j < yeProfessionElements.size(); j++) {
+                        addressCateList.add(yeProfessionElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "伤害类别":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> damageTypeElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='damageType']/div"));
+                    tempNum = damageTypeElements.size();
+                    for (int j = 0; j < damageTypeElements.size(); j++) {
+                        addressCateList.add(damageTypeElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "风险描述":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yePossiblyHazardElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yePossiblyHazard']/div"));
+                    tempNum = yePossiblyHazardElements.size();
+                    for (int j = 0; j < yePossiblyHazardElements.size(); j++) {
+                        addressCateList.add(yePossiblyHazardElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "作业活动":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> activityidElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='activity.id']/div"));
+                    tempNum = activityidElements.size();
+                    for (int j = 0; j < activityidElements.size(); j++) {
+                        addressCateList.add(activityidElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "风险等级":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeRiskGradeTempElements = driver.findElements(By
+                            .xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRiskGradeTemp']//input"));
+                    tempNum = yeRiskGradeTempElements.size();
+                    for (int j = 0; j < yeRiskGradeTempElements.size(); j++) {
+                        addressCateList.add(yeRiskGradeTempElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "风险类型":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeHazardCateElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeHazardCate']/div"));
+                    tempNum = yeHazardCateElements.size();
+                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
+                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "风险点":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeHazardCateElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='address']/div"));
+                    tempNum = yeHazardCateElements.size();
+                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
+                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "管控标准来源":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeHazardCateElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='docSource']/div"));
+                    tempNum = yeHazardCateElements.size();
+                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
+                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "标准内容":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeHazardCateElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeStandard']/div"));
+                    tempNum = yeHazardCateElements.size();
+                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
+                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "隐患等级":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeHazardCateElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='hiddenLevel']/div"));
+                    tempNum = yeHazardCateElements.size();
+                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
+                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+            case "辨识时间":
+                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    List<WebElement> yeHazardCateElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRecognizeTime']/div"));
+                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
+                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    }
+                } else {
+                    log.info("根据查询条件>>无相关结果");
+                }
+                break;
+        }
+        return addressCateList;
     }
 }

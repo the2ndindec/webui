@@ -4,6 +4,7 @@ import com.webui.action.DepartReportDangerListActions;
 import com.webui.pageObject.DepartReportDangerListPage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
+import com.webui.utils.FunctionUtil;
 import com.webui.utils.TestBaseCase;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Parameters;
@@ -21,6 +22,9 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     ElementAction elementAction = new ElementAction();
     DepartReportDangerListActions departReportDangerListActions = new DepartReportDangerListActions();
     DepartReportDangerListPage departReportDangerListPage = new DepartReportDangerListPage();
+    FunctionUtil functionUtil = new FunctionUtil();
+
+    public String tempDate=functionUtil.formatterDate("yyyyMMddHHmmss");
 
     @Feature("查询")
     @Test(description = "验证根据退休编号查询功能")
@@ -52,12 +56,12 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.typeYeStandard(yeStandard);//输入标准内容
         departReportDangerListActions.typeManageMeasure(manageMeasure);//  输入管控措施
         departReportDangerListActions.selectPostName(postname);//  选择责任岗位
-        departReportDangerListActions.typeYeMhazardDesc(yeMhazardDesc);
+        departReportDangerListActions.typeYeMhazardDesc(yeMhazardDesc+tempDate);
         departReportDangerListActions.selectHiddenLevel(hiddenLevel);
         departReportDangerListActions.typeFineMoney(fineMoney);
         departReportDangerListActions.doSave();
 
         departReportDangerListActions.goDepartReportDangerList();
-        Assertion.VerityTextPresentPrecision(yeMhazardDesc);
+        Assertion.VerityTextPresentPrecision(yeMhazardDesc+tempDate);
     }
 }

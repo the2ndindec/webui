@@ -62,11 +62,34 @@
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="职工个人基本信息:添加数据">
+    <test preserve-order="true" name="职工个人基本信息:添加数据" enabled="false">
         <classes>
             <class name="com.webui.tests.EmployeeInfoListPageTests">
                 <methods>
                     <include name="TC_addEmInfo"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="职工个人基本信息:添加数据">
+        <classes>
+            <class name="com.webui.tests.DepartReportDangerListPageTests">
+                <methods>
+                    <parameter name="hazardName" value="水"/>
+                    <parameter name="yePossiblyHazard" value="webui-风险描述"/>
+                    <parameter name="yeProbability" value="1"/>
+                    <parameter name="yeCost" value="2"/>
+                    <parameter name="yeHazardCate" value="人"/>
+                    <parameter name="activityname" value="运输"/>
+                    <parameter name="docSource" value="webui-管控标准来源"/>
+                    <parameter name="sectionName" value="webui-章节条款"/>
+                    <parameter name="yeStandard" value="webui-标准内容"/>
+                    <parameter name="manageMeasure" value="webui-1.xxx 2.bbb"/>
+                    <parameter name="postname" value="队长"/>
+                    <parameter name="yeMhazardDesc" value="webui-隐患描述"/>
+                    <parameter name="hiddenLevel" value="一般隐患A级"/>
+                    <parameter name="fineMoney" value="200"/>
+                    <include name="TC_addData"/>
                 </methods>
             </class>
         </classes>

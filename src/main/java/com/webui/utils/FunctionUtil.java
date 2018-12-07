@@ -82,7 +82,7 @@ public class FunctionUtil {
 
     /**
      * 对当前时间做一个格式化的处理
-     * @param formatterstring	时间格式 : yyyyMMdd / yyyy-MM-dd
+     * @param formatterstring	时间格式 : yyyyMMdd / yyyy-MM-dd /yyyyMMddHHmmss
      * @return: java.lang.String
      * @throws:
      */

@@ -43,24 +43,24 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     //  输入辨识时间
     public void typeYeRecognizeTime() throws IOException {
-        elementAction.type(departReportDangerListPage.yeRecognizeTime_textarea(),functionUtil.formatterDate("yyyy-MM-dd"));
+        elementAction.type(departReportDangerListPage.yeRecognizeTime_textarea(), functionUtil.formatterDate("yyyy-MM-dd"));
     }
 
     //  选择专业
     public void selectYeProfession() throws IOException {
-        elementAction.selectByIndex(departReportDangerListPage.yeProfession_select(),elementAction.getOption(departReportDangerListPage.yeProfession_select()));
+        elementAction.selectByIndex(departReportDangerListPage.yeProfession_select(), elementAction.getOption(departReportDangerListPage.yeProfession_select()));
     }
 
     //  选择危险源
     public void selectHazardName(String hazardName) throws IOException {
         elementAction.click_left(departReportDangerListPage.hazardNameList());
-        WebElement hazard = driver.findElement(By.xpath(".//*[@id='hazardname']//div[text()='"+hazardName+"']"));
+        WebElement hazard = driver.findElement(By.xpath(".//*[@id='hazardname']//div[text()='" + hazardName + "']"));
         hazard.click();
     }
 
     //  选择伤害类别:指定伤害类别
-    public void checkDamageType(String damageString){
-        switch (damageString){
+    public void checkDamageType(String damageString) {
+        switch (damageString) {
             case "物体打击":
                 WebElement element1 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[3]/td[2]//input[@value='01']"));
                 element1.click();
@@ -144,7 +144,58 @@ public class DepartReportDangerListActions extends TestBaseCase {
         }
     }
 
-    public void checkDamageType(){
+    //  随机选择伤害类别
+    public void checkDamageType() {
+        List<WebElement> webElements = driver.findElements(By.xpath(".//*[@id='formobj']//tbody/tr[3]/td[2]/label/input"));
+        webElements.get(functionUtil.random(webElements.size())).click();
+    }
 
+    //  选择伤害类别:指定伤害类别
+    public void checkYeAccident(String yeAccident) {
+        switch (yeAccident) {
+            case "顶板":
+                WebElement element1 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]//input[@value='1']"));
+                element1.click();
+                break;
+            case "瓦斯":
+                WebElement element2 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]//input[@value='2']"));
+                element2.click();
+                break;
+            case "机电":
+                WebElement element3 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]//input[@value='3']"));
+                element3.click();
+                break;
+            case "运输":
+                WebElement element4 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]//input[@value='4']"));
+                element4.click();
+                break;
+            case "放炮":
+                WebElement element5 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]//input[@value='5']"));
+                element5.click();
+                break;
+            case "水害":
+                WebElement element6 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]//input[@value='6']"));
+                element6.click();
+                break;
+            case "火灾":
+                WebElement element7 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]//input[@value='7']"));
+                element7.click();
+                break;
+            case "其他":
+                WebElement element8 = driver.findElement(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]//input[@value='8']"));
+                element8.click();
+                break;
+        }
+    }
+
+    //  随机选择伤害类别
+    public void checkYeAccident() {
+        List<WebElement> webElements = driver.findElements(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]/label/input"));
+        webElements.get(functionUtil.random(webElements.size())).click();
+    }
+
+    //  输入风险描述
+    public void typeYePossiblyHazard(String yePossiblyHazard) throws IOException {
+        elementAction.type(departReportDangerListPage.yePossiblyHazard_textarea(), yePossiblyHazard);
     }
 }

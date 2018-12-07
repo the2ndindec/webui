@@ -91,4 +91,21 @@ public class FunctionUtil {
         SimpleDateFormat formatter = new SimpleDateFormat(formatterstring);
         return formatter.format(nowDate).toString();
     }
+
+    /**
+     * 生成随机数
+     * @param num
+     * @return: int
+     * @throws:
+     */
+    public int random(int num){
+      Random random = new Random();
+      int rand = random.nextInt(num);
+      return rand;
+    }
+
+    public static void main(String[] args) {
+        FunctionUtil functionUtil = new FunctionUtil();
+        System.out.println(functionUtil.random(20));
+    }
 }

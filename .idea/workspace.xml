@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f9322f82-8dbb-4962-80eb-898685cf2863" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/action/EmployeeInfoListPageActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/action/EmployeeInfoListPageActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/utils/Assertion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/utils/Assertion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/utils/NameGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/webui/tests/EmployeeInfoListPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/webui/tests/EmployeeInfoListPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/utils/FunctionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/utils/FunctionUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/webui/tests/ReviewDangerListPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/webui/tests/ReviewDangerListPageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,7 +19,7 @@
     <session id="-1804754673">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.22" value="2" />
@@ -34,22 +29,23 @@
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.38" value="2" />
           <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="11863" />
-          <entry key="txt" value="498" />
+          <entry key="java" value="12363" />
+          <entry key="txt" value="511" />
           <entry key="xml" value="898" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11863" />
-          <entry key="PLAIN_TEXT" value="498" />
+          <entry key="JAVA" value="12363" />
+          <entry key="PLAIN_TEXT" value="511" />
           <entry key="XML" value="898" />
         </counts>
       </usages-collector>
@@ -57,7 +53,7 @@
         <counts>
           <entry key="class" value="6" />
           <entry key="iml" value="1" />
-          <entry key="java" value="174" />
+          <entry key="java" value="181" />
           <entry key="properties" value="1" />
           <entry key="xml" value="18" />
         </counts>
@@ -66,7 +62,7 @@
         <counts>
           <entry key="CLASS" value="6" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="174" />
+          <entry key="JAVA" value="181" />
           <entry key="Properties" value="1" />
           <entry key="XML" value="18" />
         </counts>
@@ -79,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/testng.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="68" column="50" lean-forward="true" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
+              <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
               <folding>
                 <element signature="n#test#0;n#suite#0;n#!!top" />
                 <element signature="n#test#1;n#suite#0;n#!!top" />
@@ -92,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/pageObjectConfig/UILibrary.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="273" column="53" lean-forward="true" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="53" />
+            <state relative-caret-position="402">
+              <caret line="275" column="13" selection-start-line="275" selection-start-column="13" selection-end-line="275" selection-end-column="66" />
               <folding>
                 <element signature="n#page#0;n#map#0;n#!!top" />
                 <element signature="n#page#2;n#map#0;n#!!top" />
@@ -107,8 +103,34 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="51">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#checkDamageType#0;class#DepartReportDangerListActions#0" />
+                <element signature="method#checkDamageType#2;class#DepartReportDangerListActions#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/FunctionUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="568">
+              <caret line="104" column="5" lean-forward="true" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/ReviewDangerListPageTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-204">
+              <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/webui/pageObject/ReviewDangerListPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/TestBaseCase.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/webui/tests/ReviewDangerListPageTests.java" />
         <option value="$PROJECT_DIR$/testng.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/IdCardGenerator.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/test.java" />
@@ -184,6 +205,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/action/EmployeeInfoListPageActions.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/webui/tests/ReviewDangerListPageTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/FunctionUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java" />
       </list>
@@ -233,7 +255,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -290,15 +311,6 @@
               <item name="webui" type="b2602c69:ProjectViewProjectNode" />
               <item name="webui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="webui" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -312,16 +324,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544085573918" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544154503431" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="D:/Program Files/Git/cmd/git.exe" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -343,7 +356,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PageObjAutoCode">
+  <component name="RunManager" selected="Application.FunctionUtil">
+    <configuration name="FunctionUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.webui.utils.FunctionUtil" />
+      <module name="webui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.webui.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PageObjAutoCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.webui.pageObjectConfig.PageObjAutoCode" />
       <module name="webui" />
@@ -401,30 +427,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="&lt;default&gt;" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="webui" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="PACKAGE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.PageObjAutoCode" />
       <item itemvalue="TestNG.D:/dev/IdeaProjects/webui/testng.xml" />
-      <item itemvalue="TestNG.&lt;default&gt;" />
       <item itemvalue="Application.ReviewDangerListPageActions" />
       <item itemvalue="Application.test" />
+      <item itemvalue="Application.FunctionUtil" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FunctionUtil" />
         <item itemvalue="Application.PageObjAutoCode" />
         <item itemvalue="TestNG.D:/dev/IdeaProjects/webui/testng.xml" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.ReviewDangerListPageActions" />
-        <item itemvalue="TestNG.&lt;default&gt;" />
       </list>
     </recent_temporary>
   </component>
@@ -438,41 +454,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542943593934</updated>
-    </task>
-    <task id="LOCAL-00015" summary="修改switchframe方法">
-      <created>1543306398151</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1543306398151</updated>
-    </task>
-    <task id="LOCAL-00016" summary="添加风险审核页面相关操作">
-      <created>1543310427085</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1543310427085</updated>
-    </task>
-    <task id="LOCAL-00017" summary="添加风险审核页面相关测试方法">
-      <created>1543310457642</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1543310457642</updated>
-    </task>
-    <task id="LOCAL-00018" summary="修改assertion方法">
-      <created>1543365579158</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1543365579158</updated>
-    </task>
-    <task id="LOCAL-00019" summary="update">
-      <created>1543367202793</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1543367202793</updated>
     </task>
     <task id="LOCAL-00020" summary="update">
       <created>1543367794702</created>
@@ -782,7 +763,42 @@
       <option name="project" value="LOCAL" />
       <updated>1544082495780</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="添加FunctionUtil">
+      <created>1544085514062</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1544085514062</updated>
+    </task>
+    <task id="LOCAL-00065" summary="自动生成DepartReportDangerListPage类">
+      <created>1544085554059</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1544085554059</updated>
+    </task>
+    <task id="LOCAL-00066" summary="添加DepartReportDangerListActions类">
+      <created>1544085590842</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1544085590843</updated>
+    </task>
+    <task id="LOCAL-00067" summary="update">
+      <created>1544085629240</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1544085629240</updated>
+    </task>
+    <task id="LOCAL-00068" summary="update">
+      <created>1544087581576</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1544087581576</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -830,7 +846,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18017058" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18176973" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -858,13 +874,20 @@
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.32995737" />
     </layout>
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加tempString的get和set方法" />
-    <MESSAGE value="更新类方法" />
-    <MESSAGE value="更新TC_goReviewPass中验证方法" />
     <MESSAGE value="添加去审/全部去审元素信息" />
     <MESSAGE value="添加unCHecked方法" />
     <MESSAGE value="添加fireEventBlur方法" />
@@ -882,12 +905,15 @@
     <MESSAGE value="添加reviewCallback方法" />
     <MESSAGE value="update EmployeeInfoListPage" />
     <MESSAGE value="更新参数方法" />
-    <MESSAGE value="update" />
     <MESSAGE value="添加页面" />
     <MESSAGE value="修改getRandomID为public方法" />
     <MESSAGE value="添加NameGenerator方法" />
     <MESSAGE value="添加DepartReportDangerListPage页面元素信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加DepartReportDangerListPage页面元素信息" />
+    <MESSAGE value="添加FunctionUtil" />
+    <MESSAGE value="自动生成DepartReportDangerListPage类" />
+    <MESSAGE value="添加DepartReportDangerListActions类" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/resources/allure.properties">
@@ -1078,16 +1104,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/ReviewDangerListPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/IdCardGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1102,16 +1118,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/test.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/Assertion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1129,25 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="68" column="50" lean-forward="true" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
-          <folding>
-            <element signature="n#test#0;n#suite#0;n#!!top" />
-            <element signature="n#test#1;n#suite#0;n#!!top" />
-            <element signature="n#test#2;n#suite#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/pageObject/DepartReportDangerListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="39" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/BaseAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
@@ -1162,43 +1150,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/NameGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="26" />
-          <folding>
-            <element signature="e#2165#2166#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
-            <element signature="e#2220#2221#0" expanded="true" />
-            <element signature="e#2246#2247#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/NameGenerator.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="479" column="110" selection-start-line="479" selection-start-column="101" selection-end-line="479" selection-end-column="110" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="565" column="44" lean-forward="true" selection-start-line="565" selection-start-column="44" selection-end-line="565" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/FunctionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="90" column="73" selection-start-line="90" selection-start-column="73" selection-end-line="90" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1216,10 +1172,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/pageObject/DepartReportDangerListPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testng.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
+          <folding>
+            <element signature="n#test#0;n#suite#0;n#!!top" />
+            <element signature="n#test#1;n#suite#0;n#!!top" />
+            <element signature="n#test#2;n#suite#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="561" column="59" lean-forward="true" selection-start-line="561" selection-start-column="8" selection-end-line="561" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/pageObjectConfig/UILibrary.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="273" column="53" lean-forward="true" selection-start-line="273" selection-start-column="13" selection-end-line="273" selection-end-column="53" />
+        <state relative-caret-position="402">
+          <caret line="275" column="13" selection-start-line="275" selection-start-column="13" selection-end-line="275" selection-end-column="66" />
           <folding>
             <element signature="n#page#0;n#map#0;n#!!top" />
             <element signature="n#page#2;n#map#0;n#!!top" />
@@ -1229,12 +1214,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/ReviewDangerListPageTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="-204">
+          <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/FunctionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="104" column="5" lean-forward="true" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#checkDamageType#0;class#DepartReportDangerListActions#0" />
+            <element signature="method#checkDamageType#2;class#DepartReportDangerListActions#0" />
           </folding>
         </state>
       </provider>

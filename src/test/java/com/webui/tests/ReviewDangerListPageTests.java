@@ -4,6 +4,7 @@ import com.webui.action.ReviewDangerListPageActions;
 import com.webui.pageObject.ReviewDangerListPage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
+import com.webui.utils.FunctionUtil;
 import com.webui.utils.TestBaseCase;
 import io.qameta.allure.Feature;
 
@@ -28,6 +29,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     ReviewDangerListPage reviewDangerListPage = new ReviewDangerListPage();
 
     Assertion assertion = new Assertion();
+    FunctionUtil functionUtil = new FunctionUtil();
 
 
     @Feature("查询")
@@ -51,7 +53,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByyeRecognizeTimeBegin() throws IOException, InterruptedException, ParseException {
         reviewDangerListPageActions.searchByyeRecognizeTimeBegin("2018-11-20");
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("辨识时间").size(); i++) {
-            if (reviewDangerListPageActions.compareTime("2018-11-20", reviewDangerListPageActions.getSearchData("辨识时间").get(i)))
+            if (functionUtil.compareTime("2018-11-20", reviewDangerListPageActions.getSearchData("辨识时间").get(i)))
                 log.info("根据辨识开始时间验证查询功能==通过");
             else
                 log.warn("根据辨识开始时间验证查询功能==失败");
@@ -63,7 +65,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByyeRecognizeTimeEnd() throws IOException, InterruptedException, ParseException {
         reviewDangerListPageActions.searchByyeRecognizeTimeEnd("2018-11-30");
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("辨识时间").size(); i++) {
-            if (reviewDangerListPageActions.compareTime(reviewDangerListPageActions.getSearchData("辨识时间").get(i), "2018-11-30"))
+            if (functionUtil.compareTime(reviewDangerListPageActions.getSearchData("辨识时间").get(i), "2018-11-30"))
                 log.info("根据辨识结束时间验证查询功能==通过");
             else
                 log.warn("根据辨识结束时间验证查询功能==失败");
@@ -75,8 +77,8 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByRecognizeTime() throws IOException, ParseException, InterruptedException {
         reviewDangerListPageActions.searchByRecognizeTime("2018-11-20", "2018-11-30");
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("辨识时间").size(); i++) {
-            if (reviewDangerListPageActions.compareTime("2018-11-20", reviewDangerListPageActions.getSearchData("辨识时间").get(i)) &&
-                    reviewDangerListPageActions.compareTime(reviewDangerListPageActions.getSearchData("辨识时间").get(i), "2018-11-30"))
+            if (functionUtil.compareTime("2018-11-20", reviewDangerListPageActions.getSearchData("辨识时间").get(i)) &&
+                    functionUtil.compareTime(reviewDangerListPageActions.getSearchData("辨识时间").get(i), "2018-11-30"))
                 log.info("根据辨识时间验证查询功能==通过");
             else
                 log.warn("根据辨识时间验证查询功能==失败");

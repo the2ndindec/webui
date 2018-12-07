@@ -36,6 +36,7 @@ public class EmployeeInfoListPageActions extends TestBaseCase {
     public void modifyMenu() throws IOException {
         defultPageActions.openMenu(defultPage.fzgl(), defultPage.zyws(), defultPage.employeeInfoList());
         elementAction.switchToFrame(employeeInfoListPage.iframe_employeeInfoList());
+        elementAction.sleep(1);
     }
 
     /**

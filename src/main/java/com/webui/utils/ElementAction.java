@@ -426,6 +426,31 @@ public class ElementAction extends TestBaseCase {
         }
     }
 
+    public void clickByJS(Locator locator) {
+        try {
+            WebElement webElement = findElement(locator);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
+            log.info("click元素：" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement() + "]成功！");
+        } catch (NoSuchElementException e) {
+            log.error("找不到元素，click失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
+                    + locator.getElement() + "]");
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void clickByJS(String string) {
+        try {
+            WebElement webElement = driver.findElement(By.xpath(string));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
+            log.info("click元素：成功！");
+        } catch (NoSuchElementException e) {
+            log.error("找不到元素，click失败:" + "]");
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
     /**
      * @param: [string]
      * @return: void
@@ -433,13 +458,16 @@ public class ElementAction extends TestBaseCase {
      * @throws:
      */
     public void click(String string) {
-        try {
-            WebElement element = driver.findElement(By.xpath(string));
-            Actions actions = new Actions(driver);
-            actions.moveToElement(element).click().perform();
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-        }
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until((ExpectedCondition<WebElement>) webDriver -> webDriver.findElement(By.xpath(string))).click();
+    }
+
+    public void clickByWebDriverWait(Locator locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until((ExpectedCondition<WebElement>) webDriver -> {
+            WebElement webElement = findElement(locator);
+            return webElement;
+        }).click();
     }
 
     /**
@@ -635,7 +663,7 @@ public class ElementAction extends TestBaseCase {
         WebElement webElement = findElement(locator);
         Actions actions = new Actions(driver);
         actions.moveToElement(webElement).click().perform();
-        log.info("click" + locator + "suc");
+        log.info("click" + webElement.getText() + "suc");
     }
 
     /**
@@ -688,8 +716,8 @@ public class ElementAction extends TestBaseCase {
      */
     public void switchToFrame(Locator locator) {
         WebElement frameElement = findElement(locator);
-//		driver.switchTo().defaultContent();
         driver.switchTo().frame(frameElement);
+        log.info("切换frame成功");
     }
 
     /**
@@ -835,7 +863,7 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
-     * 使用JS滚动到该元素，
+     * 使用JS滚动到该元素，当页面过长,当前页面上没有展示出该元素时,可使用此方法移动到制定元素
      *
      * @param locator
      */

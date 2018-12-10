@@ -14,6 +14,8 @@ public class ScreenShot {
 	private String screenName;
 	Log log = new Log(this.getClass());
 
+	FunctionUtil functionUtil = new FunctionUtil();
+
 	public ScreenShot(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -24,7 +26,7 @@ public class ScreenShot {
 
 	public void takeScreenshot() {
 		String screenName = this.screenName + ".jpg";
-		File dir = new File("test-output\\snapshot");
+		File dir = new File("test-output\\snapshot\\"+functionUtil.formatterDate("yyyyMMdd"));
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}

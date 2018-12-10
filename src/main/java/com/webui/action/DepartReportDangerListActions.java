@@ -4,6 +4,7 @@ import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.DepartReportDangerListPage;
 import com.webui.utils.ElementAction;
 import com.webui.utils.FunctionUtil;
+import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -39,9 +40,13 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     // 切换到录入界面
     public void goAdd() throws IOException {
-        elementAction.click_left(departReportDangerListPage.add_Button());
+        elementAction.clickByJS(departReportDangerListPage.add_Button());
+        switchFrame(departReportDangerListPage.iframe_goAddDepartDangerSource());
+    }
+
+    private void switchFrame(Locator locator) throws IOException {
         elementAction.switchToDefaultFrame();
-        elementAction.switchToFrame(departReportDangerListPage.iframe_goAddDepartDangerSource());
+        elementAction.switchToFrame(locator);
     }
 
     //  选择风险点类型
@@ -61,10 +66,8 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     //  选择危险源
     public void selectHazardName(String hazardName) throws IOException {
-        elementAction.click_left(departReportDangerListPage.hazardNameList());
-        elementAction.sleep(1);
-        WebElement hazard = driver.findElement(By.xpath(".//*[@id='hazardname']//div[text()='" + hazardName + "']"));
-        hazard.click();
+        elementAction.clickByJS(".//div[@id='hazardname']/div[2]/div");
+        elementAction.clickByJS(".//*[@id='hazardname']//div[text()='" + hazardName + "']");
     }
 
     //  选择伤害类别:指定伤害类别

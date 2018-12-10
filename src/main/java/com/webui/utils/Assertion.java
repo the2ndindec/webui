@@ -30,12 +30,6 @@ public class Assertion extends TestBaseCase {
         Date nowDate = new Date();
         screenShot.setScreenName(Assertion.formatDate(nowDate));
         screenShot.takeScreenshot();
-        // Assertion.assertInfolList.add("&lt;a
-        // href=\"snapshot/"+Assertion.formatDate(nowDate)+".jpg\" &gt;&lt;img
-        // height=\"100\" width=\"100\"
-        // src=\"snapshot\\"+Assertion.formatDate(nowDate)+".jpg\"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;"+"&lt;a
-        // href=\"snapshot\\"+Assertion.formatDate(nowDate)+".jpg\"
-        // &gt;点击查看大图&lt;/a&gt;\n");
         Assertion.messageList.add("&lt;a class=\"clickbox\" href=\"#url\"&gt;\n" + "&lt;img src=\"snapshot/"
                 + Assertion.formatDate(nowDate) + ".jpg\" height=\"100\" width=\"100\" alt=\"\" /&gt;\n"
                 + "&lt;b class=\"lightbox\"&gt;\n" + "&lt;b class=\"light\"&gt;&lt;/b&gt;\n"

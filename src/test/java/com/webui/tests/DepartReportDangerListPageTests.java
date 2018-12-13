@@ -24,15 +24,13 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     DepartReportDangerListPage departReportDangerListPage = new DepartReportDangerListPage();
     FunctionUtil functionUtil = new FunctionUtil();
 
-    public String tempDate = functionUtil.formatterDate("yyyyMMddHHmmss");
+    private String tempDate = functionUtil.formatterDate("yyyyMMddHHmmss");
 
     @Feature("查询")
     @Test(description = "验证根据退休编号查询功能")
     @Parameters({"hazardName", "yePossiblyHazard", "yeProbability", "yeCost", "yeHazardCate", "activityname", "docSource", "sectionName", "yeStandard",
             "manageMeasure", "postname", "yeMhazardDesc", "hiddenLevel", "fineMoney"})
-    public void TC_addData(String hazardName, String yePossiblyHazard, String yeProbability, String yeCost, String yeHazardCate,
-                           String activityname, String docSource, String sectionName, String yeStandard, String manageMeasure,
-                           String postname, String yeMhazardDesc, String hiddenLevel, String fineMoney) throws IOException, InterruptedException {
+    public void TC_addData(String yePossiblyHazard, String docSource, String sectionName, String yeStandard, String manageMeasure, String yeMhazardDesc, String fineMoney) throws IOException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.goAdd();
         departReportDangerListActions.selectAddressCate();

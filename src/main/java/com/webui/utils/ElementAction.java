@@ -441,7 +441,8 @@ public class ElementAction extends TestBaseCase {
 
     public void clickByJS(String string) {
         try {
-            WebElement webElement = driver.findElement(By.xpath(string));
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
             log.info("click元素：成功！");
         } catch (NoSuchElementException e) {
@@ -913,10 +914,10 @@ public class ElementAction extends TestBaseCase {
      *
      * @param locator
      */
-    public void DisplayElement(Locator locator) {
+    public void displayElement(String locator) {
         ElementAction action = new ElementAction();
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
-        webDriverWait.until(ExpectedConditions.visibilityOf(action.findElement(locator))).isDisplayed();
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 
     }
 

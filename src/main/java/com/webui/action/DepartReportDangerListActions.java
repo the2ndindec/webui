@@ -49,28 +49,66 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.switchToFrame(locator);
     }
 
-    //  选择风险点类型
+    /**
+     * 随机选择风险点类型
+     * @param
+     * @return: void
+     * @throws:
+     */
     public void selectAddressCate() throws IOException {
         elementAction.selectByIndex(departReportDangerListPage.addressCate_select(), elementAction.getOption(departReportDangerListPage.addressCate_select()));
     }
 
-    //  输入辨识时间
+    /**
+     * 根据当前时间输入辨识时间
+     * @param
+     * @return: void
+     * @throws:
+     */
     public void typeYeRecognizeTime() throws IOException {
         elementAction.type(departReportDangerListPage.yeRecognizeTime_textarea(), functionUtil.formatterDate("yyyy-MM-dd"));
     }
 
-    //  选择专业
+    /**
+     * 随机选择专业
+     * @param
+     * @return: void
+     * @throws:
+     */
     public void selectYeProfession() throws IOException {
         elementAction.selectByIndex(departReportDangerListPage.yeProfession_select(), elementAction.getOption(departReportDangerListPage.yeProfession_select()));
     }
 
-    //  选择危险源
+    /**
+     * 指定选择危险源
+     * @param hazardName 危险源值
+     * @return: void
+     * @throws:
+     */
     public void selectHazardName(String hazardName) throws IOException {
         elementAction.clickByJS(".//div[@id='hazardname']/div[2]/div");
         elementAction.clickByJS(".//*[@id='hazardname']//div[text()='" + hazardName + "']");
     }
 
-    //  选择伤害类别:指定伤害类别
+    /**
+     * 随机选择危险源
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void selectHazardName(){
+        elementAction.clickByJS(".//div[@id='hazardname']/div[2]/div");
+        List<WebElement> hazard = driver.findElements(By.xpath(".//*[@id='hazardname']/div[3]/div")); //获取危险源集合
+        int temp = functionUtil.random(hazard.size());
+        hazard.get(temp).click();
+    }
+
+    /**
+     * 选择伤害类别:指定伤害类别
+     * @param damageString	伤害类别字段值
+     * @return: void
+     * @throws:
+     */
     public void checkDamageType(String damageString) {
         switch (damageString) {
             case "物体打击":
@@ -156,7 +194,12 @@ public class DepartReportDangerListActions extends TestBaseCase {
         }
     }
 
-    //  随机选择伤害类别
+    /**
+     * 随机选择伤害类别
+     * @param
+     * @return: void
+     * @throws:
+     */
     public void checkDamageType() {
         List<WebElement> webElements = driver.findElements(By.xpath(".//*[@id='formobj']//tbody/tr[3]/td[2]/label/input"));
         webElements.get(functionUtil.random(webElements.size())).click();
@@ -211,26 +254,89 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.type(departReportDangerListPage.yePossiblyHazard_textarea(), yePossiblyHazard);
     }
 
-    // 选择风险可能性
+    /**
+     * 指定选择风险可能性
+     * @param yeProbability	风险可能性值
+     * @return: void
+     * @throws:
+     */
     public void selectYeProbability(String yeProbability) throws IOException {
         elementAction.selectByText(departReportDangerListPage.yeProbability_select(),yeProbability);
     }
-    //  选择风险损失
+
+    /**
+     * 随机选择风险可能性
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void selectYeProbability() throws IOException {
+        elementAction.selectByIndex(departReportDangerListPage.yeProbability_select(),elementAction.getOption(departReportDangerListPage.yeProbability_select()));
+    }
+
+    /**
+     * 指定选择风险损失
+     * @param yeCost	风险损失值
+     * @return: void
+     * @throws:
+     */
     public void selectYeCost(String yeCost) throws IOException {
         elementAction.selectByText(departReportDangerListPage.yeCost_select(),yeCost);
     }
 
-    //  选择风险类型
+    /**
+     * 随机选择风险损失
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void selectYeCost() throws IOException {
+      elementAction.selectByIndex(departReportDangerListPage.yeCost_select(),elementAction.getOption(departReportDangerListPage.yeCost_select()));
+    }
+
+    /**
+     * 指定选择风险类型
+     * @param yeHazardCate	风险类型值
+     * @return: void
+     * @throws:
+     */
     public void selectYeHazardCate(String yeHazardCate) throws IOException {
         elementAction.selectByText(departReportDangerListPage.yeHazardCate_select(),yeHazardCate);
     }
 
-    //  选择作业活动
+    /**
+     * 随机选择风险类型
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void selectYeHazardCate() throws IOException {
+      elementAction.selectByIndex(departReportDangerListPage.yeHazardCate_select(),elementAction.getOption(departReportDangerListPage.yeHazardCate_select()));
+    }
+
+    /**
+     * 指定选择作业活动
+     * @param activityname	作业活动值
+     * @return: void
+     * @throws:
+     */
     public void selectActivityName(String activityname) throws IOException {
-        elementAction.click_left(departReportDangerListPage.activityNameList());
-        elementAction.sleep(1);
+        elementAction.clickByJS(departReportDangerListPage.activityNameList());
         WebElement activity = driver.findElement(By.xpath(".//*[@id='activityname']//div[text()='" + activityname + "']"));
         activity.click();
+    }
+
+    /**
+     * 随机选择作业活动
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void selectActivityName() throws IOException {
+        elementAction.clickByJS(departReportDangerListPage.activityNameList());
+        elementAction.displayElement(".//*[@id='activityname']/div[3]/div");
+        List<WebElement> act = driver.findElements(By.xpath(".//*[@id='activityname']/div[3]/div"));
+        act.get(functionUtil.random(act.size())).click();
     }
 
     //  输入管控标准来源
@@ -250,23 +356,59 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.type(departReportDangerListPage.manageMeasure_textarea(), manageMeasure);
     }
 
-    //  选择责任岗位
+    /**
+     * 指定选择责任岗位
+     * @param postname	责任岗位名称
+     * @return: void
+     * @throws:
+     */
     public void selectPostName(String postname) throws IOException {
-        elementAction.click_left(departReportDangerListPage.postNameList());
-        elementAction.sleep(1);
-        WebElement post = driver.findElement(By.xpath(".//*[@id='postname']//div[text()='" + postname + "']"));
-        post.click();
+        elementAction.clickByJS(departReportDangerListPage.postNameList());
+        elementAction.clickByJS(".//*[@id='postname']//div[text()='" + postname + "']");
     }
+
+    /**
+     * 随机选择责任岗位
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void selectPostName() throws IOException {
+      elementAction.clickByJS(departReportDangerListPage.postNameList());
+      List<WebElement> postName = driver.findElements(By.xpath(".//*[@id='postname']/div[3]/div"));
+      postName.get(functionUtil.random(postName.size())).click();
+    }
+
     //  输入隐患描述
     public void typeYeMhazardDesc(String yeMhazardDesc) throws IOException {
         elementAction.type(departReportDangerListPage.yeMhazardDesc_textarea(), yeMhazardDesc);
     }
-    //  选择隐患等级
+    /**
+     * 指定选择隐患等级
+     * @param hiddenLevel	隐患等级值
+     * @return: void
+     * @throws:
+     */
     public void selectHiddenLevel(String hiddenLevel) throws IOException {
         elementAction.selectByText(departReportDangerListPage.hiddenLevel_select(),hiddenLevel);
     }
 
-    //  输入隐患描述
+    /**
+     * 随机选择隐患等级
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void selectHiddenLevel() throws IOException {
+      elementAction.selectByIndex(departReportDangerListPage.hiddenLevel_select(),elementAction.getOption(departReportDangerListPage.hiddenLevel_select()));
+    }
+
+    /**
+     * 输入罚款金额
+     * @param fineMoney	罚款金额
+     * @return: void
+     * @throws:
+     */
     public void typeFineMoney(String fineMoney) throws IOException {
         elementAction.type(departReportDangerListPage.fineMoney_textarea(), fineMoney);
     }

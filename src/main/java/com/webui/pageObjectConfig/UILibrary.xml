@@ -229,11 +229,14 @@
 		<locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
 	</page>
 
-    <page pagename="com.webui.pageObject.DepartReportDangerListPage" value="" desc="部门风险上报页面">
-        <locator type="name" timeout="3" value="iframe5" desc="部门风险上报页面iframe标记">iframe_departReportDangerList</locator>
+    <page pagename="com.webui.pageObject.DepartReportDangerListPage" value="" desc="部门风险清单页面">
+        <locator type="name" timeout="3" value=".//iframe[contains(@src,'departReportDangerList')]" desc="部门风险清单页面iframe标记">iframe_departReportDangerList</locator>
         <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goCloneYearDanger')]" desc="年度辨识复制部分iframe标记">iframe_goCloneYearDanger</locator>
         <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'associateMajorGeneralDangerSource')]" desc="从通用库复制部分iframe标记">iframe_associateMajorGeneralDangerSource</locator>
         <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAddDepartDangerSource')]" desc="添加风险部分iframe标记">iframe_goAddDepartDangerSource</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdateDepartDangerSource')]" desc="编辑风险部分iframe标记">iframe_goUpdateDepartDangerSource</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goDetail')]" desc="查看风险部分iframe标记">iframe_goDetail</locator>
+
 
         <!-- 操作按钮 -->
         <locator type="xpath" timeout="3" value=".//span[text()='年度辨识复制']" desc="年度辨识复制按钮">goCloneYearDanger_Button</locator>

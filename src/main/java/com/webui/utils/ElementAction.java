@@ -38,7 +38,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 查找一组元素
-     *
      * @param locator
      * @return
      */
@@ -47,7 +46,7 @@ public class ElementAction extends TestBaseCase {
         /**
          * 查找某个元素等待几秒
          */
-        // Waitformax(Integer.valueOf(locator.getWaitSec()));
+
         List<WebElement> webElements = null;
         try {
             webElements = (new WebDriverWait(driver, 20)).until(new ExpectedCondition<List<WebElement>>() {
@@ -72,22 +71,6 @@ public class ElementAction extends TestBaseCase {
             Date nowDate = new Date();
             screenShot.setScreenName(this.formatDate(nowDate));
             screenShot.takeScreenshot();
-            Assertion.messageList.add("&lt;a class=\"clickbox\" href=\"#url\"&gt;\n" + "&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate) + ".jpg\" height=\"100\" width=\"100\" alt=\"\" /&gt;\n"
-                    + "&lt;b class=\"lightbox\"&gt;\n" + "&lt;b class=\"light\"&gt;&lt;/b&gt;\n"
-                    + "&lt;b class=\"box\"&gt;\n" + "&lt;img src=\"snapshot/" + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;\n"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;\n"
-                    + "&lt;/b&gt;\n" + "&lt;/b&gt;\n" + "&lt;/a&gt;\n" + "&lt;br class=\"clear\" /&gt;\n"
-                    + "&lt;a class=\"clickbox\" href=\"#url\"&gt;" + "点击查看大图" + "&lt;b class=\"lightbox\"&gt;"
-                    + "&lt;b class=\"light\"&gt;&lt;/b&gt;" + "&lt;b class=\"box\"&gt;&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面." + "&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"
-                    + "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;"
-                    + "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
-            log.info(this.formatDate(nowDate));
-            // Assertion.assertInfolList.add(arg0)
             return webElements;
         } catch (TimeoutException e) {
             log.info("查找页面元素超时");
@@ -101,28 +84,6 @@ public class ElementAction extends TestBaseCase {
             Date nowDate = new Date();
             screenShot.setScreenName(this.formatDate(nowDate));
             screenShot.takeScreenshot();
-            // Assertion.assertInfolList.add("&lt;a
-            // href=\"snapshot/"+this.formatDate(nowDate)+".jpg\" &gt;&lt;img
-            // height=\"100\"
-            // width=\"100\"
-            // src=\"snapshot/"+this.formatDate(nowDate)+".jpg\"&gt;&lt;/img&gt;&lt;/a>&lt;br/&gt;"+"&lt;a
-            // href=\"snapshot/"+this.formatDate(nowDate)+".jpg\"
-            // &gt;点击查看大图&lt;/a&gt;\n");
-            Assertion.messageList.add("&lt;a class=\"clickbox\" href=\"#url\"&gt;\n" + "&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate) + ".jpg\" height=\"100\" width=\"100\" alt=\"\" /&gt;\n"
-                    + "&lt;b class=\"lightbox\"&gt;\n" + "&lt;b class=\"light\"&gt;&lt;/b&gt;\n"
-                    + "&lt;b class=\"box\"&gt;\n" + "&lt;img src=\"snapshot/" + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;\n"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;\n"
-                    + "&lt;/b&gt;\n" + "&lt;/b&gt;\n" + "&lt;/a&gt;\n" + "&lt;br class=\"clear\" /&gt;\n"
-                    + "&lt;a class=\"clickbox\" href=\"#url\"&gt;" + "点击查看大图" + "&lt;b class=\"lightbox\"&gt;"
-                    + "&lt;b class=\"light\"&gt;&lt;/b&gt;" + "&lt;b class=\"box\"&gt;&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面." + "&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"
-                    + "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;"
-                    + "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
-            log.info(this.formatDate(nowDate));
             return webElements;
         } catch (ElementNotVisibleException e) {
             log.info("查找页面元素超时");
@@ -136,21 +97,6 @@ public class ElementAction extends TestBaseCase {
             Date nowDate = new Date();
             screenShot.setScreenName(this.formatDate(nowDate));
             screenShot.takeScreenshot();
-            Assertion.messageList.add("&lt;a class=\"clickbox\" href=\"#url\"&gt;\n" + "&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate) + ".jpg\" height=\"100\" width=\"100\" alt=\"\" /&gt;\n"
-                    + "&lt;b class=\"lightbox\"&gt;\n" + "&lt;b class=\"light\"&gt;&lt;/b&gt;\n"
-                    + "&lt;b class=\"box\"&gt;\n" + "&lt;img src=\"snapshot/" + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;\n"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;\n"
-                    + "&lt;/b&gt;\n" + "&lt;/b&gt;\n" + "&lt;/a&gt;\n" + "&lt;br class=\"clear\" /&gt;\n"
-                    + "&lt;a class=\"clickbox\" href=\"#url\"&gt;" + "点击查看大图" + "&lt;b class=\"lightbox\"&gt;"
-                    + "&lt;b class=\"light\"&gt;&lt;/b&gt;" + "&lt;b class=\"box\"&gt;&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面." + "&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"
-                    + "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;"
-                    + "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
-            log.info(this.formatDate(nowDate));
             return webElements;
         }
     }
@@ -183,20 +129,6 @@ public class ElementAction extends TestBaseCase {
             Date nowDate = new Date();
             screenShot.setScreenName(this.formatDate(nowDate));
             screenShot.takeScreenshot();
-            Assertion.messageList.add("&lt;a class=\"clickbox\" href=\"#url\"&gt;\n" + "&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate) + ".jpg\" height=\"100\" width=\"100\" alt=\"\" /&gt;\n"
-                    + "&lt;b class=\"lightbox\"&gt;\n" + "&lt;b class=\"light\"&gt;&lt;/b&gt;\n"
-                    + "&lt;b class=\"box\"&gt;\n" + "&lt;img src=\"snapshot/" + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;\n"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;\n"
-                    + "&lt;/b&gt;\n" + "&lt;/b&gt;\n" + "&lt;/a&gt;\n" + "&lt;br class=\"clear\" /&gt;\n"
-                    + "&lt;a class=\"clickbox\" href=\"#url\"&gt;" + "点击查看大图" + "&lt;b class=\"lightbox\"&gt;"
-                    + "&lt;b class=\"light\"&gt;&lt;/b&gt;" + "&lt;b class=\"box\"&gt;&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面." + "&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"
-                    + "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;"
-                    + "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
             log.info(this.formatDate(nowDate));
             return webElement;
         } catch (TimeoutException e) {
@@ -211,20 +143,6 @@ public class ElementAction extends TestBaseCase {
             Date nowDate = new Date();
             screenShot.setScreenName(this.formatDate(nowDate));
             screenShot.takeScreenshot();
-            Assertion.messageList.add("&lt;a class=\"clickbox\" href=\"#url\"&gt;\n" + "&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate) + ".jpg\" height=\"100\" width=\"100\" alt=\"\" /&gt;\n"
-                    + "&lt;b class=\"lightbox\"&gt;\n" + "&lt;b class=\"light\"&gt;&lt;/b&gt;\n"
-                    + "&lt;b class=\"box\"&gt;\n" + "&lt;img src=\"snapshot/" + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;\n"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;\n"
-                    + "&lt;/b&gt;\n" + "&lt;/b&gt;\n" + "&lt;/a&gt;\n" + "&lt;br class=\"clear\" /&gt;\n"
-                    + "&lt;a class=\"clickbox\" href=\"#url\"&gt;" + "点击查看大图" + "&lt;b class=\"lightbox\"&gt;"
-                    + "&lt;b class=\"light\"&gt;&lt;/b&gt;" + "&lt;b class=\"box\"&gt;&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面." + "&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"
-                    + "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;"
-                    + "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
             log.info(this.formatDate(nowDate));
             return webElement;
         } catch (ElementNotVisibleException e) {
@@ -239,20 +157,6 @@ public class ElementAction extends TestBaseCase {
             Date nowDate = new Date();
             screenShot.setScreenName(this.formatDate(nowDate));
             screenShot.takeScreenshot();
-            Assertion.messageList.add("&lt;a class=\"clickbox\" href=\"#url\"&gt;\n" + "&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate) + ".jpg\" height=\"100\" width=\"100\" alt=\"\" /&gt;\n"
-                    + "&lt;b class=\"lightbox\"&gt;\n" + "&lt;b class=\"light\"&gt;&lt;/b&gt;\n"
-                    + "&lt;b class=\"box\"&gt;\n" + "&lt;img src=\"snapshot/" + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;\n"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;\n"
-                    + "&lt;/b&gt;\n" + "&lt;/b&gt;\n" + "&lt;/a&gt;\n" + "&lt;br class=\"clear\" /&gt;\n"
-                    + "&lt;a class=\"clickbox\" href=\"#url\"&gt;" + "点击查看大图" + "&lt;b class=\"lightbox\"&gt;"
-                    + "&lt;b class=\"light\"&gt;&lt;/b&gt;" + "&lt;b class=\"box\"&gt;&lt;img src=\"snapshot/"
-                    + this.formatDate(nowDate)
-                    + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;"
-                    + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面." + "&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"
-                    + "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;"
-                    + "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
             log.info(this.formatDate(nowDate));
             return webElement;
         }
@@ -260,7 +164,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 通过定位信息获取元素
-     *
      * @param locator
      * @return 返回WebElement
      */
@@ -306,7 +209,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 通过定位信息获取一组元素
-     *
      * @param locator
      * @return 返回WebElement
      */
@@ -315,48 +217,38 @@ public class ElementAction extends TestBaseCase {
         /**
          * locator.getElement(),获取对象库对象定位信息
          */
-        // locator=getLocator(locatorMap.get(key));
         log.info("查找一组元素：" + locator.getLocalorName() + " >>>方式:" + "[" + "By." + locator.getBy() + ":"
                 + locator.getElement() + "]");
         List<WebElement> webElements;
         switch (locator.getBy()) {
             case xpath:
-                // log.info("find element By xpath");
                 webElements = driver.findElements(By.xpath(locator.getElement()));
                 /**
                  * 出现找不到元素的时候，记录日志文件
                  */
                 break;
             case id:
-                // log.info("find element By xpath");
                 webElements = driver.findElements(By.id(locator.getElement()));
                 break;
             case cssSelector:
-                // log.info("find element By cssSelector");
                 webElements = driver.findElements(By.cssSelector(locator.getElement()));
                 break;
             case name:
-                // log.info("find element By name");
                 webElements = driver.findElements(By.name(locator.getElement()));
                 break;
             case className:
-                // log.info("find element By className");
                 webElements = driver.findElements(By.className(locator.getElement()));
                 break;
             case linkText:
-                // log.info("find element By linkText");
                 webElements = driver.findElements(By.linkText(locator.getElement()));
                 break;
             case partialLinkText:
-                // log.info("find element By partialLinkText");
                 webElements = driver.findElements(By.partialLinkText(locator.getElement()));
                 break;
             case tagName:
-                // log.info("find element By tagName");
                 webElements = driver.findElements(By.partialLinkText(locator.getElement()));
                 break;
             default:
-                // log.info("find element By xpath");
                 webElements = driver.findElements(By.xpath(locator.getElement()));
                 break;
         }
@@ -365,7 +257,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 文本框输入操作
-     *
      * @param locator 元素locator
      * @param value   输入值
      */
@@ -397,7 +288,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 失去焦点.通过js实现失去焦点的方法
-     *
      * @param: [locator] 需要操作的对象元素
      * @return: void
      * @throws:
@@ -409,7 +299,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 普通单击操作
-     *
      * @param locator 元素locator
      */
     public void click(Locator locator) {
@@ -426,6 +315,12 @@ public class ElementAction extends TestBaseCase {
         }
     }
 
+    /**
+     * @param locator 元素信息
+     * @Description:通过js方法点击元素,locator定位元素
+     * @return: void
+     * @throws:
+     */
     public void clickByJS(Locator locator) {
         try {
             WebElement webElement = findElement(locator);
@@ -439,6 +334,12 @@ public class ElementAction extends TestBaseCase {
         }
     }
 
+    /**
+     * @param string 元素的xpath
+     * @Description:通过js方法点击元素,String定位元素
+     * @return: void
+     * @throws:
+     */
     public void clickByJS(String string) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -473,7 +374,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 选择下拉框操作
-     *
      * @param locator 元素locator
      * @param text    选择下拉值
      */
@@ -501,7 +401,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 选择下拉框操作
-     *
      * @param locator 元素locator
      * @param value   要选择的元素对应的value值
      */
@@ -528,7 +427,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 通过下拉列表的index选择元素
-     *
      * @param locator
      * @param index   要选择的元素的序号
      */
@@ -556,7 +454,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 获取下拉列表的value属性值
-     *
      * @param selectLocator 下拉列表 select标签定位信息
      * @param optinText     下拉列表文本值
      * @return 返回String
@@ -581,7 +478,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 随机获取select列表中某个option
-     *
      * @param: [locator] 下拉框
      * @return: int 下拉框中option的个数
      * @throws:
@@ -629,7 +525,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 获取对话框文本
-     *
      * @return 返回String
      */
     public String getAlertText() {
@@ -646,7 +541,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 鼠标悬停操作
-     *
      * @param locator 元素locator
      */
     public void clickAndHold(Locator locator) {
@@ -656,8 +550,7 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
-     * 鼠标左键单击
-     *
+     * 鼠标左键单击,通过locator定位需要点击的元素
      * @param locator 元素locator
      */
     public void click_left(Locator locator) {
@@ -669,7 +562,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 鼠标右键操作
-     *
      * @param locator 元素locator
      */
     public void click_right(Locator locator) {
@@ -681,7 +573,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 鼠标双击操作
-     *
      * @param locator 元素locator
      */
     public void click_double(Locator locator) {
@@ -694,7 +585,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 清除文本框内容
-     *
      * @param locator 元素locator
      */
     public void clear(Locator locator) {
@@ -712,7 +602,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 切换frame/iframe框架
-     *
      * @param locator 元素locator
      */
     public void switchToFrame(Locator locator) {
@@ -730,7 +619,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 多窗口切换
-     *
      * @param i 第几个窗口
      */
     public void switchToWindow(int i) {
@@ -741,7 +629,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 隐式等待
-     *
      * @param t 最大等待时间，秒为单位
      **/
     public void Waitformax(int t) {
@@ -750,7 +637,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 获取元素文本
-     *
      * @param locator 元素locator
      */
     public String getText(Locator locator) {
@@ -775,7 +661,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 获取元素某属性的值
-     *
      * @param locator       元素locator
      * @param attributeName
      * @return 返回String
@@ -793,7 +678,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 获取当前url
-     *
      * @return
      */
     public String getUrl() {
@@ -803,7 +687,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 获取当前网页标题
-     *
      * @return 返回String
      */
     public String getTitle() {
@@ -813,7 +696,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 截屏方法
-     *
      * @param FileDriver 文件保存路径
      * @param Filename   文件名
      * @throws Exception 抛出Exception异常
@@ -831,7 +713,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 显式等待，程序休眠暂停
-     *
      * @param time 以秒为单位
      */
     public void sleep(long time) {
@@ -844,7 +725,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 显式等待 判断页面是否完全加载完成
-     *
      * @param time 已秒为单位
      */
     public void pagefoload(long time) {
@@ -865,7 +745,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 使用JS滚动到该元素，当页面过长,当前页面上没有展示出该元素时,可使用此方法移动到制定元素
-     *
      * @param locator
      */
     public void moveToElement(Locator locator) {
@@ -876,7 +755,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 判断yi组元素是否存在
-     *
      * @param locator 一组元素定位信息
      * @param timeOut 超时时间 秒
      * @return 返回boolean true存在，false不存在
@@ -896,7 +774,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 判断元素是否显示
-     *
      * @param locator 元素定位信息
      * @return 返回boolean true显示，false隐藏
      */
@@ -905,25 +782,33 @@ public class ElementAction extends TestBaseCase {
         WebElement webElement = action.findElement(locator);
         webElement.isEnabled();
         boolean flag = webElement.isDisplayed();
-        log.info("" + flag);
         return flag;
     }
 
     /**
-     * 等待30秒让元素可见
-     *
+     * 等待10秒让元素可见
      * @param locator
      */
     public void displayElement(String locator) {
-        ElementAction action = new ElementAction();
         WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 
     }
 
     /**
+     * 显示等待
+     * @param webElement
+     * @return: void
+     * @throws:
+     */
+    public void visibilityOfElement(WebElement webElement) {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
+        webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
+
+    }
+
+    /**
      * 实现翻页功能，当总数大于当前展示的数量时，执行翻页的操作
-     *
      * @param locator1 总数量的定位信息
      * @param locator2 翻页按钮的定位信息
      */

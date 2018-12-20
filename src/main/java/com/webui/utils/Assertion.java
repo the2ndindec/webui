@@ -1,15 +1,15 @@
 package com.webui.utils;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Assertion extends TestBaseCase {
     public static List<Error> errors = new ArrayList<Error>(); // 收集断言异常用于报表日志展示
@@ -17,6 +17,9 @@ public class Assertion extends TestBaseCase {
     public static List<String> messageList = new ArrayList<String>(); // 收集信息文本用于报表展示
     public static Integer errorIndex = 0; // 记录错误数量
     private static Log log = new Log(Assertion.class);
+
+
+    private String actualStr;
 
     public static String formatDate(Date date) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HHmmssSSS");
@@ -30,19 +33,6 @@ public class Assertion extends TestBaseCase {
         Date nowDate = new Date();
         screenShot.setScreenName(Assertion.formatDate(nowDate));
         screenShot.takeScreenshot();
-        Assertion.messageList.add("&lt;a class=\"clickbox\" href=\"#url\"&gt;\n" + "&lt;img src=\"snapshot/"
-                + Assertion.formatDate(nowDate) + ".jpg\" height=\"100\" width=\"100\" alt=\"\" /&gt;\n"
-                + "&lt;b class=\"lightbox\"&gt;\n" + "&lt;b class=\"light\"&gt;&lt;/b&gt;\n"
-                + "&lt;b class=\"box\"&gt;\n" + "&lt;img src=\"snapshot/" + Assertion.formatDate(nowDate)
-                + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;\n"
-                + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;\n"
-                + "&lt;/b&gt;\n" + "&lt;/b&gt;\n" + "&lt;/a&gt;\n" + "&lt;br class=\"clear\" /&gt;\n"
-                + "&lt;a class=\"clickbox\" href=\"#url\"&gt;" + "点击查看大图" + "&lt;b class=\"lightbox\"&gt;"
-                + "&lt;b class=\"light\"&gt;&lt;/b&gt;" + "&lt;b class=\"box\"&gt;&lt;img src=\"snapshot/"
-                + Assertion.formatDate(nowDate)
-                + ".jpg\" height=\"530\" width=\"1024\" onmousewheel=\"return bigimg(this)\" alt=\"\" /&gt;"
-                + "&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面." + "&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;"
-                + "&lt;/b&gt;" + "&lt;/b&gt;" + " &lt;/a&gt;\n&lt;/br&gt;" + "&lt;div id=\"close\"&gt;&lt;/div&gt;\n");
     }
 
     /**
@@ -64,6 +54,8 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             AssertFailedLog();
             assertInfolList.add(verityStr + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + actual + "\"]");
             Assertion.snapshotInfo();
         }
     }
@@ -89,6 +81,8 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + actual + "\"]");
             Assertion.snapshotInfo();
         }
     }
@@ -111,6 +105,8 @@ public class Assertion extends TestBaseCase {
             errorIndex++;
             errors.add(e);
             assertInfolList.add(verityStr + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + actual + "\"]");
             Assertion.snapshotInfo();
         }
     }
@@ -136,6 +132,8 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + actual + "\"]");
             Assertion.snapshotInfo();
         }
     }
@@ -172,6 +170,8 @@ public class Assertion extends TestBaseCase {
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + exceptStr + "\"]");
             Assertion.snapshotInfo();
         }
     }
@@ -202,6 +202,8 @@ public class Assertion extends TestBaseCase {
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + exceptStr + "\"]");
             Assertion.snapshotInfo();
         }
     }
@@ -278,6 +280,25 @@ public class Assertion extends TestBaseCase {
             errorIndex++;
             errors.add(e);
             assertInfolList.add(verityStr + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + text + "\"]");
+            Assertion.snapshotInfo();
+        }
+    }
+    public static void verityTextByString(String text, String exceptText) {
+        String verityStr = "Assert验证：某文本值是否与预期值一致{" + "实际值：" + text + "," + "预期值：" + exceptText + "}";
+        log.info(verityStr);
+        try {
+            Assert.assertEquals(text, exceptText);
+            AssertPassLog();
+            assertInfolList.add(verityStr + ":pass");
+        } catch (Error e) {
+            AssertFailedLog();
+            errorIndex++;
+            errors.add(e);
+            assertInfolList.add(verityStr + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + text + "\"]");
             Assertion.snapshotInfo();
         }
     }
@@ -306,6 +327,8 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + text + "\"]");
             Assertion.snapshotInfo();
         }
     }
@@ -536,6 +559,8 @@ public class Assertion extends TestBaseCase {
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()=\"" + exceptStr + "\"]");
             Assertion.snapshotInfo();
         }
     }

@@ -29,7 +29,7 @@ public class ReportDangerListPageTests extends TestBaseCase {
     @Story(value = "风险点查询")
     @Test(description = "根据风险点类型验证查询功能")
     public void TC_searchByAddressCate() throws IOException, InterruptedException {
-        dpa.openMenu(dp.aqfxfjgk_menu(), dp.ndfxbs_list(), dp.reportDangerList());
+        dpa.openMenu(dp.aqfxfjgk_menu(), dp.ndfxgl_list(), dp.reportDangerList());
         ea.switchToFrame(rdlp.iframe_reportDangerList());
         rdlpa.searchByAddressCate("副井");
         for (int i = 0; i < rdlpa.getSearchData("风险点类型").size(); i++) {

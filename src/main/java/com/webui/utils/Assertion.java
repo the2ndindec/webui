@@ -542,7 +542,6 @@ public class Assertion extends TestBaseCase {
         log.info(verityStr);
         try {
             exceptStr = ".//*[text()=\"" + exceptStr + "\"]";
-            System.out.println(exceptStr);
             driver.findElement(By.xpath(exceptStr));
             flag = true;
         } catch (NoSuchElementException e) {
@@ -559,8 +558,6 @@ public class Assertion extends TestBaseCase {
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
-            ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + exceptStr + "\"]");
             Assertion.snapshotInfo();
         }
     }

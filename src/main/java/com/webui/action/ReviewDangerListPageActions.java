@@ -18,7 +18,7 @@ import java.util.Random;
 
 /**
  * @author the2n
- * @description
+ * @Description:  风险审核页面相关操作
  * @Data 2018/11/28 14:15
  */
 public class ReviewDangerListPageActions extends TestBaseCase {
@@ -40,7 +40,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     }
 
     public void modifyMenu() throws IOException {
-        defultPageActions.openMenu(defultPage.aqfxfjgk_menu(), defultPage.ndfxbs_list(), defultPage.reviewDangerList());
+        defultPageActions.openMenu(defultPage.aqfxfjgk_menu(), defultPage.ndfxgl_list(), defultPage.reviewDangerList());
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
         elementAction.sleep(1);
     }

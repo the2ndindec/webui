@@ -3,7 +3,7 @@ import java.io.IOException;
 import com.webui.utils.BaseAction;
 import com.webui.utils.Locator;
 /** 
-* 部门风险上报页面
+* 部门风险清单页面
  * @author the2n
  */
 public class DepartReportDangerListPage extends BaseAction {
@@ -15,7 +15,7 @@ private String path="src/main/java/com/webui/pageObjectConfig/UILibrary.xml";
 getLocatorMap();
 }
 /***
-* 部门风险上报页面iframe标记
+* 部门风险清单页面iframe标记
 * @throws IOException
 */
 public Locator iframe_departReportDangerList() throws IOException
@@ -51,6 +51,26 @@ public Locator iframe_associateMajorGeneralDangerSource() throws IOException
 public Locator iframe_goAddDepartDangerSource() throws IOException
  {
    Locator locator=getLocator("iframe_goAddDepartDangerSource");
+   return locator;
+ }
+
+/***
+* 编辑风险部分iframe标记
+* @throws IOException
+*/
+public Locator iframe_goUpdateDepartDangerSource() throws IOException
+ {
+   Locator locator=getLocator("iframe_goUpdateDepartDangerSource");
+   return locator;
+ }
+
+/***
+* 查看风险部分iframe标记
+* @throws IOException
+*/
+public Locator iframe_goDetail() throws IOException
+ {
+   Locator locator=getLocator("iframe_goDetail");
    return locator;
  }
 

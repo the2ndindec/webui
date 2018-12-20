@@ -324,7 +324,7 @@
         <locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
     </page>
 	<page pagename="com.webui.pageObject.PostListPage" value="" desc="岗位管理页面">
-		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'PostManage')]" desc="岗位管理页面iframe标记">iframe_PostList</locator>
+		<locator type="name" timeout="3" value="iframe18" desc="岗位管理页面iframe标记">iframe_PostList</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAdd')]" desc="录入数据部分iframe标记">iframe_goAdd</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdate')]" desc="编辑/查看部分iframe标记">iframe_goUpdate</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'seeRiskList')]" desc="查看关联关系部分iframe标记">iframe_seeRiskList</locator>
@@ -339,9 +339,9 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='重置']" desc="重置按钮">searchReset_Btn</locator>
 		<locator type="name" timeout="3" value="postName" desc="查询条件--岗位名称">postName_search_area</locator>
-		<!-- 关联风险点-风险点部分 -->
-		<locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-search')]" desc="关联风险点-风险点部分：查询按钮">addresslist_search_Button</locator>
-		<locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="关联风险点-风险点部分：重置按钮">addresslist_reload_Button</locator>
+		<!-- 录入岗位信息部分 -->
+		<locator type="id" timeout="3" value="postName" desc="录入岗位部分：岗位名称输入框">add_postName_area</locator>
+		<locator type="id" timeout="3" value="postName" desc="编辑岗位部分：岗位名称输入框">update_postName_area</locator>
 
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>

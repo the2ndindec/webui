@@ -55,17 +55,17 @@ public Locator aqfxfjgk_menu() throws IOException
  }
 
 /***
-* 年度风险辨识-list
+* 年度风险管理-list
 * @throws IOException
 */
-public Locator ndfxbs_list() throws IOException
+public Locator ndfxgl_list() throws IOException
  {
-   Locator locator=getLocator("ndfxbs_list");
+   Locator locator=getLocator("ndfxgl_list");
    return locator;
  }
 
 /***
-* 本矿风险汇总
+* 矿风险清单
 * @throws IOException
 */
 public Locator reportDangerList() throws IOException
@@ -85,12 +85,62 @@ public Locator reviewDangerList() throws IOException
  }
 
 /***
-* 部门风险上报
+* 部门风险清单
 * @throws IOException
 */
 public Locator departReportDangerList() throws IOException
  {
    Locator locator=getLocator("departReportDangerList");
+   return locator;
+ }
+
+/***
+* 年度辨识报告
+* @throws IOException
+*/
+public Locator yearIdentifyReport() throws IOException
+ {
+   Locator locator=getLocator("yearIdentifyReport");
+   return locator;
+ }
+
+/***
+* 基础数据管理-list
+* @throws IOException
+*/
+public Locator jcsjgl_li() throws IOException
+ {
+   Locator locator=getLocator("jcsjgl_li");
+   return locator;
+ }
+
+/***
+* 岗位管理
+* @throws IOException
+*/
+public Locator postList() throws IOException
+ {
+   Locator locator=getLocator("postList");
+   return locator;
+ }
+
+/***
+* 作业活动管理
+* @throws IOException
+*/
+public Locator activityList() throws IOException
+ {
+   Locator locator=getLocator("activityList");
+   return locator;
+ }
+
+/***
+* 危险源管理
+* @throws IOException
+*/
+public Locator hazardList() throws IOException
+ {
+   Locator locator=getLocator("hazardList");
    return locator;
  }
 

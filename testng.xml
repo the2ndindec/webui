@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="通用矿版">
     <parameter name="driver" value="FirefoxDriver" />
-    <parameter name="url" value="http://192.168.3.186:8080/ty/"/> <!--测试地址-->
+    <parameter name="url" value="http://192.168.3.194:8080/sdzk/"/> <!--测试地址-->
     <parameter name="remark" value="webui自动化测试,自动输入内容" />
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
@@ -71,7 +71,7 @@
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="职工个人基本信息:添加数据">
+    <test preserve-order="true" name="录入危险源" enabled="false">
         <classes>
             <class name="com.webui.tests.DepartReportDangerListPageTests">
                 <methods>
@@ -90,6 +90,16 @@
                     <parameter name="hiddenLevel" value="一般隐患A级"/>
                     <parameter name="fineMoney" value="200"/>
                     <include name="TC_addData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="岗位管理" >
+        <classes>
+            <class name="com.webui.tests.PostListPageTests">
+                <methods>
+                    <parameter name="postName" value="测试数据x"/>
+                    <include name="TC_addPost"/>
                 </methods>
             </class>
         </classes>

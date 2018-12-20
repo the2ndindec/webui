@@ -1,5 +1,13 @@
 package com.webui.utils;
 
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -7,25 +15,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.google.common.io.Files;
 
 public class ElementAction extends TestBaseCase {
     private Log log = new Log(this.getClass());
@@ -649,7 +638,7 @@ public class ElementAction extends TestBaseCase {
     /**
      * @param: [locator] 被操作的元素
      * @return: java.lang.String 元素的值
-     * @Description: 通过js方法返回元素的值
+     * @Description: 通过js方法获取元素的值
      * @throws:
      */
     public String getTextByJS(Locator locator) {
@@ -833,6 +822,21 @@ public class ElementAction extends TestBaseCase {
 
     public void highlightElementByXpath(String xpath) {
         WebElement element = driver.findElement(By.xpath(xpath));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("element = arguments[0];" +
+                "original_style = element.getAttribute('style');" +
+                "element.setAttribute('style', original_style + \";" +
+                "background: yellow; border: 2px solid red;\");" +
+                "setTimeout(function(){element.setAttribute('style', original_style);}, 1000);", element);
+    }
+
+    /**
+     * Description:高亮显示某元素
+     * @param element	需要高亮的元素对象
+     * @return: void
+     * @throws:
+     */
+    public void highlightElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("element = arguments[0];" +
                 "original_style = element.getAttribute('style');" +

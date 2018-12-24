@@ -2,10 +2,7 @@ package com.webui.tests;
 
 import com.webui.action.DepartReportDangerListActions;
 import com.webui.pageObject.DepartReportDangerListPage;
-import com.webui.utils.Assertion;
-import com.webui.utils.ElementAction;
-import com.webui.utils.FunctionUtil;
-import com.webui.utils.TestBaseCase;
+import com.webui.utils.*;
 import io.qameta.allure.Feature;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -24,6 +21,10 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     DepartReportDangerListPage departReportDangerListPage = new DepartReportDangerListPage();
     FunctionUtil functionUtil = new FunctionUtil();
 
+    ReadProperties rp = new ReadProperties();
+    private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\departDangers.properties";
+
+
     public String getTempDate() {
         return tempDate;
     }
@@ -36,9 +37,9 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Feature("查询")
     @Test(description = "验证添加数据功能")
-    @Parameters({"hazardName", "yePossiblyHazard", "yeProbability", "yeCost", "yeHazardCate", "activityname", "docSource", "sectionName", "yeStandard",
+    @Parameters({"hazardName", "yeProbability", "yeCost", "yeHazardCate", "activityname", "docSource", "sectionName", "yeStandard",
             "manageMeasure", "postname", "yeMhazardDesc", "hiddenLevel", "fineMoney"})
-    public void TC_addData(String hazardName, String yePossiblyHazard, String yeProbability, String yeCost, String yeHazardCate,
+    public void TC_addData(String hazardName, String yeProbability, String yeCost, String yeHazardCate,
                            String activityname, String docSource, String sectionName, String yeStandard, String manageMeasure,
                            String postname, String yeMhazardDesc, String hiddenLevel, String fineMoney) throws IOException, InterruptedException {
         departReportDangerListActions.modifyMenu();
@@ -49,7 +50,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.selectHazardName();
         departReportDangerListActions.checkDamageType();
         departReportDangerListActions.checkYeAccident();
-        departReportDangerListActions.typeYePossiblyHazard(yePossiblyHazard + tempDate);//风险描述
+        departReportDangerListActions.typeYePossiblyHazard(rp.readPropertiesFile(filePath,"yePossiblyHazard") + tempDate);//风险描述
         departReportDangerListActions.selectYeProbability();
         departReportDangerListActions.selectYeCost();//风险损失
         int temp1 = Integer.parseInt(elementAction.getTextByJS(departReportDangerListPage.yeProbability_select()));

@@ -341,6 +341,7 @@
 		<locator type="name" timeout="3" value="postName" desc="查询条件--岗位名称">postName_search_area</locator>
 		<!-- 录入岗位信息部分 -->
 		<locator type="id" timeout="3" value="postName" desc="录入岗位部分：岗位名称输入框">add_postName_area</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//span" desc="重复岗位信息时，提示信息">postName_tip</locator>
 		<locator type="id" timeout="3" value="postName" desc="编辑岗位部分：岗位名称输入框">update_postName_area</locator>
 
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>

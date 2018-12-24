@@ -35,7 +35,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     private String tempDate = functionUtil.formatterDate("yyyyMMddHHmmss");
 
     @Feature("查询")
-    @Test(description = "验证根据退休编号查询功能")
+    @Test(description = "验证添加数据功能")
     @Parameters({"hazardName", "yePossiblyHazard", "yeProbability", "yeCost", "yeHazardCate", "activityname", "docSource", "sectionName", "yeStandard",
             "manageMeasure", "postname", "yeMhazardDesc", "hiddenLevel", "fineMoney"})
     public void TC_addData(String hazardName, String yePossiblyHazard, String yeProbability, String yeCost, String yeHazardCate,

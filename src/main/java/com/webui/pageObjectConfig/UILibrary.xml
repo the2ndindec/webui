@@ -344,6 +344,9 @@
 		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//span" desc="重复岗位信息时，提示信息">postName_tip</locator>
 		<locator type="id" timeout="3" value="postName" desc="编辑岗位部分：岗位名称输入框">update_postName_area</locator>
 
+		<locator type="xpath" timeout="3" value=".//*[@id='layui-layer5']/div[3]/a[1]" desc="删除岗位部分：确定按钮">del_confirm</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='layui-layer5']/div[3]/a[2]" desc="删除岗位部分：取消按钮">del_cancel</locator>
+
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
 		<locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>

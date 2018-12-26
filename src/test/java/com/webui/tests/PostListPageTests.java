@@ -27,6 +27,12 @@ public class PostListPageTests extends TestBaseCase {
 
     @Feature("添加岗位信息")
     @Test(description = "验证添加岗位信息功能")
+    public void TC_search(){
+
+    }
+
+    @Feature("添加岗位信息")
+    @Test(description = "验证添加岗位信息功能")
     public void TC_addPost() throws IOException {
         postListPageActions.modifyMenu();
         postListPageActions.addPostName(rp.readPropertiesFile(filePath,"postName"));
@@ -41,5 +47,13 @@ public class PostListPageTests extends TestBaseCase {
     public void TC_updatePost(String postName) throws IOException {
         postListPageActions.modifyMenu();
         postListPageActions.updatePostNameRandom(postName);
+    }
+
+    @Feature("删除岗位信息")
+    @Test(description = "验证删除岗位信息功能--随机删除")
+    public void TC_delPost() throws IOException {
+        postListPageActions.modifyMenu();
+        postListPageActions.deletePostRandom();
+        Assertion.verityNotTextPresent(postListPageActions.getPostName());
     }
 }

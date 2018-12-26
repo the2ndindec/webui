@@ -2,28 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9322f82-8dbb-4962-80eb-898685cf2863" name="Default Changelist" comment="修改测试方法,移除方法中未使用的参数">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/webui/action/PostListPageActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/departDangers.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/post.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/pageObject/DefultPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/pageObject/DefultPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/pageObject/DepartReportDangerListPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/pageObject/DepartReportDangerListPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/action/PostListPageActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/action/PostListPageActions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/pageObject/PostListPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/pageObject/PostListPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/pageObjectConfig/UILibrary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/pageObjectConfig/UILibrary.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/utils/Assertion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/utils/Assertion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/webui/tests/DepartReportDangerListPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/webui/tests/DepartReportDangerListPageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/webui/tests/ReportDangerListPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/webui/tests/ReportDangerListPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/webui/tests/PostListPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/webui/tests/PostListPageTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webui.iml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="D:\dev\IdeaProjects\webui\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,7 @@
     <session id="-1804754673">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="2" />
@@ -53,56 +53,59 @@
           <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="16131" />
-          <entry key="txt" value="630" />
-          <entry key="xml" value="1261" />
+          <entry key="java" value="16892" />
+          <entry key="properties" value="60" />
+          <entry key="txt" value="654" />
+          <entry key="xml" value="1322" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="16131" />
-          <entry key="PLAIN_TEXT" value="630" />
-          <entry key="XML" value="1261" />
+          <entry key="JAVA" value="16892" />
+          <entry key="PLAIN_TEXT" value="654" />
+          <entry key="Properties" value="60" />
+          <entry key="XML" value="1322" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="110" />
+          <entry key="class" value="113" />
           <entry key="gitignore" value="2" />
           <entry key="iml" value="1" />
-          <entry key="java" value="249" />
-          <entry key="properties" value="1" />
-          <entry key="xml" value="26" />
+          <entry key="java" value="265" />
+          <entry key="properties" value="4" />
+          <entry key="xml" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="110" />
+          <entry key="CLASS" value="113" />
           <entry key="Git file" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="249" />
-          <entry key="Properties" value="1" />
-          <entry key="XML" value="26" />
+          <entry key="JAVA" value="265" />
+          <entry key="Properties" value="4" />
+          <entry key="XML" value="27" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/PostListPageActions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="82" column="82" selection-start-line="82" selection-start-column="82" selection-end-line="82" selection-end-column="82" />
+            <state relative-caret-position="1383">
+              <caret line="154" column="36" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,41 +113,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/FunctionUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1632">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/PostListPageTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="388">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/Assertion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="559" column="55" selection-start-line="559" selection-start-column="55" selection-end-line="559" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -152,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/pageObjectConfig/UILibrary.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="326" column="56" selection-start-line="326" selection-start-column="56" selection-end-line="326" selection-end-column="56" />
+            <state relative-caret-position="2516">
+              <caret line="347" column="116" selection-start-line="347" selection-start-column="116" selection-end-line="347" selection-end-column="116" />
               <folding>
                 <element signature="n#page#0;n#map#0;n#!!top" />
                 <element signature="n#page#2;n#map#0;n#!!top" />
@@ -167,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testng.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="104" column="18" lean-forward="true" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+            <state relative-caret-position="34">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -208,6 +184,7 @@
       <find>h</find>
       <find>highlightElementByXpath</find>
       <find>highlightElement</find>
+      <find>verityNotTextPresent</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -241,17 +218,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/webui/action/EmployeeInfoListPageActions.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/FunctionUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/ScreenShot.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/webui/tests/DepartReportDangerListPageTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/webui/tests/ReportDangerListPageTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/pageObject/PostListPage.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/departDangers.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/com/webui/tests/DepartReportDangerListPageTests.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/post.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/ReadProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/pageObjectConfig/UILibrary.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java" />
         <option value="$PROJECT_DIR$/testng.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/utils/Assertion.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/webui/tests/PostListPageTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/webui/action/PostListPageActions.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/webui/tests/PostListPageTests.java" />
       </list>
     </option>
   </component>
@@ -327,6 +307,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -376,7 +357,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="webui" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="pageObjectConfig" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webui" type="b2602c69:ProjectViewProjectNode" />
@@ -399,17 +380,23 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="webui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="add_unversioned_files" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545296520942" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545795798715" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="D:/Program Files/Git/cmd/git.exe" />
@@ -537,20 +524,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542943593934</updated>
-    </task>
-    <task id="LOCAL-00033" summary="添加去审/全部去审元素信息">
-      <created>1543564343194</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1543564343194</updated>
-    </task>
-    <task id="LOCAL-00034" summary="添加去审/全部去审元素信息">
-      <created>1543564395239</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1543564395239</updated>
     </task>
     <task id="LOCAL-00035" summary="添加unCHecked方法">
       <created>1543565571556</created>
@@ -881,38 +854,52 @@
       <option name="project" value="LOCAL" />
       <updated>1545295585653</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="添加读取配置文件的方法">
+      <created>1545626054321</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1545626054321</updated>
+    </task>
+    <task id="LOCAL-00083" summary="更改传参的方法">
+      <created>1545626141074</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1545626141074</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.18 at 10h 27m 37s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 14h 49m 22s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.18 at 10h 31m 12s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 14h 50m 24s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.18 at 10h 35m 54s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 14h 55m 18s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.18 at 10h 44m 39s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 14h 57m 10s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.18 at 10h 47m 19s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 15h 00m 26s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.18 at 10h 50m 17s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 15h 07m 01s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.18 at 10h 53m 50s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 15h 13m 51s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.20 at 16h 48m 41s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 15h 23m 06s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.20 at 16h 56m 52s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 15h 43m 30s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.20 at 16h 59m 06s.xml">
+    <history-entry file="D__dev_IdeaProjects_webui_testng_xml - 2018.12.24 at 15h 46m 04s.xml">
       <configuration name="D:/dev/IdeaProjects/webui/testng.xml" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -927,9 +914,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.119936034" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1705757" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -938,7 +924,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.21064061" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.34671125" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" weight="0.33110368" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38684505" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -972,8 +958,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加方法" />
-    <MESSAGE value="添加验证方法" />
     <MESSAGE value="update project" />
     <MESSAGE value="更新EmployeeInfoListPage页面信息" />
     <MESSAGE value="自动生成EmployeeInfoListPage页面信息" />
@@ -997,44 +981,11 @@
     <MESSAGE value="自动生成PostListPage" />
     <MESSAGE value="update" />
     <MESSAGE value="修改断言方法：在断言失败时高亮展示元素" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改断言方法：在断言失败时高亮展示元素" />
+    <MESSAGE value="添加读取配置文件的方法" />
+    <MESSAGE value="更改传参的方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改传参的方法" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0.jar!/com/google/common/collect/ImmutableCollection.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0.jar!/com/google/common/collect/UnmodifiableIterator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0.jar!/com/google/common/collect/UnmodifiableListIterator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0.jar!/com/google/common/base/Preconditions.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0.jar!/com/google/common/collect/RegularImmutableList.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/19.0/guava-19.0.jar!/com/google/common/collect/RegularImmutableAsList.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1203,27 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/DepartReportDangerListPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/2.53.1/selenium-support-2.53.1.jar!/org/openqa/selenium/support/ui/ExpectedConditions.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="184" column="60" selection-start-line="184" selection-start-column="48" selection-end-line="184" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/Logger.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1273,13 +1203,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4641">
-          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/pageObject/PostListPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1315,10 +1238,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="365" column="156" lean-forward="true" selection-start-line="365" selection-start-column="156" selection-end-line="365" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/departDangers.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/DepartReportDangerListPageTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="6" selection-start-line="24" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/post.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="8" selection-start-line="2" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/ReadProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/DepartReportDangerListActions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/2.53.1/selenium-support-2.53.1.jar!/org/openqa/selenium/support/ui/ExpectedConditions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="121" column="74" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="834" selection-start-line="834" selection-end-line="834" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7803">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/pageObjectConfig/UILibrary.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="326" column="56" selection-start-line="326" selection-start-column="56" selection-end-line="326" selection-end-column="56" />
+        <state relative-caret-position="2516">
+          <caret line="347" column="116" selection-start-line="347" selection-start-column="116" selection-end-line="347" selection-end-column="116" />
           <folding>
             <element signature="n#page#0;n#map#0;n#!!top" />
             <element signature="n#page#2;n#map#0;n#!!top" />
@@ -1328,48 +1317,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/ReviewDangerListPageActions.java">
+    <entry file="file://$PROJECT_DIR$/testng.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="365" column="156" lean-forward="true" selection-start-line="365" selection-start-column="156" selection-end-line="365" selection-end-column="156" />
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/ElementAction.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/ReviewDangerListPageTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        <state relative-caret-position="681">
+          <caret line="312" column="35" lean-forward="true" selection-start-line="312" selection-start-column="35" selection-end-line="312" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/utils/Assertion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="559" column="55" selection-start-line="559" selection-start-column="55" selection-end-line="559" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/PostListPageTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="697">
+          <caret line="183" column="23" selection-start-line="183" selection-start-column="23" selection-end-line="183" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testng.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/PostListPageActions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="104" column="18" lean-forward="true" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+        <state relative-caret-position="1383">
+          <caret line="154" column="36" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/webui/action/PostListPageActions.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/webui/tests/PostListPageTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="82" column="82" selection-start-line="82" selection-start-column="82" selection-end-line="82" selection-end-column="82" />
+        <state relative-caret-position="388">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

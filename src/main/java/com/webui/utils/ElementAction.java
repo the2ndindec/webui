@@ -334,12 +334,23 @@ public class ElementAction extends TestBaseCase {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
-            log.info("click元素：成功！");
         } catch (NoSuchElementException e) {
             log.error("找不到元素，click失败:" + "]");
             e.printStackTrace();
             throw e;
         }
+    }
+
+    public void clickVisibilityOfElement(String string){
+      try {
+          WebDriverWait wait = new WebDriverWait(driver, 10);
+          WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
+          ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
+      }catch (Exception e){
+          log.error("找不到元素，click失败:" + "]");
+          e.printStackTrace();
+          throw e;
+      }
     }
 
     /**

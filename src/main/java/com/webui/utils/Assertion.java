@@ -18,7 +18,6 @@ public class Assertion extends TestBaseCase {
     public static Integer errorIndex = 0; // 记录错误数量
     private static Log log = new Log(Assertion.class);
 
-
     private String actualStr;
 
     public static String formatDate(Date date) {
@@ -182,12 +181,12 @@ public class Assertion extends TestBaseCase {
      * @Description: 验证页面是否没有出现莫文本exceptStr
      * @throws:
      */
-    public void verityNotTextPresent(String exceptStr) {
-        String verityStr = "【Assert验证】:" + "页面是否没有出现" + "【" + "预期值：" + exceptStr + "】" + "字符串";
+    public static void verityNotTextPresent(String exceptStr) {
+        String verityStr = "【Assert验证】:" + "页面是否没有出现" + "【"  + exceptStr + "】" + "字符串";
         Boolean flag = false;
         log.info(verityStr);
         try {
-            exceptStr = "//*[contains(.,'" + exceptStr + "')]";
+            exceptStr = "//*[contains(text(),'" + exceptStr + "')]";
             driver.findElement(By.xpath(exceptStr));
             flag = false;
         } catch (NoSuchElementException e) {
@@ -202,10 +201,10 @@ public class Assertion extends TestBaseCase {
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
-            ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + exceptStr + "\"]");
             Assertion.snapshotInfo();
         }
+
+
     }
 
     /**

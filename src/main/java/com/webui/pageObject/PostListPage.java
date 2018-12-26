@@ -155,12 +155,42 @@ public Locator add_postName_area() throws IOException
  }
 
 /***
+* 重复岗位信息时，提示信息
+* @throws IOException
+*/
+public Locator postName_tip() throws IOException
+ {
+   Locator locator=getLocator("postName_tip");
+   return locator;
+ }
+
+/***
 * 编辑岗位部分：岗位名称输入框
 * @throws IOException
 */
 public Locator update_postName_area() throws IOException
  {
    Locator locator=getLocator("update_postName_area");
+   return locator;
+ }
+
+/***
+* 删除岗位部分：确定按钮
+* @throws IOException
+*/
+public Locator del_confirm() throws IOException
+ {
+   Locator locator=getLocator("del_confirm");
+   return locator;
+ }
+
+/***
+* 删除岗位部分：取消按钮
+* @throws IOException
+*/
+public Locator del_cancel() throws IOException
+ {
+   Locator locator=getLocator("del_cancel");
    return locator;
  }
 

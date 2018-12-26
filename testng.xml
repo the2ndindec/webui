@@ -98,8 +98,8 @@
         <classes>
             <class name="com.webui.tests.PostListPageTests">
                 <methods>
-                    <parameter name="postName" value="测试数据x"/>
-                    <include name="TC_addPost"/>
+                    <exclude name="TC_addPost"/>
+                    <include name="TC_delPost"/>
                 </methods>
             </class>
         </classes>

@@ -1,16 +1,15 @@
 package com.webui.pageObjectConfig;
 
+import com.webui.utils.Log;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
-
-import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
-
-import com.webui.utils.Log;
 
 public class PageObjAutoCode {
 
@@ -39,8 +38,6 @@ public class PageObjAutoCode {
 			// 获取要写入的page所属的类名
 			String pageClassName = pageNameArray[3].toString();
 			// 获取对象库包名
-			// String
-			// packageName=pageNameArray[0].toString()+"."+pageNameArray[1].toString()+"."+pageNameArray[2].toString()+"."+pageNameArray[3].toString();
 			String packageName = pageNameArray[0].toString() + "." + pageNameArray[1].toString() + "."
 					+ pageNameArray[2].toString();
 			// --自动编写对象库代码（XXPage.java）开始--
@@ -49,8 +46,6 @@ public class PageObjAutoCode {
 			// sb.append("import java.io.InputStream;\n");
 			sb.append("import com.webui.utils.BaseAction;\n");
 			sb.append("import com.webui.utils.Locator;\n");
-			// sb.append("import com.webui.pageObjectConfig.PageObjAutoCode;");
-			//sb.append("//" + page.attribute(2).getValue() + "_对象库类\n");
 			sb.append("/** \n");
 			sb.append("* " + page.attribute(2).getValue() + "\n");
 			sb.append(" * @author the2n" + "\n");
@@ -58,17 +53,11 @@ public class PageObjAutoCode {
 			sb.append("public class " + pageClassName + " extends BaseAction {\n");
 			sb.append("//用于eclipse工程内运行查找对象库文件路径\n");
 			sb.append("private String path=\"src/main/java/com/webui/pageObjectConfig/UILibrary.xml\";\n");
-			// sb.append("//用户打包成jar后查找对象库文件路径\n");
-			// sb.append("private InputStream
-			// pathInputStream=PageObjectAutoCode.class.getClassLoader().getResourceAsStream(\"net/hk515/pageObjectConfig/UILibrary.xml\");
-			// \n");
 			sb.append(" public   " + pageClassName + "() {\n");
 			sb.append("//工程内读取对象库文件\n	");
 			sb.append("setXmlObjectPath(path);\n");
 			sb.append("getLocatorMap();");
 			sb.append("\n}");
-			// sb.append("\n private String
-			// path=PageObjectAutoCode.class.getClassLoader().getResource(\"net/hk515/pageObjectConfig/UILibrary.xml\").getPath();");
 			// 遍历Page节点下的Locator节点
 			for (Iterator<?> j = page.elementIterator(); j.hasNext();) {
 				// 获取locaror节点

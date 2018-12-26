@@ -280,7 +280,7 @@ public class ElementAction extends TestBaseCase {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         WebElement weElement = findElement(locator);
         jse.executeScript("return arguments[0].value='" + value + "'", weElement);
-        log.info("输入参数：" + value + "成功");
+        log.info("输入参数>> " + value + " >成功");
     }
 
     /**

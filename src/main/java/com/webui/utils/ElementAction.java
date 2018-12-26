@@ -269,10 +269,18 @@ public class ElementAction extends TestBaseCase {
         actions.sendKeys(weElement, value);
     }
 
+    /**
+     * Description:通过js方法完成输入指定值
+     * @param locator	输入框元素
+     * @param value	要输入的值
+     * @return: void
+     * @throws:
+     */
     public void typeByJS(Locator locator, String value) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         WebElement weElement = findElement(locator);
-        jse.executeScript("return arguments[0].value='value'", weElement);
+        jse.executeScript("return arguments[0].value='" + value + "'", weElement);
+        log.info("输入参数：" + value + "成功");
     }
 
     /**
@@ -341,16 +349,16 @@ public class ElementAction extends TestBaseCase {
         }
     }
 
-    public void clickVisibilityOfElement(String string){
-      try {
-          WebDriverWait wait = new WebDriverWait(driver, 10);
-          WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
-          ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
-      }catch (Exception e){
-          log.error("找不到元素，click失败:" + "]");
-          e.printStackTrace();
-          throw e;
-      }
+    public void clickVisibilityOfElement(String string) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
+        } catch (Exception e) {
+            log.error("找不到元素，click失败:" + "]");
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     /**
@@ -843,7 +851,7 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * Description:高亮显示某元素
-     * @param element	需要高亮的元素对象
+     * @param element 需要高亮的元素对象
      * @return: void
      * @throws:
      */

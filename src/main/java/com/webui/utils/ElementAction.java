@@ -804,15 +804,14 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
-     * 显示等待
-     * @param webElement
+     * 等待30s,等待元素出现
+     * @param webElement 需要等待的元素对象
      * @return: void
      * @throws:
      */
     public void visibilityOfElement(WebElement webElement) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
         webDriverWait.until(ExpectedConditions.visibilityOf(webElement));
-
     }
 
     /**

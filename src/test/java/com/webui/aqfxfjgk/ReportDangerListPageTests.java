@@ -1,8 +1,7 @@
-package com.webui.tests;
+package com.webui.aqfxfjgk;
 
 import java.io.IOException;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.webui.action.DefultPageActions;

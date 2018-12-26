@@ -1,4 +1,4 @@
-package com.webui.tests;
+package com.webui.aqfxfjgk;
 
 import com.webui.action.ReviewDangerListPageActions;
 import com.webui.pageObject.ReviewDangerListPage;

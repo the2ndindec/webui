@@ -1,4 +1,4 @@
-package com.webui.tests;
+package com.webui.aqfxfjgk;
 
 import com.webui.action.DepartReportDangerListActions;
 import com.webui.pageObject.DepartReportDangerListPage;

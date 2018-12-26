@@ -1,4 +1,4 @@
-package com.webui.tests;
+package com.webui.aqfxfjgk;
 
 import com.webui.action.EmployeeInfoListPageActions;
 import com.webui.pageObject.EmployeeInfoListPage;
@@ -8,7 +8,6 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.Random;
 
 /**
  * @author the2n

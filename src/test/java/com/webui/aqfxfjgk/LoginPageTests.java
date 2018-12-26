@@ -1,4 +1,4 @@
-package com.webui.tests;
+package com.webui.aqfxfjgk;
 
 import com.webui.action.LoginPageActions;
 import com.webui.pageObject.DefultPage;

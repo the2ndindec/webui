@@ -6,7 +6,7 @@
     <parameter name="remark" value="webui自动化测试,自动输入内容" />
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
-            <class name="com.webui.tests.LoginPageTests">
+            <class name="com.webui.aqfxfjgk.LoginPageTests">
                 <methods>
                     <include name="TC_login"/>
                 </methods>
@@ -15,7 +15,7 @@
     </test>
     <test verbose="2" preserve-order="true" name="风险审核-查询">
         <classes>
-            <class name="com.webui.tests.ReviewDangerListPageTests">
+            <class name="com.webui.aqfxfjgk.ReviewDangerListPageTests">
                 <methods>
                     <parameter name="AddressCate" value="办公楼" />
                     <include name="TC_searchByAddressCate"/>
@@ -40,7 +40,7 @@
     </test>
     <test preserve-order="true" name="职工个人基本信息:查询" enabled="false">
         <classes>
-            <class name="com.webui.tests.EmployeeInfoListPageTests">
+            <class name="com.webui.aqfxfjgk.EmployeeInfoListPageTests">
                 <methods>
                     <parameter name="fileNo" value="01"/>
                     <parameter name="searchfileNo" value="档案号"/>
@@ -64,7 +64,7 @@
     </test>
     <test preserve-order="true" name="职工个人基本信息:添加数据" enabled="false">
         <classes>
-            <class name="com.webui.tests.EmployeeInfoListPageTests">
+            <class name="com.webui.aqfxfjgk.EmployeeInfoListPageTests">
                 <methods>
                     <include name="TC_addEmInfo"/>
                 </methods>
@@ -73,7 +73,7 @@
     </test>
     <test preserve-order="true" name="录入危险源" enabled="false">
         <classes>
-            <class name="com.webui.tests.DepartReportDangerListPageTests">
+            <class name="com.webui.aqfxfjgk.DepartReportDangerListPageTests">
                 <methods>
                     <parameter name="hazardName" value="水"/>
                     <parameter name="yePossiblyHazard" value="webui-风险描述"/>
@@ -94,12 +94,26 @@
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="岗位管理" >
+    <test preserve-order="true" name="岗位管理" enabled="false">
         <classes>
-            <class name="com.webui.tests.PostListPageTests">
+            <class name="com.webui.aqfxfjgk.PostListPageTests">
                 <methods>
-                    <exclude name="TC_addPost"/>
-                    <include name="TC_delPost"/>
+                    <include name="TC_addPost"/>
+                    <exclude name="TC_delPost"/>
+                    <include name="TC_goDetail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="作业活动管理" >
+        <classes>
+            <class name="com.webui.aqfxfjgk.ActivityManagePageTests">
+                <methods>
+                    <include name="TC_addActivity"/>
+                    <exclude name="TC_addDupActivity"/>
+                    <include name="TC_search"/>
+                    <include name="TC_detailRandom"/>
+                    <include name="TC_delActivity"/>
                 </methods>
             </class>
         </classes>

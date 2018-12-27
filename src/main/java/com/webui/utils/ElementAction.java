@@ -651,7 +651,6 @@ public class ElementAction extends TestBaseCase {
         WebElement webElement = findElement(locator);
         String text = webElement.getText();
         return text;
-
     }
 
     /**

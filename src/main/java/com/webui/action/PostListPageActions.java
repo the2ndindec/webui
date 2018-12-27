@@ -53,8 +53,8 @@ public class PostListPageActions extends TestBaseCase {
     }
 
     /**
+     * Description:根据岗位名称查询
      * @param postName 岗位名称字段值
-     * @Description:根据岗位名称查询
      * @return: void
      * @throws:
      */
@@ -73,7 +73,7 @@ public class PostListPageActions extends TestBaseCase {
     public void addPostName(String postName) throws IOException {
         elementAction.click_left(postListPage.add_Button());
         modifyFrame(postListPage.iframe_goAdd());//切换到录入弹框
-        elementAction.type(postListPage.add_postName_area(), postName);
+        elementAction.type(postListPage.add_postName_area(), postName + dataStr);
         elementAction.switchToDefaultFrame();//切换到默认frame
         elementAction.click_left(postListPage.confirm_btn());
     }
@@ -95,6 +95,30 @@ public class PostListPageActions extends TestBaseCase {
     }
 
     /**
+     * Description:查看岗位详情
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void detailOfPost() throws IOException {
+        modifyFrame(postListPage.iframe_PostList());
+        getPostElement().click();
+        valueOfChoosePost = getPostElement().getText();
+        elementAction.clickByJS(postListPage.detail_Button());
+        modifyFrame(postListPage.iframe_goUpdate());
+    }
+
+    public String getValueOfChoosePost() {
+        return valueOfChoosePost;
+    }
+
+    public void setValueOfChoosePost(String valueOfChoosePost) {
+        this.valueOfChoosePost = valueOfChoosePost;
+    }
+
+    public String valueOfChoosePost;
+
+    /**
      * Description:随机删除岗位信息
      * @param
      * @return: void
@@ -102,12 +126,10 @@ public class PostListPageActions extends TestBaseCase {
      */
     public void deletePostRandom() throws IOException {
         int temp = functionUtil.random(getPostCount());
-        postName = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+temp+"]/td[@field='postName']/div")).getText();
-        log.info("删除的岗位信息为:"+postName);
-//        driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+temp+"]/td[@field='opt']//a[1]")).click();
-        elementAction.clickByJS(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+temp+"]/td[@field='opt']//a[1]");
+        postName = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + temp + "]/td[@field='postName']/div")).getText();
+        log.info("删除的岗位信息为:" + postName);
+        elementAction.clickByJS(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + temp + "]/td[@field='opt']//a[1]");
         modifyFrame(postListPage.iframe_PostList());
-//        elementAction.clickByJS(postListPage.del_confirm());
         elementAction.clickVisibilityOfElement(".//*[@class='layui-layer-btn0']");
     }
 
@@ -119,7 +141,6 @@ public class PostListPageActions extends TestBaseCase {
      * @throws:
      */
     private int getPostCount() throws IOException {
-
         if (elementAction.isElementDisplayedByLocator(postListPage.data_tbody())) {//判断列表中是否存在数据
             postElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
             postCount = postElements.size();
@@ -136,9 +157,8 @@ public class PostListPageActions extends TestBaseCase {
      * @throws:
      */
     public WebElement getPostElement() throws IOException {
-
         if (elementAction.isElementDisplayedByLocator(postListPage.data_tbody())) {//判断列表中是否存在数据
-            postElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
+            postElements = driver.findElements(By.xpath(".//div[@class='datagrid-body']//td[@field='postName']"));
             element = postElements.get(functionUtil.random(postElements.size()));
         } else {
             log.info("暂无相关数据信息");

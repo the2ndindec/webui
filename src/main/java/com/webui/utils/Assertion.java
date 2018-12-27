@@ -89,8 +89,8 @@ public class Assertion extends TestBaseCase {
     /**
      * 验证实际值actual与预期值exceptStr是否相等
      *
-     * @param actual
-     * @param exceptStr
+     * @param actual 实际值
+     * @param exceptStr 预期值
      */
     public static void VerityString(String actual, String exceptStr) {
         String verityStr = "Assert验证：{" + "实际值：" + actual + "," + "预期值:" + exceptStr + "} 实际值与预期值是否一致";
@@ -117,7 +117,7 @@ public class Assertion extends TestBaseCase {
      * @param exceptStr
      * @param Message
      */
-    public static void VerityString(String actual, String exceptStr, String Message) {
+    public static void verityString(String actual, String exceptStr, String Message) {
         String verityStr = "Assert验证：{" + "实际值" + actual + "," + "预期值:" + exceptStr + "} 实际值与预期值是否一致";
         log.info(Message + ":" + verityStr);
         try {
@@ -176,9 +176,9 @@ public class Assertion extends TestBaseCase {
     }
 
     /**
+     * 验证页面是否没有出现文本exceptStr
      * @param: [exceptStr] 预期值
      * @return: void
-     * @Description: 验证页面是否没有出现莫文本exceptStr
      * @throws:
      */
     public static void verityNotTextPresent(String exceptStr) {
@@ -196,12 +196,14 @@ public class Assertion extends TestBaseCase {
             Assert.assertTrue(flag);
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
+            System.out.println(flag);
         } catch (Error f) {
             AssertFailedLog();
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
+            System.out.println(flag);
         }
 
 

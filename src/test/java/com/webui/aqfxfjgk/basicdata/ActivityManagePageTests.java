@@ -1,6 +1,6 @@
-package com.webui.aqfxfjgk;
+package com.webui.aqfxfjgk.basicdata;
 
-import com.webui.action.aqfxfjgk.jcsjgl.ActivityManagePageActions;
+import com.webui.action.aqfxfjgk.basicdata.ActivityManagePageActions;
 import com.webui.pageObject.ActivityManagePage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;

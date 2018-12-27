@@ -1,4 +1,4 @@
-package com.webui.action.aqfxfjgk.jcsjgl;
+package com.webui.action.aqfxfjgk.basicdata;
 
 import com.webui.action.DefultPageActions;
 import com.webui.pageObject.DefultPage;

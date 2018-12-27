@@ -1,4 +1,4 @@
-package com.webui.action.aqfxfjgk.ndfxgl;
+package com.webui.action.aqfxfjgk.annualrisk;
 
 import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReportDangerListPage;

@@ -15,7 +15,7 @@
     </test>
     <test verbose="2" preserve-order="true" name="风险审核-查询">
         <classes>
-            <class name="com.webui.aqfxfjgk.ReviewDangerListPageTests">
+            <class name="com.webui.aqfxfjgk.annualrisk.ReviewDangerListPageTests">
                 <methods>
                     <parameter name="AddressCate" value="办公楼" />
                     <include name="TC_searchByAddressCate"/>
@@ -73,7 +73,7 @@
     </test>
     <test preserve-order="true" name="录入危险源" enabled="false">
         <classes>
-            <class name="com.webui.aqfxfjgk.DepartReportDangerListPageTests">
+            <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
                     <parameter name="hazardName" value="水"/>
                     <parameter name="yePossiblyHazard" value="webui-风险描述"/>
@@ -96,7 +96,7 @@
     </test>
     <test preserve-order="true" name="岗位管理" enabled="false">
         <classes>
-            <class name="com.webui.aqfxfjgk.PostListPageTests">
+            <class name="com.webui.aqfxfjgk.basicdata.PostListPageTests">
                 <methods>
                     <include name="TC_addPost"/>
                     <exclude name="TC_delPost"/>
@@ -107,7 +107,7 @@
     </test>
     <test preserve-order="true" name="作业活动管理" >
         <classes>
-            <class name="com.webui.aqfxfjgk.ActivityManagePageTests">
+            <class name="com.webui.aqfxfjgk.basicdata.ActivityManagePageTests">
                 <methods>
                     <include name="TC_addActivity"/>
                     <exclude name="TC_addDupActivity"/>

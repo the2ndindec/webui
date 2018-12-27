@@ -1,4 +1,4 @@
-package com.webui.action.aqfxfjgk.jcsjgl;
+package com.webui.action.aqfxfjgk.basicdata;
 
 /**
  * @author the2n

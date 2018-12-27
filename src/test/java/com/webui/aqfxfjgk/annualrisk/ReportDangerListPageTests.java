@@ -1,20 +1,18 @@
-package com.webui.aqfxfjgk;
-
-import java.io.IOException;
-
-import org.testng.annotations.Test;
+package com.webui.aqfxfjgk.annualrisk;
 
 import com.webui.action.DefultPageActions;
 import com.webui.action.LoginPageActions;
-import com.webui.action.aqfxfjgk.ndfxgl.ReportDangerListPageActions;
+import com.webui.action.aqfxfjgk.annualrisk.ReportDangerListPageActions;
 import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReportDangerListPage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
 import com.webui.utils.TestBaseCase;
-
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 @Feature(value = "查询")
 public class ReportDangerListPageTests extends TestBaseCase {

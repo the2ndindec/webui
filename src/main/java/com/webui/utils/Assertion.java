@@ -204,9 +204,8 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
             System.out.println(flag);
+            f.printStackTrace();
         }
-
-
     }
 
     /**

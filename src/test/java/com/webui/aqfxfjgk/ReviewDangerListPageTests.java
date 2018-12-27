@@ -1,6 +1,6 @@
 package com.webui.aqfxfjgk;
 
-import com.webui.action.ReviewDangerListPageActions;
+import com.webui.action.aqfxfjgk.ndfxgl.ReviewDangerListPageActions;
 import com.webui.pageObject.ReviewDangerListPage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;

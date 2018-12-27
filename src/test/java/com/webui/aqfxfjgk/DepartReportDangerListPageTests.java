@@ -1,6 +1,6 @@
 package com.webui.aqfxfjgk;
 
-import com.webui.action.DepartReportDangerListActions;
+import com.webui.action.aqfxfjgk.ndfxgl.DepartReportDangerListActions;
 import com.webui.pageObject.DepartReportDangerListPage;
 import com.webui.utils.*;
 import io.qameta.allure.Feature;

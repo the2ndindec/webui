@@ -1,20 +1,18 @@
-package com.webui.action;
+package com.webui.action.aqfxfjgk.ndfxgl;
+
+import com.webui.pageObject.DefultPage;
+import com.webui.pageObject.ReportDangerListPage;
+import com.webui.utils.ElementAction;
+import com.webui.utils.Locator;
+import com.webui.utils.TestBaseCase;
+import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import com.webui.utils.Locator;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import com.webui.pageObject.DefultPage;
-import com.webui.pageObject.ReportDangerListPage;
-import com.webui.utils.ElementAction;
-import com.webui.utils.TestBaseCase;
-
-import io.qameta.allure.Step;
 
 /**
  * @author the2n

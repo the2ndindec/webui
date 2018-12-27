@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import com.webui.action.DefultPageActions;
 import com.webui.action.LoginPageActions;
-import com.webui.action.ReportDangerListPageActions;
+import com.webui.action.aqfxfjgk.ndfxgl.ReportDangerListPageActions;
 import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReportDangerListPage;
 import com.webui.utils.Assertion;

@@ -1,6 +1,6 @@
 package com.webui.aqfxfjgk;
 
-import com.webui.action.PostListPageActions;
+import com.webui.action.aqfxfjgk.jcsjgl.PostListPageActions;
 import com.webui.pageObject.PostListPage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;

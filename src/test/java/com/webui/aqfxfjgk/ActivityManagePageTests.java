@@ -1,6 +1,6 @@
 package com.webui.aqfxfjgk;
 
-import com.webui.action.ActivityManagePageActions;
+import com.webui.action.aqfxfjgk.jcsjgl.ActivityManagePageActions;
 import com.webui.pageObject.ActivityManagePage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;

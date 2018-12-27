@@ -94,10 +94,7 @@ public class ActivityManagePageActions extends TestBaseCase {
     public void searchActivity(String activityStr) throws IOException {
         ea.typeByJS(amp.activityName_search_area(), activityStr);
         ea.clickByJS(amp.search_Button());
-        /**
-         * 删除查询条件
-         */
-        ea.clear(amp.activityName_search_area());
+
     }
 
     public String valueOfChooseActivity; //被选择的作业活动的值
@@ -134,6 +131,10 @@ public class ActivityManagePageActions extends TestBaseCase {
          */
         ea.clickByJS(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+tempNum(activityStr)+"]/td[@field='opt']//a[1]");
         ea.clickByJS(amp.del_confirm());
+        /**
+         * 删除查询条件
+         */
+        ea.clear(amp.activityName_search_area());
     }
 
 

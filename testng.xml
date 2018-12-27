@@ -105,7 +105,7 @@
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="作业活动管理" >
+    <test preserve-order="true" name="作业活动管理" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.basicdata.ActivityManagePageTests">
                 <methods>
@@ -114,6 +114,16 @@
                     <include name="TC_search"/>
                     <include name="TC_detailRandom"/>
                     <include name="TC_delActivity"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="危险源管理" >
+        <classes>
+            <class name="com.webui.aqfxfjgk.basicdata.HazardManagePageTests">
+                <methods>
+                    <include name="TC_addHazard"/>
+                    <include name="TC_addHazardWithoutHazardString"/>
                 </methods>
             </class>
         </classes>

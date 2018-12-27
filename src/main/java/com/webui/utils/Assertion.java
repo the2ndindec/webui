@@ -40,7 +40,7 @@ public class Assertion extends TestBaseCase {
      * @param actual
      * @param exceptStr
      */
-    public static void VerityCationString(String actual, String exceptStr) {
+    public static void verityCationString(String actual, String exceptStr) {
         String verityStr = "Assert验证：{" + "实际值：" + actual + "," + "预期值：" + exceptStr + "} 实际值是否包含预期值";
         Boolean flagBoolean = actual.contains(exceptStr);
         log.info(verityStr);
@@ -66,7 +66,7 @@ public class Assertion extends TestBaseCase {
      * @param exceptStr
      * @param Message
      */
-    public static void VerityCationString(String actual, String exceptStr, String Message) {
+    public static void verityCationString(String actual, String exceptStr, String Message) {
         String verityStr = "Assert验证：{" + "实际值：" + actual + "," + "预期值：" + exceptStr + "} 实际值是否包含预期值";
         Boolean flagBoolean = actual.contains(exceptStr);
         log.info(Message + ":" + verityStr);
@@ -92,7 +92,7 @@ public class Assertion extends TestBaseCase {
      * @param actual 实际值
      * @param exceptStr 预期值
      */
-    public static void VerityString(String actual, String exceptStr) {
+    public static void verityString(String actual, String exceptStr) {
         String verityStr = "Assert验证：{" + "实际值：" + actual + "," + "预期值:" + exceptStr + "} 实际值与预期值是否一致";
         log.info(verityStr);
         try {
@@ -142,7 +142,7 @@ public class Assertion extends TestBaseCase {
      *
      * @param exceptStr
      */
-    public static void VerityTextPresent(String exceptStr) {
+    public static void verityTextPresent(String exceptStr) {
         String verityStr = "【Assert验证】:" + "页面是否出现" + "【" + "预期值：" + exceptStr + "】" + "字符串";
         Boolean flag = false;
         log.info(verityStr);
@@ -213,7 +213,7 @@ public class Assertion extends TestBaseCase {
      *
      * @param exceptTitle 预期标题
      */
-    public static void VerityTitle(String exceptTitle) {
+    public static void verityTitle(String exceptTitle) {
 
         String title = driver.getTitle();
         String verityStr = "Assert验证:页面title是否与预期值一致{" + "实际网页标题：" + title + "," + "预期网页标题：" + exceptTitle + "}";
@@ -238,7 +238,7 @@ public class Assertion extends TestBaseCase {
      * @param exceptTitle 预期标题
      * @param Message     验证中文描述
      */
-    public static void VerityTitle(String exceptTitle, String Message) {
+    public static void verityTitle(String exceptTitle, String Message) {
 
         String title = driver.getTitle();
         String verityStr = "Assert验证:页面title是否与预期值一致{" + "实际网页标题：" + title + "," + "预期网页标题：" + exceptTitle + "}";
@@ -265,7 +265,7 @@ public class Assertion extends TestBaseCase {
      * @param locator    元素定位信息
      * @param exceptText 预期文本值
      */
-    public static void VerityText(Locator locator, String exceptText) {
+    public static void verityText(Locator locator, String exceptText) {
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
         String text = webElement.getText();
@@ -310,7 +310,7 @@ public class Assertion extends TestBaseCase {
      * @param exceptText 预期文本值
      * @param Message    验证中文描述
      */
-    public static void VerityText(Locator locator, String exceptText, String Message) {
+    public static void verityText(Locator locator, String exceptText, String Message) {
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
         String text = webElement.getText();
@@ -340,7 +340,7 @@ public class Assertion extends TestBaseCase {
      * @param AttributeName        元素属性名
      * @param exceptAttributeValue 预期值
      */
-    public static void VerityAttribute(Locator locator, String AttributeName, String exceptAttributeValue) {
+    public static void verityAttribute(Locator locator, String AttributeName, String exceptAttributeValue) {
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
         String attribute = webElement.getAttribute(AttributeName);
@@ -368,7 +368,7 @@ public class Assertion extends TestBaseCase {
      * @param exceptAttributeValue 预期值
      * @param Message              验证中文描述
      */
-    public static void VerityAttribute(Locator locator, String AttributeName, String exceptAttributeValue,
+    public static void verityAttribute(Locator locator, String AttributeName, String exceptAttributeValue,
                                        String Message) {
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
@@ -536,7 +536,7 @@ public class Assertion extends TestBaseCase {
      *
      * @param exceptStr 预期值 预期值
      */
-    public static void VerityTextPresentPrecision(String exceptStr) {
+    public static void verityTextPresentPrecision(String exceptStr) {
         String verityStr = "【Assert验证】:" + "页面是否出现" + "【" + "预期值：" + exceptStr + "】" + "字符串";
         Boolean flag = false;
         log.info(verityStr);
@@ -595,7 +595,7 @@ public class Assertion extends TestBaseCase {
         }
     }
 
-    public boolean AssertElementIsDispaly(Locator locator) {
+    public boolean assertElementIsDispaly(Locator locator) {
         ElementAction elementAction = new ElementAction();
         Boolean flag ;
         try {

@@ -93,6 +93,10 @@ public class ActivityManagePageActions extends TestBaseCase {
     public void searchActivity(String activityStr) throws IOException {
         ea.typeByJS(amp.activityName_search_area(), activityStr);
         ea.clickByJS(amp.search_Button());
+        /**
+         * 删除查询条件
+         */
+        ea.clear(amp.activityName_search_area());
     }
 
     public String valueOfChooseActivity; //被选择的作业活动的值

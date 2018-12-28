@@ -25,18 +25,24 @@ public class HazardManagePageTests extends TestBaseCase {
 
 
     @Feature("添加危险源")
-    @Test(description = "验证添加危险源功能",enabled = false)
+    @Test(description = "验证添加危险源功能")
     public void TC_addHazard() throws IOException {
         hmpa.modifyMenu();
         hmpa.addHazard(rp.readPropertiesFile(filePath, "add_hazard_string") + hmpa.dataStr);
-        Assertion.VerityTextPresent(rp.readPropertiesFile(filePath, "add_hazard_string") + hmpa.dataStr);
+        Assertion.verityTextPresent(rp.readPropertiesFile(filePath, "add_hazard_string") + hmpa.dataStr);
     }
 
     @Feature("添加危险源")
     @Test(description = "验证在未输入危险源名称时是否有提示信息")
     public void TC_addHazardWithoutHazardString() throws IOException {
-        hmpa.modifyMenu();
         hmpa.addHazardWithoutHazardString();
-        Assertion.VerityTextPresent("请填写信息");
+        Assertion.verityTextPresent("请填写信息");
+    }
+
+    @Feature("添加危险源")
+    @Test(description = "验证在未选择危险源类型时是否有提示信息")
+    public void TC_addHazardWithoutHazardType() throws IOException {
+        hmpa.addHazardWithoutHazardSTYpe();
+        Assertion.verityTextPresent("请选择");
     }
 }

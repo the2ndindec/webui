@@ -39,11 +39,11 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByAddressCate(String AddressCate) throws IOException, InterruptedException {
         reviewDangerListPageActions.modifyMenu();
         reviewDangerListPageActions.searchByAddressCate(AddressCate);
-        if (assertion.AssertElementIsDispaly(reviewDangerListPage.data_tbody())) {
+        if (assertion.assertElementIsDispaly(reviewDangerListPage.data_tbody())) {
             log.info("根据查询条件为查询到相关数据");
         } else {
             for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险点类型").size(); i++) {
-                Assertion.VerityString(reviewDangerListPageActions.getSearchData("风险点类型").get(i), AddressCate);
+                Assertion.verityString(reviewDangerListPageActions.getSearchData("风险点类型").get(i), AddressCate);
             }
         }
     }
@@ -92,7 +92,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByYeMhazardDesc(String hazardDesc) throws IOException, InterruptedException {
         reviewDangerListPageActions.searchByYeMhazardDesc(hazardDesc);
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("隐患描述").size(); i++) {
-            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("隐患描述").get(i), hazardDesc);
+            Assertion.verityCationString(reviewDangerListPageActions.getSearchData("隐患描述").get(i), hazardDesc);
         }
     }
 
@@ -103,7 +103,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByYeProfession(String profession) throws IOException, InterruptedException {
         reviewDangerListPageActions.searchByYeProfession(profession);
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("专业").size(); i++) {
-            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("专业").get(i), profession);
+            Assertion.verityCationString(reviewDangerListPageActions.getSearchData("专业").get(i), profession);
         }
     }
 
@@ -114,7 +114,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByDamageType(String damageType) throws IOException, InterruptedException {
         reviewDangerListPageActions.searchByDamageType(damageType);
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("伤害类别").size(); i++) {
-            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("伤害类别").get(i), damageType);
+            Assertion.verityCationString(reviewDangerListPageActions.getSearchData("伤害类别").get(i), damageType);
         }
     }
 
@@ -125,7 +125,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByYePossiblyHazard(String YePossiblyHazard) throws IOException, InterruptedException {
         reviewDangerListPageActions.searchByYePossiblyHazard(YePossiblyHazard);
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险描述").size(); i++) {
-            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("风险描述").get(i), YePossiblyHazard);
+            Assertion.verityCationString(reviewDangerListPageActions.getSearchData("风险描述").get(i), YePossiblyHazard);
         }
     }
 
@@ -136,7 +136,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByActivityid(String activityid) throws IOException, InterruptedException {
         reviewDangerListPageActions.searchByActivityid(activityid);
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("作业活动").size(); i++) {
-            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("作业活动").get(i), activityid);
+            Assertion.verityCationString(reviewDangerListPageActions.getSearchData("作业活动").get(i), activityid);
         }
     }
 
@@ -147,7 +147,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByYeRiskGrade(String riskGrade) throws IOException, InterruptedException {
         reviewDangerListPageActions.searchByYeRiskGrade(riskGrade);
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险等级").size(); i++) {
-            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("风险等级").get(i), riskGrade);
+            Assertion.verityCationString(reviewDangerListPageActions.getSearchData("风险等级").get(i), riskGrade);
         }
     }
 
@@ -158,7 +158,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_searchByYeHazardCate(String hazardCate) throws IOException, InterruptedException {
         reviewDangerListPageActions.searchByYeHazardCate(hazardCate);
         for (int i = 0; i < reviewDangerListPageActions.getSearchData("风险类型").size(); i++) {
-            Assertion.VerityCationString(reviewDangerListPageActions.getSearchData("风险类型").get(i), hazardCate);
+            Assertion.verityCationString(reviewDangerListPageActions.getSearchData("风险类型").get(i), hazardCate);
         }
     }
 
@@ -169,7 +169,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
         reviewDangerListPageActions.goReviewPassByRandom(remark);
         reviewDangerListPageActions.checkChecked();
         elementAction.sleep(2);
-        Assertion.VerityString(reviewDangerListPageActions.getSearchData("风险描述").get(reviewDangerListPageActions.tempNum - 1), reviewDangerListPageActions.getTempString());
+        Assertion.verityString(reviewDangerListPageActions.getSearchData("风险描述").get(reviewDangerListPageActions.tempNum - 1), reviewDangerListPageActions.getTempString());
     }
 
     @Feature("审核")
@@ -177,7 +177,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_goReviewDismiss() throws IOException {
         reviewDangerListPageActions.goReviewDismissWithoutRemark();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
-        Assertion.VerityString(elementAction.getText(reviewDangerListPage.check_remark_error()).trim(), "请填写备注！");
+        Assertion.verityString(elementAction.getText(reviewDangerListPage.check_remark_error()).trim(), "请填写备注！");
     }
 
     @Feature("审核")
@@ -185,14 +185,14 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_undoReviewAll() throws IOException {
         reviewDangerListPageActions.modifyMenu();
         reviewDangerListPageActions.undoReviewAll();
-        assertion.AssertElementIsDispaly(reviewDangerListPage.data_tbody());
+        assertion.assertElementIsDispaly(reviewDangerListPage.data_tbody());
     }
 
     @Feature("修改风险")
     @Test(description = "修改辨识时间为不正确的字段值,验证是否判断正确", enabled = false)
     public void TC_updateYeRecognizeTime() throws IOException {
         reviewDangerListPageActions.updateYeRecognizeTime("2015/5285//5");
-        Assertion.VerityCationString(elementAction.getAlertText(), "不合法的日期格式");
+        Assertion.verityCationString(elementAction.getAlertText(), "不合法的日期格式");
         elementAction.alertConfirm();
     }
 
@@ -200,35 +200,35 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Test(description = "专业为默认字段值,验证是否判断正确")
     public void TC_updateYeProfessionSelectDefault() throws IOException {
         reviewDangerListPageActions.updateYeProfessionSelectDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请选择专业");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请选择专业");
     }
 
     @Feature("修改风险")
     @Test(description = "危险源名称为空,验证是否判断正确")
     public void TC_updateHazardnameDefault() throws IOException {
         reviewDangerListPageActions.updateHazardnameDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请填写危险源");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请填写危险源");
     }
 
     @Feature("修改风险")
     @Test(description = "风险描述为空,验证是否判断正确")
     public void TC_updateYePossiblyHazard() throws IOException {
         reviewDangerListPageActions.updateYePossiblyHazardDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请填写风险描述");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请填写风险描述");
     }
 
     @Feature("修改风险")
     @Test(description = "风险可能性为空,验证是否判断正确")
     public void TC_updateYeProbability() throws IOException {
         reviewDangerListPageActions.updateYeProbabilityDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请选择风险可能性");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "请选择风险可能性");
     }
 
     @Feature("修改风险")
     @Test(description = "风险损失为空,验证是否判断正确")
     public void TC_updateYeCostDefault() throws IOException {
         reviewDangerListPageActions.updateYeCostDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "选择风险损失");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "选择风险损失");
     }
 
     @Feature("修改风险")
@@ -239,7 +239,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
         int temp1 = Integer.parseInt(elementAction.getTextByJS(reviewDangerListPage.update_yeProbability_select()));
         int temp2 = Integer.parseInt(elementAction.getTextByJS(reviewDangerListPage.update_yeCost_select()));
         int temp3 = temp1 * temp2;
-        Assertion.VerityString(elementAction.getTextByJS(reviewDangerListPage.update_riskValue_textarea()), String.valueOf(temp3));
+        Assertion.verityCationString(elementAction.getTextByJS(reviewDangerListPage.update_riskValue_textarea()), String.valueOf(temp3));
     }
 
     @Feature("修改风险")
@@ -251,13 +251,13 @@ public class ReviewDangerListPageTests extends TestBaseCase {
         int temp2 = Integer.parseInt(elementAction.getTextByJS(reviewDangerListPage.update_yeCost_select()));
         int temp3 = temp1 * temp2;
         if (temp3 >= 1 && temp3 <= 6) {
-            Assertion.VerityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "低风险");
+            Assertion.verityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "低风险");
         } else if (temp3 >= 8 && temp3 <= 12) {
-            Assertion.VerityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "一般风险");
+            Assertion.verityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "一般风险");
         } else if (temp3 >= 18 && temp3 <= 24) {
-            Assertion.VerityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "较大风险");
+            Assertion.verityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "较大风险");
         } else {
-            Assertion.VerityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "重大风险");
+            Assertion.verityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "重大风险");
         }
     }
 
@@ -265,7 +265,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Test(description = "验证风险类型值是否可以为空")
     public void TC_updateYeHazardCateDefault() throws IOException {
         reviewDangerListPageActions.updateYeHazardCateDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "选择风险类型");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "选择风险类型");
     }
 
     @Feature("修改风险")
@@ -273,14 +273,14 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_updateYeStandardDefault() throws IOException {
 
         reviewDangerListPageActions.updateYeStandardDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写标准内容");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写标准内容");
     }
 
     @Feature("修改风险")
     @Test(description = "验证管控措施值是否可以为空")
     public void TC_updateManageMeasureDefault() throws IOException {
         reviewDangerListPageActions.updateManageMeasureDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写管控措施");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写管控措施");
     }
 
     @Feature("修改风险")
@@ -289,7 +289,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
         reviewDangerListPageActions.updateYeProbability();
         reviewDangerListPageActions.updateYeCost();
         reviewDangerListPageActions.updatePostNameDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写岗位");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写岗位");
     }
 
     @Feature("修改风险")
@@ -297,7 +297,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_updateYeMhazardDescDefault() throws IOException {
         reviewDangerListPageActions.switchToUpdatePage();
         reviewDangerListPageActions.updateYeMhazardDescDefault();
-        Assertion.VerityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写隐患描述");
+        Assertion.verityCationString(elementAction.getText(reviewDangerListPage.update_tip()), "填写隐患描述");
     }
 
     @Feature("修改风险")

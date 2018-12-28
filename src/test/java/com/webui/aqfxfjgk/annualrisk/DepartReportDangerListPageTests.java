@@ -57,7 +57,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         int temp2 = Integer.parseInt(elementAction.getTextByJS(departReportDangerListPage.yeCost_select()));
         int temp3 = temp1 * temp2;
         //验证风险值是否正确
-        Assertion.VerityString(elementAction.getTextByJS(departReportDangerListPage.riskValue_textarea()), String.valueOf(temp3));
+        Assertion.verityString(elementAction.getTextByJS(departReportDangerListPage.riskValue_textarea()), String.valueOf(temp3));
         departReportDangerListActions.selectYeHazardCate();//风险类型
         departReportDangerListActions.selectActivityName();//作业活动
         departReportDangerListActions.typeDocSource(docSource);//管控标准来源
@@ -71,6 +71,6 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.doSave();
 
         departReportDangerListActions.goDepartReportDangerList();
-        Assertion.VerityTextPresentPrecision(yeMhazardDesc + tempDate);
+        Assertion.verityTextPresentPrecision(yeMhazardDesc + tempDate);
     }
 }

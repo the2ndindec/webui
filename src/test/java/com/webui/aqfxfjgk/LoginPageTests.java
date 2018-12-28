@@ -22,6 +22,6 @@ public class LoginPageTests extends TestBaseCase {
     @Test(description = "login")
     public void TC_login() throws IOException {
       loginPageActions.signInInit("admin", "123456");
-        Assertion.VerityString(elementAction.getText(defultPage.userName_1()),"admin");
+        Assertion.verityString(elementAction.getText(defultPage.userName_1()),"admin");
     }
 }

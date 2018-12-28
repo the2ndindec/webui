@@ -32,7 +32,7 @@ public class ActivityManagePageTests extends TestBaseCase {
         ampa.modifyMenu();
         ampa.addActivity(rp.readPropertiesFile(filePath, "add_activity_string"));
         //  验证作业活动数据是否添加成功
-        Assertion.VerityTextPresent(rp.readPropertiesFile(filePath, "add_activity_string") + ampa.dataStr);
+        Assertion.verityTextPresent(rp.readPropertiesFile(filePath, "add_activity_string") + ampa.dataStr);
     }
 
     @Feature("添加作业活动")
@@ -40,7 +40,7 @@ public class ActivityManagePageTests extends TestBaseCase {
     public void TC_addDupActivity() throws IOException {
         ampa.addDupActivity();
         //录入重复的作业活动，验证是否会显示错误的提示信息
-        Assertion.VerityTextPresent(ea.getText(amp.activity_tip()));
+        Assertion.verityTextPresent(ea.getText(amp.activity_tip()));
     }
 
     @Feature("查询作业活动")
@@ -57,14 +57,14 @@ public class ActivityManagePageTests extends TestBaseCase {
         /**
          * 用于精确查询时验证
          */
-        Assertion.VerityTextPresent(rp.readPropertiesFile(filePath,"search_activity_string")+ampa.dataStr);
+        Assertion.verityTextPresent(rp.readPropertiesFile(filePath,"search_activity_string")+ampa.dataStr);
     }
 
     @Feature("查看作业活动")
     @Test(description = "验证查看功能")
     public void TC_detailRandom() throws IOException {
         ampa.detailOfActivity();
-        Assertion.VerityString(ea.getTextByJS(amp.activityName_area()), ampa.valueOfChooseActivity);
+        Assertion.verityString(ea.getTextByJS(amp.activityName_area()), ampa.valueOfChooseActivity);
         ampa.closeDetail();
     }
 

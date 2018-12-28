@@ -26,7 +26,7 @@ public class EmployeeInfoListPageTests extends TestBaseCase {
         employeeInfoListPageActions.modifyMenu();
         employeeInfoListPageActions.searchByFileNo(fileNo);
         for (int i = 0; i < employeeInfoListPageActions.getSearchData(searchfileNo).size(); i++) {
-            Assertion.VerityCationString(employeeInfoListPageActions.getSearchData(searchfileNo).get(i), fileNo);
+            Assertion.verityCationString(employeeInfoListPageActions.getSearchData(searchfileNo).get(i), fileNo);
         }
     }
 
@@ -37,7 +37,7 @@ public class EmployeeInfoListPageTests extends TestBaseCase {
         employeeInfoListPageActions.doReset();
         employeeInfoListPageActions.searchByPostNumber(postNo);
         for (int i = 0; i < employeeInfoListPageActions.getSearchData(searchpostNo).size(); i++) {
-            Assertion.VerityCationString(employeeInfoListPageActions.getSearchData(searchpostNo).get(i), postNo.trim());
+            Assertion.verityCationString(employeeInfoListPageActions.getSearchData(searchpostNo).get(i), postNo.trim());
         }
     }
 
@@ -48,7 +48,7 @@ public class EmployeeInfoListPageTests extends TestBaseCase {
         employeeInfoListPageActions.doReset();
         employeeInfoListPageActions.searchByRetireNumber(retireNumber);
         for (int i = 0; i < employeeInfoListPageActions.getSearchData(searchretireNumber).size(); i++) {
-            Assertion.VerityCationString(employeeInfoListPageActions.getSearchData(searchretireNumber).get(i), retireNumber.trim());
+            Assertion.verityCationString(employeeInfoListPageActions.getSearchData(searchretireNumber).get(i), retireNumber.trim());
         }
     }
 
@@ -59,7 +59,7 @@ public class EmployeeInfoListPageTests extends TestBaseCase {
         employeeInfoListPageActions.doReset();
         employeeInfoListPageActions.searchByName(name);
         for (int i = 0; i < employeeInfoListPageActions.getSearchData(searchname).size(); i++) {
-            Assertion.VerityCationString(employeeInfoListPageActions.getSearchData(searchname).get(i), name.trim());
+            Assertion.verityCationString(employeeInfoListPageActions.getSearchData(searchname).get(i), name.trim());
         }
     }
 
@@ -70,7 +70,7 @@ public class EmployeeInfoListPageTests extends TestBaseCase {
         employeeInfoListPageActions.doReset();
         employeeInfoListPageActions.searchByCardNumber(cardNumber);
         for (int i = 0; i < employeeInfoListPageActions.getSearchData(searchcardNumber).size(); i++) {
-            Assertion.VerityCationString(employeeInfoListPageActions.getSearchData(searchcardNumber).get(i), cardNumber.trim());
+            Assertion.verityCationString(employeeInfoListPageActions.getSearchData(searchcardNumber).get(i), cardNumber.trim());
         }
     }
 
@@ -78,14 +78,14 @@ public class EmployeeInfoListPageTests extends TestBaseCase {
     @Test(description = "验证档案号是否可以为空")
     public void TC_verifyFileNo() throws IOException {
         employeeInfoListPageActions.setfileNo();
-        Assertion.VerityCationString(elementAction.getText(employeeInfoListPage.error_tip()), "填写档案号");
+        Assertion.verityCationString(elementAction.getText(employeeInfoListPage.error_tip()), "填写档案号");
     }
 
     @Feature("添加数据")
     @Test(description = "验证在岗编号是否可以为空")
     public void TC_verifyPostNumber() throws IOException {
         employeeInfoListPageActions.setPostNumber();
-        Assertion.VerityCationString(elementAction.getText(employeeInfoListPage.error_tip()), "填写在岗编号");
+        Assertion.verityCationString(elementAction.getText(employeeInfoListPage.error_tip()), "填写在岗编号");
     }
 
     @Feature("添加数据")
@@ -102,7 +102,7 @@ public class EmployeeInfoListPageTests extends TestBaseCase {
         employeeInfoListPageActions.selectPostStatus();
         employeeInfoListPageActions.doConfirm();
         employeeInfoListPageActions.swFrame(employeeInfoListPage.iframe_employeeInfoList());
-        Assertion.VerityTextPresentPrecision(employeeInfoListPageActions.getName());
+        Assertion.verityTextPresentPrecision(employeeInfoListPageActions.getName());
     }
 
 

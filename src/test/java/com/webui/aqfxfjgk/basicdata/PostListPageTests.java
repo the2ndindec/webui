@@ -34,7 +34,7 @@ public class PostListPageTests extends TestBaseCase {
         postListPageActions.searchByPostName(rp.readPropertiesFile(filePath,"postName"));
         for (String postName:postListPageActions.getPostValue()
              ) {
-            Assertion.VerityCationString(postName,rp.readPropertiesFile(filePath,"postName"));
+            Assertion.verityCationString(postName,rp.readPropertiesFile(filePath,"postName"));
         }
     }
 
@@ -44,7 +44,7 @@ public class PostListPageTests extends TestBaseCase {
         postListPageActions.modifyMenu();
         postListPageActions.addPostName(rp.readPropertiesFile(filePath,"postName"));
         postListPageActions.modifyFrame(postListPage.iframe_PostList());
-        Assertion.VerityTextPresent(rp.readPropertiesFile(filePath,"postName"));
+        Assertion.verityTextPresent(rp.readPropertiesFile(filePath,"postName"));
     }
 
 
@@ -68,6 +68,6 @@ public class PostListPageTests extends TestBaseCase {
     @Test(description = "验证查看功能")
     public void TC_goDetail() throws IOException {
         postListPageActions.detailOfPost();
-        Assertion.VerityString(elementAction.getTextByJS(postListPage.add_postName_area()), postListPageActions.getValueOfChoosePost());
+        Assertion.verityString(elementAction.getTextByJS(postListPage.add_postName_area()), postListPageActions.getValueOfChoosePost());
     }
 }

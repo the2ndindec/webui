@@ -123,7 +123,8 @@
             <class name="com.webui.aqfxfjgk.basicdata.HazardManagePageTests">
                 <methods>
                     <include name="TC_addHazard"/>
-                    <include name="TC_addHazardWithoutHazardString"/>
+                    <exclude name="TC_addHazardWithoutHazardString"/>
+                    <exclude name="TC_addHazardWithoutHazardType"/>
                 </methods>
             </class>
         </classes>

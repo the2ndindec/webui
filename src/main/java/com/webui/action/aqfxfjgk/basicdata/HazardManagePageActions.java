@@ -82,4 +82,18 @@ public class HazardManagePageActions extends TestBaseCase {
         ea.click(hmp.hazardName_search_area());
         ea.fireEventBlur(hmp.hazardName_search_area());
     }
+
+    /**
+     * Description:用于验证危险源类型为空时提示信息
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void addHazardWithoutHazardSTYpe() throws IOException {
+        modifyFrame(hmp.iframe_hazard());
+        ea.clickByJS(hmp.add_Button());
+        modifyFrame(hmp.iframe_addHazard());
+        ea.click(hmp.hazardType_search_area());
+        ea.fireEventBlur(hmp.hazardType_search_area());
+    }
 }

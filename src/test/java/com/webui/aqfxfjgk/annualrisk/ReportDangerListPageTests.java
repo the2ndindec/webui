@@ -30,7 +30,7 @@ public class ReportDangerListPageTests extends TestBaseCase {
         ea.switchToFrame(rdlp.iframe_reportDangerList());
         rdlpa.searchByAddressCate("副井");
         for (int i = 0; i < rdlpa.getSearchData("风险点类型").size(); i++) {
-            Assertion.VerityString(rdlpa.getSearchData("风险点类型").get(i), "副井");
+            Assertion.verityString(rdlpa.getSearchData("风险点类型").get(i), "副井");
         }
     }
 
@@ -38,7 +38,7 @@ public class ReportDangerListPageTests extends TestBaseCase {
     public void TC_searchByYeMhazardDesc() throws IOException, InterruptedException {
         rdlpa.searchByYeMhazardDesc("瓦斯事故");
         for (int i = 0; i < rdlpa.getSearchData("隐患描述").size(); i++) {
-            Assertion.VerityCationString(rdlpa.getSearchData("隐患描述").get(i), "瓦斯事故");
+            Assertion.verityCationString(rdlpa.getSearchData("隐患描述").get(i), "瓦斯事故");
         }
     }
 
@@ -46,13 +46,13 @@ public class ReportDangerListPageTests extends TestBaseCase {
     public void TC_searchByYeProfession() throws IOException, InterruptedException {
         rdlpa.searchByYeProfession("采煤");
         for (int i = 0; i < rdlpa.getSearchData("专业").size(); i++) {
-            Assertion.VerityCationString(rdlpa.getSearchData("专业").get(i), "采煤");
+            Assertion.verityCationString(rdlpa.getSearchData("专业").get(i), "采煤");
         }
     }
 
     @Test(description = "关联风险点")
     public void TC_chooseAddress() throws IOException, InterruptedException {
         rdlpa.chooseAddressByRandom();
-        Assertion.VerityTextPresentPrecision(rdlpa.getAddStr());
+        Assertion.verityTextPresentPrecision(rdlpa.getAddStr());
     }
 }

@@ -7,8 +7,11 @@ import com.webui.utils.ElementAction;
 import com.webui.utils.FunctionUtil;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author the2n
@@ -65,6 +68,7 @@ public class HazardManagePageActions extends TestBaseCase {
          * 随机选择危险源类型
          */
         ea.selectByIndex(hmp.hazardType_search_area(), ea.getOption(hmp.hazardType_search_area()));
+//        ea.selectByIndex(hmp.hazardType_search_area(), functionUtil.random(4)+1);
         ea.switchToDefaultFrame();
         ea.clickByJS(hmp.confirm_btn());
         ea.switchToFrame(hmp.iframe_hazard());
@@ -95,5 +99,39 @@ public class HazardManagePageActions extends TestBaseCase {
         modifyFrame(hmp.iframe_addHazard());
         ea.click(hmp.hazardType_search_area());
         ea.fireEventBlur(hmp.hazardType_search_area());
+    }
+
+    /**
+     * Description:删除指定的危险源数据
+     * @param hazardString 危险源字段值
+     * @return: void
+     * @throws:
+     */
+    public void delHazardByString(String hazardString) throws IOException {
+        modifyFrame(hmp.iframe_hazard());
+        ea.getElementByValue(hazardString);
+        ea.clickByJS(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + tempNum(hazardString) + "]/td[@field='opt']//a[1]");
+        ea.clickByJS(hmp.del_confirm());
+    }
+
+
+    public int temp;
+
+    /**
+     * Description:返回指定内容所在的行数
+     * @param activityStr
+     * @return: int
+     * @throws:
+     */
+    public int tempNum(String activityStr) {
+        List<WebElement> hazardElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='hazardName']/div"));
+        for (temp = 1; temp < hazardElements.size(); temp++) {
+            WebElement acElement = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + temp + "]/td[@field='hazardName']/div"));
+            if (acElement.getText().equalsIgnoreCase(activityStr)) {
+                temp = temp;
+                break;
+            }
+        }
+        return temp;
     }
 }

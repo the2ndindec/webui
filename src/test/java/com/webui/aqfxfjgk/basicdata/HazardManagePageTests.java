@@ -45,4 +45,11 @@ public class HazardManagePageTests extends TestBaseCase {
         hmpa.addHazardWithoutHazardSTYpe();
         Assertion.verityTextPresent("请选择");
     }
+    @Feature("删除危险源")
+    @Test(description = "验证删除危险源")
+    public void TC_delHazard() throws IOException {
+        hmpa.modifyMenu();
+        hmpa.delHazardByString("测试危险源20181228090334");
+        Assertion.verityNotTextPresent("测试危险源20181228090334");
+    }
 }

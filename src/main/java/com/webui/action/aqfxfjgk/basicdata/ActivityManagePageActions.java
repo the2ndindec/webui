@@ -125,7 +125,7 @@ public class ActivityManagePageActions extends TestBaseCase {
      */
     public void deleteActivityByValue(String activityStr) throws IOException {
         modifyFrame(amp.iframe_activity());
-        getActivityElementByValue(activityStr).click();
+        ea.getElementByValue(activityStr).click();
         /**
          *  通过tempNum方法返回指定字段的行数，定位该数据所在行的删除按钮
          */
@@ -174,16 +174,6 @@ public class ActivityManagePageActions extends TestBaseCase {
             log.info("暂无相关数据信息");
         }
         return element;
-    }
-
-    /**
-     * Description:返回指定值的元素对象
-     * @param activityStr 字段值
-     * @return: org.openqa.selenium.WebElement
-     * @throws:
-     */
-    public WebElement getActivityElementByValue(String activityStr) {
-        return driver.findElement(By.xpath(".//*[contains(text(),'" + activityStr + "')]"));
     }
 
     public int temp;

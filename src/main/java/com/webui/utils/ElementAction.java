@@ -493,11 +493,11 @@ public class ElementAction extends TestBaseCase {
     public int getOption(Locator locator) {
         Select select = new Select(findElement(locator));
         List<WebElement> webElements = select.getOptions();
-        List<String> downs = new ArrayList<>();
-        for (WebElement webElement : webElements
-        ) {
-            downs.add(webElement.getText());
-        }
+//        List<String> downs = new ArrayList<>();
+//        for (WebElement webElement : webElements
+//        ) {
+//            downs.add(webElement.getText());
+//        }
         int num = webElements.size();
         Random random = new Random();
         return random.nextInt(num - 1) + 1;
@@ -860,5 +860,15 @@ public class ElementAction extends TestBaseCase {
                 "element.setAttribute('style', original_style + \";" +
                 "background: yellow; border: 2px solid red;\");" +
                 "setTimeout(function(){element.setAttribute('style', original_style);}, 1000);", element);
+    }
+
+    /**
+     * Description:返回指定值的元素对象
+     * @param elementValue	字段值
+     * @return: org.openqa.selenium.WebElement
+     * @throws:
+     */
+    public WebElement getElementByValue(String elementValue){
+      return driver.findElement(By.xpath(".//*[contains(text(),'" + elementValue + "')]"));
     }
 }

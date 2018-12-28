@@ -106,6 +106,7 @@ public class FunctionUtil {
 
     public static void main(String[] args) {
         FunctionUtil functionUtil = new FunctionUtil();
-        System.out.println(functionUtil.random(20));
+        System.out.println(functionUtil.random(4)+1);
+        System.out.println("测试数据");
     }
 }

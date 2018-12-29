@@ -71,25 +71,18 @@
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="录入危险源" enabled="false">
+    <test preserve-order="true" name="录入危险源" >
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
-                    <parameter name="hazardName" value="水"/>
-                    <parameter name="yePossiblyHazard" value="webui-风险描述"/>
-                    <parameter name="yeProbability" value="1"/>
-                    <parameter name="yeCost" value="2"/>
-                    <parameter name="yeHazardCate" value="人"/>
-                    <parameter name="activityname" value="运输"/>
                     <parameter name="docSource" value="webui-管控标准来源"/>
                     <parameter name="sectionName" value="webui-章节条款"/>
                     <parameter name="yeStandard" value="webui-标准内容"/>
                     <parameter name="manageMeasure" value="webui-1.xxx 2.bbb"/>
-                    <parameter name="postname" value="队长"/>
-                    <parameter name="yeMhazardDesc" value="webui-隐患描述"/>
-                    <parameter name="hiddenLevel" value="一般隐患A级"/>
-                    <parameter name="fineMoney" value="200"/>
                     <include name="TC_addData"/>
+                    <exclude name="TC_checkYeRecognizeTime"/>
+                    <exclude name="TC_checkYeProfession"/>
+                    <exclude name="TC_checkYePossiblyHazard"/>
                 </methods>
             </class>
         </classes>
@@ -118,13 +111,14 @@
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="危险源管理" >
+    <test preserve-order="true" name="危险源管理" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.basicdata.HazardManagePageTests">
                 <methods>
-                    <include name="TC_addHazard"/>
+                    <exclude name="TC_addHazard"/>
                     <exclude name="TC_addHazardWithoutHazardString"/>
                     <exclude name="TC_addHazardWithoutHazardType"/>
+                    <include name="TC_delHazard"/>
                 </methods>
             </class>
         </classes>

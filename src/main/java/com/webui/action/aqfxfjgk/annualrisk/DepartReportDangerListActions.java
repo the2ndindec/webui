@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * @author the2n
- * @Description:  部门风险上报页面
+ * @Description:  部门风险清单页面
  * @Data 2018/12/06 15:49
  */
 public class DepartReportDangerListActions extends TestBaseCase {
@@ -73,6 +73,16 @@ public class DepartReportDangerListActions extends TestBaseCase {
     }
 
     /**
+     * Description:验证辨识时间为空时是否有提示信息
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void doCheckYeRecognizeTime() throws IOException {
+      elementAction.fireEventBlur(departReportDangerListPage.yeRecognizeTime_textarea());
+    }
+
+    /**
      * 随机选择专业
      *
      * @param
@@ -81,6 +91,16 @@ public class DepartReportDangerListActions extends TestBaseCase {
      */
     public void selectYeProfession() throws IOException {
         elementAction.selectByIndex(departReportDangerListPage.yeProfession_select(), elementAction.getOption(departReportDangerListPage.yeProfession_select()));
+    }
+
+    /**
+     * Description:验证专业为空时是否有提示信息
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void doCheckYeProfession() throws IOException {
+        elementAction.fireEventBlur(departReportDangerListPage.yeProfession_select());
     }
 
     /**
@@ -107,7 +127,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.sleep(1);
         List<WebElement> hazard = driver.findElements(By.xpath(".//*[@id='hazardname']/div[3]/div")); //获取危险源集合
         WebElement element = hazard.get(functionUtil.random(hazard.size()));
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
         element.click();
     }
 
@@ -215,7 +234,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
         webElements.get(functionUtil.random(webElements.size())).click();
     }
 
-    //  选择伤害类别:指定伤害类别
+    //  选择伤害类别:指定事故类别
     public void checkYeAccident(String yeAccident) {
         switch (yeAccident) {
             case "顶板":
@@ -253,7 +272,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
         }
     }
 
-    //  随机选择伤害类别
+    //  随机选择事故类别
     public void checkYeAccident() {
         List<WebElement> webElements = driver.findElements(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]/label/input"));
         webElements.get(functionUtil.random(webElements.size())).click();
@@ -262,6 +281,10 @@ public class DepartReportDangerListActions extends TestBaseCase {
     //  输入风险描述
     public void typeYePossiblyHazard(String yePossiblyHazard) throws IOException {
         elementAction.type(departReportDangerListPage.yePossiblyHazard_textarea(), yePossiblyHazard);
+    }
+
+    public void doCheckYePossiblyHazard() throws IOException {
+        elementAction.fireEventBlur(departReportDangerListPage.yePossiblyHazard_textarea());
     }
 
     /**

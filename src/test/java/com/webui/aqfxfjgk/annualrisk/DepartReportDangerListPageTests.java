@@ -22,26 +22,13 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     FunctionUtil functionUtil = new FunctionUtil();
 
     ReadProperties rp = new ReadProperties();
-    private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\departDangers.properties";
-
-
-    public String getTempDate() {
-        return tempDate;
-    }
-
-    public void setTempDate(String tempDate) {
-        this.tempDate = tempDate;
-    }
-
+    private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
     private String tempDate = functionUtil.formatterDate("yyyyMMddHHmmss");
 
     @Feature("查询")
     @Test(description = "验证添加数据功能")
-    @Parameters({"hazardName", "yeProbability", "yeCost", "yeHazardCate", "activityname", "docSource", "sectionName", "yeStandard",
-            "manageMeasure", "postname", "yeMhazardDesc", "hiddenLevel", "fineMoney"})
-    public void TC_addData(String hazardName, String yeProbability, String yeCost, String yeHazardCate,
-                           String activityname, String docSource, String sectionName, String yeStandard, String manageMeasure,
-                           String postname, String yeMhazardDesc, String hiddenLevel, String fineMoney) throws IOException, InterruptedException {
+    @Parameters({"docSource", "sectionName", "yeStandard", "manageMeasure"})
+    public void TC_addData(String docSource, String sectionName, String yeStandard, String manageMeasure) throws IOException, InterruptedException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.goAdd();
         departReportDangerListActions.selectAddressCate();
@@ -50,7 +37,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.selectHazardName();
         departReportDangerListActions.checkDamageType();
         departReportDangerListActions.checkYeAccident();
-        departReportDangerListActions.typeYePossiblyHazard(rp.readPropertiesFile(filePath,"yePossiblyHazard") + tempDate);//风险描述
+        departReportDangerListActions.typeYePossiblyHazard(rp.readPropertiesFile(filePath, "yePossiblyHazard"));//风险描述
         departReportDangerListActions.selectYeProbability();
         departReportDangerListActions.selectYeCost();//风险损失
         int temp1 = Integer.parseInt(elementAction.getTextByJS(departReportDangerListPage.yeProbability_select()));
@@ -65,12 +52,34 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.typeYeStandard(yeStandard);//输入标准内容
         departReportDangerListActions.typeManageMeasure(manageMeasure);//  输入管控措施
         departReportDangerListActions.selectPostName();//  选择责任岗位
-        departReportDangerListActions.typeYeMhazardDesc(yeMhazardDesc + tempDate);
+        departReportDangerListActions.typeYeMhazardDesc(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
         departReportDangerListActions.selectHiddenLevel();
-        departReportDangerListActions.typeFineMoney(fineMoney);
+        departReportDangerListActions.typeFineMoney(rp.readPropertiesFile(filePath, "fineMoney"));
         departReportDangerListActions.doSave();
-
         departReportDangerListActions.goDepartReportDangerList();
-        Assertion.verityTextPresentPrecision(yeMhazardDesc + tempDate);
+        Assertion.verityTextPresentPrecision(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
+    }
+
+    @Feature("验证必填项")
+    @Test(description = "验证辨识时间为空时是否提示")
+    public void TC_checkYeRecognizeTime() throws IOException {
+        departReportDangerListActions.modifyMenu();
+        departReportDangerListActions.goAdd();
+        departReportDangerListActions.doCheckYeRecognizeTime();
+        Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请填写辨识时间");
+    }
+
+    @Feature("验证必填项")
+    @Test(description = "验证专业为空时是否提示")
+    public void TC_checkYeProfession() throws IOException {
+        departReportDangerListActions.doCheckYeProfession();
+        Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请选择专业");
+    }
+
+    @Feature("验证必填项")
+    @Test(description = "验证风险描述为空时是否提示")
+    public void TC_checkYePossiblyHazard() throws IOException {
+        departReportDangerListActions.doCheckYePossiblyHazard();
+        Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请填写风险描述");
     }
 }

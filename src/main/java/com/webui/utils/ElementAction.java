@@ -291,6 +291,7 @@ public class ElementAction extends TestBaseCase {
      */
     public void fireEventBlur(Locator locator) {
         WebElement weElement = findElement(locator);
+        click(locator);
         ((JavascriptExecutor) driver).executeScript("return arguments[0].blur()", weElement);
     }
 

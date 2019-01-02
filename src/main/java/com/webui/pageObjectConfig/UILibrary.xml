@@ -24,6 +24,9 @@
 		<!-- 左侧菜单 -->
 		<!--<locator type="xpath" timeout="3" value=".//*[@id='aqfxfjgkLi']/a" desc="安全风险分级管控">aqfxfjgk_menu</locator>-->
 		<locator type="xpath" timeout="3" value=".//span[text()='安全风险分级管控']" desc="安全风险分级管控">aqfxfjgk_menu</locator>
+		<!-- 风险点管理 -->
+		<locator type="xpath" timeout="3" value=".//span[text()='风险点管理']" desc="风险点管理-list">addressManage_list</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='煤层管理']" desc="煤层管理">layerManage</locator>
 		<!-- 年度风险管理 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='年度风险管理']" desc="年度风险管理-list">ndfxgl_list</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='矿风险清单']" desc="矿风险清单">reportDangerList</locator>
@@ -35,12 +38,111 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='岗位管理']" desc="岗位管理">postList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='作业活动管理']" desc="作业活动管理">activityList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='危险源管理']" desc="危险源管理">hazardList</locator>
+		<!-- 专项风险辨识 -->
+		<locator type="xpath" timeout="3" value=".//span[text()='专项风险辨识']" desc="专项风险辨识">zxfxbs</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='专项风险辨识上报']" desc="专项风险辨识上报">reportList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='新工作面风险评估']" desc="新工作面风险评估">xgzm</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='工艺设备风险评估']" desc="工艺设备风险评估">gysb</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='停复工及新技术风险评估']" desc="停复工及新技术风险评估">tfgjxjs</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='高危作业风险评估']" desc="高危作业风险评估">gwzy</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='事故后风险评估']" desc="事故后风险评估">sgh</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='专项辨识报告']" desc="专项辨识报告">specialIdentifyReport</locator>
+		<!-- 3+1风险管控-->
+		<locator type="xpath" timeout="3" value=".//span[text()='3+1风险管控']" desc="3+1风险管控">threeAndOne</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='重大风险管控方案']" desc="重大风险管控方案">majorDangerList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='月度检查']" desc="月度检查">ydjc</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='重大安全风险管控措施落实情况记录']" desc="重大安全风险管控措施落实情况记录">monthManageRecord</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='月度检查分析报告']" desc="月度检查分析报告">monthCheckAnalyReport</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='安全办公会议纪要']" desc="安全办公会议纪要">safeOfficeMeetingRecord</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='旬检查']" desc="旬检查">xjc</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='旬检查记录']" desc="旬检查记录">medowCheckRecord</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='旬检查分析报告']" desc="旬检查分析报告">medowCheckAnalyReport</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='跟班检查']" desc="跟班检查">gbjc</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='重大安全风险管控措施落实情况记录']" desc="重大安全风险管控措施落实情况记录">classManageRecord</locator>
+		<!-- 隐患排查治理-->
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患排查治理']" desc="隐患排查治理">yhpczl</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='安全信息录入']" desc="安全信息录入">aqxxlr</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='上级检查']" desc="上级检查">sjjc</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='管理干部下井']" desc="管理干部下井">glgbxj</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='矿领导带班检查']" desc="矿领导带班检查">klddb</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='矿井安全大检查']" desc="矿井安全大检查">kjaqdjc</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='质量标准化检查']" desc="质量标准化检查">zlbzh</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='专业科室日常检查']" desc="专业科室日常检查">zyks</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='安监员安全检查']" desc="安监员安全检查">ajy</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='安监员安全检查']" desc="安监员安全检查">ajy</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='其他检查']" desc="其他检查">otherList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='3+1检查']" desc="3+1检查">thrplus</locator>
+
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患闭环管理']" desc="隐患闭环管理">yhbhgl</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='本矿隐患上报']" desc="本矿隐患上报">hiddenDangerReportList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='综合查询']" desc="综合查询">queryList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='部门隐患列表']" desc="部门隐患列表">bmyh</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患整改']" desc="隐患整改">checkList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患延期']" desc="隐患延期">applyDelayList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患复查']" desc="隐患复查">repartList</locator>
+
+		<locator type="xpath" timeout="3" value=".//span[text()='重大隐患上报']" desc="重大隐患上报">zdyhsb</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患综合查询']" desc="隐患综合查询">yhzhcx</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患整改列表']" desc="隐患整改列表">rectifyList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患验收列表']" desc="隐患验收列表">pendingAcceptList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患复查列表']" desc="隐患复查列表">pendingReviewList</locator>
+
+		<locator type="xpath" timeout="3" value=".//span[text()='排查计划管理']" desc="排查计划管理">pcjhgl</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='月排查计划管理']" desc="月排查计划管理">monthList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='月排查计划受理']" desc="月排查计划受理">acceptList_month</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='旬排查计划管理']" desc="旬排查计划管理">xunList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='旬排查计划受理']" desc="旬排查计划受理">acceptList_xun</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='周排查计划管理']" desc="周排查计划管理">weekList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='周排查计划受理']" desc="周排查计划受理">acceptList_week</locator>
+
+		<locator type="xpath" timeout="3" value=".//span[text()='三违管理']" desc="三违管理">swgl</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='三违信息上报']" desc="三违信息上报">swxxsb</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='排查计划统计']" desc="排查计划统计">pcjhtj</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='三违统计']" desc="三违统计">swtj</locator>
 
 		<locator type="xpath" timeout="3" value=".//span[text()='辅助管理']" desc="辅助管理">fzgl</locator>
 		<locator type="xpath" timeout="3" value=".//li[@id='fzglLi']//span[text()='职业卫生']" desc="职业卫生">zyws</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='职工个人基本信息']" desc="职工个人基本信息">employeeInfoList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='系统管理']" desc="系统管理">systemManageList</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='用户管理']" desc="用户管理">userManageList</locator>
 	</page>
-	
+
+	<page pagename="com.webui.pageObject.LayerPage" value="" desc="煤层管理页面">
+		<locator type="name" timeout="3" value="iframe3" desc="煤层管理页面iframe标记">iframe_Layer</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAdd')]" desc="添加数据部分iframe标记">iframe_add</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdate')]" desc="编辑部分iframe标记">iframe_update</locator>
+		<!-- 操作按钮 -->
+		<locator type="xpath" timeout="3" value=".//span[text()='录入']" desc="录入按钮">add_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='编辑']" desc="编辑按钮">update_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='批量删除']" desc="批量删除按钮">deleteALLSelect_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='查看']" desc="查看">detail_Button</locator>
+
+		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='重置']" desc="重置按钮">reload_Button</locator>
+
+		<locator type="xpath" timeout="3" value=".//select[@name='layerCode']" desc="图层名称">layerCode_select</locator>
+		<locator type="name" timeout="3" value="layerDetailName" desc="矿图名称">layerDetailName_input</locator>
+		<locator type="name" timeout="3" value="url" desc="超图路径">url_input</locator>
+		<locator type="xpath" timeout="3" value=".//select[@name='isShow']" desc="风险点类型">isShow_select</locator>
+		<locator type="name" timeout="3" value="remark" desc="备注输入框">remark_input</locator>
+		<locator type="name" timeout="3" value="center" desc="超图中心点">center_input</locator>
+
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'Validform_checktip Validform_wrong')]" desc="提示信息">error_tip</locator>
+		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
+		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
+		<locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-first')]" desc="底部信息--首页按钮">data_firstPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-prev')]" desc="底部信息--上一页按钮">data_prevPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-next')]" desc="底部信息--下一页按钮">data_nexttPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-last')]" desc="底部信息--尾页按钮">data_lastPage</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_min']" desc="弹窗--最小化按钮">min_ui</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_max']" desc="弹窗--最大化按钮">max_ui</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
+
+		<locator type="xpath" timeout="3" value=".//input[@value='确定']" desc="确定按钮">confirm_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>
+	</page>
 	<page pagename="com.webui.pageObject.ReportDangerListPage" value="" desc="本矿风险汇总页面">
 		<locator type="name" timeout="3" value="iframe3" desc="本矿风险汇总页面iframe标记">iframe_reportDangerList</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goDetail')]" desc="数据详情部分iframe标记">iframe_detail</locator>
@@ -430,4 +532,5 @@
 		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
 		<locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>
 	</page>
+
 </map>

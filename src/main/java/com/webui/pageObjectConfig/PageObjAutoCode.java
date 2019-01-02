@@ -38,8 +38,7 @@ public class PageObjAutoCode {
 			// 获取要写入的page所属的类名
 			String pageClassName = pageNameArray[3].toString();
 			// 获取对象库包名
-			String packageName = pageNameArray[0].toString() + "." + pageNameArray[1].toString() + "."
-					+ pageNameArray[2].toString();
+			String packageName = pageNameArray[0].toString() + "." + pageNameArray[1].toString() + "." + pageNameArray[2].toString();
 			// --自动编写对象库代码（XXPage.java）开始--
 			StringBuffer sb = new StringBuffer("package " + packageName + ";\n");
 			sb.append("import java.io.IOException;\n");

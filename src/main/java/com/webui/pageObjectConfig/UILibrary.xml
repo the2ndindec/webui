@@ -535,6 +535,7 @@
         <locator type="name" timeout="3" value="iframe11" desc="新工作面风险评估页面iframe标记">iframe_xgzm</locator>
         <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAdd')]" desc="录入数据部分iframe标记">iframe_add</locator>
         <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdate')]" desc="编辑数据部分iframe标记">iframe_update</locator>
+        <locator type="xpath" timeout="3" value=".//iframe[contains(@src,'userManySelectList')]" desc="选择辨识人员部分iframe标记">iframe_userManySelectList</locator>
         <!-- 操作按钮 -->
         <locator type="xpath" timeout="3" value=".//span[text()='上报']" desc="上报按钮">departReport_Button</locator>
         <locator type="xpath" timeout="3" value=".//span[text()='批量删除']" desc="批量删除按钮">deleteALLSelect_Button</locator>
@@ -551,12 +552,23 @@
         <locator type="xpath" timeout="3" value=".//*[@id='tBSpecialEvaluationListForm']/span[3]/label[1]" desc="全部">radio_all</locator>
         <locator type="xpath" timeout="3" value=".//*[@id='tBSpecialEvaluationListForm']/span[3]/label[2]" desc="待上报">radio_reporting</locator>
         <locator type="xpath" timeout="3" value=".//*[@id='tBSpecialEvaluationListForm']/span[3]/label[3]" desc="查询条件--辨识结束时间">radio_reported</locator>
+        <!-- 录入/修改/查看界面 -->
+        <locator type="xpath" timeout="3" value=".//*[@name='leaderType']" desc="辨识人类型">leaderType_select</locator>
+        <locator type="xpath" timeout="3" value=".//*[@id='leaderSelect']/div[2]" desc="辨识负责人下拉框">leader_select</locator>
+        <!-- .//*[@id='leaderSelect']/div[3]/div -->
+        <locator type="xpath" timeout="3" value=".//*[@id='time']" desc="辨识时间">time_input</locator>
+        <locator type="xpath" timeout="3" value=".//*[@id='teamMembers']" desc="辨识参加人员">teamMembers</locator>
+        <locator type="xpath" timeout="3" value=".//span[text()='清空']" desc="清空辨识参加人员按钮">clearTeamMembers</locator>
+        <locator type="xpath" timeout="3" value=".//*[@id='locationSelect']/div[2]" desc="辨识地点下拉框">locationSelect</locator>
+        <!-- .//*[@id='locationSelect']/div[3]/div -->
+        <locator type="xpath" timeout="3" value=".//*[@id='remark']" desc="辨识结论">remark_textarea</locator>
 
         <locator type="xpath" timeout="3" value=".//*[@id='formobj']//span[contains(@class,'Validform_wrong')]" desc="提示信息">hazard_tip</locator>
         <locator type="xpath" timeout="3" value=".//*[@class='layui-layer-btn0']" desc="删除部分：确定按钮">del_confirm</locator>
         <locator type="xpath" timeout="3" value=".//*[@class='layui-layer-btn1']" desc="删除部分：取消按钮">del_cancel</locator>
 
         <locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
+
         <locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
         <locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>
         <locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-first')]" desc="底部信息--首页按钮">data_firstPage</locator>

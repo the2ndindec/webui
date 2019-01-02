@@ -16,7 +16,6 @@ public class FunctionUtil {
 
     /**
      * 比较时间
-     *
      * @param beginTime 开始时间
      * @param endTime   结束时间
      * @return: boolean
@@ -34,7 +33,6 @@ public class FunctionUtil {
 
     /**
      * 随机生成姓名
-     *
      * @param
      * @return: java.lang.String
      * @throws:
@@ -82,7 +80,7 @@ public class FunctionUtil {
 
     /**
      * 对当前时间做一个格式化的处理
-     * @param formatterstring	时间格式 : yyyyMMdd / yyyy-MM-dd /yyyyMMddHHmmss
+     * @param formatterstring 时间格式 : yyyyMMdd / yyyy-MM-dd /yyyyMMddHHmmss
      * @return: java.lang.String
      * @throws:
      */
@@ -98,15 +96,35 @@ public class FunctionUtil {
      * @return: int
      * @throws:
      */
-    public int random(int num){
-      Random random = new Random();
-      int rand = random.nextInt(num);
-      return rand;
+    public int random(int num) {
+        Random random = new Random();
+        int rand = random.nextInt(num);
+        return rand;
+    }
+
+    /**
+     * Description:判断输入的日期格式是否为某一个格式
+     * @param str 待比较的日期格式
+     * @return: boolean
+     * @throws:
+     */
+    public static boolean isValidDate(String str) {
+        boolean convertSuccess = true;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            // 设置lenient为false. 否则SimpleDateFormat会比较宽松地验证日期，比如2007/02/29会被接受，并转换成2007/03/01
+            format.setLenient(false);
+            format.parse(str);
+        } catch (ParseException e) {
+            // 如果throw java.text.ParseException或者NullPointerException，就说明格式不对
+            convertSuccess = false;
+        }
+        return convertSuccess;
     }
 
     public static void main(String[] args) {
         FunctionUtil functionUtil = new FunctionUtil();
-        System.out.println(functionUtil.random(4)+1);
+        System.out.println(functionUtil.random(4) + 1);
         System.out.println("测试数据");
     }
 }

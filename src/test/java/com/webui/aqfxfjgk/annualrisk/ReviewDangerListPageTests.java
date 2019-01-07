@@ -7,11 +7,10 @@ import com.webui.utils.ElementAction;
 import com.webui.utils.FunctionUtil;
 import com.webui.utils.TestBaseCase;
 import io.qameta.allure.Feature;
-
 import io.qameta.allure.Step;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import org.testng.annotations.Ignore;
 
 import java.io.IOException;
 import java.text.ParseException;

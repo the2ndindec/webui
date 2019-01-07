@@ -6,7 +6,7 @@
     <parameter name="remark" value="webui自动化测试,自动输入内容" />
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
-            <class name="com.webui.aqfxfjgk.LoginPageTests">
+            <class name="com.webui.LoginPageTests">
                 <methods>
                     <include name="TC_login"/>
                 </methods>
@@ -38,40 +38,16 @@
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="职工个人基本信息:查询" enabled="false">
-        <classes>
-            <class name="com.webui.aqfxfjgk.EmployeeInfoListPageTests">
-                <methods>
-                    <parameter name="fileNo" value="01"/>
-                    <parameter name="searchfileNo" value="档案号"/>
-                    <include name="TC_searchByFileNo"/>
-                    <parameter name="postNo" value="01"/>
-                    <parameter name="searchpostNo" value="在岗编号"/>
-                    <include name="TC_searchByPostNumber"/>
-                    <parameter name="retireNumber" value="01"/>
-                    <parameter name="searchretireNumber" value="退休编号"/>
-                    <include name="TC_searchByRetireNumber"/>
-                    <parameter name="name" value="xxx"/>
-                    <parameter name="searchname" value="姓名"/>
-                    <include name="TB_searchByName"/>
-                    <parameter name="cardNumber" value="321111198901077615"/>
-                    <parameter name="searchcardNumber" value="身份证号"/>
-                    <include name="TC_searchByCardNumber"/>
-                    <include name="TC_verifyFileNo"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
     <test preserve-order="true" name="职工个人基本信息:添加数据" enabled="false">
         <classes>
-            <class name="com.webui.aqfxfjgk.EmployeeInfoListPageTests">
+            <class name="com.webui.EmployeeInfoListPageTests">
                 <methods>
                     <include name="TC_addEmInfo"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="录入危险源" >
+    <test preserve-order="true" name="录入危险源" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
@@ -119,6 +95,15 @@
                     <exclude name="TC_addHazardWithoutHazardString"/>
                     <exclude name="TC_addHazardWithoutHazardType"/>
                     <include name="TC_delHazard"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="新工作面风险">
+        <classes>
+            <class name="com.webui.aqfxfjgk.zxfxbs.XgzmPageTests">
+                <methods>
+                    <include name="TC_addData"/>
                 </methods>
             </class>
         </classes>

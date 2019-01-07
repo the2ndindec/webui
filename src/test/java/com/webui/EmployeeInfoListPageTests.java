@@ -1,4 +1,4 @@
-package com.webui.aqfxfjgk;
+package com.webui;
 
 import com.webui.action.EmployeeInfoListPageActions;
 import com.webui.pageObject.EmployeeInfoListPage;

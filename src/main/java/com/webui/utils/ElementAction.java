@@ -39,7 +39,6 @@ public class ElementAction extends TestBaseCase {
         List<WebElement> webElements = null;
         try {
             webElements = (new WebDriverWait(driver, 20)).until(new ExpectedCondition<List<WebElement>>() {
-
                 @Override
                 public List<WebElement> apply(WebDriver driver) {
                     List<WebElement> element = null;
@@ -242,6 +241,57 @@ public class ElementAction extends TestBaseCase {
                 break;
         }
         return webElements;
+    }
+
+    // 2019-01-02
+    public List<WebElement> getElements(String locator){
+        List<WebElement> webElements;
+        webElements = driver.findElements(By.xpath(locator));
+        return webElements;
+    }
+    public List<WebElement> findElements(final String locator){
+        List<WebElement> webElements = null;
+        try {
+            webElements = (new WebDriverWait(driver, 20)).until(new ExpectedCondition<List<WebElement>>() {
+                @Override
+                public List<WebElement> apply(WebDriver driver) {
+                    List<WebElement> element = null;
+                    element = getElements(locator);
+                    return element;
+                }
+            });
+            return webElements;
+        } catch (NoSuchElementException e) {
+            log.info("无法定位页面元素");
+            e.printStackTrace();
+            noSuchElementExceptions.add(e);
+            ScreenShot screenShot = new ScreenShot(driver);
+            // 设置截图名字
+            Date nowDate = new Date();
+            screenShot.setScreenName(this.formatDate(nowDate));
+            screenShot.takeScreenshot();
+            return webElements;
+        } catch (TimeoutException e) {
+            log.info("查找页面元素超时");
+            e.printStackTrace();
+            noSuchElementExceptions.add(e);
+            ScreenShot screenShot = new ScreenShot(driver);
+            // 设置截图名字
+            Date nowDate = new Date();
+            screenShot.setScreenName(this.formatDate(nowDate));
+            screenShot.takeScreenshot();
+            return webElements;
+        } catch (ElementNotVisibleException e) {
+            log.info("查找页面元素超时");
+            e.printStackTrace();
+            noSuchElementExceptions.add(e);
+            ScreenShot screenShot = new ScreenShot(driver);
+            // 设置截图名字
+            Date nowDate = new Date();
+            screenShot.setScreenName(this.formatDate(nowDate));
+            screenShot.takeScreenshot();
+            return webElements;
+        }
     }
 
     /**

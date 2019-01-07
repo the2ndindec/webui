@@ -582,5 +582,67 @@
         <locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
         <locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>
     </page>
+	<page pagename="com.webui.pageObject.YhzhcxPage" value="" desc="隐患综合查询页面">
+		<locator type="name" timeout="3" value="iframe49" desc="隐患综合查询页面iframe标记">iframe_list</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAdd')]" desc="录入数据部分iframe标记">iframe_add</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdate')]" desc="查看/编辑数据部分iframe标记">iframe_update</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'chooseDangerSource')]" desc="选择危险源部分iframe标记">iframe_chooseDangerSource</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'fkHiddenInfoId')]" desc="查看历史部分iframe标记">iframe_fkHiddenInfoId</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goFiveImpl')]" desc="五落实部分iframe标记">iframe_goFiveImpl</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'supervise')]" desc="督办查看部分iframe标记">iframe_supervise</locator>
+		<!-- 操作按钮 -->
+		<locator type="xpath" timeout="3" value=".//span[text()='五落实查看']" desc="五落实查看按钮">goFiveImpl_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='查看历史']" desc="查看历史按钮">fkHiddenInfoId_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='督办查看']" desc="督办查看按钮">supervise_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='重大隐患上报']" desc="重大隐患上报">majorDangerReport_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='督办同步']" desc="督办同步">synSupervise_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='批量删除']" desc="批量删除按钮">deleteALLSelect_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='查看']" desc="查看按钮">detail_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='录入']" desc="录入按钮">add_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='编辑']" desc="编辑按钮">update_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='撤回']" desc="撤回按钮">toReportCallback_Button</locator>
+		<!-- 搜索条件 -->
+		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='重置']" desc="重置按钮">searchReset_Btn</locator>
+		<locator type="name" timeout="3" value="hdMajor" desc="查询条件--隐患专业">hdMajor_search_area</locator>
+		<locator type="name" timeout="3" value="clStatus" desc="查询条件--隐患状态">clStatus_search_area</locator>
 
+		<!-- 录入/修改/查看界面 -->
+		<locator type="xpath" timeout="3" value=".//*[@name='inveDate']" desc="排查日期">inveDate</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='hdLocationSelect']/div[2]" desc="隐患地点下拉框">hdLocationSelect</locator>
+		<!-- .//*[@id='hdLocationSelect']/div[3]/div -->
+		<locator type="xpath" timeout="3" value=".//*[@id='hdInfoSource']" desc="隐患信息来源">hdInfoSource</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='hdCate']" desc="隐患类别">hdCate</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='hdMajor']" desc="隐患专业">hdMajor</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='hiddenType']" desc="隐患类型">hiddenType</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='magicsuggestDutyUnitSel']/div[2]" desc="责任单位下拉框">magicsuggestDutyUnitSel</locator>
+		<!-- .//*[@id='magicsuggestDutyUnitSel']/div[3]/div -->
+		<locator type="xpath" timeout="3" value=".//*[@id='magicsuggestDutyMan']/div[2]" desc="责任人下拉框">magicsuggestDutyMan</locator>
+		<!-- .//*[@id='magicsuggestDutyMan']/div[3]/div -->
+		<locator type="xpath" timeout="3" value=".//*[@id='rectPeriod']" desc="整改时限">rectPeriod</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='hdDesc']" desc="隐患描述">hdDesc</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='提交']" desc="提交按钮">submit_btn</locator>
+		<!-- 选择危险源部分-->
+		<locator type="xpath" timeout="3" value=".//*[@name='yeRecognizeYear']" desc="选择危险源-辨识时间">yeRecognizeYear</locator>
+
+
+
+		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
+
+		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
+		<locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-first')]" desc="底部信息--首页按钮">data_firstPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-prev')]" desc="底部信息--上一页按钮">data_prevPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-next')]" desc="底部信息--下一页按钮">data_nexttPage</locator>
+		<locator type="xpath" timeout="3" value=".//span[contains(@class,'pagination-last')]" desc="底部信息--尾页按钮">data_lastPage</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_min']" desc="弹窗--最小化按钮">min_ui</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_max']" desc="弹窗--最大化按钮">max_ui</locator>
+		<locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='确定']" desc="确定按钮">confirm_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//span[contains(@class,'Validform_wrong')]" desc="提示信息">hazard_tip</locator>
+		<locator type="xpath" timeout="3" value=".//*[@class='layui-layer-btn0']" desc="删除部分：确定按钮">del_confirm</locator>
+		<locator type="xpath" timeout="3" value=".//*[@class='layui-layer-btn1']" desc="删除部分：取消按钮">del_cancel</locator>
+	</page>
 </map>

@@ -81,7 +81,7 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='隐患复查']" desc="隐患复查">repartList</locator>
 
 		<locator type="xpath" timeout="3" value=".//span[text()='重大隐患上报']" desc="重大隐患上报">zdyhsb</locator>
-		<locator type="xpath" timeout="3" value=".//span[text()='隐患综合查询']" desc="隐患综合查询">yhzhcx</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='隐患综合查询']" desc="隐患综合查询">majorHiddenDangerList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='隐患整改列表']" desc="隐患整改列表">rectifyList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='隐患验收列表']" desc="隐患验收列表">pendingAcceptList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='隐患复查列表']" desc="隐患复查列表">pendingReviewList</locator>
@@ -582,7 +582,7 @@
         <locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
         <locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>
     </page>
-	<page pagename="com.webui.pageObject.YhzhcxPage" value="" desc="隐患综合查询页面">
+	<page pagename="com.webui.pageObject.MajorHiddenDangerListPage" value="" desc="隐患综合查询页面">
 		<locator type="name" timeout="3" value="iframe49" desc="隐患综合查询页面iframe标记">iframe_list</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAdd')]" desc="录入数据部分iframe标记">iframe_add</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdate')]" desc="查看/编辑数据部分iframe标记">iframe_update</locator>
@@ -623,6 +623,7 @@
 		<locator type="xpath" timeout="3" value=".//*[@id='hdDesc']" desc="隐患描述">hdDesc</locator>
 		<locator type="xpath" timeout="3" value=".//input[@value='提交']" desc="提交按钮">submit_btn</locator>
 		<!-- 选择危险源部分-->
+		<locator type="xpath" timeout="3" value=".//*[@id='dangerName']" desc="危险源">dangerName</locator>
 		<locator type="xpath" timeout="3" value=".//*[@name='yeRecognizeYear']" desc="选择危险源-辨识时间">yeRecognizeYear</locator>
 
 

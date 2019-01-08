@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="通用矿版">
     <parameter name="driver" value="FirefoxDriver" />
-    <parameter name="url" value="http://192.168.3.194:8080/sdzk/"/> <!--测试地址-->
+    <parameter name="url" value="http://192.168.3.241:8080/sdzk/"/> <!--测试地址-->
     <parameter name="remark" value="webui自动化测试,自动输入内容" />
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
@@ -101,9 +101,9 @@
     </test>
     <test verbose="2" preserve-order="true" name="新工作面风险">
         <classes>
-            <class name="com.webui.aqfxfjgk.zxfxbs.XgzmPageTests">
+            <class name="com.webui.yhpczl.MajorHiddenDanger.MajorHiddenDangerListTests">
                 <methods>
-                    <include name="TC_addData"/>
+                    <include name="TC_addMHD"/>
                 </methods>
             </class>
         </classes>

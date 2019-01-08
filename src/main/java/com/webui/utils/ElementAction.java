@@ -244,6 +244,12 @@ public class ElementAction extends TestBaseCase {
     }
 
     // 2019-01-02
+    /**
+     * Description:通过xpath获取一组元素
+     * @param locator	元素的xpath值
+     * @return: java.util.List<org.openqa.selenium.WebElement>
+     * @throws:
+     */
     public List<WebElement> getElements(String locator){
         List<WebElement> webElements;
         webElements = driver.findElements(By.xpath(locator));
@@ -850,7 +856,6 @@ public class ElementAction extends TestBaseCase {
     public void displayElement(String locator) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
-
     }
 
     /**

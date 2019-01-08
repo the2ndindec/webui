@@ -548,9 +548,9 @@ public Locator zdyhsb() throws IOException
 * 隐患综合查询
 * @throws IOException
 */
-public Locator yhzhcx() throws IOException
+public Locator majorHiddenDangerList() throws IOException
  {
-   Locator locator=getLocator("yhzhcx");
+   Locator locator=getLocator("majorHiddenDangerList");
    return locator;
  }
 

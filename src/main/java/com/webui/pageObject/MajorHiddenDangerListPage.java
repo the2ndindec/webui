@@ -1,15 +1,16 @@
 package com.webui.pageObject;
-import java.io.IOException;
 import com.webui.utils.BaseAction;
 import com.webui.utils.Locator;
+
+import java.io.IOException;
 /** 
 * 隐患综合查询页面
  * @author the2n
  */
-public class YhzhcxPage extends BaseAction {
+public class MajorHiddenDangerListPage extends BaseAction {
 //用于eclipse工程内运行查找对象库文件路径
 private String path="src/main/java/com/webui/pageObjectConfig/UILibrary.xml";
- public   YhzhcxPage() {
+ public   MajorHiddenDangerListPage() {
 //工程内读取对象库文件
 	setXmlObjectPath(path);
 getLocatorMap();
@@ -331,6 +332,16 @@ public Locator hdDesc() throws IOException
 public Locator submit_btn() throws IOException
  {
    Locator locator=getLocator("submit_btn");
+   return locator;
+ }
+
+/***
+* 危险源
+* @throws IOException
+*/
+public Locator dangerName() throws IOException
+ {
+   Locator locator=getLocator("dangerName");
    return locator;
  }
 

@@ -102,6 +102,12 @@ public class FunctionUtil {
         return rand;
     }
 
+    public int randomForElement(int num) {
+        Random random = new Random();
+        int rand = random.nextInt(num - 1) + 1;
+        return rand;
+    }
+
     /**
      * Description:判断输入的日期格式是否为某一个格式
      * @param str 待比较的日期格式

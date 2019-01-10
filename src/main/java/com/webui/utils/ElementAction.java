@@ -854,7 +854,7 @@ public class ElementAction extends TestBaseCase {
      * @param locator
      */
     public void displayElement(String locator) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 15);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 

@@ -541,7 +541,7 @@ public class Assertion extends TestBaseCase {
         Boolean flag = false;
         log.info(verityStr);
         try {
-            exceptStr = ".//*[text()=\"" + exceptStr + "\"]";
+            exceptStr = ".//*[text()='" + exceptStr + "']";
             driver.findElement(By.xpath(exceptStr));
             flag = true;
         } catch (NoSuchElementException e) {

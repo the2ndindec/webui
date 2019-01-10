@@ -55,8 +55,9 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.typeYeMhazardDesc(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
         departReportDangerListActions.selectHiddenLevel();
         departReportDangerListActions.typeFineMoney(rp.readPropertiesFile(filePath, "fineMoney"));
-        departReportDangerListActions.doSave();
+        departReportDangerListActions.doSubRep();
         departReportDangerListActions.goDepartReportDangerList();
+        elementAction.clickByJS(departReportDangerListPage.beenReported_radio());
         Assertion.verityTextPresentPrecision(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
     }
 

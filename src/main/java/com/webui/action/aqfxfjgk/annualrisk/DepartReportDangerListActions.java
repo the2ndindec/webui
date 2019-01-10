@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * @author the2n
- * @Description:  部门风险清单页面
+ * @Description: 部门风险清单页面
  * @Data 2018/12/06 15:49
  */
 public class DepartReportDangerListActions extends TestBaseCase {
@@ -52,7 +52,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择风险点类型
-     *
      * @param
      * @return: void
      * @throws:
@@ -63,7 +62,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 根据当前时间输入辨识时间
-     *
      * @param
      * @return: void
      * @throws:
@@ -79,12 +77,11 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @throws:
      */
     public void doCheckYeRecognizeTime() throws IOException {
-      elementAction.fireEventBlur(departReportDangerListPage.yeRecognizeTime_textarea());
+        elementAction.fireEventBlur(departReportDangerListPage.yeRecognizeTime_textarea());
     }
 
     /**
      * 随机选择专业
-     *
      * @param
      * @return: void
      * @throws:
@@ -105,7 +102,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 指定选择危险源
-     *
      * @param hazardName 危险源值
      * @return: void
      * @throws:
@@ -117,7 +113,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择危险源
-     *
      * @param
      * @return: void
      * @throws:
@@ -132,7 +127,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 选择伤害类别:指定伤害类别
-     *
      * @param damageString 伤害类别字段值
      * @return: void
      * @throws:
@@ -224,7 +218,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择伤害类别
-     *
      * @param
      * @return: void
      * @throws:
@@ -289,7 +282,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 指定选择风险可能性
-     *
      * @param yeProbability 风险可能性值
      * @return: void
      * @throws:
@@ -300,7 +292,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择风险可能性
-     *
      * @param
      * @return: void
      * @throws:
@@ -311,7 +302,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 指定选择风险损失
-     *
      * @param yeCost 风险损失值
      * @return: void
      * @throws:
@@ -322,7 +312,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择风险损失
-     *
      * @param
      * @return: void
      * @throws:
@@ -333,7 +322,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 指定选择风险类型
-     *
      * @param yeHazardCate 风险类型值
      * @return: void
      * @throws:
@@ -344,7 +332,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择风险类型
-     *
      * @param
      * @return: void
      * @throws:
@@ -355,7 +342,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 指定选择作业活动
-     *
      * @param activityname 作业活动值
      * @return: void
      * @throws:
@@ -368,7 +354,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择作业活动
-     *
      * @param
      * @return: void
      * @throws:
@@ -402,7 +387,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 指定选择责任岗位
-     *
      * @param postname 责任岗位名称
      * @return: void
      * @throws:
@@ -414,7 +398,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择责任岗位
-     *
      * @param
      * @return: void
      * @throws:
@@ -434,7 +417,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 指定选择隐患等级
-     *
      * @param hiddenLevel 隐患等级值
      * @return: void
      * @throws:
@@ -445,7 +427,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 随机选择隐患等级
-     *
      * @param
      * @return: void
      * @throws:
@@ -456,7 +437,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * 输入罚款金额
-     *
      * @param fineMoney 罚款金额
      * @return: void
      * @throws:
@@ -500,162 +480,105 @@ public class DepartReportDangerListActions extends TestBaseCase {
      */
     public List<String> getSearchData(String fieldStr) throws IOException, InterruptedException {
         List<String> addressCateList = new ArrayList<>();
-        switch (fieldStr) {
-            case "风险点类型":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+        if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+            switch (fieldStr) {
+                case "风险点类型":
+
                     List<WebElement> addressCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='addressCate']/div"));
                     tempNum = addressCateElements.size();
                     for (int j = 0; j < addressCateElements.size(); j++) {
                         addressCateList.add(addressCateElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "隐患描述":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    break;
+                case "隐患描述":
+
                     List<WebElement> yeMhazardDescElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeMhazardDesc']/div"));
                     tempNum = yeMhazardDescElements.size();
                     for (int j = 0; j < yeMhazardDescElements.size(); j++) {
                         addressCateList.add(yeMhazardDescElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "专业":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    break;
+                case "专业":
                     List<WebElement> yeProfessionElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeProfession']/div"));
                     tempNum = yeProfessionElements.size();
                     for (int j = 0; j < yeProfessionElements.size(); j++) {
                         addressCateList.add(yeProfessionElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "伤害类别":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    break;
+                case "伤害类别":
                     List<WebElement> damageTypeElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='damageType']/div"));
                     tempNum = damageTypeElements.size();
                     for (int j = 0; j < damageTypeElements.size(); j++) {
                         addressCateList.add(damageTypeElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "风险描述":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+
+                    break;
+                case "风险描述":
                     List<WebElement> yePossiblyHazardElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yePossiblyHazard']/div"));
                     tempNum = yePossiblyHazardElements.size();
                     for (int j = 0; j < yePossiblyHazardElements.size(); j++) {
                         addressCateList.add(yePossiblyHazardElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "作业活动":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+                    break;
+                case "作业活动":
                     List<WebElement> activityidElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='activity.id']/div"));
                     tempNum = activityidElements.size();
                     for (int j = 0; j < activityidElements.size(); j++) {
                         addressCateList.add(activityidElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "风险等级":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+
+                    break;
+                case "风险等级":
                     List<WebElement> yeRiskGradeTempElements = driver.findElements(By
                             .xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRiskGradeTemp']//input"));
                     tempNum = yeRiskGradeTempElements.size();
                     for (int j = 0; j < yeRiskGradeTempElements.size(); j++) {
                         addressCateList.add(yeRiskGradeTempElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "风险类型":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+
+                    break;
+                case "风险类型":
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeHazardCate']/div"));
                     tempNum = yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
                         addressCateList.add(yeHazardCateElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "风险点":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
-                    List<WebElement> yeHazardCateElements = driver.findElements(
-                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='address']/div"));
-                    tempNum = yeHazardCateElements.size();
-                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
-                        addressCateList.add(yeHazardCateElements.get(j).getText());
-                    }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "管控标准来源":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
-                    List<WebElement> yeHazardCateElements = driver.findElements(
+                    break;
+
+                case "管控标准来源":
+                    List<WebElement> docSource = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='docSource']/div"));
-                    tempNum = yeHazardCateElements.size();
-                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
-                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    tempNum = docSource.size();
+                    for (int j = 0; j < docSource.size(); j++) {
+                        addressCateList.add(docSource.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "标准内容":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
-                    List<WebElement> yeHazardCateElements = driver.findElements(
+                    break;
+                case "标准内容":
+                    List<WebElement> yeStandard = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeStandard']/div"));
-                    tempNum = yeHazardCateElements.size();
-                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
-                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    tempNum = yeStandard.size();
+                    for (int j = 0; j < yeStandard.size(); j++) {
+                        addressCateList.add(yeStandard.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "隐患等级":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
-                    List<WebElement> yeHazardCateElements = driver.findElements(
-                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='hiddenLevel']/div"));
-                    tempNum = yeHazardCateElements.size();
-                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
-                        addressCateList.add(yeHazardCateElements.get(j).getText());
-                    }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "辨识时间":
-                if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
-                    List<WebElement> yeHazardCateElements = driver.findElements(
+                    break;
+
+                case "辨识时间":
+                    List<WebElement> yeRecognizeTime = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRecognizeTime']/div"));
-                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
-                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    for (int j = 0; j < yeRecognizeTime.size(); j++) {
+                        addressCateList.add(yeRecognizeTime.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
+                    break;
+            }
+        } else {
+            log.info("根据查询条件>>无相关结果");
         }
         return addressCateList;
     }

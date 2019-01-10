@@ -15,6 +15,19 @@
     </test>
     <test verbose="2" preserve-order="true" name="风险审核-查询">
         <classes>
+            <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
+                <methods>
+                    <parameter name="docSource" value="办公楼" />
+                    <parameter name="sectionName" value="test1"/>
+                    <parameter name="yeStandard" value="测试内容测试内容测试内容"/>
+                    <parameter name="manageMeasure" value="cecesss "/>
+                    <include name="TC_addData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="风险审核-查询">
+        <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.ReviewDangerListPageTests">
                 <methods>
                     <parameter name="AddressCate" value="办公楼" />

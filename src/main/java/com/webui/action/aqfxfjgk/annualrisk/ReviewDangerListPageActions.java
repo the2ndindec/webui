@@ -30,13 +30,16 @@ public class ReviewDangerListPageActions extends TestBaseCase {
     FunctionUtil functionUtil = new FunctionUtil();
 
     /**
-     * @param locator
-     * @throws IOException
-     * @description 切换到风险审核页面
+     * Description:切换菜单
+     * @param locator	菜单
+     * @param locator2	frame
+     * @return: void
+     * @throws:
      */
-    public void modifyMenu(Locator locator) throws IOException {
-        defultPageActions.openMenu(defultPage.reviewDangerList());
-        elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
+    public void modifyMenu(Locator locator,Locator locator2) throws IOException {
+        elementAction.switchToDefaultFrame();
+        defultPageActions.openMenu(locator);
+        elementAction.switchToFrame(locator2);
     }
 
     public void modifyMenu() throws IOException {
@@ -258,6 +261,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
             elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
             elementAction.switchToDefaultFrame();
             elementAction.click_left(reviewDangerListPage.check_confirm_btn());
+            elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerList());
         }
     }
 
@@ -832,12 +836,12 @@ public class ReviewDangerListPageActions extends TestBaseCase {
 
     // 选择已审核状态
     public void checkChecked() throws IOException {
-        elementAction.click_left(reviewDangerListPage.checked_radio());
+        elementAction.clickByJS(reviewDangerListPage.checked_radio());
     }
 
     //选择待审核状态
     public void unCHecked() throws IOException {
-        elementAction.click_left(reviewDangerListPage.checkPending_radio());
+        elementAction.clickByJS(reviewDangerListPage.checkPending_radio());
     }
 
     /**

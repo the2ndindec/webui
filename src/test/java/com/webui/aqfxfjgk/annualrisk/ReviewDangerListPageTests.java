@@ -1,14 +1,11 @@
 package com.webui.aqfxfjgk.annualrisk;
 
 import com.webui.action.aqfxfjgk.annualrisk.ReviewDangerListPageActions;
+import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReviewDangerListPage;
-import com.webui.utils.Assertion;
-import com.webui.utils.ElementAction;
-import com.webui.utils.FunctionUtil;
-import com.webui.utils.TestBaseCase;
+import com.webui.utils.*;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -20,15 +17,17 @@ import java.text.ParseException;
  * @description 风险审核模块相关的测试案例
  * @Data 2018/11/27 16:56
  */
-@Ignore
 public class ReviewDangerListPageTests extends TestBaseCase {
 
     ElementAction elementAction = new ElementAction();
     ReviewDangerListPageActions reviewDangerListPageActions = new ReviewDangerListPageActions();
     ReviewDangerListPage reviewDangerListPage = new ReviewDangerListPage();
+    DefultPage dp = new DefultPage();
 
     Assertion assertion = new Assertion();
     FunctionUtil functionUtil = new FunctionUtil();
+    ReadProperties rp = new ReadProperties();
+    private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
 
 
     @Feature("查询")
@@ -165,10 +164,11 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     @Test(description = "审核通过测试,该方法暂时只能验证已审核列表中只有一条数据的情况")
     @Parameters({"remark"})
     public void TC_goReviewPass(String remark) throws IOException, InterruptedException {
-        reviewDangerListPageActions.goReviewPassByRandom(remark);
+        reviewDangerListPageActions.modifyMenu(dp.reviewDangerList(),reviewDangerListPage.iframe_reviewDangerList());
+        reviewDangerListPageActions.goReviewPassByRandom(remark,rp.readPropertiesFile(filePath,"yeMhazardDesc"));
         reviewDangerListPageActions.checkChecked();
         elementAction.sleep(2);
-        Assertion.verityString(reviewDangerListPageActions.getSearchData("风险描述").get(reviewDangerListPageActions.tempNum - 1), reviewDangerListPageActions.getTempString());
+        Assertion.verityString(reviewDangerListPageActions.getSearchData("隐患描述").get(reviewDangerListPageActions.tempNum - 1), rp.readPropertiesFile(filePath,"yeMhazardDesc"));
     }
 
     @Feature("审核")

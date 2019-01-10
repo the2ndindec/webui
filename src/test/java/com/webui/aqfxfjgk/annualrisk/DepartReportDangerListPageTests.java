@@ -58,6 +58,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.doSubRep();
         departReportDangerListActions.goDepartReportDangerList();
         elementAction.clickByJS(departReportDangerListPage.beenReported_radio());
+        elementAction.sleep(2);
         Assertion.verityTextPresentPrecision(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
     }
 

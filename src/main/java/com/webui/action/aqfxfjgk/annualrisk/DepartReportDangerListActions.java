@@ -121,7 +121,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.clickByJS(".//div[@id='hazardname']/div[2]/div");
         elementAction.sleep(1);
         List<WebElement> hazard = driver.findElements(By.xpath(".//*[@id='hazardname']/div[3]/div")); //获取危险源集合
-        WebElement element = hazard.get(functionUtil.random(hazard.size()));
+        WebElement element = hazard.get(functionUtil.randomForElement(hazard.size()));
         element.click();
     }
 
@@ -224,7 +224,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      */
     public void checkDamageType() {
         List<WebElement> webElements = driver.findElements(By.xpath(".//*[@id='formobj']//tbody/tr[3]/td[2]/label/input"));
-        webElements.get(functionUtil.random(webElements.size())).click();
+        webElements.get(functionUtil.randomForElement(webElements.size())).click();
     }
 
     //  选择伤害类别:指定事故类别
@@ -268,7 +268,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
     //  随机选择事故类别
     public void checkYeAccident() {
         List<WebElement> webElements = driver.findElements(By.xpath(".//*[@id='formobj']//tbody/tr[4]/td[2]/label/input"));
-        webElements.get(functionUtil.random(webElements.size())).click();
+        webElements.get(functionUtil.randomForElement(webElements.size())).click();
     }
 
     //  输入风险描述
@@ -362,7 +362,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.clickByJS(departReportDangerListPage.activityNameList());
         elementAction.displayElement(".//*[@id='activityname']/div[3]/div");
         List<WebElement> act = driver.findElements(By.xpath(".//*[@id='activityname']/div[3]/div"));
-        act.get(functionUtil.random(act.size())).click();
+        act.get(functionUtil.randomForElement(act.size())).click();
     }
 
     //  输入管控标准来源
@@ -404,10 +404,10 @@ public class DepartReportDangerListActions extends TestBaseCase {
      */
     public void selectPostName() throws IOException {
         elementAction.clickByJS(departReportDangerListPage.postNameList());
+        elementAction.displayElement(".//*[@id='postname']/div[3]/div");
         List<WebElement> postName = driver.findElements(By.xpath(".//*[@id='postname']/div[3]/div"));
         elementAction.sleep(1);
-        WebElement element = postName.get(functionUtil.random(postName.size()));
-        element.click();
+        postName.get(functionUtil.randomForElement(postName.size())).click();
     }
 
     //  输入隐患描述

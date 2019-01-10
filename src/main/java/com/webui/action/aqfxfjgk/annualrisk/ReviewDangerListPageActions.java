@@ -245,9 +245,9 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @Description: 审核通过
      * @throws:
      */
-    public void goReviewPassByRandom(String remark) throws IOException {
+    public void goReviewPassByRandom(String remark,String descString) throws IOException {
         unCHecked();
-        clickElement();
+        clickElementByValue(descString);
         switchToReviewFrame();
         if (elementAction.getAttribute(reviewDangerListPage.check_pass_radio(), "checked").equals("checked")) {
             elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
@@ -258,7 +258,6 @@ public class ReviewDangerListPageActions extends TestBaseCase {
             elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
             elementAction.switchToDefaultFrame();
             elementAction.click_left(reviewDangerListPage.check_confirm_btn());
-
         }
     }
 
@@ -365,6 +364,13 @@ public class ReviewDangerListPageActions extends TestBaseCase {
             tempString = driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + (temp + 1) + "]/td[@field='yePossiblyHazard']/div")).getText();
             elementAction.highlightElementByXpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + (temp + 1) + "]/td[@field='yePossiblyHazard']/div");
             trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        } else {
+            log.info("当前页面上暂无数据");
+        }
+    }
+    public void clickElementByValue(String string) throws IOException {
+        if (elementAction.isElementDisplayedByLocator(reviewDangerListPage.data_tbody())) {
+            elementAction.clickByJS("//*[contains(text(),'" + string + "')]");
         } else {
             log.info("当前页面上暂无数据");
         }

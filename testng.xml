@@ -13,7 +13,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="风险审核-查询">
+    <test verbose="2" preserve-order="true" name="部门风险清单-添加数据">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
@@ -26,27 +26,12 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="风险审核-查询">
+    <test verbose="2" preserve-order="true" name="风险审核-审核">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.ReviewDangerListPageTests">
                 <methods>
-                    <parameter name="AddressCate" value="办公楼" />
-                    <include name="TC_searchByAddressCate"/>
-                    <parameter name="hazardDesc" value="顶板伤人" />
-                    <include name="TC_searchByYeMhazardDesc"/>
-                    <parameter name="profession" value="运输" />
-                    <include name="TC_searchByYeProfession"/>
-                    <parameter name="damageType" value="瓦斯爆炸"/>
-                    <include name="TC_searchByDamageType"/>
-                    <parameter name="YePossiblyHazard" value="10-103工作面带压开采" />
-                    <include name="TC_searchByYePossiblyHazard"/>
-                    <parameter name="activityid" value="回采"/>
-                    <include name="TC_searchByActivityid"/>
-                    <parameter name="riskGrade" value="一般风险"/>
-                    <include name="TC_searchByYeRiskGrade"/>
-                    <parameter name="hazardCate" value="机"/>
-                    <include name="TC_searchByYeHazardCate"/>
-                    <!--<include name="TC_reviewCallback"/>-->
+                    <parameter name="remark" value="auto测试" />
+                    <include name="TC_goReviewPass"/>
                 </methods>
             </class>
         </classes>
@@ -112,7 +97,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="新工作面风险">
+    <test verbose="2" preserve-order="true" name="新工作面风险" enabled="false">
         <classes>
             <class name="com.webui.yhpczl.MajorHiddenDanger.MajorHiddenDangerListTests">
                 <methods>

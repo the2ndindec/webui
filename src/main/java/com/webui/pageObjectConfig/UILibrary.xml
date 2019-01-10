@@ -196,7 +196,8 @@
 		<locator type="xpath" timeout="3" value=".//a[@class='ui_close']" desc="弹窗--关闭按钮">close_ui</locator>
 	</page>
 	<page pagename="com.webui.pageObject.ReviewDangerListPage" value="" desc="风险审核页面">
-		<locator type="name" timeout="3" value="iframe4" desc="风险审核页面页面iframe标记">iframe_reviewDangerList</locator>
+		<!--<locator type="name" timeout="3" value="iframe6" desc="风险审核页面页面iframe标记">iframe_reviewDangerList</locator>-->
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'reviewDangerList')]" desc="风险审核页面页面iframe标记">iframe_reviewDangerList</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goDetail')]" desc="数据详情部分iframe标记">iframe_detail</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goReviewDangerSource')]" desc="审核弹框部分iframe标记">iframe_reviewDangerSource</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdateDangerSourceOnCheck')]" desc="编辑页面iframe标记">iframe_goUpdateDangerSourceOnCheck</locator>
@@ -212,9 +213,9 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='全部去审']" desc="全部去审">undoReviewAll_Button</locator>
 		<!-- 搜索条件 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
-		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]" desc="全部 ">all_radio</locator>
-		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[2]" desc="待审核">checkPending_radio</locator>
-		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]" desc="已审核">checked_radio</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]/input" desc="全部 ">all_radio</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[2]/input" desc="待审核">checkPending_radio</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]/input" desc="已审核">checked_radio</locator>
 		<!-- <locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="重置按钮">reload_Button</locator> -->
 		<locator type="xpath" timeout="3" value=".//select[@name='addressCate']" desc="查询条件--风险点类型">addressCate_select</locator>
 		<locator type="xpath" timeout="3" value=".//input[@name='yeRecognizeTime_begin']" desc="查询条件--辨识时间开始输入框">yeRecognizeTime_begin_textarea</locator>
@@ -362,7 +363,7 @@
         <locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
         <locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]/input" desc="全部 ">all_radio</locator>
         <locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[2]/input" desc="待上报">toBeReported_radio</locator>
-        <locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]/input" desc="待上报">beenReported_radio</locator>
+        <locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]/input" desc="已上报">beenReported_radio</locator>
         <locator type="xpath" timeout="3" value=".//input[@name='yeRecognizeTime_begin']" desc="查询条件--辨识时间开始输入框">s_yeRecognizeTime_begin_textarea</locator>
         <locator type="xpath" timeout="3" value=".//input[@name='yeRecognizeTime_end']" desc="查询条件--辨识时间结束输入框">s_yeRecognizeTime_end_textarea</locator>
         <locator type="xpath" timeout="3" value=".//input[@name='yeMhazardDesc']" desc="查询条件--隐患描述输入框">s_yeMhazardDesc_textarea</locator>

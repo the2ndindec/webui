@@ -168,7 +168,7 @@ public class ReviewDangerListPageTests extends TestBaseCase {
         reviewDangerListPageActions.goReviewPassByRandom(remark,rp.readPropertiesFile(filePath,"yeMhazardDesc"));
         reviewDangerListPageActions.checkChecked();
         elementAction.sleep(2);
-        Assertion.verityString(reviewDangerListPageActions.getSearchData("隐患描述").get(reviewDangerListPageActions.tempNum - 1), rp.readPropertiesFile(filePath,"yeMhazardDesc"));
+        Assertion.verityTextPresent(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
     }
 
     @Feature("审核")

@@ -244,18 +244,20 @@ public class ElementAction extends TestBaseCase {
     }
 
     // 2019-01-02
+
     /**
      * Description:通过xpath获取一组元素
-     * @param locator	元素的xpath值
+     * @param locator 元素的xpath值
      * @return: java.util.List<org.openqa.selenium.WebElement>
      * @throws:
      */
-    public List<WebElement> getElements(String locator){
+    public List<WebElement> getElements(String locator) {
         List<WebElement> webElements;
         webElements = driver.findElements(By.xpath(locator));
         return webElements;
     }
-    public List<WebElement> findElements(final String locator){
+
+    public List<WebElement> findElements(final String locator) {
         List<WebElement> webElements = null;
         try {
             webElements = (new WebDriverWait(driver, 20)).until(new ExpectedCondition<List<WebElement>>() {
@@ -327,8 +329,8 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * Description:通过js方法完成输入指定值
-     * @param locator	输入框元素
-     * @param value	要输入的值
+     * @param locator 输入框元素
+     * @param value   要输入的值
      * @return: void
      * @throws:
      */
@@ -370,8 +372,8 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
+     * 通过js方法点击元素,locator定位元素
      * @param locator 元素信息
-     * @Description:通过js方法点击元素,locator定位元素
      * @return: void
      * @throws:
      */
@@ -390,7 +392,7 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * @param string 元素的xpath
-     * @Description:通过js方法点击元素,String定位元素
+     * @Description: 通过js方法点击元素, String定位元素
      * @return: void
      * @throws:
      */
@@ -400,18 +402,6 @@ public class ElementAction extends TestBaseCase {
             WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
         } catch (NoSuchElementException e) {
-            log.error("找不到元素，click失败:" + "]");
-            e.printStackTrace();
-            throw e;
-        }
-    }
-
-    public void clickVisibilityOfElement(String string) {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(string)));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
-        } catch (Exception e) {
             log.error("找不到元素，click失败:" + "]");
             e.printStackTrace();
             throw e;
@@ -614,6 +604,15 @@ public class ElementAction extends TestBaseCase {
         actions.clickAndHold(webElement).perform();
     }
 
+    public void moveAndClick(Locator locator, int x, int y) {
+        WebElement element = findElement(locator);
+        System.out.println("--for DEBUG--------------------");
+        Actions actions = new Actions(driver);
+//        actions.moveToElement(element).moveByOffset(x, y).click().build().perform();
+        actions.moveByOffset(x, y).click().build().perform();
+        log.info("ssss");
+    }
+
     /**
      * 鼠标左键单击,通过locator定位需要点击的元素
      * @param locator 元素locator
@@ -621,7 +620,7 @@ public class ElementAction extends TestBaseCase {
     public void click_left(Locator locator) {
         WebElement webElement = findElement(locator);
         Actions actions = new Actions(driver);
-        actions.moveToElement(webElement).click().perform();
+        actions.moveToElement(webElement).click();
         log.info("click" + webElement.getText() + "suc");
     }
 
@@ -920,11 +919,18 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * Description:返回指定值的元素对象
-     * @param elementValue	字段值
+     * @param elementValue 字段值
      * @return: org.openqa.selenium.WebElement
      * @throws:
      */
-    public WebElement getElementByValue(String elementValue){
-      return driver.findElement(By.xpath(".//*[contains(text(),'" + elementValue + "')]"));
+    public WebElement getElementByValue(String elementValue) {
+        return driver.findElement(By.xpath(".//*[contains(text(),'" + elementValue + "')]"));
+    }
+
+    public boolean isRadioSelect(Locator locator) {
+        ElementAction action = new ElementAction();
+        WebElement webElement = action.findElement(locator);
+        boolean flag = webElement.isSelected();
+        return flag;
     }
 }

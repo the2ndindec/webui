@@ -17,7 +17,7 @@ import java.util.Random;
 /**
  * @author the2n
  * @date: 2018年11月13日 下午4:05:22
- * @Description:本矿风险汇总页面包含的功能
+ * @Description: 本矿风险汇总页面包含的功能
  */
 public class ReportDangerListPageActions extends TestBaseCase {
 
@@ -28,7 +28,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
     /**
      * @param addressCate 需要查询的风险点类型字段值
      * @throws IOException
-     * @Description:根据风险点类型执行查询操作
+     * @Description: 根据风险点类型执行查询操作
      */
     @Step(value = "输入查询条件，风险点")
     public void searchByAddressCate(String addressCate) throws IOException {
@@ -39,7 +39,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
     /**
      * @param yeMhazardDesc 隐患描述字段值
      * @throws IOException
-     * @Description:根据隐患描述执行查询操作
+     * @Description: 根据隐患描述执行查询操作
      */
     public void searchByYeMhazardDesc(String yeMhazardDesc) throws IOException {
         setDefult();
@@ -50,7 +50,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
     /**
      * @param yeProfession 专业字段值
      * @throws IOException
-     * @Description:根据专业执行查询操作
+     * @Description: 根据专业执行查询操作
      */
     public void searchByYeProfession(String yeProfession) throws IOException {
         setDefult();
@@ -232,7 +232,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
      * @return
      * @throws IOException
      * @throws InterruptedException
-     * @Description:获取查询结果中指定字段值
+     * @Description: 获取查询结果中指定字段值
      */
     public List<String> getSearchData(String fieldStr) throws IOException, InterruptedException {
         List<String> addressCateList = new ArrayList<>();
@@ -375,5 +375,19 @@ public class ReportDangerListPageActions extends TestBaseCase {
         ea.clear(rdlp.yeStandard_textarea());
         // 判断隐患等级是否为默认值
         ea.selectByIndex(rdlp.hiddenLevel_select(), 0);
+    }
+
+    public void modityFrame(Locator locator){
+        ea.switchToDefaultFrame();
+        ea.switchToFrame(locator);
+    }
+
+    public void  chooseAddress(String string) throws IOException {
+        ea.clickByJS("//*[contains(text(),'" + string + "')]");  //指定风险
+        ea.clickByJS(rdlp.chooseAddress_Button());
+        modityFrame(rdlp.iframe_addresslist());
+        ea.clickByJS(rdlp.addresslist_chooseAddress_Button());
+        modityFrame(rdlp.iframe_addressAddlist());
+
     }
 }

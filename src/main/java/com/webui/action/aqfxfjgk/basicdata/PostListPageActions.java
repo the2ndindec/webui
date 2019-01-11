@@ -131,7 +131,7 @@ public class PostListPageActions extends TestBaseCase {
         log.info("删除的岗位信息为:" + postName);
         elementAction.clickByJS(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + temp + "]/td[@field='opt']//a[1]");
         modifyFrame(postListPage.iframe_PostList());
-        elementAction.clickVisibilityOfElement(".//*[@class='layui-layer-btn0']");
+        elementAction.clickByJS(".//*[@class='layui-layer-btn0']");
     }
 
 

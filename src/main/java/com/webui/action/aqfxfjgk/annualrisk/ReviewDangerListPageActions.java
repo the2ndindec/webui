@@ -252,7 +252,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
         unCHecked();
         clickElementByValue(descString);
         switchToReviewFrame();
-        if (elementAction.getAttribute(reviewDangerListPage.check_pass_radio(), "checked").equals("checked")) {
+        if (elementAction.getAttribute(reviewDangerListPage.check_pass_radio(), "checked").equalsIgnoreCase("checked")) {
             elementAction.type(reviewDangerListPage.check_remark_textarea(), remark);
             elementAction.switchToDefaultFrame();
             elementAction.click_left(reviewDangerListPage.check_confirm_btn());

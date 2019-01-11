@@ -460,6 +460,14 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.click_left(departReportDangerListPage.closeBtn());
     }
 
+    public void checkReported() throws IOException {
+        elementAction.clickByJS(departReportDangerListPage.beenReported_radio());
+        if (elementAction.isRadioSelect(departReportDangerListPage.beenReported_radio())) {
+            log.info("");
+        } else {
+            elementAction.clickByJS(departReportDangerListPage.beenReported_radio());
+        }
+    }
 
     public int getTempNum() {
         return tempNum;

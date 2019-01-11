@@ -13,20 +13,20 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="部门风险清单-添加数据">
+    <test verbose="2" preserve-order="true" name="部门风险清单-添加数据" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
                     <parameter name="docSource" value="办公楼" />
-                    <parameter name="sectionName" value="test1"/>
-                    <parameter name="yeStandard" value="测试内容测试内容测试内容"/>
-                    <parameter name="manageMeasure" value="cecesss "/>
+                    <parameter name="sectionName" value="test3"/>
+                    <parameter name="yeStandard" value="测试内容测试内容测试内容3"/>
+                    <parameter name="manageMeasure" value="cecesss3 "/>
                     <include name="TC_addData"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="风险审核-审核">
+    <test verbose="2" preserve-order="true" name="风险审核-审核" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.ReviewDangerListPageTests">
                 <methods>
@@ -102,6 +102,15 @@
             <class name="com.webui.yhpczl.MajorHiddenDanger.MajorHiddenDangerListTests">
                 <methods>
                     <include name="TC_addMHD"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="风险区域管理">
+        <classes>
+            <class name="com.webui.aqfxfjgk.RiskPointManagement.ManagelistPageTests">
+                <methods>
+                    <include name="TC"/>
                 </methods>
             </class>
         </classes>

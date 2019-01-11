@@ -1,7 +1,8 @@
 package com.webui.pageObject;
-import java.io.IOException;
 import com.webui.utils.BaseAction;
 import com.webui.utils.Locator;
+
+import java.io.IOException;
 /** 
 * 首页
  * @author the2n
@@ -61,6 +62,16 @@ public Locator aqfxfjgk_menu() throws IOException
 public Locator addressManage_list() throws IOException
  {
    Locator locator=getLocator("addressManage_list");
+   return locator;
+ }
+
+/***
+* 风险区域管理
+* @throws IOException
+*/
+public Locator managelist() throws IOException
+ {
+   Locator locator=getLocator("managelist");
    return locator;
  }
 

@@ -162,6 +162,7 @@
         <!--<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody//td[@field='dutyMan']//input" desc="负责人输入框">ad_dutyMan</locator>-->
         <locator type="xpath" timeout="3" value=".//input[@value='保存']" desc="保存按钮">ad_confirm_btn</locator>
         <locator type="xpath" timeout="3" value=".//input[@value='重置']" desc="重置按钮">ad_close_btn</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='map']" desc="重置按钮">map</locator>
 
         <locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
         <locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
@@ -215,11 +216,13 @@
 		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
 		<locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>
 	</page>
-	<page pagename="com.webui.pageObject.ReportDangerListPage" value="" desc="本矿风险汇总页面">
-		<locator type="name" timeout="3" value="iframe3" desc="本矿风险汇总页面iframe标记">iframe_reportDangerList</locator>
+	<page pagename="com.webui.pageObject.ReportDangerListPage" value="" desc="矿风险清单页面">
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'reportDangerList')]" desc="矿风险清单页面iframe标记">iframe_reportDangerList</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goDetail')]" desc="数据详情部分iframe标记">iframe_detail</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'addresslist')]" desc="关联风险点-风险点部分iframe标记">iframe_addresslist</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'addressAddlist')]" desc="关联风险点-选择风险点部分iframe标记">iframe_addressAddlist</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'addressAddlist')]" desc="关联风险点-选择风险点部分iframe标记">iframe_addressAddlist</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goOneKeyCopy')]" desc="一键复制部分iframe标记">iframe_addressAddlist</locator>
 		<!-- 操作按钮 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='导出']" desc="导出按钮">ExportXls_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='查看']" desc="查看按钮">detail_Button</locator>
@@ -227,6 +230,7 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='关联风险点']" desc="关联风险点">chooseAddress_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='上报省局平台']" desc="上报省局平台">goReport_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='全部上报省局平台']" desc="全部上报省局平台">goReportAll_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='撤回']" desc="撤回按钮">mineCallback_Button</locator>
 		<!-- 搜索条件 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
 		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]" desc="全部 ">all_radio</locator>
@@ -257,6 +261,7 @@
 		<locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-search')]" desc="关联风险点-选择风险点部分：查询按钮">addressAddlist_search_Button</locator>
 		<locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="关联风险点-选择风险点部分：重置按钮">addressAddlist_reload_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='关联风险点']" desc="关联风险点-选择风险点部分：关联风险点按钮">addressAddlist_addRelFunction_Button</locator>
+		<locator type="xpath" timeout="3" value=".//input[@name='cloneFrom']" desc="一键复制开始时间">cloneFrom_textarea</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-pager pagination']/div[1]" desc="底部信息--数据总量">data_num</locator>
 		<locator type="xpath" timeout="3" value=".//select[@class='pagination-page-list']" desc="底部信息--每页显示数量">data_pagelist</locator>

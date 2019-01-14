@@ -221,8 +221,7 @@
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goDetail')]" desc="数据详情部分iframe标记">iframe_detail</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'addresslist')]" desc="关联风险点-风险点部分iframe标记">iframe_addresslist</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'addressAddlist')]" desc="关联风险点-选择风险点部分iframe标记">iframe_addressAddlist</locator>
-		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'addressAddlist')]" desc="关联风险点-选择风险点部分iframe标记">iframe_addressAddlist</locator>
-		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goOneKeyCopy')]" desc="一键复制部分iframe标记">iframe_addressAddlist</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goOneKeyCopy')]" desc="一键复制部分iframe标记">iframe_goOneKeyCopy</locator>
 		<!-- 操作按钮 -->
 		<locator type="xpath" timeout="3" value=".//span[text()='导出']" desc="导出按钮">ExportXls_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='查看']" desc="查看按钮">detail_Button</locator>

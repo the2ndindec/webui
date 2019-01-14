@@ -1,7 +1,8 @@
 package com.webui.pageObject;
-import java.io.IOException;
 import com.webui.utils.BaseAction;
 import com.webui.utils.Locator;
+
+import java.io.IOException;
 /** 
 * 矿风险清单页面
  * @author the2n
@@ -55,22 +56,12 @@ public Locator iframe_addressAddlist() throws IOException
  }
 
 /***
-* 关联风险点-选择风险点部分iframe标记
-* @throws IOException
-*/
-public Locator iframe_addressAddlist() throws IOException
- {
-   Locator locator=getLocator("iframe_addressAddlist");
-   return locator;
- }
-
-/***
 * 一键复制部分iframe标记
 * @throws IOException
 */
-public Locator iframe_addressAddlist() throws IOException
+public Locator iframe_goOneKeyCopy() throws IOException
  {
-   Locator locator=getLocator("iframe_addressAddlist");
+   Locator locator=getLocator("iframe_goOneKeyCopy");
    return locator;
  }
 

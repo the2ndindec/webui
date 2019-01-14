@@ -604,13 +604,18 @@ public class ElementAction extends TestBaseCase {
         actions.clickAndHold(webElement).perform();
     }
 
+    /**
+     * Description:通过坐标值，点击操作
+     * @param locator
+     * @param x
+     * @param y
+     * @return: void
+     * @throws:
+     */
     public void moveAndClick(Locator locator, int x, int y) {
         WebElement element = findElement(locator);
-        System.out.println("--for DEBUG--------------------");
         Actions actions = new Actions(driver);
-//        actions.moveToElement(element).moveByOffset(x, y).click().build().perform();
-        actions.moveByOffset(x, y).click().build().perform();
-        log.info("ssss");
+        actions.moveToElement(element,x,y).click().build().perform();
     }
 
     /**

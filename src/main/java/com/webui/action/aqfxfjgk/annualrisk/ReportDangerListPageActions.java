@@ -1,8 +1,8 @@
 package com.webui.action.aqfxfjgk.annualrisk;
 
-import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.ReportDangerListPage;
 import com.webui.utils.ElementAction;
+import com.webui.utils.FunctionUtil;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
 import io.qameta.allure.Step;
@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,23 +18,23 @@ import java.util.Random;
 /**
  * @author the2n
  * @date: 2018年11月13日 下午4:05:22
- * @Description: 本矿风险汇总页面包含的功能
+ * @Description: 矿风险清单页面包含的功能
  */
 public class ReportDangerListPageActions extends TestBaseCase {
 
     ElementAction ea = new ElementAction();
     ReportDangerListPage rdlp = new ReportDangerListPage();
-    DefultPage dp = new DefultPage();
+    FunctionUtil functionUtil = new FunctionUtil();
 
     /**
      * @param addressCate 需要查询的风险点类型字段值
      * @throws IOException
      * @Description: 根据风险点类型执行查询操作
      */
-    @Step(value = "输入查询条件，风险点")
+    @Step(value = "输入查询条件，风险点类型")
     public void searchByAddressCate(String addressCate) throws IOException {
         ea.selectByText(rdlp.addressCate_select(), addressCate);
-        doSearch(rdlp.search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
     }
 
     /**
@@ -44,7 +45,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
     public void searchByYeMhazardDesc(String yeMhazardDesc) throws IOException {
         setDefult();
         ea.type(rdlp.yeMhazardDesc_textarea(), yeMhazardDesc);
-        doSearch(rdlp.search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
     }
 
     /**
@@ -55,7 +56,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
     public void searchByYeProfession(String yeProfession) throws IOException {
         setDefult();
         ea.selectByText(rdlp.yeProfession_select(), yeProfession);
-        doSearch(rdlp.search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
     }
 
     /**
@@ -66,7 +67,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
     public void searchByDamageType(String damageType) throws IOException {
         setDefult();
         ea.selectByText(rdlp.damageType_select(), damageType);
-        doSearch(rdlp.search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
     }
 
     /**
@@ -77,7 +78,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
     public void searchByYePossiblyHazard(String yePossiblyHazard) throws IOException {
         setDefult();
         ea.type(rdlp.yePossiblyHazard_textarea(), yePossiblyHazard);
-        doSearch(rdlp.search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
     }
 
     /**
@@ -88,14 +89,9 @@ public class ReportDangerListPageActions extends TestBaseCase {
     public void searchByActivityid(String activityid) throws IOException {
         setDefult();
         ea.selectByText(rdlp.activityId_select(), activityid);
-        doSearch(rdlp.search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
     }
 
-    private void doSearch(Locator locator, int i) {
-        ea.sleep(1);
-        ea.click_left(locator);
-        ea.sleep(i);
-    }
 
     /**
      * @param yeRiskGradeTemp 风险等级字段值
@@ -105,7 +101,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
     public void searchByYeRiskGradeTemp(String yeRiskGradeTemp) throws IOException {
         setDefult();
         ea.selectByText(rdlp.yeRiskGrade_select(), yeRiskGradeTemp);
-        doSearch(rdlp.search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
     }
 
     /**
@@ -116,7 +112,100 @@ public class ReportDangerListPageActions extends TestBaseCase {
     public void searchByYeHazardCate(String yeHazardCate) throws IOException {
         setDefult();
         ea.selectByText(rdlp.yeRiskGrade_select(), yeHazardCate);
-        doSearch(rdlp.search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
+    }
+
+    /**
+     * Description: 根据管控来源查询
+     * @param docSource 管控来源内容
+     * @return: void
+     * @throws:
+     */
+    public void searchByDocSource(String docSource) throws IOException {
+        setDefult();
+        ea.type(rdlp.docSource_textarea(), docSource);
+        ea.clickByJS(rdlp.search_Button());
+    }
+
+    /**
+     * Description: 根据标准内容查询
+     * @param yeStandard 标准内容
+     * @return: void
+     * @throws:
+     */
+    public void searchByYeStandarde(String yeStandard) throws IOException {
+        setDefult();
+        ea.type(rdlp.yeStandard_textarea(), yeStandard);
+        ea.clickByJS(rdlp.search_Button());
+    }
+
+    /**
+     * Description: 根据隐患等级查询
+     * @param hiddenLevel 隐患等级
+     * @return: void
+     * @throws:
+     */
+    public void searchByHhiddenLevel(String hiddenLevel) throws IOException {
+        setDefult();
+        ea.selectByText(rdlp.hiddenLevel_select(), hiddenLevel);
+        ea.clickByJS(rdlp.search_Button());
+    }
+
+    /**
+     * Description: 根据辨识开始时间查询
+     * @param yeRecognizeTime 辨识开始时间
+     * @return: void
+     * @throws:
+     */
+    public void searchByRecognizeTimeBegin(String yeRecognizeTime) throws IOException {
+        setDefult();
+        if (functionUtil.isValidFormat(yeRecognizeTime)) {
+            ea.type(rdlp.yeRecognizeTime_begin_textarea(), yeRecognizeTime);
+            ea.clickByJS(rdlp.search_Button());
+        } else {
+            log.warn("输入的日期：" + yeRecognizeTime + "格式不正确");
+        }
+    }
+
+    /**
+     * Description: 根据辨识结束时间查询
+     * @param yeRecognizeTime 辨识结束时间
+     * @return: void
+     * @throws:
+     */
+    public void searchByRecognizeTimeEnd(String yeRecognizeTime) throws IOException {
+        setDefult();
+        if (functionUtil.isValidFormat(yeRecognizeTime)) {
+            ea.type(rdlp.yeRecognizeTime_end_textarea(), yeRecognizeTime);
+            ea.clickByJS(rdlp.search_Button());
+        } else {
+            log.warn("输入的日期：" + yeRecognizeTime + "格式不正确");
+        }
+    }
+
+    /**
+     * Description: 根据辨识时间段查询
+     * @param yeRecognizeTime_begin 辨识开始时间
+     * @param yeRecognizeTime_end   辨识结束时间
+     * @return: void
+     * @throws:
+     */
+    public void searchByRecognizeTime(String yeRecognizeTime_begin, String yeRecognizeTime_end) throws IOException, ParseException {
+        setDefult();
+        if (functionUtil.isValidFormat(yeRecognizeTime_begin) && functionUtil.isValidFormat(yeRecognizeTime_end)) {
+            if (functionUtil.compareTime(yeRecognizeTime_begin, yeRecognizeTime_end)) {
+                ea.type(rdlp.yeRecognizeTime_end_textarea(), yeRecognizeTime_begin);
+                ea.type(rdlp.yeRecognizeTime_end_textarea(), yeRecognizeTime_end);
+                ea.clickByJS(rdlp.search_Button());
+            } else {
+                log.warn("输入的时间段有误");
+            }
+        } else {
+            if (functionUtil.isValidFormat(yeRecognizeTime_begin) == false)
+                log.warn("输入的日期：" + yeRecognizeTime_begin + "格式不正确");
+            if (functionUtil.isValidFormat(yeRecognizeTime_end) == false)
+                log.warn("输入的日期：" + yeRecognizeTime_end + "格式不正确");
+        }
     }
 
     public String getAddStr() {
@@ -136,18 +225,15 @@ public class ReportDangerListPageActions extends TestBaseCase {
     @Step(value = "随机添加风险点关联关系")
     public void chooseAddressByRandom() throws IOException {
         setDefult();
-        doSearch(rdlp.search_Button(), 2);
         List<WebElement> dataElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
         Random random = new Random();
         int temp = random.nextInt(dataElements.size());//  根据当前页面上的数据,随机选择
         dataElements.get(temp).click();
         ea.click(rdlp.chooseAddress_Button());
         ea.sleep(1);
-        ea.switchToDefaultFrame();
-        ea.switchToFrame(rdlp.iframe_addresslist()); //切换到风险点列表弹框
+        motifyFrame(rdlp.iframe_addresslist());
         ea.click_left(rdlp.addresslist_chooseAddress_Button());
-        ea.switchToDefaultFrame();
-        ea.switchToFrame(rdlp.iframe_addressAddlist()); //切换选择风险点弹框
+        motifyFrame(rdlp.iframe_addressAddlist());
         List<WebElement> addElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
         Random random1 = new Random();
         int temp1 = random1.nextInt(addElements.size());
@@ -158,9 +244,13 @@ public class ReportDangerListPageActions extends TestBaseCase {
         String[] strs = elementStr.split("\n");
         addStr = strs[0];
         ea.click_left(rdlp.addressAddlist_addRelFunction_Button());
-        ea.switchToDefaultFrame();
-        ea.switchToFrame(rdlp.iframe_addresslist()); //切换到风险点列表弹框
+        motifyFrame(rdlp.iframe_addresslist());
         ea.sleep(1);
+    }
+
+    private void motifyFrame(Locator locator) {
+        ea.switchToDefaultFrame();
+        ea.switchToFrame(locator); //切换到风险点列表弹框
     }
 
     /**
@@ -175,11 +265,9 @@ public class ReportDangerListPageActions extends TestBaseCase {
         dataElements.get(temp).click();
         ea.click(rdlp.chooseAddress_Button());
         ea.sleep(1);
-        ea.switchToDefaultFrame();
-        ea.switchToFrame(rdlp.iframe_addresslist()); //切换到风险点列表弹框
+        motifyFrame(rdlp.iframe_addresslist());
         ea.click_left(rdlp.addresslist_chooseAddress_Button());
-        ea.switchToDefaultFrame();
-        ea.switchToFrame(rdlp.iframe_addressAddlist()); //切换选择风险点弹框
+        motifyFrame(rdlp.iframe_addressAddlist());
         ea.type(rdlp.addresslist_address_textarea(), string);
         ea.click_left(rdlp.addressAddlist_search_Button()); //根据需要关联的风险点执行查询操作
         List<WebElement> addElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
@@ -200,7 +288,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
      */
     public void chooseAddSearch(String addString) throws IOException {
         ea.type(rdlp.addressAddlist_address_textarea(), addString);
-        doSearch(rdlp.addressAddlist_search_Button(), 3);
+        ea.clickByJS(rdlp.search_Button());
     }
 
     /**
@@ -209,7 +297,6 @@ public class ReportDangerListPageActions extends TestBaseCase {
      */
     public void delAddressRelByRandom() throws IOException {
         setDefult();
-        doSearch(rdlp.search_Button(), 2);
 
         List<WebElement> dataElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
         Random random = new Random();
@@ -217,8 +304,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
         dataElements.get(temp).click();
         ea.click(rdlp.chooseAddress_Button());
         ea.sleep(1);
-        ea.switchToDefaultFrame();
-        ea.switchToFrame(rdlp.iframe_addresslist()); //切换到风险点列表弹框
+        motifyFrame(rdlp.iframe_addresslist());
 
         List<WebElement> addElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
         Random random1 = new Random();
@@ -234,120 +320,104 @@ public class ReportDangerListPageActions extends TestBaseCase {
      * @throws InterruptedException
      * @Description: 获取查询结果中指定字段值
      */
-    public List<String> getSearchData(String fieldStr) throws IOException, InterruptedException {
-        List<String> addressCateList = new ArrayList<>();
-        switch (fieldStr) {
-            case "风险点类型":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+    public List<String> getSearchData(String fieldStr) throws IOException {
+        List<String> resultList = new ArrayList<>();
+        if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+            switch (fieldStr) {
+                case "风险点类型":
                     List<WebElement> addressCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='addressCate']/div"));
                     for (int j = 0; j < addressCateElements.size(); j++) {
-                        addressCateList.add(addressCateElements.get(j).getText());
+                        resultList.add(addressCateElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "隐患描述":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+                    break;
+                case "隐患描述":
                     List<WebElement> yeMhazardDescElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeMhazardDesc']/div"));
                     for (int j = 0; j < yeMhazardDescElements.size(); j++) {
-                        addressCateList.add(yeMhazardDescElements.get(j).getText());
+                        resultList.add(yeMhazardDescElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "专业":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+
+                    break;
+                case "专业":
                     List<WebElement> yeProfessionElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeProfession']/div"));
                     for (int j = 0; j < yeProfessionElements.size(); j++) {
-                        addressCateList.add(yeProfessionElements.get(j).getText());
+                        resultList.add(yeProfessionElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "伤害类别":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+
+                    break;
+                case "伤害类别":
                     List<WebElement> damageTypeElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='damageType']/div"));
                     for (int j = 0; j < damageTypeElements.size(); j++) {
-                        addressCateList.add(damageTypeElements.get(j).getText());
+                        resultList.add(damageTypeElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "风险描述":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+                    break;
+                case "风险描述":
                     List<WebElement> yePossiblyHazardElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yePossiblyHazard']/div"));
                     for (int j = 0; j < yePossiblyHazardElements.size(); j++) {
-                        addressCateList.add(yePossiblyHazardElements.get(j).getText());
+                        resultList.add(yePossiblyHazardElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "作业活动":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+                    break;
+                case "作业活动":
                     List<WebElement> activityidElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='activity.id']/div"));
                     for (int j = 0; j < activityidElements.size(); j++) {
-                        addressCateList.add(activityidElements.get(j).getText());
+                        resultList.add(activityidElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "风险等级":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+                    break;
+                case "风险等级":
+
                     List<WebElement> yeRiskGradeTempElements = driver.findElements(By
                             .xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRiskGradeTemp']//input"));
                     for (int j = 0; j < yeRiskGradeTempElements.size(); j++) {
-                        addressCateList.add(yeRiskGradeTempElements.get(j).getText());
+                        resultList.add(yeRiskGradeTempElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "风险类型":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
+                    break;
+                case "风险类型":
                     List<WebElement> yeHazardCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeHazardCate']/div"));
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
-                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                        resultList.add(yeHazardCateElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
-            case "风险点":
-                if (ea.isElementDisplayedByLocator(rdlp.data_tbody())) {
-                    List<WebElement> yeHazardCateElements = driver.findElements(
-                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='address']/div"));
-                    for (int j = 0; j < yeHazardCateElements.size(); j++) {
-                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                    break;
+                case "管控标准来源":
+                    List<WebElement> docSourceElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='docSource']/div"));
+                    for (int j = 0; j < docSourceElements.size(); j++) {
+                        resultList.add(docSourceElements.get(j).getText());
                     }
-                } else {
-                    log.info("根据查询条件>>无相关结果");
-                }
-                break;
+                    break;
+                case "标准内容":
+                    List<WebElement> yeStandardElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeStandard']/div"));
+                    for (int j = 0; j < yeStandardElements.size(); j++) {
+                        resultList.add(yeStandardElements.get(j).getText());
+                    }
+                    break;
+                case "隐患等级":
+                    List<WebElement> hiddenLevelElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='hiddenLevel']/div"));
+                    for (int j = 0; j < hiddenLevelElements.size(); j++) {
+                        resultList.add(hiddenLevelElements.get(j).getText());
+                    }
+                    break;
+            }
+        } else {
+            log.warn("根据查询条件>>无相关结果");
         }
-        return addressCateList;
+        return resultList;
     }
 
     /**
      * @throws IOException
-     * @Description:重置查询条件
+     * @Description: 重置查询条件
      */
     public void setDefult() throws IOException {
 
-        ea.switchToDefaultFrame();
-        ea.switchToFrame(rdlp.iframe_reportDangerList());
+        motifyFrame(rdlp.iframe_reportDangerList());
 
         // 判断风险点类型是否为默认值
         ea.selectByIndex(rdlp.addressCate_select(), 0);
@@ -375,14 +445,15 @@ public class ReportDangerListPageActions extends TestBaseCase {
         ea.clear(rdlp.yeStandard_textarea());
         // 判断隐患等级是否为默认值
         ea.selectByIndex(rdlp.hiddenLevel_select(), 0);
+        ea.clickByJS(rdlp.search_Button());
     }
 
-    public void modityFrame(Locator locator){
+    public void modityFrame(Locator locator) {
         ea.switchToDefaultFrame();
         ea.switchToFrame(locator);
     }
 
-    public void  chooseAddress(String string) throws IOException {
+    public void chooseAddress(String string) throws IOException {
         ea.clickByJS("//*[contains(text(),'" + string + "')]");  //指定风险
         ea.clickByJS(rdlp.chooseAddress_Button());
         modityFrame(rdlp.iframe_addresslist());

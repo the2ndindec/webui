@@ -3,7 +3,7 @@ import java.io.IOException;
 import com.webui.utils.BaseAction;
 import com.webui.utils.Locator;
 /** 
-* 本矿风险汇总页面
+* 矿风险清单页面
  * @author the2n
  */
 public class ReportDangerListPage extends BaseAction {
@@ -15,7 +15,7 @@ private String path="src/main/java/com/webui/pageObjectConfig/UILibrary.xml";
 getLocatorMap();
 }
 /***
-* 本矿风险汇总页面iframe标记
+* 矿风险清单页面iframe标记
 * @throws IOException
 */
 public Locator iframe_reportDangerList() throws IOException
@@ -46,6 +46,26 @@ public Locator iframe_addresslist() throws IOException
 
 /***
 * 关联风险点-选择风险点部分iframe标记
+* @throws IOException
+*/
+public Locator iframe_addressAddlist() throws IOException
+ {
+   Locator locator=getLocator("iframe_addressAddlist");
+   return locator;
+ }
+
+/***
+* 关联风险点-选择风险点部分iframe标记
+* @throws IOException
+*/
+public Locator iframe_addressAddlist() throws IOException
+ {
+   Locator locator=getLocator("iframe_addressAddlist");
+   return locator;
+ }
+
+/***
+* 一键复制部分iframe标记
 * @throws IOException
 */
 public Locator iframe_addressAddlist() throws IOException
@@ -111,6 +131,16 @@ public Locator goReport_Button() throws IOException
 public Locator goReportAll_Button() throws IOException
  {
    Locator locator=getLocator("goReportAll_Button");
+   return locator;
+ }
+
+/***
+* 撤回按钮
+* @throws IOException
+*/
+public Locator mineCallback_Button() throws IOException
+ {
+   Locator locator=getLocator("mineCallback_Button");
    return locator;
  }
 
@@ -371,6 +401,16 @@ public Locator addressAddlist_reload_Button() throws IOException
 public Locator addressAddlist_addRelFunction_Button() throws IOException
  {
    Locator locator=getLocator("addressAddlist_addRelFunction_Button");
+   return locator;
+ }
+
+/***
+* 一键复制开始时间
+* @throws IOException
+*/
+public Locator cloneFrom_textarea() throws IOException
+ {
+   Locator locator=getLocator("cloneFrom_textarea");
    return locator;
  }
 

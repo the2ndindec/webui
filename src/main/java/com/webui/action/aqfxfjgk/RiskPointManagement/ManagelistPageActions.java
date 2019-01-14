@@ -45,6 +45,7 @@ public class ManagelistPageActions extends TestBaseCase {
 
     public void clicl(int x,int y) throws IOException {
         ea.clickByJS(mlp.addAddress_Button());
-        ea.moveAndClick(mlp.withDepart(),x, y);
+        ea.moveAndClick(mlp.map(),x, y);
+        motifyFrame(mlp.iframe_goAdd());
     }
 }

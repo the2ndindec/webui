@@ -1,8 +1,7 @@
 package com.webui.pageObject;
+import java.io.IOException;
 import com.webui.utils.BaseAction;
 import com.webui.utils.Locator;
-
-import java.io.IOException;
 /** 
 * 部门风险清单页面
  * @author the2n

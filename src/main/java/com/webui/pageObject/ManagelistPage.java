@@ -1,8 +1,7 @@
 package com.webui.pageObject;
+import java.io.IOException;
 import com.webui.utils.BaseAction;
 import com.webui.utils.Locator;
-
-import java.io.IOException;
 /** 
 * 风险区域管理页面
  * @author the2n
@@ -482,6 +481,16 @@ public Locator ad_confirm_btn() throws IOException
 public Locator ad_close_btn() throws IOException
  {
    Locator locator=getLocator("ad_close_btn");
+   return locator;
+ }
+
+/***
+* 重置按钮
+* @throws IOException
+*/
+public Locator map() throws IOException
+ {
+   Locator locator=getLocator("map");
    return locator;
  }
 

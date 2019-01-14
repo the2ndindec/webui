@@ -159,7 +159,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
      */
     public void searchByRecognizeTimeBegin(String yeRecognizeTime) throws IOException {
         setDefult();
-        if (functionUtil.isValidFormat(yeRecognizeTime)) {
+        if (functionUtil.isValidDate(yeRecognizeTime)) {
             ea.type(rdlp.yeRecognizeTime_begin_textarea(), yeRecognizeTime);
             ea.clickByJS(rdlp.search_Button());
         } else {
@@ -175,7 +175,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
      */
     public void searchByRecognizeTimeEnd(String yeRecognizeTime) throws IOException {
         setDefult();
-        if (functionUtil.isValidFormat(yeRecognizeTime)) {
+        if (functionUtil.isValidDate(yeRecognizeTime)) {
             ea.type(rdlp.yeRecognizeTime_end_textarea(), yeRecognizeTime);
             ea.clickByJS(rdlp.search_Button());
         } else {
@@ -192,7 +192,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
      */
     public void searchByRecognizeTime(String yeRecognizeTime_begin, String yeRecognizeTime_end) throws IOException, ParseException {
         setDefult();
-        if (functionUtil.isValidFormat(yeRecognizeTime_begin) && functionUtil.isValidFormat(yeRecognizeTime_end)) {
+        if (functionUtil.isValidDate(yeRecognizeTime_begin) && functionUtil.isValidDate(yeRecognizeTime_end)) {
             if (functionUtil.compareTime(yeRecognizeTime_begin, yeRecognizeTime_end)) {
                 ea.type(rdlp.yeRecognizeTime_end_textarea(), yeRecognizeTime_begin);
                 ea.type(rdlp.yeRecognizeTime_end_textarea(), yeRecognizeTime_end);
@@ -201,9 +201,9 @@ public class ReportDangerListPageActions extends TestBaseCase {
                 log.warn("输入的时间段有误");
             }
         } else {
-            if (functionUtil.isValidFormat(yeRecognizeTime_begin) == false)
+            if (functionUtil.isValidDate(yeRecognizeTime_begin) == false)
                 log.warn("输入的日期：" + yeRecognizeTime_begin + "格式不正确");
-            if (functionUtil.isValidFormat(yeRecognizeTime_end) == false)
+            if (functionUtil.isValidDate(yeRecognizeTime_end) == false)
                 log.warn("输入的日期：" + yeRecognizeTime_end + "格式不正确");
         }
     }

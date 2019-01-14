@@ -13,6 +13,7 @@ import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 @Feature(value = "查询")
 public class ReportDangerListPageTests extends TestBaseCase {
@@ -54,5 +55,12 @@ public class ReportDangerListPageTests extends TestBaseCase {
     public void TC_chooseAddress() throws IOException, InterruptedException {
         rdlpa.chooseAddressByRandom();
         Assertion.verityTextPresentPrecision(rdlpa.getAddStr());
+    }
+
+    @Test(description = "查询")
+    public void TC_searchBy() throws IOException, ParseException {
+        dpa.openMenu(dp.aqfxfjgk_menu(), dp.ndfxgl_list(), dp.reportDangerList());
+        ea.switchToFrame(rdlp.iframe_reportDangerList());
+        rdlpa.searchByRecognizeTime("2018-12-28","2019-0--10");
     }
 }

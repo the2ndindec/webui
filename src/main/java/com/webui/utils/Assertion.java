@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,7 +37,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证actual实际值是否包含预期值exceptStr
-     *
      * @param actual
      * @param exceptStr
      */
@@ -61,7 +61,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证actual实际值是否包含预期值exceptStr
-     *
      * @param actual
      * @param exceptStr
      * @param Message
@@ -88,8 +87,7 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证实际值actual与预期值exceptStr是否相等
-     *
-     * @param actual 实际值
+     * @param actual    实际值
      * @param exceptStr 预期值
      */
     public static void verityString(String actual, String exceptStr) {
@@ -112,7 +110,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证实际值actual与预期值exceptStr是否相等
-     *
      * @param actual
      * @param exceptStr
      * @param Message
@@ -139,7 +136,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证页面是否出现某文本exceptStrs
-     *
      * @param exceptStr
      */
     public static void verityTextPresent(String exceptStr) {
@@ -182,7 +178,7 @@ public class Assertion extends TestBaseCase {
      * @throws:
      */
     public static void verityNotTextPresent(String exceptStr) {
-        String verityStr = "【Assert验证】:" + "页面是否没有出现" + "【"  + exceptStr + "】" + "字符串";
+        String verityStr = "【Assert验证】:" + "页面是否没有出现" + "【" + exceptStr + "】" + "字符串";
         Boolean flag = false;
         log.info(verityStr);
         try {
@@ -210,7 +206,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证浏览器标题是否与预期值exceptTitle相同
-     *
      * @param exceptTitle 预期标题
      */
     public static void verityTitle(String exceptTitle) {
@@ -234,7 +229,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证浏览器标题是否与预期值exceptTitle相同
-     *
      * @param exceptTitle 预期标题
      * @param Message     验证中文描述
      */
@@ -261,7 +255,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证某元素文本值是否与预期值exceptText一样
-     *
      * @param locator    元素定位信息
      * @param exceptText 预期文本值
      */
@@ -285,6 +278,7 @@ public class Assertion extends TestBaseCase {
             Assertion.snapshotInfo();
         }
     }
+
     public static void verityTextByString(String text, String exceptText) {
         String verityStr = "Assert验证：某文本值是否与预期值一致{" + "实际值：" + text + "," + "预期值：" + exceptText + "}";
         log.info(verityStr);
@@ -305,7 +299,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证某元素文本值是否与预期值exceptText一样
-     *
      * @param locator    元素定位信息
      * @param exceptText 预期文本值
      * @param Message    验证中文描述
@@ -335,7 +328,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证某元素某个属性值与预期值exceptAttributeValue 一样
-     *
      * @param locator              元素定位信息
      * @param AttributeName        元素属性名
      * @param exceptAttributeValue 预期值
@@ -362,7 +354,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证某元素某个属性值与预期值exceptAttributeValue 一样
-     *
      * @param locator              元素定位信息
      * @param AttributeName        元素属性名
      * @param exceptAttributeValue 预期值
@@ -393,7 +384,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证某输入框是否不可编辑
-     *
      * @param locator 元素定位信息
      */
     public static void VertityNoEdit(Locator locator) {
@@ -426,7 +416,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证某输入框是否不可编辑
-     *
      * @param locator 元素定位信息
      * @param Message 验证中文描述
      */
@@ -462,7 +451,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证某元素可编辑
-     *
      * @param locator 元素定位信息
      */
     public static void VertityEdit(Locator locator) {
@@ -496,7 +484,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证某元素可编辑
-     *
      * @param locator 元素定位信息
      * @param Message 验证中文描述
      */
@@ -533,7 +520,6 @@ public class Assertion extends TestBaseCase {
 
     /**
      * 验证页面是否出现某文本--精确匹配
-     *
      * @param exceptStr 预期值 预期值
      */
     public static void verityTextPresentPrecision(String exceptStr) {
@@ -563,11 +549,10 @@ public class Assertion extends TestBaseCase {
     }
 
     /**
-     *
-     *@param: [exceptStr] 预期值
-     *@return: void
-     *@Description: 验证页面是否没有出现某文本--精确匹配
-     *@throws: 
+     * @param: [exceptStr] 预期值
+     * @return: void
+     * @Description: 验证页面是否没有出现某文本--精确匹配
+     * @throws:
      */
     public void verityNotTextPresentPrecision(String exceptStr) {
         String verityStr = "【Assert验证】:" + "页面是否没有出现" + "【" + "预期值：" + exceptStr + "】" + "字符串";
@@ -597,11 +582,11 @@ public class Assertion extends TestBaseCase {
 
     public boolean assertElementIsDispaly(Locator locator) {
         ElementAction elementAction = new ElementAction();
-        Boolean flag ;
+        Boolean flag;
         try {
             elementAction.findElement(locator);
-            flag =false;
-        } catch (NoSuchElementException e){
+            flag = false;
+        } catch (NoSuchElementException e) {
             flag = true;
             ElementAction.noSuchElementExceptions.add(e);
             e.printStackTrace();
@@ -633,5 +618,25 @@ public class Assertion extends TestBaseCase {
         Assert.assertEquals(ElementAction.noSuchElementExceptions.size(), 0);
     }
 
+    /**
+     * Description: 时间比较。用于验证待验证的时间是否晚于比较的时间
+     * @param searchTime
+     * @param verifyTime
+     * @return: void
+     * @throws:
+     */
+    public static void verifyTime(String searchTime, String verifyTime) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date bt = sdf.parse(searchTime);
+        Date et = sdf.parse(verifyTime);
+        if (bt.before(et) || bt.equals(et))
+            AssertPassLog();
+        else {
+            AssertFailedLog();
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()='" + verifyTime + "']");
+            Assertion.snapshotInfo();
+        }
+    }
 
 }

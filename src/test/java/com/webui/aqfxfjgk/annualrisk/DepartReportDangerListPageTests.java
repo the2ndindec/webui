@@ -25,7 +25,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
     private String tempDate = functionUtil.formatterDate("yyyyMMddHHmmss");
 
-    @Feature("查询")
+    @Feature("添加数据")
     @Test(description = "验证添加数据功能")
     @Parameters({"docSource", "sectionName", "yeStandard", "manageMeasure"})
     public void TC_addData(String docSource, String sectionName, String yeStandard, String manageMeasure) throws IOException, InterruptedException {
@@ -69,6 +69,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.goAdd();
         departReportDangerListActions.doCheckYeRecognizeTime();
         Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请填写辨识时间");
+        departReportDangerListActions.typeYeRecognizeTime();
     }
 
     @Feature("验证必填项")
@@ -76,6 +77,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     public void TC_checkYeProfession() throws IOException {
         departReportDangerListActions.doCheckYeProfession();
         Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请选择专业");
+        departReportDangerListActions.selectYeProfession();
     }
 
     @Feature("验证必填项")
@@ -83,5 +85,14 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     public void TC_checkYePossiblyHazard() throws IOException {
         departReportDangerListActions.doCheckYePossiblyHazard();
         Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请填写风险描述");
+        departReportDangerListActions.typeYePossiblyHazard("测试");
+    }
+
+    @Feature("验证必填项")
+    @Test(description = "验证风险可能性为空时是否提示")
+    public void TC_CheckYeProbability() throws IOException {
+        departReportDangerListActions.checkYeProbability();
+        Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请选择风险可能性");
+        departReportDangerListActions.selectYeProbability();
     }
 }

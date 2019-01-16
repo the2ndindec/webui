@@ -162,6 +162,7 @@ public class ReportDangerListPageActions extends TestBaseCase {
         if (functionUtil.isValidDate(yeRecognizeTime)) {
             ea.type(rdlp.yeRecognizeTime_begin_textarea(), yeRecognizeTime);
             ea.clickByJS(rdlp.search_Button());
+            ea.sleep(2);
         } else {
             log.warn("输入的日期：" + yeRecognizeTime + "格式不正确");
         }
@@ -329,6 +330,13 @@ public class ReportDangerListPageActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='addressCate']/div"));
                     for (int j = 0; j < addressCateElements.size(); j++) {
                         resultList.add(addressCateElements.get(j).getText());
+                    }
+                    break;
+                case "辨识时间":
+                    List<WebElement> yeRecognizeTimeElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRecognizeTime']/div"));
+                    for (int j = 0; j < yeRecognizeTimeElements.size(); j++) {
+                        resultList.add(yeRecognizeTimeElements.get(j).getText());
                     }
                     break;
                 case "隐患描述":

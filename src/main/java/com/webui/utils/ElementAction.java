@@ -846,6 +846,7 @@ public class ElementAction extends TestBaseCase {
      * @return 返回boolean true显示，false隐藏
      */
     public boolean isElementDisplayedByLocator(Locator locator) {
+        sleep(1);
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
         webElement.isEnabled();

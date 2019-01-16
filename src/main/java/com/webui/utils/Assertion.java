@@ -626,13 +626,18 @@ public class Assertion extends TestBaseCase {
      * @throws:
      */
     public static void verifyTime(String searchTime, String verifyTime) throws ParseException {
+        String verityStr = "【Assert验证】:" + "查询结果中" + "【" + "预期值：" + verifyTime + "】" + "时间是否正确";
+        log.info(verityStr);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date bt = sdf.parse(searchTime);
         Date et = sdf.parse(verifyTime);
-        if (bt.before(et) || bt.equals(et))
+        if (bt.before(et) || bt.equals(et)) {
             AssertPassLog();
-        else {
+            assertInfolList.add(verityStr + ":pass");
+        } else {
             AssertFailedLog();
+            errorIndex++;
+            assertInfolList.add(verityStr + ":failed");
             ElementAction ea = new ElementAction();
             ea.highlightElementByXpath(".//*[text()='" + verifyTime + "']");
             Assertion.snapshotInfo();

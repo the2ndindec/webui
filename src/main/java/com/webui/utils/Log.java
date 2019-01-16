@@ -1,21 +1,20 @@
 package com.webui.utils;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
 public class Log {
 
-	private final Class<?> clazz;
+    private final Class<?> clazz;
     private Logger logger;
 
     /**
      * 获取当前类
-     *
      * @param clazz
      */
     public Log(Class<?> clazz) {

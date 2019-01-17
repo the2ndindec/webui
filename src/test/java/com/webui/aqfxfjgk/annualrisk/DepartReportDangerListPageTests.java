@@ -5,6 +5,7 @@ import com.webui.pageObject.DepartReportDangerListPage;
 import com.webui.utils.*;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -130,4 +131,13 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         }
     }
 
+    @Test(description = "验证根据隐患描述进行查询")
+    @Story("cx")
+    public void TC_searchByYeMhazardDesc() throws IOException, InterruptedException {
+        departReportDangerListActions.doReset();
+        departReportDangerListActions.searchByYeMhazardDesc("1");
+        for (int i = 0; i < departReportDangerListActions.getSearchData("隐患描述").size(); i++) {
+            Assertion.verityCationString(departReportDangerListActions.getSearchData("辨识时间").get(i), "1");
+        }
+    }
 }

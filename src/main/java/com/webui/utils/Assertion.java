@@ -643,10 +643,11 @@ public class Assertion extends TestBaseCase {
             Assertion.snapshotInfo();
         }
     }
+
     /**
      * Description: 用于验证查询出的时间是否等于或者早于查询的时间
-     * @param searchTime	查询时间
-     * @param verifyTime	查询出的时间
+     * @param searchTime 查询时间
+     * @param verifyTime 查询出的时间
      * @return: void
      * @throws:
      */
@@ -668,20 +669,33 @@ public class Assertion extends TestBaseCase {
             Assertion.snapshotInfo();
         }
     }
-    public static void verifyTime(String searchTimeBegin,String searchTimeEnd, String verifyTime) throws ParseException {
+
+    /**
+     * Description: 用于验证时间段的比较
+     * @param searchTimeBegin 查询开始时间
+     * @param searchTimeEnd   查询结束时间
+     * @param verifyTime      待比较的时间
+     * @return: void
+     * @throws:
+     */
+    public static void verifyTime(String searchTimeBegin, String searchTimeEnd, String verifyTime) throws ParseException {
         String verityStr = "【Assert验证】:" + "查询结果中" + "【" + "预期值：" + verifyTime + "】" + "时间是否正确";
         log.info(verityStr);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date vt = sdf.parse(verifyTime);
         Date bt = sdf.parse(searchTimeBegin);
         Date et = sdf.parse(searchTimeEnd);
-        if ((bt.before(vt) || bt.equals(vt)) && (vt.before(et)||vt.equals(et))) {
+        if ((bt.before(vt) || bt.equals(vt)) && (vt.before(et) || vt.equals(et))) {
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
         } else {
             AssertFailedLog();
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
+            if (bt.after(vt))
+                assertInfolList.add("【" + verifyTime + "】早于开始时间【" + searchTimeBegin + "】");
+            if (et.before(vt))
+                assertInfolList.add("【" + verifyTime + "】晚于结束时间【" + searchTimeEnd + "】");
             ElementAction ea = new ElementAction();
             ea.highlightElementByXpath(".//*[text()='" + verifyTime + "']");
             Assertion.snapshotInfo();

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="通用矿版">
     <parameter name="driver" value="FirefoxDriver" />
-    <parameter name="url" value="http://192.168.3.241:8080/sdzk/"/> <!--测试地址-->
+    <parameter name="url" value="http://192.168.3.194:8080/sdzk/"/> <!--测试地址-->
     <parameter name="remark" value="webui自动化测试,自动输入内容" />
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
@@ -13,15 +13,11 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="部门风险清单-添加数据" enabled="false">
+    <test verbose="2" preserve-order="true" name="部门风险清单-添加数据" enabled="true">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
-                    <parameter name="docSource" value="办公楼" />
-                    <parameter name="sectionName" value="test3"/>
-                    <parameter name="yeStandard" value="测试内容测试内容测试内容3"/>
-                    <parameter name="manageMeasure" value="cecesss3 "/>
-                    <include name="TC_addData"/>
+                    <include name="TC_searchByYeRecognizeTime_begin"/>
                 </methods>
             </class>
         </classes>
@@ -106,7 +102,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="风险区域管理">
+    <test verbose="2" preserve-order="true" name="风险区域管理" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.RiskPointManagement.ManagelistPageTests">
                 <methods>

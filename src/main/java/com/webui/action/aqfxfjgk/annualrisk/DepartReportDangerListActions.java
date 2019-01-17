@@ -570,6 +570,10 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.clickByJS(departReportDangerListPage.search_Button());
     }
 
+    public void searchByyeProfession(){
+
+    }
+
     public int getTempNum() {
         return tempNum;
     }

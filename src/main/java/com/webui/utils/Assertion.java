@@ -619,7 +619,7 @@ public class Assertion extends TestBaseCase {
     }
 
     /**
-     * Description: 时间比较。用于验证待验证的时间是否晚于比较的时间
+     * Description: 时间比较。用于验证查询出的时间是否等于或者晚于查询的时间
      * @param searchTime
      * @param verifyTime
      * @return: void
@@ -631,6 +631,31 @@ public class Assertion extends TestBaseCase {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date bt = sdf.parse(searchTime);
         Date et = sdf.parse(verifyTime);
+        if (bt.before(et) || bt.equals(et)) {
+            AssertPassLog();
+            assertInfolList.add(verityStr + ":pass");
+        } else {
+            AssertFailedLog();
+            errorIndex++;
+            assertInfolList.add(verityStr + ":failed");
+            ElementAction ea = new ElementAction();
+            ea.highlightElementByXpath(".//*[text()='" + verifyTime + "']");
+            Assertion.snapshotInfo();
+        }
+    }
+    /**
+     * Description: 用于验证查询出的时间是否等于或者早于查询的时间
+     * @param searchTime	查询时间
+     * @param verifyTime	查询出的时间
+     * @return: void
+     * @throws:
+     */
+    public static void verifyTimeEnd(String searchTime, String verifyTime) throws ParseException {
+        String verityStr = "【Assert验证】:" + "查询结果中" + "【" + "预期值：" + verifyTime + "】" + "时间是否正确";
+        log.info(verityStr);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date bt = sdf.parse(verifyTime);
+        Date et = sdf.parse(searchTime);
         if (bt.before(et) || bt.equals(et)) {
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");

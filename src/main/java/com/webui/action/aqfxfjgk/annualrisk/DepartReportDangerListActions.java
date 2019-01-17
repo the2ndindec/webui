@@ -49,7 +49,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
         switchFrame(departReportDangerListPage.iframe_goAddDepartDangerSource());
     }
 
-    private void switchFrame(Locator locator) throws IOException {
+    private void switchFrame(Locator locator) {
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(locator);
     }
@@ -98,7 +98,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * Description:验证专业为空时是否有提示信息
      * @param
      * @return: void
-     * @throws:
+     * @throws: IOException
      */
     public void doCheckYeProfession() throws IOException {
         elementAction.fireEventBlur(departReportDangerListPage.yeProfession_select());
@@ -110,7 +110,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws:
      */
-    public void selectHazardName(String hazardName) throws IOException {
+    public void selectHazardName(String hazardName) {
         elementAction.clickByJS(".//div[@id='hazardname']/div[2]/div");
         elementAction.clickByJS(".//*[@id='hazardname']//div[text()='" + hazardName + "']");
     }
@@ -284,7 +284,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.fireEventBlur(departReportDangerListPage.yePossiblyHazard_textarea());
     }
 
-    public void checkYeProbability(){
+    public void checkYeProbability() {
 
     }
 
@@ -504,7 +504,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws:
      */
-    @Feature(value = "cx")
+    @Feature(value = "查询")
     public void searchByyeRecognizeTime_begin(String yeRecognizeTime_begin) throws IOException {
         if (functionUtil.isValidDate(yeRecognizeTime_begin)) {
             elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);
@@ -520,7 +520,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws:
      */
-    @Feature(value = "cx")
+    @Feature(value = "查询")
     @Step("输入辨识结束时间:{0}")
     public void searchByyeRecognizeTime_end(String end) throws IOException {
         if (functionUtil.isValidDate(end)) {
@@ -538,7 +538,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws:
      */
-    @Feature(value = "cx")
+    @Feature(value = "查询")
     @Step("输入辨识开始时间：{0}，输入辨识结束时间:{1}")
     public void searchByyeRecognizeTime(String yeRecognizeTime_begin, String end) throws IOException, ParseException {
         if (functionUtil.isValidDate(yeRecognizeTime_begin) && functionUtil.isValidDate(end)) {
@@ -559,19 +559,114 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     /**
      * Description: 根据隐患描述进行查询
-     * @param yeMhazardDesc	 隐患描述内容
+     * @param yeMhazardDesc 隐患描述内容
      * @return: void
      * @throws:
      */
-    @Feature("cx")
+    @Feature("查询")
     @Step("输入隐患描述内容：{0}")
     public void searchByYeMhazardDesc(String yeMhazardDesc) throws IOException {
-        elementAction.typeByJS(departReportDangerListPage.s_yeMhazardDesc_textarea(),yeMhazardDesc);
+        elementAction.typeByJS(departReportDangerListPage.s_yeMhazardDesc_textarea(), yeMhazardDesc);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
     }
 
-    public void searchByyeProfession(){
+    /**
+     * 根据专业进行查询
+     * @param yeProfession 专业字段值
+     */
+    @Feature("查询")
+    public void searchByyeProfession(String yeProfession) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.s_yeProfession_select(), yeProfession);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
 
+    /**
+     * 根据伤害类别进行查询
+     * @param damageType 伤害类别字段值
+     * @throws IOException
+     */
+    @Feature("查询")
+    public void searchBydamageType(String damageType) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.s_damageType_select(), damageType);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
+
+    /**
+     * 根据风险描述进行查询
+     * @param yePossiblyHazard 风险描述字段值
+     * @throws IOException
+     */
+    @Feature("查询")
+    public void searchByyePossiblyHazard(String yePossiblyHazard) throws IOException {
+        elementAction.typeByJS(departReportDangerListPage.s_yePossiblyHazard_textarea(), yePossiblyHazard);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
+
+    /**
+     * 根据作业活动进行查询
+     * @param activity 作业活动字段值
+     * @throws IOException
+     */
+    @Feature("查询")
+    public void searchByactivity(String activity) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.s_activityId_select(), activity);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
+
+    /**
+     * 根据风险等级查询
+     * @param yeRiskGrade 风险等级
+     * @throws IOException
+     */
+    @Feature("查询")
+    public void searchByyeRiskGrade(String yeRiskGrade) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.s_yeRiskGrade_select(), yeRiskGrade);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
+
+    /**
+     * 根据风险类型查询
+     * @param yeHazardCate 风险类型字段值
+     * @throws IOException
+     */
+    @Feature("查询")
+    public void searchByyeHazardCate(String yeHazardCate) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.s_yeHazardCate_select(), yeHazardCate);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
+
+    /**
+     * 根据隐患等级查询
+     * @param hiddenLevel 隐患等级字段值
+     * @throws IOException
+     */
+    @Feature("查询")
+    public void searchByhiddenLevel(String hiddenLevel) throws IOException {
+        elementAction.selectByText(departReportDangerListPage.s_hiddenLevel_select(), hiddenLevel);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
+
+    /**
+     * 根据管控标准来源查询
+     * @param docSource 管控标准来源字段值
+     * @throws IOException
+     */
+    @Feature("查询")
+    public void searchBydocSource(String docSource) throws IOException {
+        elementAction.typeByJS(departReportDangerListPage.s_docSource_textarea(), docSource);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
+
+    /**
+     * Description: 根据标准内容查询
+     * @param yeStandard 标准内容
+     * @return: void
+     * @throws: IOException
+     */
+    @Feature("查询")
+    public void searchByyeStandard(String yeStandard) throws IOException {
+        elementAction.typeByJS(departReportDangerListPage.s_yeStandard_textarea(), yeStandard);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
     }
 
     public int getTempNum() {

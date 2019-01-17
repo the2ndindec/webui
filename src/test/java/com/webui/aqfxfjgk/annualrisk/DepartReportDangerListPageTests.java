@@ -8,6 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 /**
  * @author the2n
@@ -94,5 +95,14 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.checkYeProbability();
         Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请选择风险可能性");
         departReportDangerListActions.selectYeProbability();
+    }
+    @Test(description = "验证根据辨识开始时间进行查询")
+    public void TC_searchByYeRecognizeTime_begin() throws IOException, InterruptedException, ParseException {
+        departReportDangerListActions.modifyMenu();
+        departReportDangerListActions.checkReported();
+        departReportDangerListActions.searchByyeRecognizeTime_begin("2019-01-04");
+        for (int i = 0; i <departReportDangerListActions.getSearchData("辨识时间").size() ; i++) {
+            Assertion.verifyTime("2019-01-04",departReportDangerListActions.getSearchData("辨识时间").get(i));
+        }
     }
 }

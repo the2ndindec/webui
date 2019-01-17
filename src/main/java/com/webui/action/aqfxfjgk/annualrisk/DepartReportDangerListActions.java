@@ -504,7 +504,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws:
      */
-    @Feature(value = "查询")
     public void searchByyeRecognizeTime_begin(String yeRecognizeTime_begin) throws IOException {
         if (functionUtil.isValidDate(yeRecognizeTime_begin)) {
             elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);
@@ -520,7 +519,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws:
      */
-    @Feature(value = "查询")
     @Step("输入辨识结束时间:{0}")
     public void searchByyeRecognizeTime_end(String end) throws IOException {
         if (functionUtil.isValidDate(end)) {
@@ -538,7 +536,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws:
      */
-    @Feature(value = "查询")
     @Step("输入辨识开始时间：{0}，输入辨识结束时间:{1}")
     public void searchByyeRecognizeTime(String yeRecognizeTime_begin, String end) throws IOException, ParseException {
         if (functionUtil.isValidDate(yeRecognizeTime_begin) && functionUtil.isValidDate(end)) {
@@ -563,7 +560,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws:
      */
-    @Feature("查询")
     @Step("输入隐患描述内容：{0}")
     public void searchByYeMhazardDesc(String yeMhazardDesc) throws IOException {
         elementAction.typeByJS(departReportDangerListPage.s_yeMhazardDesc_textarea(), yeMhazardDesc);
@@ -574,7 +570,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * 根据专业进行查询
      * @param yeProfession 专业字段值
      */
-    @Feature("查询")
     public void searchByyeProfession(String yeProfession) throws IOException {
         elementAction.selectByText(departReportDangerListPage.s_yeProfession_select(), yeProfession);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -585,7 +580,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @param damageType 伤害类别字段值
      * @throws IOException
      */
-    @Feature("查询")
     public void searchBydamageType(String damageType) throws IOException {
         elementAction.selectByText(departReportDangerListPage.s_damageType_select(), damageType);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -596,7 +590,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @param yePossiblyHazard 风险描述字段值
      * @throws IOException
      */
-    @Feature("查询")
     public void searchByyePossiblyHazard(String yePossiblyHazard) throws IOException {
         elementAction.typeByJS(departReportDangerListPage.s_yePossiblyHazard_textarea(), yePossiblyHazard);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -607,7 +600,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @param activity 作业活动字段值
      * @throws IOException
      */
-    @Feature("查询")
     public void searchByactivity(String activity) throws IOException {
         elementAction.selectByText(departReportDangerListPage.s_activityId_select(), activity);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -618,7 +610,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @param yeRiskGrade 风险等级
      * @throws IOException
      */
-    @Feature("查询")
     public void searchByyeRiskGrade(String yeRiskGrade) throws IOException {
         elementAction.selectByText(departReportDangerListPage.s_yeRiskGrade_select(), yeRiskGrade);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -629,7 +620,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @param yeHazardCate 风险类型字段值
      * @throws IOException
      */
-    @Feature("查询")
     public void searchByyeHazardCate(String yeHazardCate) throws IOException {
         elementAction.selectByText(departReportDangerListPage.s_yeHazardCate_select(), yeHazardCate);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -640,7 +630,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @param hiddenLevel 隐患等级字段值
      * @throws IOException
      */
-    @Feature("查询")
     public void searchByhiddenLevel(String hiddenLevel) throws IOException {
         elementAction.selectByText(departReportDangerListPage.s_hiddenLevel_select(), hiddenLevel);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -651,7 +640,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @param docSource 管控标准来源字段值
      * @throws IOException
      */
-    @Feature("查询")
     public void searchBydocSource(String docSource) throws IOException {
         elementAction.typeByJS(departReportDangerListPage.s_docSource_textarea(), docSource);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -663,7 +651,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @return: void
      * @throws: IOException
      */
-    @Feature("查询")
     public void searchByyeStandard(String yeStandard) throws IOException {
         elementAction.typeByJS(departReportDangerListPage.s_yeStandard_textarea(), yeStandard);
         elementAction.clickByJS(departReportDangerListPage.search_Button());

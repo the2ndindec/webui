@@ -99,7 +99,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.selectYeProbability();
     }
 
-    @Feature("cx")
+    @Feature("查询")
     @Test(description = "验证根据辨识开始时间进行查询")
     public void TC_searchByYeRecognizeTime_begin() throws IOException, InterruptedException, ParseException {
         departReportDangerListActions.modifyMenu();
@@ -110,7 +110,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         }
     }
 
-    @Feature("cx")
+    @Feature("查询")
     @Test(description = "验证根据辨识开始时间进行查询")
     public void TC_searchByYeRecognizeTime_end() throws IOException, InterruptedException, ParseException {
         departReportDangerListActions.doReset();
@@ -120,7 +120,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         }
     }
 
-    @Feature("cx")
+    @Feature("查询")
     @Test(description = "验证根据辨识时间段进行查询")
     public void TC_searchByYeRecognizeTime() throws IOException, InterruptedException, ParseException {
         departReportDangerListActions.doReset();
@@ -132,12 +132,23 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     }
 
     @Test(description = "验证根据隐患描述进行查询")
-    @Story("cx")
+    @Story("查询")
     public void TC_searchByYeMhazardDesc() throws IOException, InterruptedException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByYeMhazardDesc("1");
         for (int i = 0; i < departReportDangerListActions.getSearchData("隐患描述").size(); i++) {
             Assertion.verityCationString(departReportDangerListActions.getSearchData("辨识时间").get(i), "1");
+        }
+    }
+
+    @Test
+    @Parameters({"yeProfession"})
+    @Step(value = "选择查询条件专业为：{0}")
+    public void TC_searchByyeProfession(String yeProfession) throws IOException, InterruptedException {
+        departReportDangerListActions.doReset();
+        departReportDangerListActions.searchByyeProfession(yeProfession);
+        for (int i = 0; i < departReportDangerListActions.getSearchData("专业").size(); i++) {
+            Assertion.verityString(departReportDangerListActions.getSearchData("专业").get(i), yeProfession);
         }
     }
 }

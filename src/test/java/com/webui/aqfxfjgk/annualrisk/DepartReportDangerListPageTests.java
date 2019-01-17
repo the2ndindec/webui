@@ -4,6 +4,7 @@ import com.webui.action.aqfxfjgk.annualrisk.DepartReportDangerListActions;
 import com.webui.pageObject.DepartReportDangerListPage;
 import com.webui.utils.*;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Flaky;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.Parameters;
@@ -124,8 +125,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test(description = "验证根据辨识时间段进行查询")
     public void TC_searchByYeRecognizeTime() throws IOException, InterruptedException, ParseException {
         departReportDangerListActions.doReset();
-        departReportDangerListActions.searchByyeRecognizeTime_begin("2019-01-04");
-        departReportDangerListActions.searchByyeRecognizeTime_end("2019-01-08");
+        departReportDangerListActions.searchByyeRecognizeTime("2019-01-04","2019-01-08");
         for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
             Assertion.verifyTime("2019-01-04", "2019-01-08", departReportDangerListActions.getSearchData("辨识时间").get(i));
         }
@@ -141,14 +141,57 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         }
     }
 
-    @Test
+    @Test(description = "验证根据专业进行查询")
     @Parameters({"yeProfession"})
-    @Step(value = "选择查询条件专业为：{0}")
+    @Step("选择查询条件专业为：{0}")
+    @Feature("查询")
     public void TC_searchByyeProfession(String yeProfession) throws IOException, InterruptedException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyeProfession(yeProfession);
         for (int i = 0; i < departReportDangerListActions.getSearchData("专业").size(); i++) {
             Assertion.verityString(departReportDangerListActions.getSearchData("专业").get(i), yeProfession);
+        }
+    }
+    @Test(description = "验证根据伤害类别进行查询")
+    @Parameters({"damageType"})
+    @Feature("查询")
+    public void TC_searchBydamageType(String damageType) throws IOException, InterruptedException {
+        departReportDangerListActions.doReset();
+        departReportDangerListActions.searchBydamageType(damageType);
+        for (int i = 0; i < departReportDangerListActions.getSearchData("伤害类别").size(); i++) {
+            Assertion.verityString(departReportDangerListActions.getSearchData("伤害类别").get(i), damageType);
+        }
+    }
+    @Test(description = "验证根据风险描述进行查询")
+    @Parameters({"yePossiblyHazard"})
+    @Feature("查询")
+    public void TC_searchByyePossiblyHazard(String yePossiblyHazard) throws IOException, InterruptedException {
+        departReportDangerListActions.doReset();
+        departReportDangerListActions.searchByyePossiblyHazard(yePossiblyHazard);
+        for (int i = 0; i < departReportDangerListActions.getSearchData("伤害类别").size(); i++) {
+            Assertion.verityCationString(departReportDangerListActions.getSearchData("伤害类别").get(i), yePossiblyHazard);
+        }
+    }
+
+    @Test(description = "验证根据作业活动进行查询")
+    @Parameters({"activity"})
+    @Feature("查询")
+    public void TC_searchByactivity(String activity) throws IOException, InterruptedException {
+        departReportDangerListActions.doReset();
+        departReportDangerListActions.searchByactivity(activity);
+        for (int i = 0; i < departReportDangerListActions.getSearchData("作业活动").size(); i++) {
+            Assertion.verityString(departReportDangerListActions.getSearchData("作业活动").get(i), activity);
+        }
+    }
+
+    @Test(description = "验证根据风险等级进行查询")
+    @Parameters({"yeRiskGrade"})
+    @Feature("查询")
+    public void TC_searchByyeRiskGrade(String yeRiskGrade) throws IOException, InterruptedException {
+        departReportDangerListActions.doReset();
+        departReportDangerListActions.searchByyeRiskGrade(yeRiskGrade);
+        for (int i = 0; i < departReportDangerListActions.getSearchData("风险等级").size(); i++) {
+            Assertion.verityString(departReportDangerListActions.getSearchData("风险等级").get(i), yeRiskGrade);
         }
     }
 }

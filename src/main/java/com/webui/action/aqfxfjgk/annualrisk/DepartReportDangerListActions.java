@@ -7,10 +7,14 @@ import com.webui.utils.ElementAction;
 import com.webui.utils.FunctionUtil;
 import com.webui.utils.Locator;
 import com.webui.utils.TestBaseCase;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Features;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -280,6 +284,10 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.fireEventBlur(departReportDangerListPage.yePossiblyHazard_textarea());
     }
 
+    public void checkYeProbability(){
+
+    }
+
     /**
      * 指定选择风险可能性
      * @param yeProbability 风险可能性值
@@ -467,6 +475,100 @@ public class DepartReportDangerListActions extends TestBaseCase {
         } else {
             elementAction.clickByJS(departReportDangerListPage.beenReported_radio());
         }
+    }
+
+    /**
+     * Description: 重置查询条件
+     * @param
+     * @return: void
+     * @throws:
+     */
+    public void doReset() throws IOException {
+        elementAction.clear(departReportDangerListPage.s_yeRecognizeTime_begin_textarea());
+        elementAction.clear(departReportDangerListPage.s_yeRecognizeTime_end_textarea());
+        elementAction.clear(departReportDangerListPage.s_yeMhazardDesc_textarea());
+        elementAction.selectByIndex(departReportDangerListPage.s_yeProfession_select(), 0);
+        elementAction.selectByIndex(departReportDangerListPage.s_damageType_select(), 0);
+        elementAction.clear(departReportDangerListPage.s_yePossiblyHazard_textarea());
+        elementAction.selectByIndex(departReportDangerListPage.s_activityId_select(), 0);
+        elementAction.selectByIndex(departReportDangerListPage.s_yeRiskGrade_select(), 0);
+        elementAction.selectByIndex(departReportDangerListPage.s_yeHazardCate_select(), 0);
+        elementAction.clear(departReportDangerListPage.s_docSource_textarea());
+        elementAction.clear(departReportDangerListPage.s_yeStandard_textarea());
+        elementAction.selectByIndex(departReportDangerListPage.s_hiddenLevel_select(), 0);
+    }
+
+    /**
+     * Description: 根据辨识开始时间查询
+     * @param yeRecognizeTime_begin 辨识开始时间
+     * @return: void
+     * @throws:
+     */
+    @Feature(value = "cx")
+    @Step("输入辨识开始时间:{0}")
+    public void searchByyeRecognizeTime_begin(String yeRecognizeTime_begin) throws IOException {
+        if (functionUtil.isValidDate(yeRecognizeTime_begin)) {
+            elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);
+            elementAction.clickByJS(departReportDangerListPage.search_Button());
+        } else {
+            log.warn("输入的时间:【" + yeRecognizeTime_begin + "】格式不正确");
+        }
+    }
+
+    /**
+     * Description: 根据辨识结束时间查询
+     * @param end 辨识结束时间
+     * @return: void
+     * @throws:
+     */
+    @Feature(value = "cx")
+    @Step("输入辨识结束时间:{0}")
+    public void searchByyeRecognizeTime_end(String end) throws IOException {
+        if (functionUtil.isValidDate(end)) {
+            elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_end_textarea(), end);
+            elementAction.clickByJS(departReportDangerListPage.search_Button());
+        } else {
+            log.warn("输入的时间:【" + end + "】格式不正确");
+        }
+    }
+
+    /**
+     * Description: 根据辨识时间段进行查询
+     * @param yeRecognizeTime_begin 辨识开始时间
+     * @param end                   辨识结束时间
+     * @return: void
+     * @throws:
+     */
+    @Feature(value = "cx")
+    @Step("输入辨识开始时间：{0}，输入辨识结束时间:{1}")
+    public void searchByyeRecognizeTime(String yeRecognizeTime_begin, String end) throws IOException, ParseException {
+        if (functionUtil.isValidDate(yeRecognizeTime_begin) && functionUtil.isValidDate(end)) {
+            if (functionUtil.compareTime(yeRecognizeTime_begin, end)) {
+                elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);
+                elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_end_textarea(), end);
+                elementAction.clickByJS(departReportDangerListPage.search_Button());
+            } else {
+                log.warn("输入的时间段有误：【" + yeRecognizeTime_begin + "】,【" + end + "】");
+            }
+        } else {
+            if (functionUtil.isValidDate(yeRecognizeTime_begin) == false)
+                log.warn("输入的时间:【" + yeRecognizeTime_begin + "】格式不正确");
+            if (functionUtil.isValidDate(end) == false)
+                log.warn("输入的时间:【" + end + "】格式不正确");
+        }
+    }
+
+    /**
+     * Description: 根据隐患描述进行查询
+     * @param yeMhazardDesc	 隐患描述内容
+     * @return: void
+     * @throws:
+     */
+    @Feature("cx")
+    @Step("输入隐患描述内容：{0}")
+    public void searchByYeMhazardDesc(String yeMhazardDesc) throws IOException {
+        elementAction.typeByJS(departReportDangerListPage.s_yeMhazardDesc_textarea(),yeMhazardDesc);
+        elementAction.clickByJS(departReportDangerListPage.search_Button());
     }
 
     public int getTempNum() {

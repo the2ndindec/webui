@@ -734,7 +734,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             .xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRiskGradeTemp']//input"));
                     tempNum = yeRiskGradeTempElements.size();
                     for (int j = 0; j < yeRiskGradeTempElements.size(); j++) {
-                        addressCateList.add(yeRiskGradeTempElements.get(j).getText());
+                        addressCateList.add(elementAction.getAttribute(yeRiskGradeTempElements.get(j),"value"));
                     }
 
                     break;

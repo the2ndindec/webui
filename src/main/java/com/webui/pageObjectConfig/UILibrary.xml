@@ -234,7 +234,7 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
 		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]" desc="全部 ">all_radio</locator>
 		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[2]" desc="待上报">toBeReported_radio</locator>
-		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]" desc="待上报">beenReported_radio</locator>
+		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]" desc="已上报">beenReported_radio</locator>
 		<!-- <locator type="xpath" timeout="3" value=".//a[contains(@iconcls,'icon-reload')]" desc="重置按钮">reload_Button</locator> -->
 		<locator type="xpath" timeout="3" value=".//select[@name='addressCate']" desc="查询条件--风险点类型">addressCate_select</locator>
 		<locator type="xpath" timeout="3" value=".//input[@name='yeRecognizeTime_begin']" desc="查询条件--辨识时间开始输入框">yeRecognizeTime_begin_textarea</locator>

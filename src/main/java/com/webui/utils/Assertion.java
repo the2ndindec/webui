@@ -54,7 +54,7 @@ public class Assertion extends TestBaseCase {
             AssertFailedLog();
             assertInfolList.add(verityStr + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + actual + "\"]");
+            ea.highlightElementByXpath(".//*[text()='" + actual + "']");
             Assertion.snapshotInfo();
         }
     }
@@ -80,7 +80,7 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + actual + "\"]");
+            ea.highlightElementByXpath(".//*[text()='" + actual + "']");
             Assertion.snapshotInfo();
         }
     }
@@ -103,7 +103,7 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             assertInfolList.add(verityStr + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + actual + "\"]");
+            ea.highlightElementByXpath(".//*[text()='" + actual + "']");
             Assertion.snapshotInfo();
         }
     }
@@ -129,7 +129,7 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + actual + "\"]");
+            ea.highlightElementByXpath(".//*[text()='" + actual + "']");
             Assertion.snapshotInfo();
         }
     }
@@ -166,7 +166,7 @@ public class Assertion extends TestBaseCase {
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + exceptStr + "\"]");
+            ea.highlightElementByXpath(".//*[text()='" + exceptStr + "']");
             Assertion.snapshotInfo();
         }
     }
@@ -274,7 +274,7 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             assertInfolList.add(verityStr + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + text + "\"]");
+            ea.highlightElementByXpath(".//*[text()='" + text + "']");
             Assertion.snapshotInfo();
         }
     }
@@ -292,7 +292,7 @@ public class Assertion extends TestBaseCase {
             errors.add(e);
             assertInfolList.add(verityStr + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + text + "\"]");
+            ea.highlightElementByXpath(".//*[text()='" + text + "']");
             Assertion.snapshotInfo();
         }
     }
@@ -321,7 +321,7 @@ public class Assertion extends TestBaseCase {
             assertInfolList.add(Message + verityStr + ":failed");
             messageList.add(Message + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()=\"" + text + "\"]");
+            ea.highlightElementByXpath(".//*[text()=\"" + text + "']");
             Assertion.snapshotInfo();
         }
     }
@@ -559,7 +559,7 @@ public class Assertion extends TestBaseCase {
         Boolean flag = false;
         log.info(verityStr);
         try {
-            exceptStr = "//*[text()=\"" + exceptStr + "\"]";
+            exceptStr = "//*[text()='" + exceptStr + "']";
             driver.findElement(By.xpath(exceptStr));
             flag = false;
         } catch (NoSuchElementException e) {

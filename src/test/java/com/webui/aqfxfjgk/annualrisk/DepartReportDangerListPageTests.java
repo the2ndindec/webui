@@ -3,10 +3,7 @@ package com.webui.aqfxfjgk.annualrisk;
 import com.webui.action.aqfxfjgk.annualrisk.DepartReportDangerListActions;
 import com.webui.pageObject.DepartReportDangerListPage;
 import com.webui.utils.*;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Flaky;
-import io.qameta.allure.Step;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -168,14 +165,14 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     public void TC_searchByyePossiblyHazard(String yePossiblyHazard) throws IOException, InterruptedException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyePossiblyHazard(yePossiblyHazard);
-        for (int i = 0; i < departReportDangerListActions.getSearchData("伤害类别").size(); i++) {
-            Assertion.verityCationString(departReportDangerListActions.getSearchData("伤害类别").get(i), yePossiblyHazard);
+        for (int i = 0; i < departReportDangerListActions.getSearchData("风险描述").size(); i++) {
+            Assertion.verityCationString(departReportDangerListActions.getSearchData("风险描述").get(i), yePossiblyHazard);
         }
     }
 
-    @Test(description = "验证根据作业活动进行查询")
+    @Story("查询-验证根据作业活动进行查询")
+    @Test
     @Parameters({"activity"})
-    @Feature("查询")
     public void TC_searchByactivity(String activity) throws IOException, InterruptedException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByactivity(activity);
@@ -184,9 +181,10 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         }
     }
 
-    @Test(description = "验证根据风险等级进行查询")
+    @Story("查询-验证根据风险等级进行查询")
+    @Test(description = "根据风险等级进行查询")
     @Parameters({"yeRiskGrade"})
-    @Feature("查询")
+    @Description("验证根据风险等级查询功能是否正确")
     public void TC_searchByyeRiskGrade(String yeRiskGrade) throws IOException, InterruptedException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyeRiskGrade(yeRiskGrade);

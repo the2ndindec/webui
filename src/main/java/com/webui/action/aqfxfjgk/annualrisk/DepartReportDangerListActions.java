@@ -610,6 +610,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @param yeRiskGrade 风险等级
      * @throws IOException
      */
+    @Step("Shuru:{0}")
     public void searchByyeRiskGrade(String yeRiskGrade) throws IOException {
         elementAction.selectByText(departReportDangerListPage.s_yeRiskGrade_select(), yeRiskGrade);
         elementAction.clickByJS(departReportDangerListPage.search_Button());

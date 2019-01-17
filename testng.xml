@@ -3,7 +3,6 @@
 <suite name="通用矿版">
     <parameter name="driver" value="FirefoxDriver" />
     <parameter name="url" value="http://192.168.3.194:8080/sdzk/"/> <!--测试地址-->
-    <parameter name="remark" value="webui自动化测试,自动输入内容" />
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
             <class name="com.webui.LoginPageTests">
@@ -13,7 +12,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="部门风险清单-添加数据" enabled="true">
+    <test verbose="2" preserve-order="true" name="部门风险清单" enabled="true">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>

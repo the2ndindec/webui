@@ -505,7 +505,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @throws:
      */
     @Feature(value = "cx")
-    @Step("输入辨识开始时间:{0}")
     public void searchByyeRecognizeTime_begin(String yeRecognizeTime_begin) throws IOException {
         if (functionUtil.isValidDate(yeRecognizeTime_begin)) {
             elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);

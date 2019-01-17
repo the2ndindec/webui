@@ -4,6 +4,7 @@ import com.webui.action.aqfxfjgk.annualrisk.DepartReportDangerListActions;
 import com.webui.pageObject.DepartReportDangerListPage;
 import com.webui.utils.*;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -96,6 +97,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请选择风险可能性");
         departReportDangerListActions.selectYeProbability();
     }
+    @Feature("cx")
     @Test(description = "验证根据辨识开始时间进行查询")
     public void TC_searchByYeRecognizeTime_begin() throws IOException, InterruptedException, ParseException {
         departReportDangerListActions.modifyMenu();

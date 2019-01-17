@@ -54,7 +54,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.typeYeStandard(yeStandard);//输入标准内容
         departReportDangerListActions.typeManageMeasure(manageMeasure);//  输入管控措施
         departReportDangerListActions.selectPostName();//  选择责任岗位
-        departReportDangerListActions.typeYeMhazardDesc(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
+        departReportDangerListActions.typeYeMhazardDesc(rp.readPropertiesFile(filePath, "yeMhazardDesc"));
         departReportDangerListActions.selectHiddenLevel();
         departReportDangerListActions.typeFineMoney(rp.readPropertiesFile(filePath, "fineMoney"));
         departReportDangerListActions.doSubRep();
@@ -97,14 +97,37 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         Assertion.verityCationString(elementAction.getText(departReportDangerListPage.error_tip()), "请选择风险可能性");
         departReportDangerListActions.selectYeProbability();
     }
+
     @Feature("cx")
     @Test(description = "验证根据辨识开始时间进行查询")
     public void TC_searchByYeRecognizeTime_begin() throws IOException, InterruptedException, ParseException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.checkReported();
         departReportDangerListActions.searchByyeRecognizeTime_begin("2019-01-04");
-        for (int i = 0; i <departReportDangerListActions.getSearchData("辨识时间").size() ; i++) {
-            Assertion.verifyTime("2019-01-04",departReportDangerListActions.getSearchData("辨识时间").get(i));
+        for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
+            Assertion.verifyTimeBegin("2019-01-04", departReportDangerListActions.getSearchData("辨识时间").get(i));
         }
     }
+
+    @Feature("cx")
+    @Test(description = "验证根据辨识开始时间进行查询")
+    public void TC_searchByYeRecognizeTime_end() throws IOException, InterruptedException, ParseException {
+        departReportDangerListActions.doReset();
+        departReportDangerListActions.searchByyeRecognizeTime_end("2019-01-04");
+        for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
+            Assertion.verifyTimeEnd("2019-01-04", departReportDangerListActions.getSearchData("辨识时间").get(i));
+        }
+    }
+
+    @Feature("cx")
+    @Test(description = "验证根据辨识时间段进行查询")
+    public void TC_searchByYeRecognizeTime() throws IOException, InterruptedException, ParseException {
+        departReportDangerListActions.doReset();
+        departReportDangerListActions.searchByyeRecognizeTime_begin("2019-01-04");
+        departReportDangerListActions.searchByyeRecognizeTime_end("2019-01-08");
+        for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
+            Assertion.verifyTime("2019-01-04", "2019-01-08", departReportDangerListActions.getSearchData("辨识时间").get(i));
+        }
+    }
+
 }

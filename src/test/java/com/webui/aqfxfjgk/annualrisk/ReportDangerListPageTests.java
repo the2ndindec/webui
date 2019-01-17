@@ -61,7 +61,7 @@ public class ReportDangerListPageTests extends TestBaseCase {
     public void TC_searchByRecognizeTimeBegin() throws IOException, ParseException {
         rdlpa.searchByRecognizeTimeBegin("2018-12-18");
         for (int i = 0; i < rdlpa.getSearchData("辨识时间").size(); i++) {
-            Assertion.verifyTime("2018-12-18", rdlpa.getSearchData("辨识时间").get(i));
+            Assertion.verifyTimeBegin("2018-12-18", rdlpa.getSearchData("辨识时间").get(i));
         }
     }
 

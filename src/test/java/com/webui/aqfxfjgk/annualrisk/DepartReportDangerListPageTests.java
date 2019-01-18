@@ -122,7 +122,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test(description = "验证根据辨识时间段进行查询")
     public void TC_searchByYeRecognizeTime() throws IOException, InterruptedException, ParseException {
         departReportDangerListActions.doReset();
-        departReportDangerListActions.searchByyeRecognizeTime("2019-01-04","2019-01-08");
+        departReportDangerListActions.searchByyeRecognizeTime("2019-01-04", "2019-01-08");
         for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
             Assertion.verifyTime("2019-01-04", "2019-01-08", departReportDangerListActions.getSearchData("辨识时间").get(i));
         }
@@ -149,6 +149,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
             Assertion.verityString(departReportDangerListActions.getSearchData("专业").get(i), yeProfession);
         }
     }
+
     @Test(description = "验证根据伤害类别进行查询")
     @Parameters({"damageType"})
     @Feature("查询")
@@ -159,6 +160,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
             Assertion.verityString(departReportDangerListActions.getSearchData("伤害类别").get(i), damageType);
         }
     }
+
     @Test(description = "验证根据风险描述进行查询")
     @Parameters({"yePossiblyHazard"})
     @Feature("查询")
@@ -191,5 +193,12 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         for (int i = 0; i < departReportDangerListActions.getSearchData("风险等级").size(); i++) {
             Assertion.verityString(departReportDangerListActions.getSearchData("风险等级").get(i), yeRiskGrade);
         }
+    }
+
+    @Test
+    @Description("验证在未选择数据的情况下执行查看，是否有提示信息")
+    public void TC_verifyTipOfDetail() throws IOException {
+        departReportDangerListActions.toDoWithoutData(departReportDangerListPage.detail_Button());
+        Assertion.verityString(elementAction.getText(departReportDangerListPage.tip()),"请选择查看项目");
     }
 }

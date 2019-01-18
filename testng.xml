@@ -17,19 +17,20 @@
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
                     <include name="TC_searchByYeRecognizeTime_begin"/>
-                    <include name="TC_searchByYeRecognizeTime_end"/>
-                    <include name="TC_searchByYeRecognizeTime"/>
-                    <include name="TC_searchByYeMhazardDesc"/>
-                    <parameter name="yeProfession" value="冲击地压"/>
-                    <include name="TC_searchByyeProfession"/>
-                    <parameter name="damageType" value="车辆伤害"/>
-                    <include name="TC_searchBydamageType"/>
-                    <parameter name="yePossiblyHazard" value="3"/>
-                    <include name="TC_searchByyePossiblyHazard"/>
-                    <parameter name="activity" value="作业活动1"/>
-                    <include name="TC_searchByactivity"/>
-                    <parameter name="yeRiskGrade" value="低风险"/>
-                    <include name="TC_searchByyeRiskGrade"/>
+                    <!--<include name="TC_searchByYeRecognizeTime_end"/>-->
+                    <!--<include name="TC_searchByYeRecognizeTime"/>-->
+                    <!--<include name="TC_searchByYeMhazardDesc"/>-->
+                    <!--<parameter name="yeProfession" value="冲击地压"/>-->
+                    <!--<include name="TC_searchByyeProfession"/>-->
+                    <!--<parameter name="damageType" value="车辆伤害"/>-->
+                    <!--<include name="TC_searchBydamageType"/>-->
+                    <!--<parameter name="yePossiblyHazard" value="3"/>-->
+                    <!--<include name="TC_searchByyePossiblyHazard"/>-->
+                    <!--<parameter name="activity" value="作业活动1"/>-->
+                    <!--<include name="TC_searchByactivity"/>-->
+                    <!--<parameter name="yeRiskGrade" value="低风险"/>-->
+                    <!--<include name="TC_searchByyeRiskGrade"/>-->
+                    <include name="TC_verifyTipOfDetail"/>
                 </methods>
             </class>
         </classes>

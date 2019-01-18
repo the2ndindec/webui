@@ -486,6 +486,8 @@
         <locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 
         <locator type="xpath" timeout="3" value=".//span[contains(@class,'Validform_checktip Validform_wrong')]" desc="提示信息">error_tip</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='layui-layer6']/div[2]" desc="提示信息">tip</locator>
+
         <locator type="xpath" timeout="3" value=".//input[@value='确定']" desc="确定按钮">confirm_btn</locator>
         <locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
         <locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>

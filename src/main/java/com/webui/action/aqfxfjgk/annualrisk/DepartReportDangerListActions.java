@@ -290,6 +290,14 @@ public class DepartReportDangerListActions extends TestBaseCase {
     }
 
     /**
+     * 用于验证在未选择数据的情况下执行相关操作是否出现提示信息
+     * @throws IOException
+     */
+    public void toDoWithoutData(Locator locator) throws IOException {
+       elementAction.clickByJS(locator);
+    }
+
+    /**
      * 指定选择风险可能性
      * @param yeProbability 风险可能性值
      * @return: void

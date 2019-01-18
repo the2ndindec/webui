@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author the2n
@@ -468,6 +469,12 @@ public class DepartReportDangerListActions extends TestBaseCase {
         elementAction.click_left(departReportDangerListPage.closeBtn());
     }
 
+    /**
+     * Description: 选择已上报状态
+     * @param
+     * @return: void
+     * @throws:
+     */
     public void checkReported() throws IOException {
         elementAction.clickByJS(departReportDangerListPage.beenReported_radio());
         if (elementAction.isRadioSelect(departReportDangerListPage.beenReported_radio())) {
@@ -475,6 +482,22 @@ public class DepartReportDangerListActions extends TestBaseCase {
         } else {
             elementAction.clickByJS(departReportDangerListPage.beenReported_radio());
         }
+    }
+
+    /**
+     * 选择待上报状态
+     * @throws IOException
+     */
+    public void selecttoBeReported() throws IOException {
+        elementAction.clickByJS(departReportDangerListPage.toBeReported_radio());
+    }
+
+    /**
+     * 选择全部状态
+     * @throws IOException
+     */
+    public void selectAll() throws IOException {
+      elementAction.clickByJS(departReportDangerListPage.all_radio());
     }
 
     /**
@@ -674,8 +697,8 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @throws InterruptedException
      * @description 获取查询结果中指定字段值
      */
-    public List<String> getSearchData(String fieldStr) throws IOException, InterruptedException {
-        List<String> addressCateList = new ArrayList<>();
+    public List<String> getSearchData(String fieldStr) throws IOException {
+        List<String> dataList = new ArrayList<>();
         if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
             switch (fieldStr) {
                 case "风险点类型":
@@ -684,7 +707,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='addressCate']/div"));
                     tempNum = addressCateElements.size();
                     for (int j = 0; j < addressCateElements.size(); j++) {
-                        addressCateList.add(addressCateElements.get(j).getText());
+                        dataList.add(addressCateElements.get(j).getText());
                     }
                     break;
                 case "隐患描述":
@@ -693,7 +716,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeMhazardDesc']/div"));
                     tempNum = yeMhazardDescElements.size();
                     for (int j = 0; j < yeMhazardDescElements.size(); j++) {
-                        addressCateList.add(yeMhazardDescElements.get(j).getText());
+                        dataList.add(yeMhazardDescElements.get(j).getText());
                     }
                     break;
                 case "专业":
@@ -701,7 +724,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeProfession']/div"));
                     tempNum = yeProfessionElements.size();
                     for (int j = 0; j < yeProfessionElements.size(); j++) {
-                        addressCateList.add(yeProfessionElements.get(j).getText());
+                        dataList.add(yeProfessionElements.get(j).getText());
                     }
                     break;
                 case "伤害类别":
@@ -709,7 +732,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='damageType']/div"));
                     tempNum = damageTypeElements.size();
                     for (int j = 0; j < damageTypeElements.size(); j++) {
-                        addressCateList.add(damageTypeElements.get(j).getText());
+                        dataList.add(damageTypeElements.get(j).getText());
                     }
 
                     break;
@@ -718,7 +741,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yePossiblyHazard']/div"));
                     tempNum = yePossiblyHazardElements.size();
                     for (int j = 0; j < yePossiblyHazardElements.size(); j++) {
-                        addressCateList.add(yePossiblyHazardElements.get(j).getText());
+                        dataList.add(yePossiblyHazardElements.get(j).getText());
                     }
                     break;
                 case "作业活动":
@@ -726,7 +749,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='activity.id']/div"));
                     tempNum = activityidElements.size();
                     for (int j = 0; j < activityidElements.size(); j++) {
-                        addressCateList.add(activityidElements.get(j).getText());
+                        dataList.add(activityidElements.get(j).getText());
                     }
 
                     break;
@@ -735,7 +758,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             .xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRiskGradeTemp']//input"));
                     tempNum = yeRiskGradeTempElements.size();
                     for (int j = 0; j < yeRiskGradeTempElements.size(); j++) {
-                        addressCateList.add(elementAction.getAttribute(yeRiskGradeTempElements.get(j),"value"));
+                        dataList.add(elementAction.getAttribute(yeRiskGradeTempElements.get(j),"value"));
                     }
 
                     break;
@@ -744,7 +767,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeHazardCate']/div"));
                     tempNum = yeHazardCateElements.size();
                     for (int j = 0; j < yeHazardCateElements.size(); j++) {
-                        addressCateList.add(yeHazardCateElements.get(j).getText());
+                        dataList.add(yeHazardCateElements.get(j).getText());
                     }
                     break;
 
@@ -753,7 +776,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='docSource']/div"));
                     tempNum = docSource.size();
                     for (int j = 0; j < docSource.size(); j++) {
-                        addressCateList.add(docSource.get(j).getText());
+                        dataList.add(docSource.get(j).getText());
                     }
                     break;
                 case "标准内容":
@@ -761,7 +784,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeStandard']/div"));
                     tempNum = yeStandard.size();
                     for (int j = 0; j < yeStandard.size(); j++) {
-                        addressCateList.add(yeStandard.get(j).getText());
+                        dataList.add(yeStandard.get(j).getText());
                     }
                     break;
 
@@ -769,13 +792,15 @@ public class DepartReportDangerListActions extends TestBaseCase {
                     List<WebElement> yeRecognizeTime = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRecognizeTime']/div"));
                     for (int j = 0; j < yeRecognizeTime.size(); j++) {
-                        addressCateList.add(yeRecognizeTime.get(j).getText());
+                        dataList.add(yeRecognizeTime.get(j).getText());
                     }
                     break;
             }
         } else {
             log.info("根据查询条件>>无相关结果");
         }
-        return addressCateList;
+        return dataList;
     }
+
+
 }

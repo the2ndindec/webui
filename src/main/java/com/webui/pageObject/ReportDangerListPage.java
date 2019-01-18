@@ -1,8 +1,7 @@
 package com.webui.pageObject;
+import java.io.IOException;
 import com.webui.utils.BaseAction;
 import com.webui.utils.Locator;
-
-import java.io.IOException;
 /** 
 * 矿风险清单页面
  * @author the2n
@@ -166,7 +165,7 @@ public Locator toBeReported_radio() throws IOException
  }
 
 /***
-* 待上报
+* 已上报
 * @throws IOException
 */
 public Locator beenReported_radio() throws IOException

@@ -196,7 +196,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test
     @Description("验证在未选择数据的情况下执行查看，是否有提示信息")
     public void TC_verifyTipOfDetail() throws IOException {
-        departReportDangerListActions.modifyMenu();
+        departReportDangerListActions.selecttoBeReported();
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.detail_Button());
         Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择查看项目");
     }

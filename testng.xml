@@ -16,7 +16,7 @@
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
-                    <include name="TC_searchByYeRecognizeTime_begin"/>
+                    <!--<include name="TC_searchByYeRecognizeTime_begin"/>-->
                     <!--<include name="TC_searchByYeRecognizeTime_end"/>-->
                     <!--<include name="TC_searchByYeRecognizeTime"/>-->
                     <!--<include name="TC_searchByYeMhazardDesc"/>-->

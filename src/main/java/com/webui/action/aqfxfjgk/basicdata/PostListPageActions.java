@@ -89,7 +89,7 @@ public class PostListPageActions extends TestBaseCase {
         getPostElement().click();
         elementAction.click_left(postListPage.update_Button());
         modifyFrame(postListPage.iframe_goUpdate());
-        log.info("原岗位信息值为:" + elementAction.getTextByJS(postListPage.update_postName_area()));
+        log.info("原岗位信息值为:" + elementAction.getValueByJS(postListPage.update_postName_area()));
         elementAction.type(postListPage.update_postName_area(), postName + dataStr);
         elementAction.switchToDefaultFrame();
         elementAction.click_left(postListPage.confirm_btn());

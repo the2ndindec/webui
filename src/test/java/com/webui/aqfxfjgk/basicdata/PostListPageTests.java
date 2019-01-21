@@ -68,6 +68,6 @@ public class PostListPageTests extends TestBaseCase {
     @Test(description = "验证查看功能")
     public void TC_goDetail() throws IOException {
         postListPageActions.detailOfPost();
-        Assertion.verityString(elementAction.getTextByJS(postListPage.add_postName_area()), postListPageActions.getValueOfChoosePost());
+        Assertion.verityString(elementAction.getValueByJS(postListPage.add_postName_area()), postListPageActions.getValueOfChoosePost());
     }
 }

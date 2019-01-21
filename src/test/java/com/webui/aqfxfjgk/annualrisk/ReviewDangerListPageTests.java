@@ -235,10 +235,10 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_verifyRiskValue() throws IOException {
         reviewDangerListPageActions.updateYeCostDefault();
         reviewDangerListPageActions.updateYeCost();
-        int temp1 = Integer.parseInt(elementAction.getTextByJS(reviewDangerListPage.update_yeProbability_select()));
-        int temp2 = Integer.parseInt(elementAction.getTextByJS(reviewDangerListPage.update_yeCost_select()));
+        int temp1 = Integer.parseInt(elementAction.getValueByJS(reviewDangerListPage.update_yeProbability_select()));
+        int temp2 = Integer.parseInt(elementAction.getValueByJS(reviewDangerListPage.update_yeCost_select()));
         int temp3 = temp1 * temp2;
-        Assertion.verityCationString(elementAction.getTextByJS(reviewDangerListPage.update_riskValue_textarea()), String.valueOf(temp3));
+        Assertion.verityCationString(elementAction.getValueByJS(reviewDangerListPage.update_riskValue_textarea()), String.valueOf(temp3));
     }
 
     @Feature("修改风险")
@@ -246,17 +246,17 @@ public class ReviewDangerListPageTests extends TestBaseCase {
     public void TC_yeRiskGrade() throws IOException {
         reviewDangerListPageActions.updateYeProbability();
         reviewDangerListPageActions.updateYeCost();
-        int temp1 = Integer.parseInt(elementAction.getTextByJS(reviewDangerListPage.update_yeProbability_select()));
-        int temp2 = Integer.parseInt(elementAction.getTextByJS(reviewDangerListPage.update_yeCost_select()));
+        int temp1 = Integer.parseInt(elementAction.getValueByJS(reviewDangerListPage.update_yeProbability_select()));
+        int temp2 = Integer.parseInt(elementAction.getValueByJS(reviewDangerListPage.update_yeCost_select()));
         int temp3 = temp1 * temp2;
         if (temp3 >= 1 && temp3 <= 6) {
-            Assertion.verityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "低风险");
+            Assertion.verityString(elementAction.getValueByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "低风险");
         } else if (temp3 >= 8 && temp3 <= 12) {
-            Assertion.verityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "一般风险");
+            Assertion.verityString(elementAction.getValueByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "一般风险");
         } else if (temp3 >= 18 && temp3 <= 24) {
-            Assertion.verityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "较大风险");
+            Assertion.verityString(elementAction.getValueByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "较大风险");
         } else {
-            Assertion.verityString(elementAction.getTextByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "重大风险");
+            Assertion.verityString(elementAction.getValueByJS(reviewDangerListPage.update_yeRiskGrade_textarea()), "重大风险");
         }
     }
 

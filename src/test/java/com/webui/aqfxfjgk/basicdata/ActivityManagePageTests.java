@@ -64,7 +64,7 @@ public class ActivityManagePageTests extends TestBaseCase {
     @Test(description = "验证查看功能")
     public void TC_detailRandom() throws IOException {
         ampa.detailOfActivity();
-        Assertion.verityString(ea.getTextByJS(amp.activityName_area()), ampa.valueOfChooseActivity);
+        Assertion.verityString(ea.getValueByJS(amp.activityName_area()), ampa.valueOfChooseActivity);
         ampa.closeDetail();
     }
 

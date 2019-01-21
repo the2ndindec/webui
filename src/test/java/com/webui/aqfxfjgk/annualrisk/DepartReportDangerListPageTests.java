@@ -20,16 +20,14 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     ElementAction elementAction = new ElementAction();
     DepartReportDangerListActions departReportDangerListActions = new DepartReportDangerListActions();
     DepartReportDangerListPage departReportDangerListPage = new DepartReportDangerListPage();
-    FunctionUtil functionUtil = new FunctionUtil();
 
     ReadProperties rp = new ReadProperties();
     private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
-    private String tempDate = functionUtil.formatterDate("yyyyMMddHHmmss");
 
     @Feature("添加数据")
     @Test(description = "验证添加数据功能")
     @Parameters({"docSource", "sectionName", "yeStandard", "manageMeasure"})
-    public void TC_addData(String docSource, String sectionName, String yeStandard, String manageMeasure) throws IOException, InterruptedException {
+    public void TC_addData(String docSource, String sectionName, String yeStandard, String manageMeasure) throws IOException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.goAdd();
         departReportDangerListActions.selectAddressCate();
@@ -41,11 +39,11 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.typeYePossiblyHazard(rp.readPropertiesFile(filePath, "yePossiblyHazard"));//风险描述
         departReportDangerListActions.selectYeProbability();
         departReportDangerListActions.selectYeCost();//风险损失
-        int temp1 = Integer.parseInt(elementAction.getTextByJS(departReportDangerListPage.yeProbability_select()));
-        int temp2 = Integer.parseInt(elementAction.getTextByJS(departReportDangerListPage.yeCost_select()));
+        int temp1 = Integer.parseInt(elementAction.getValueByJS(departReportDangerListPage.yeProbability_select()));
+        int temp2 = Integer.parseInt(elementAction.getValueByJS(departReportDangerListPage.yeCost_select()));
         int temp3 = temp1 * temp2;
         //验证风险值是否正确
-        Assertion.verityString(elementAction.getTextByJS(departReportDangerListPage.riskValue_textarea()), String.valueOf(temp3));
+        Assertion.verityString(elementAction.getValueByJS(departReportDangerListPage.riskValue_textarea()), String.valueOf(temp3));
         departReportDangerListActions.selectYeHazardCate();//风险类型
         departReportDangerListActions.selectActivityName();//作业活动
         departReportDangerListActions.typeDocSource(docSource);//管控标准来源
@@ -99,7 +97,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Feature("查询")
     @Test(description = "验证根据辨识开始时间进行查询")
-    public void TC_searchByYeRecognizeTime_begin() throws IOException, InterruptedException, ParseException {
+    public void TC_searchByYeRecognizeTime_begin() throws IOException, ParseException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.checkReported();
         departReportDangerListActions.searchByyeRecognizeTime_begin("2019-01-04");
@@ -110,7 +108,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Feature("查询")
     @Test(description = "验证根据辨识开始时间进行查询")
-    public void TC_searchByYeRecognizeTime_end() throws IOException, InterruptedException, ParseException {
+    public void TC_searchByYeRecognizeTime_end() throws IOException, ParseException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyeRecognizeTime_end("2019-01-04");
         for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
@@ -120,7 +118,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Feature("查询")
     @Test(description = "验证根据辨识时间段进行查询")
-    public void TC_searchByYeRecognizeTime() throws IOException, InterruptedException, ParseException {
+    public void TC_searchByYeRecognizeTime() throws IOException, ParseException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyeRecognizeTime("2019-01-04", "2019-01-08");
         for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
@@ -130,7 +128,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Test(description = "验证根据隐患描述进行查询")
     @Story("查询")
-    public void TC_searchByYeMhazardDesc() throws IOException, InterruptedException {
+    public void TC_searchByYeMhazardDesc() throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByYeMhazardDesc("1");
         for (int i = 0; i < departReportDangerListActions.getSearchData("隐患描述").size(); i++) {
@@ -142,7 +140,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Parameters({"yeProfession"})
     @Step("选择查询条件专业为：{0}")
     @Feature("查询")
-    public void TC_searchByyeProfession(String yeProfession) throws IOException, InterruptedException {
+    public void TC_searchByyeProfession(String yeProfession) throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyeProfession(yeProfession);
         for (int i = 0; i < departReportDangerListActions.getSearchData("专业").size(); i++) {
@@ -153,7 +151,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test(description = "验证根据伤害类别进行查询")
     @Parameters({"damageType"})
     @Feature("查询")
-    public void TC_searchBydamageType(String damageType) throws IOException, InterruptedException {
+    public void TC_searchBydamageType(String damageType) throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchBydamageType(damageType);
         for (int i = 0; i < departReportDangerListActions.getSearchData("伤害类别").size(); i++) {
@@ -164,7 +162,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test(description = "验证根据风险描述进行查询")
     @Parameters({"yePossiblyHazard"})
     @Feature("查询")
-    public void TC_searchByyePossiblyHazard(String yePossiblyHazard) throws IOException, InterruptedException {
+    public void TC_searchByyePossiblyHazard(String yePossiblyHazard) throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyePossiblyHazard(yePossiblyHazard);
         for (int i = 0; i < departReportDangerListActions.getSearchData("风险描述").size(); i++) {
@@ -175,7 +173,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Story("查询-验证根据作业活动进行查询")
     @Test
     @Parameters({"activity"})
-    public void TC_searchByactivity(String activity) throws IOException, InterruptedException {
+    public void TC_searchByactivity(String activity) throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByactivity(activity);
         for (int i = 0; i < departReportDangerListActions.getSearchData("作业活动").size(); i++) {
@@ -187,7 +185,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test(description = "根据风险等级进行查询")
     @Parameters({"yeRiskGrade"})
     @Description("验证根据风险等级查询功能是否正确")
-    public void TC_searchByyeRiskGrade(String yeRiskGrade) throws IOException, InterruptedException {
+    public void TC_searchByyeRiskGrade(String yeRiskGrade) throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyeRiskGrade(yeRiskGrade);
         for (int i = 0; i < departReportDangerListActions.getSearchData("风险等级").size(); i++) {
@@ -197,8 +195,9 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Test
     @Description("验证在未选择数据的情况下执行查看，是否有提示信息")
-    public void TC_verifyTipOfDetail() throws IOException {
+    public void TC_verifyTipOfDetail() throws IOException, InterruptedException {
+        departReportDangerListActions.modifyMenu();
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.detail_Button());
-        Assertion.verityString(elementAction.getText(departReportDangerListPage.tip()),"请选择查看项目");
+        Assertion.verityString(elementAction.getText(".//*[@class='panel-noscroll']/div[contains(@class,'layui-layer')]/div[contains(@class,'layui-layer-content')]"),"请选择查看项目");
     }
 }

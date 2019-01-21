@@ -28,7 +28,6 @@ public class ElementAction extends TestBaseCase {
     /**
      * 查找一组元素
      * @param locator
-     * @return
      */
     public List<WebElement> findElements(final Locator locator) {
 
@@ -89,6 +88,10 @@ public class ElementAction extends TestBaseCase {
         }
     }
 
+    /**
+     * 添加highlightElement()方法，在查询出元素后，高亮显示该元素，供调试使用
+     * @param locator
+     */
     public WebElement findElement(final Locator locator) {
         /**
          * 查找某个元素等待几秒
@@ -166,30 +169,39 @@ public class ElementAction extends TestBaseCase {
         switch (locator.getBy()) {
             case xpath:
                 webElement = driver.findElement(By.xpath(locator.getElement()));
+                highlightElement(webElement);
                 break;
             case id:
                 webElement = driver.findElement(By.id(locator.getElement()));
+                highlightElement(webElement);
                 break;
             case cssSelector:
                 webElement = driver.findElement(By.cssSelector(locator.getElement()));
+                highlightElement(webElement);
                 break;
             case name:
                 webElement = driver.findElement(By.name(locator.getElement()));
+                highlightElement(webElement);
                 break;
             case className:
                 webElement = driver.findElement(By.className(locator.getElement()));
+                highlightElement(webElement);
                 break;
             case linkText:
                 webElement = driver.findElement(By.linkText(locator.getElement()));
+                highlightElement(webElement);
                 break;
             case partialLinkText:
                 webElement = driver.findElement(By.partialLinkText(locator.getElement()));
+                highlightElement(webElement);
                 break;
             case tagName:
                 webElement = driver.findElement(By.tagName(locator.getElement()));
+                highlightElement(webElement);
                 break;
             default:
                 webElement = driver.findElement(By.xpath(locator.getElement()));
+                highlightElement(webElement);
                 break;
         }
         return webElement;
@@ -615,7 +627,7 @@ public class ElementAction extends TestBaseCase {
     public void moveAndClick(Locator locator, int x, int y) {
         WebElement element = findElement(locator);
         Actions actions = new Actions(driver);
-        actions.moveToElement(element,x,y).click().build().perform();
+        actions.moveToElement(element, x, y).click().build().perform();
     }
 
     /**
@@ -720,7 +732,7 @@ public class ElementAction extends TestBaseCase {
      * @Description: 通过js方法获取元素的值
      * @throws:
      */
-    public String getTextByJS(Locator locator) {
+    public String getValueByJS(Locator locator) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebElement webElement = findElement(locator);
         String value = (String) js.executeScript("return arguments[0].value;", webElement);
@@ -728,9 +740,19 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
+     * 使用 webElement.getAttribute("attributeName")，通过textContent, innerText, innerHTML等属性获取文本内容
+     * @param string
+     */
+    public String getText(String string) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
+        return webElement.getAttribute("innerText");
+    }
+
+    /**
      * 获取元素某属性的值
      * @param locator       元素locator
-     * @param attributeName
+     * @param attributeName 属性值
      * @return 返回String
      */
     public String getAttribute(Locator locator, String attributeName) {

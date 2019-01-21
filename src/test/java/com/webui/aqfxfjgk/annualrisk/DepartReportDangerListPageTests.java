@@ -195,9 +195,34 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Test
     @Description("验证在未选择数据的情况下执行查看，是否有提示信息")
-    public void TC_verifyTipOfDetail() throws IOException, InterruptedException {
+    public void TC_verifyTipOfDetail() throws IOException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.detail_Button());
         Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择查看项目");
+    }
+    @Test
+    @Description("验证在未选择数据的情况下执行编辑，是否有提示信息")
+    public void TC_verifyTipOfUpdate() throws IOException {
+        departReportDangerListActions.toDoWithoutData(departReportDangerListPage.update_Button());
+        Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择一条需要编辑的条目");
+    }
+    @Test
+    @Description("验证在未选择数据的情况下执行上报，是否有提示信息")
+    public void TC_verifyTipOfReport() throws IOException {
+        departReportDangerListActions.toDoWithoutData(departReportDangerListPage.goReport_Button());
+        Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择需要上报的条目");
+    }
+    @Test
+    @Description("验证在未选择数据的情况下执行删除，是否有提示信息")
+    public void TC_verifyTipOfDelete() throws IOException {
+        departReportDangerListActions.toDoWithoutData(departReportDangerListPage.deleteALLSelect_Button());
+        Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择需要删除的条目");
+    }
+    @Test
+    @Description("验证在未选择数据的情况下执行撤回，是否有提示信息")
+    public void TC_verifyTipOfBack() throws IOException {
+        departReportDangerListActions.checkReported();
+        departReportDangerListActions.toDoWithoutData(departReportDangerListPage.toReportCallback_Button());
+        Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择需要撤回的数据");
     }
 }

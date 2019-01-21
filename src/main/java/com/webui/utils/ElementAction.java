@@ -169,39 +169,39 @@ public class ElementAction extends TestBaseCase {
         switch (locator.getBy()) {
             case xpath:
                 webElement = driver.findElement(By.xpath(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
             case id:
                 webElement = driver.findElement(By.id(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
             case cssSelector:
                 webElement = driver.findElement(By.cssSelector(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
             case name:
                 webElement = driver.findElement(By.name(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
             case className:
                 webElement = driver.findElement(By.className(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
             case linkText:
                 webElement = driver.findElement(By.linkText(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
             case partialLinkText:
                 webElement = driver.findElement(By.partialLinkText(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
             case tagName:
                 webElement = driver.findElement(By.tagName(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
             default:
                 webElement = driver.findElement(By.xpath(locator.getElement()));
-                highlightElement(webElement);
+                highlightElement(webElement,"green");
                 break;
         }
         return webElement;
@@ -922,17 +922,17 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
-     * Description:高亮显示某元素
+     * 标记某个元素，元素边框标识为3px绿色
      * @param element 需要高亮的元素对象
      * @return: void
      * @throws:
      */
-    public void highlightElement(WebElement element) {
+    public void highlightElement(WebElement element,String color) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("element = arguments[0];" +
                 "original_style = element.getAttribute('style');" +
                 "element.setAttribute('style', original_style + \";" +
-                "background: yellow; border: 2px solid red;\");" +
+                "border: 3px solid "+color+";\");" +
                 "setTimeout(function(){element.setAttribute('style', original_style);}, 1000);", element);
     }
 

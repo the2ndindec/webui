@@ -434,6 +434,8 @@
         <locator type="xpath" timeout="3" value=".//span[text()='批量删除']" desc="批量删除按钮">deleteALLSelect_Button</locator>
         <locator type="xpath" timeout="3" value=".//span[text()='导入']" desc="导入按钮">importXls_Button</locator>
         <locator type="xpath" timeout="3" value=".//span[text()='模板下载']" desc="模板下载按钮">importXlsT_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='撤回']" desc="撤回按钮">toReportCallback_Button</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='撤回全部']" desc="撤回全部按钮">undoReportAll_Button</locator>
         <!-- 搜索条件 -->
         <locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
         <locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[1]/input" desc="全部 ">all_radio</locator>

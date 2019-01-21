@@ -185,6 +185,26 @@ public Locator importXlsT_Button() throws IOException
  }
 
 /***
+* 撤回按钮
+* @throws IOException
+*/
+public Locator toReportCallback_Button() throws IOException
+ {
+   Locator locator=getLocator("toReportCallback_Button");
+   return locator;
+ }
+
+/***
+* 撤回全部按钮
+* @throws IOException
+*/
+public Locator undoReportAll_Button() throws IOException
+ {
+   Locator locator=getLocator("undoReportAll_Button");
+   return locator;
+ }
+
+/***
 * 查询按钮
 * @throws IOException
 */

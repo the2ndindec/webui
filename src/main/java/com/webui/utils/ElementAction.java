@@ -923,9 +923,6 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * 标记某个元素，元素边框标识为3px +  指定的颜色
-     * @param element 需要高亮的元素对象
-     * @return: void
-     * @throws:
      */
     public void highlightElement(WebElement element, String color) {
         JavascriptExecutor js = (JavascriptExecutor) driver;

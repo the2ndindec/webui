@@ -61,6 +61,12 @@
                     <include name="TC_addData"/>
                 </methods>
             </class>
+            <class name="com.webui.aqfxfjgk.annualrisk.ReviewDangerListPageTests">
+                <methods>
+                    <parameter name="remark" value="auto测试" />
+                    <include name="TC_goReviewPass"/>
+                </methods>
+            </class>
         </classes>
     </test>
     <test verbose="2" preserve-order="true" name="风险审核-审核" enabled="false">

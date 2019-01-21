@@ -57,7 +57,6 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.doSubRep();
         departReportDangerListActions.goDepartReportDangerList();
         departReportDangerListActions.checkReported();
-//        elementAction.sleep(2);
         Assertion.verityTextPresentPrecision(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
     }
 

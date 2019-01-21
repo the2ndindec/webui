@@ -292,7 +292,7 @@ public class ReviewDangerListPageActions extends TestBaseCase {
      * @throws:
      */
     private void switchToReviewFrame() throws IOException {
-        elementAction.click_left(reviewDangerListPage.goReview_Button());
+        elementAction.clickByJS(reviewDangerListPage.goReview_Button());
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(reviewDangerListPage.iframe_reviewDangerSource());
     }

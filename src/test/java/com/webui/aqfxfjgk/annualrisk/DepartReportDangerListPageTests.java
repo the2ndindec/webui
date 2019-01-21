@@ -24,8 +24,8 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     ReadProperties rp = new ReadProperties();
     private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
 
-    @Feature("添加数据")
-    @Test(description = "验证添加数据功能")
+    @Story("添加数据")
+    @Test(description = "验证添加数据功能:保存并提交数据")
     @Parameters({"docSource", "sectionName", "yeStandard", "manageMeasure"})
     public void TC_addData(String docSource, String sectionName, String yeStandard, String manageMeasure) throws IOException {
         departReportDangerListActions.modifyMenu();
@@ -55,13 +55,13 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.selectHiddenLevel();
         departReportDangerListActions.typeFineMoney(rp.readPropertiesFile(filePath, "fineMoney"));
         departReportDangerListActions.doSubRep();
-//        departReportDangerListActions.goDepartReportDangerList();
-//        departReportDangerListActions.checkReported();
+        departReportDangerListActions.goDepartReportDangerList();
+        departReportDangerListActions.checkReported();
 //        elementAction.sleep(2);
-//        Assertion.verityTextPresentPrecision(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
+        Assertion.verityTextPresentPrecision(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
     }
 
-    @Feature("验证必填项")
+    @Story("验证必填项")
     @Test(description = "验证辨识时间为空时是否提示")
     public void TC_checkYeRecognizeTime() throws IOException {
         departReportDangerListActions.modifyMenu();
@@ -71,7 +71,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.typeYeRecognizeTime();
     }
 
-    @Feature("验证必填项")
+    @Story("验证必填项")
     @Test(description = "验证专业为空时是否提示")
     public void TC_checkYeProfession() throws IOException {
         departReportDangerListActions.doCheckYeProfession();
@@ -79,7 +79,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.selectYeProfession();
     }
 
-    @Feature("验证必填项")
+    @Story("验证必填项")
     @Test(description = "验证风险描述为空时是否提示")
     public void TC_checkYePossiblyHazard() throws IOException {
         departReportDangerListActions.doCheckYePossiblyHazard();
@@ -87,7 +87,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.typeYePossiblyHazard("测试");
     }
 
-    @Feature("验证必填项")
+    @Story("验证必填项")
     @Test(description = "验证风险可能性为空时是否提示")
     public void TC_CheckYeProbability() throws IOException {
         departReportDangerListActions.checkYeProbability();
@@ -95,7 +95,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.selectYeProbability();
     }
 
-    @Feature("查询")
+    @Story("查询")
     @Test(description = "验证根据辨识开始时间进行查询")
     public void TC_searchByYeRecognizeTime_begin() throws IOException, ParseException {
         departReportDangerListActions.modifyMenu();
@@ -106,7 +106,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         }
     }
 
-    @Feature("查询")
+    @Story("查询")
     @Test(description = "验证根据辨识开始时间进行查询")
     public void TC_searchByYeRecognizeTime_end() throws IOException, ParseException {
         departReportDangerListActions.doReset();
@@ -116,7 +116,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         }
     }
 
-    @Feature("查询")
+    @Story("查询")
     @Test(description = "验证根据辨识时间段进行查询")
     public void TC_searchByYeRecognizeTime() throws IOException, ParseException {
         departReportDangerListActions.doReset();
@@ -139,7 +139,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test(description = "验证根据专业进行查询")
     @Parameters({"yeProfession"})
     @Step("选择查询条件专业为：{0}")
-    @Feature("查询")
+    @Story("查询")
     public void TC_searchByyeProfession(String yeProfession) throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyeProfession(yeProfession);
@@ -150,7 +150,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Test(description = "验证根据伤害类别进行查询")
     @Parameters({"damageType"})
-    @Feature("查询")
+    @Story("查询")
     public void TC_searchBydamageType(String damageType) throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchBydamageType(damageType);
@@ -161,7 +161,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
 
     @Test(description = "验证根据风险描述进行查询")
     @Parameters({"yePossiblyHazard"})
-    @Feature("查询")
+    @Story("查询")
     public void TC_searchByyePossiblyHazard(String yePossiblyHazard) throws IOException {
         departReportDangerListActions.doReset();
         departReportDangerListActions.searchByyePossiblyHazard(yePossiblyHazard);

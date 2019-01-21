@@ -198,6 +198,6 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     public void TC_verifyTipOfDetail() throws IOException, InterruptedException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.detail_Button());
-        Assertion.verityString(elementAction.getText(".//*[@class='panel-noscroll']/div[contains(@class,'layui-layer')]/div[contains(@class,'layui-layer-content')]"),"请选择查看项目");
+        Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择查看项目");
     }
 }

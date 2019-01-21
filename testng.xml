@@ -15,7 +15,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="部门风险清单:查询功能验证" enabled="true">
+    <test verbose="2" preserve-order="true" name="部门风险清单:查询功能验证" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
@@ -37,7 +37,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="部门风险清单:验证提示信息" enabled="true">
+    <test verbose="2" preserve-order="true" name="部门风险清单:验证提示信息" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
@@ -46,6 +46,19 @@
                     <include name="TC_verifyTipOfReport"/>
                     <include name="TC_verifyTipOfDelete"/>
                     <include name="TC_verifyTipOfBack"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="部门风险清单:添加风险" enabled="true">
+        <classes>
+            <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
+                <methods>
+                    <parameter name="docSource" value="cetw1"/>
+                    <parameter name="sectionName" value="cetw1"/>
+                    <parameter name="yeStandard" value="cetw1"/>
+                    <parameter name="manageMeasure" value="cetw1"/>
+                    <include name="TC_addData"/>
                 </methods>
             </class>
         </classes>

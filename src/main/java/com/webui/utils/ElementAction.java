@@ -740,17 +740,8 @@ public class ElementAction extends TestBaseCase {
     }
 
     /**
-     * 使用 webElement.getAttribute("attributeName")，通过textContent, innerText, innerHTML等属性获取文本内容
-     * @param string
-     */
-    public String getText(String string) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
-        return webElement.getAttribute("innerText");
-    }
-
-    /**
      * 获取元素某属性的值
+     * 使用 webElement.getAttribute("attributeName")，通过textContent, innerText, innerHTML等属性获取文本内容
      * @param locator       元素locator
      * @param attributeName 属性值
      * @return 返回String

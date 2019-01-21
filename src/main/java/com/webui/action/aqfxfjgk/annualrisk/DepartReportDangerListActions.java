@@ -469,7 +469,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     //  点击保存并提交按钮
     public void doSubRep() throws IOException {
-        elementAction.click_left(departReportDangerListPage.subRep_btn());
+        elementAction.clickByJS(departReportDangerListPage.subRep_btn());
     }
 
     //  点击关闭按钮

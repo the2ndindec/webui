@@ -10,14 +10,16 @@
         <classes>
             <class name="com.webui.LoginPageTests">
                 <methods>
-                    <include name="TC_Login_noUser"/>
-                    <include name="TC_Login_noPwd"/>
+                    <include name="TC_login"/>
+                    <exclude name="TC_Login_noUser"/>
+                    <exclude name="TC_Login_noPwd"/>
                 </methods>
             </class>
         </classes>
     </test>
     <test verbose="2" preserve-order="true" name="部门风险清单:查询功能验证" enabled="false">
         <classes>
+            <!--查询操作-->
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
                     <include name="TC_searchByYeRecognizeTime_begin"/>
@@ -40,6 +42,7 @@
     </test>
     <test verbose="2" preserve-order="true" name="部门风险清单:验证提示信息" enabled="false">
         <classes>
+            <!--验证在执行查看/撤回/删除/编辑等操作时未选择数据，提示信息是否正确展示-->
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
                     <include name="TC_verifyTipOfDetail"/>
@@ -47,6 +50,32 @@
                     <include name="TC_verifyTipOfReport"/>
                     <include name="TC_verifyTipOfDelete"/>
                     <include name="TC_verifyTipOfBack"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="部门风险清单:验证必填项" enabled="false">
+        <classes>
+            <!--验证在录入风险时，必填项为空时，提示信息是否正确展示-->
+            <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
+                <methods>
+                    <include name="TC_checkYeRecognizeTime"/>
+                    <include name="TC_checkYeProfession"/>
+                    <include name="TC_checkYePossiblyHazard"/>
+                    <include name="TC_CheckYeProbability"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="部门风险清单:添加风险-保存" enabled="true">
+        <classes>
+            <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
+                <methods>
+                    <parameter name="docSource" value="cetw1"/>
+                    <parameter name="sectionName" value="cetw1"/>
+                    <parameter name="yeStandard" value="cetw1"/>
+                    <parameter name="manageMeasure" value="cetw1"/>
+                    <include name="TC_addDataSave"/>
                 </methods>
             </class>
         </classes>

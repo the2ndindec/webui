@@ -58,9 +58,29 @@ public Locator error_tip() throws IOException
 * 密码为空时提示
 * @throws IOException
 */
-public Locator errorwithoutpassword_tip() throws IOException
+public Locator tipWithoutPassword() throws IOException
  {
-   Locator locator=getLocator("errorwithoutpassword_tip");
+   Locator locator=getLocator("tipWithoutPassword");
+   return locator;
+ }
+
+/***
+* 确定按钮
+* @throws IOException
+*/
+public Locator confirm_btn() throws IOException
+ {
+   Locator locator=getLocator("confirm_btn");
+   return locator;
+ }
+
+/***
+* 取消按钮
+* @throws IOException
+*/
+public Locator cancel_btn() throws IOException
+ {
+   Locator locator=getLocator("cancel_btn");
    return locator;
  }
 }

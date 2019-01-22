@@ -27,17 +27,25 @@ public class LoginPageTests extends TestBaseCase {
     LoginPage lp = new LoginPage();
 
     @Test(description = "login")
-
     public void TC_login() throws IOException {
         loginPageActions.signInInit("admin", "123456");
         Assertion.verityString(elementAction.getText(defultPage.userName_1()), "admin");
     }
 
     @Test(description = "使用用户名，不使用密码")
-    @Description("验证再密码为空的情况下是否给出正确的提示信息")
+    @Description("验证在密码为空的情况下是否给出正确的提示信息")
     @Story("密码为空时登录测试")
-    public void failLogin() throws IOException {
+    public void TC_Login_noPwd() throws IOException {
         loginPageActions.signInInit("admin", "");
         Assertion.verityString(elementAction.getAttribute(lp.tipWithoutPassword(),"innerText"),"请输入密码");
+
+    }
+    @Test(description = "不使用用户名，不使用密码")
+    @Description("验证在用户为空的情况下是否给出正确的提示信息")
+    @Story("用户名为空时登录测试")
+    public void TC_Login_noUser() throws IOException {
+        loginPageActions.signInInit("", "");
+        Assertion.verityString(elementAction.getAttribute(lp.tipWithoutPassword(),"innerText"),"请输入用户名");
+        elementAction.clickByJS(lp.cancel_btn());
     }
 }

@@ -464,7 +464,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     //  点击保存按钮
     public void doSave() throws IOException {
-        elementAction.click_left(departReportDangerListPage.save_btn());
+        elementAction.clickByJS(departReportDangerListPage.save_btn());
     }
 
     //  点击保存并提交按钮
@@ -474,7 +474,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
 
     //  点击关闭按钮
     public void doClose() throws IOException {
-        elementAction.click_left(departReportDangerListPage.closeBtn());
+        elementAction.clickByJS(departReportDangerListPage.closeBtn());
     }
 
     /**
@@ -686,6 +686,18 @@ public class DepartReportDangerListActions extends TestBaseCase {
     public void searchByyeStandard(String yeStandard) throws IOException {
         elementAction.typeByJS(departReportDangerListPage.s_yeStandard_textarea(), yeStandard);
         elementAction.clickByJS(departReportDangerListPage.search_Button());
+    }
+
+    /**
+     * Description: 单条数据上报审核
+     * @param string
+     * @return: void
+     * @throws:
+     */
+    public void goReport(String string) throws IOException {
+        elementAction.clickByJS(string);
+        elementAction.clickByJS(departReportDangerListPage.goReport_Button());
+        elementAction.clickByJS(departReportDangerListPage.confirm_btn());
     }
 
     public int getTempNum() {

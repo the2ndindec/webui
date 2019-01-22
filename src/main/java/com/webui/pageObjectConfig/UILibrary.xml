@@ -10,7 +10,7 @@
 		<locator type="id" timeout="3" value="password" desc="密码">password_Text</locator>
 		<locator type="id" timeout="3" value="but_login" desc="登录">login_btn</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='msg']" desc="用户名密码为空时提示">error_tip</locator>
-		<locator type="xpath" timeout="3" value=".//div[@class='popBox']//div[@class='bigIcon']" desc="密码为空时提示">errorwithoutpassword_tip</locator>
+		<locator type="xpath" timeout="3" value=".//div[@class='popBox']//p" desc="密码为空时提示">tipWithoutPassword</locator>
 		<!-- <locator type="xpath" timeout="3" value=".//*[@id='indication']//*[contains(@text,'用户名不能为空')]" desc="用户名密码为空时提示">error_tip</locator> -->
 		
 	</page>

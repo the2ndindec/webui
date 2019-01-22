@@ -15,6 +15,7 @@ import java.text.ParseException;
  * @description 部门风险上报页面
  * @Data 2018/12/07 16:22
  */
+@Feature("部门风险上报")
 public class DepartReportDangerListPageTests extends TestBaseCase {
 
     ElementAction elementAction = new ElementAction();

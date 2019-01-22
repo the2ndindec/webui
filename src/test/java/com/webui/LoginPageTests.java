@@ -7,7 +7,7 @@ import com.webui.pageObject.LoginPage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
 import com.webui.utils.TestBaseCase;
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -19,6 +19,7 @@ import java.io.IOException;
  * @Data 2018/11/28 11:30
  */
 @Listeners({TestFailListener.class})
+@Feature("登录测试")
 public class LoginPageTests extends TestBaseCase {
     LoginPageActions loginPageActions = new LoginPageActions();
     ElementAction elementAction = new ElementAction();
@@ -32,10 +33,11 @@ public class LoginPageTests extends TestBaseCase {
         Assertion.verityString(elementAction.getText(defultPage.userName_1()), "admin");
     }
 
-    @Test
-    @Step("方法failLogin步骤：输入用户名")
+    @Test(description = "使用用户名，不使用密码")
+    @Description("验证再密码为空的情况下是否给出正确的提示信息")
+    @Story("密码为空时登录测试")
     public void failLogin() throws IOException {
         loginPageActions.signInInit("admin", "");
-        Assertion.verityString(elementAction.getText(lp.errorwithoutpassword_tip()),"请输入密码");
+        Assertion.verityString(elementAction.getAttribute(lp.tipWithoutPassword(),"innerText"),"请输入密码");
     }
 }

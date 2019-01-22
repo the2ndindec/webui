@@ -60,6 +60,41 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         Assertion.verityTextPresentPrecision(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
     }
 
+    @Story("添加数据")
+    @Test(description = "验证添加数据功能:保存数据")
+    @Parameters({"docSource", "sectionName", "yeStandard", "manageMeasure"})
+    public void TC_addDataSave(String docSource, String sectionName, String yeStandard, String manageMeasure) throws IOException {
+        departReportDangerListActions.modifyMenu();
+        departReportDangerListActions.goAdd();
+        departReportDangerListActions.selectAddressCate();
+        departReportDangerListActions.typeYeRecognizeTime();
+        departReportDangerListActions.selectYeProfession();
+        departReportDangerListActions.selectHazardName();
+        departReportDangerListActions.checkDamageType();
+        departReportDangerListActions.checkYeAccident();
+        departReportDangerListActions.typeYePossiblyHazard(rp.readPropertiesFile(filePath, "yePossiblyHazard"));//风险描述
+        departReportDangerListActions.selectYeProbability();
+        departReportDangerListActions.selectYeCost();//风险损失
+        int temp1 = Integer.parseInt(elementAction.getValueByJS(departReportDangerListPage.yeProbability_select()));
+        int temp2 = Integer.parseInt(elementAction.getValueByJS(departReportDangerListPage.yeCost_select()));
+        int temp3 = temp1 * temp2;
+        //验证风险值是否正确
+        Assertion.verityString(elementAction.getValueByJS(departReportDangerListPage.riskValue_textarea()), String.valueOf(temp3));
+        departReportDangerListActions.selectYeHazardCate();//风险类型
+        departReportDangerListActions.selectActivityName();//作业活动
+        departReportDangerListActions.typeDocSource(docSource);//管控标准来源
+        departReportDangerListActions.typeSectionName(sectionName);//  输入章节条款
+        departReportDangerListActions.typeYeStandard(yeStandard);//输入标准内容
+        departReportDangerListActions.typeManageMeasure(manageMeasure);//  输入管控措施
+        departReportDangerListActions.selectPostName();//  选择责任岗位
+        departReportDangerListActions.typeYeMhazardDesc(rp.readPropertiesFile(filePath, "yeMhazardDesc"));
+        departReportDangerListActions.selectHiddenLevel();
+        departReportDangerListActions.typeFineMoney(rp.readPropertiesFile(filePath, "fineMoney"));
+        departReportDangerListActions.doSave();
+        departReportDangerListActions.goDepartReportDangerList();
+        Assertion.verityTextPresentPrecision(rp.readPropertiesFile(filePath,"yeMhazardDesc"));
+    }
+
     @Story("验证必填项")
     @Test(description = "验证辨识时间为空时是否提示")
     public void TC_checkYeRecognizeTime() throws IOException {

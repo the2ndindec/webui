@@ -4,13 +4,13 @@
     <listeners>
         <listener class-name="com.webui.Listener.TestFailListener"/>
     </listeners>
-    <parameter name="driver" value="FirefoxDriver" />
+    <parameter name="driver" value="FirefoxDriver"/>
     <parameter name="url" value="http://192.168.3.194:8080/sdzk/"/> <!--测试地址-->
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
             <class name="com.webui.LoginPageTests">
                 <methods>
-                    <include name="TC_login"/>
+                    <include name="failLogin"/>
                 </methods>
             </class>
         </classes>
@@ -50,7 +50,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="部门风险清单:添加风险" enabled="true">
+    <test verbose="2" preserve-order="true" name="部门风险清单:添加风险" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>
@@ -61,9 +61,10 @@
                     <include name="TC_addData"/>
                 </methods>
             </class>
+            <!--审核操作-->
             <class name="com.webui.aqfxfjgk.annualrisk.ReviewDangerListPageTests">
                 <methods>
-                    <parameter name="remark" value="auto测试" />
+                    <parameter name="remark" value="auto测试"/>
                     <include name="TC_goReviewPass"/>
                 </methods>
             </class>
@@ -73,7 +74,7 @@
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.ReviewDangerListPageTests">
                 <methods>
-                    <parameter name="remark" value="auto测试" />
+                    <parameter name="remark" value="auto测试"/>
                     <include name="TC_goReviewPass"/>
                 </methods>
             </class>

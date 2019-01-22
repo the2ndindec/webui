@@ -294,7 +294,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @throws IOException
      */
     public void toDoWithoutData(Locator locator) throws IOException {
-       elementAction.clickByJS(locator);
+        elementAction.clickByJS(locator);
     }
 
     /**
@@ -505,7 +505,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @throws IOException
      */
     public void selectAll() throws IOException {
-      elementAction.clickByJS(departReportDangerListPage.all_radio());
+        elementAction.clickByJS(departReportDangerListPage.all_radio());
     }
 
     /**
@@ -695,9 +695,31 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @throws:
      */
     public void goReport(String string) throws IOException {
-        elementAction.clickByJS(string);
-        elementAction.clickByJS(departReportDangerListPage.goReport_Button());
-        elementAction.clickByJS(departReportDangerListPage.confirm_btn());
+
+        /**
+         * 先判断页面上是否有数据，有数据时，判断数据的数量
+         * 当为1条数据时，选择后上报审核
+         * 当大于1条数据时，先选择当前页面上对应的数据上报审核，若还有未上报的数据，继续执行
+         */
+        if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
+            do {
+                List<WebElement> webElements = elementAction.findElements(string);
+                if (webElements.size() == 1) {
+                    webElements.get(0).click();
+                    elementAction.clickByJS(departReportDangerListPage.goReport_Button());
+                    elementAction.clickByJS(departReportDangerListPage.confirm_btn());
+                } else if (webElements.size() > 1) {
+                    for (WebElement element : webElements) {
+                        element.click();
+                    }
+                    elementAction.clickByJS(departReportDangerListPage.goReport_Button());
+                    elementAction.clickByJS(departReportDangerListPage.confirm_btn());
+                }
+            } while (elementAction.findElements(string).size() > 0);
+        } else {
+            log.info("无相关结果");
+        }
+
     }
 
     public int getTempNum() {
@@ -709,6 +731,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
     }
 
     public int tempNum;
+
 
     /**
      * @param fieldStr 需要获取值的字段
@@ -722,7 +745,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
         if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
             switch (fieldStr) {
                 case "风险点类型":
-
                     List<WebElement> addressCateElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='addressCate']/div"));
                     tempNum = addressCateElements.size();
@@ -731,7 +753,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
                     }
                     break;
                 case "隐患描述":
-
                     List<WebElement> yeMhazardDescElements = driver.findElements(
                             By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeMhazardDesc']/div"));
                     tempNum = yeMhazardDescElements.size();
@@ -778,7 +799,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                             .xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='yeRiskGradeTemp']//input"));
                     tempNum = yeRiskGradeTempElements.size();
                     for (int j = 0; j < yeRiskGradeTempElements.size(); j++) {
-                        dataList.add(elementAction.getAttribute(yeRiskGradeTempElements.get(j),"value"));
+                        dataList.add(elementAction.getAttribute(yeRiskGradeTempElements.get(j), "value"));
                     }
 
                     break;

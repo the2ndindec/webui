@@ -726,6 +726,16 @@ public class ElementAction extends TestBaseCase {
         return text;
     }
 
+    public String getText(String string) {
+        WebElement element = null;
+        try {
+            element = driver.findElement(By.xpath(string));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return element.getText();
+    }
+
     /**
      * @param: [locator] 被操作的元素
      * @return: java.lang.String 元素的值

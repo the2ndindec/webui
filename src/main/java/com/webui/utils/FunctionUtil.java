@@ -1,16 +1,18 @@
 package com.webui.utils;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author the2n
  * @description
  * @Data 2018/12/06 15:55
  */
-public class FunctionUtil {
+public class FunctionUtil extends TestBaseCase {
 
     private int i;
 

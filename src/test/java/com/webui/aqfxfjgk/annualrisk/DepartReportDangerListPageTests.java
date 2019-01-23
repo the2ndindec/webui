@@ -276,4 +276,12 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.toReportCallback_Button());
         Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择需要撤回的数据");
     }
+
+    @Story("添加数据")
+    @Description("添加数据后保存")
+    @Test(description = "验证添加数据功能:保存数据")
+    public void TC_goReport() throws IOException {
+        departReportDangerListActions.modifyMenu();
+        departReportDangerListActions.goReport("未检查顶帮");
+    }
 }

@@ -689,8 +689,8 @@ public class DepartReportDangerListActions extends TestBaseCase {
     }
 
     /**
-     * Description: 数据上报审核
-     * @param string
+     * Desc: 数据上报审核。可根据隐患描述/风险描述/管控标准等字段的内容上传指定的风险数据
+     * @param string 隐患描述/风险描述/管控标准等字段的内容
      * @return: void
      * @throws:
      */
@@ -702,7 +702,6 @@ public class DepartReportDangerListActions extends TestBaseCase {
          * 当大于1条数据时，先选择当前页面上对应的数据上报审核，若还有未上报的数据，继续执行
          */
         if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
-
             do {
                 List<WebElement> webElements = elementAction.findElements(".//*[contains(@title,'"+string+"')]");
                 if (webElements.size() == 1) {

@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Map;
 
 /**
  * @author the2n
@@ -21,7 +22,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     ElementAction elementAction = new ElementAction();
     DepartReportDangerListActions departReportDangerListActions = new DepartReportDangerListActions();
     DepartReportDangerListPage departReportDangerListPage = new DepartReportDangerListPage();
-
+    FunctionUtil functionUtil = new FunctionUtil();
     ReadProperties rp = new ReadProperties();
     private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
 
@@ -283,5 +284,14 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     public void TC_goReport() throws IOException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.goReport("未检查顶帮");
+    }
+
+    @Story("查看数据")
+    @Description("查看风险详情")
+    @Test(description = "验证查看数据功能")
+    public void TC_goDetail() throws IOException {
+        departReportDangerListActions.modifyMenu();
+        departReportDangerListActions.goDetail();
+        Assertion.verityString(departReportDangerListActions.getDataMap().get("addressCate"),elementAction.getText(".//table[@class='formtable']//tr[1]/td[2]"));
     }
 }

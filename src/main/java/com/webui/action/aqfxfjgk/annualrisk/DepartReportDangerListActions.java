@@ -15,9 +15,7 @@ import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author the2n
@@ -50,7 +48,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
         switchFrame(departReportDangerListPage.iframe_goAddDepartDangerSource());
     }
 
-    private void switchFrame(Locator locator) {
+    public void switchFrame(Locator locator) {
         elementAction.switchToDefaultFrame();
         elementAction.switchToFrame(locator);
     }
@@ -727,6 +725,41 @@ public class DepartReportDangerListActions extends TestBaseCase {
             log.info("无相关结果");
         }
 
+    }
+
+    public Map<String, String> getDataMap() {
+        return dataMap;
+    }
+
+    public void setDataMap(Map<String, String> dataMap) {
+        this.dataMap = dataMap;
+    }
+
+    Map<String, String> dataMap = new HashMap<String, String>();
+
+    /**
+     * 随机查看当前页面上风险详细信息
+     * @throws IOException
+     */
+    public void goDetail() throws IOException {
+        List<WebElement> trElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr"));
+        Random random = new Random();
+        int temp = random.nextInt(trElements.size());
+        elementAction.highlightElementByXpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + (temp + 1) + "]");
+        trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
+        /**
+         * 根据定位数据的所在行，查找相关列数据内容，即各字段及相关的内容值，已Map的形式存放
+         * elementAction.getAttribute(tdElements.get(i),"field") 获取Key值
+         * elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")),"innerText") 获取Value值
+         * 其中 tdElements.get(i) 表示第几列的内容
+         */
+        List<WebElement> tdElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+(temp + 1) +"]/td"));
+        for (int i = 1; i < tdElements.size(); i++) {
+            dataMap.put(elementAction.getAttribute(tdElements.get(i),"field")
+                    ,elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")),"innerText"));
+        }
+        elementAction.clickByJS(departReportDangerListPage.detail_Button());
+        switchFrame(departReportDangerListPage.iframe_goDetail());
     }
 
     public int getTempNum() {

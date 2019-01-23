@@ -40,6 +40,17 @@
             </class>
         </classes>
     </test>
+    <test verbose="2" preserve-order="true" name="部门风险清单:数据上报" enabled="true">
+        <classes>
+            <!--数据上报-->
+            <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
+                <methods>
+                    <include name="TC_goDetail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
     <test verbose="2" preserve-order="true" name="部门风险清单:验证提示信息" enabled="false">
         <classes>
             <!--验证在执行查看/撤回/删除/编辑等操作时未选择数据，提示信息是否正确展示-->
@@ -67,7 +78,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="部门风险清单:添加风险-保存" enabled="true">
+    <test verbose="2" preserve-order="true" name="部门风险清单:添加风险-保存" enabled="false">
         <classes>
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
                 <methods>

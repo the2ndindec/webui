@@ -259,24 +259,24 @@ public class ElementAction extends TestBaseCase {
 
     /**
      * Description:通过xpath获取一组元素
-     * @param locator 元素的xpath值
+     * @param xpathLocator 元素的xpath值
      * @return: java.util.List<org.openqa.selenium.WebElement>
      * @throws:
      */
-    public List<WebElement> getElements(String locator) {
+    public List<WebElement> getElements(String xpathLocator) {
         List<WebElement> webElements;
-        webElements = driver.findElements(By.xpath(locator));
+        webElements = driver.findElements(By.xpath(xpathLocator));
         return webElements;
     }
 
-    public List<WebElement> findElements(final String locator) {
+    public List<WebElement> findElements(final String xpathLocator) {
         List<WebElement> webElements = null;
         try {
             webElements = (new WebDriverWait(driver, 20)).until(new ExpectedCondition<List<WebElement>>() {
                 @Override
                 public List<WebElement> apply(WebDriver driver) {
                     List<WebElement> element = null;
-                    element = getElements(locator);
+                    element = getElements(xpathLocator);
                     return element;
                 }
             });
@@ -953,10 +953,36 @@ public class ElementAction extends TestBaseCase {
         return driver.findElement(By.xpath(".//*[contains(text(),'" + elementValue + "')]"));
     }
 
+    public List<WebElement> getElementsByValue(String elementValue) {
+        return driver.findElements(By.xpath(".//*[contains(text(),'" + elementValue + "')]"));
+    }
+
     public boolean isRadioSelect(Locator locator) {
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
         boolean flag = webElement.isSelected();
         return flag;
     }
+
+    /**
+     * 返回指定元素所在行
+     * 需指定详细的字段值，若指定部分字段值，存在查询出多个元素对象的可能
+     * @param string 指定的元素信息
+     * @return
+     */
+    public int getTrNum(String string) {
+        int temp = 0;
+        OUT:
+        for (int i = 0; i < 10; i++) {
+            bb:
+            for (int j = 1; j < driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + i + "]/td")).size(); j++) {
+                if (driver.findElement(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + i + "]/td[" + (j + 1) + "]")).getText().equalsIgnoreCase(string)) {
+                    temp = i;
+                    break OUT;
+                }
+            }
+        }
+        return temp;
+    }
+
 }

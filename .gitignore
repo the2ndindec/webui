@@ -17,6 +17,7 @@ gen
 *.zip
 *.tar.gz
 *.rar
+*.log
 
 #maven
 target/

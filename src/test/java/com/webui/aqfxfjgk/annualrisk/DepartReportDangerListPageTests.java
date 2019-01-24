@@ -290,8 +290,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Description("查看风险详情")
     @Test(description = "验证查看数据功能")
     public void TC_goDetail() throws IOException {
-        departReportDangerListActions.modifyMenu();
-        departReportDangerListActions.goDetail();
-        Assertion.verityString(departReportDangerListActions.getDataMap().get("addressCate"),elementAction.getText(".//table[@class='formtable']//tr[1]/td[2]"));
+        departReportDangerListActions.goDetail("未检查顶帮情况未检查顶帮情况10000");
+        Assertion.verityString(elementAction.getText(".//table[@class='formtable']//tr[1]/td[2]"),departReportDangerListActions.getDataMap().get("风险点类型"));
     }
 }

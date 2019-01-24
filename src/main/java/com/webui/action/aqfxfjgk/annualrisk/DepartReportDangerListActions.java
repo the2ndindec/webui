@@ -701,7 +701,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
          */
         if (elementAction.isElementDisplayedByLocator(departReportDangerListPage.data_tbody())) {
             do {
-                List<WebElement> webElements = elementAction.findElements(".//*[contains(@title,'"+string+"')]");
+                List<WebElement> webElements = elementAction.findElements(".//*[contains(@title,'" + string + "')]");
                 if (webElements.size() == 1) {
                     webElements.get(0).click();
                     elementAction.clickByJS(departReportDangerListPage.goReport_Button());
@@ -720,7 +720,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
                 } else {
                     log.info("无相关结果");
                 }
-            } while (elementAction.findElements(".//*[contains(@title,'"+string+"')]").size() != 0);
+            } while (elementAction.findElements(".//*[contains(@title,'" + string + "')]").size() != 0);
         } else {
             log.info("无相关结果");
         }
@@ -754,13 +754,44 @@ public class DepartReportDangerListActions extends TestBaseCase {
          * 其中 Elements.get(i) 表示第几列的内容
          */
         List<WebElement> headElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[1]//tbody/tr/td//span[1]"));
-        List<WebElement> tdElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+(temp + 1) +"]/td"));
+        List<WebElement> tdElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + (temp + 1) + "]/td"));
         for (int i = 1; i < tdElements.size(); i++) {
-            dataMap.put(elementAction.getAttribute(headElements.get(i),"innerText")
-                    ,elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")),"innerText"));
+            dataMap.put(elementAction.getAttribute(headElements.get(i), "innerText")
+                    , elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")), "innerText"));
         }
         elementAction.clickByJS(departReportDangerListPage.detail_Button());
         switchFrame(departReportDangerListPage.iframe_goDetail());
+    }
+
+    /**
+     * 根据指定的字段值查找相应的风险数据，若查询出单个数据，执行查看操作。若查询出多个或者没有对应的风险数据，给出相应的提示信息
+     * @param string
+     * @throws IOException
+     */
+    public void goDetail(String string) throws IOException {
+        List<WebElement> elements = elementAction.getElementsByValue(string);
+        if (elements.size() == 1) {
+            elements.get(0).click();
+
+            /**
+             * 根据定位数据的所在行，查找相关列数据内容，即各字段及相关的内容值，已Map的形式存放
+             * elementAction.getAttribute(headElements.get(i),"innerText") 获取Key值
+             * elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")),"innerText") 获取Value值
+             * 其中 Elements.get(i) 表示第几列的内容
+             */
+            List<WebElement> headElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[1]//tbody/tr/td//span[1]"));
+            List<WebElement> tdElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + elementAction.getTrNum(string) + "]/td"));
+            for (int i = 1; i < tdElements.size(); i++) {
+                dataMap.put(elementAction.getAttribute(headElements.get(i), "innerText")
+                        , elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")), "innerText"));
+            }
+            elementAction.clickByJS(departReportDangerListPage.detail_Button());
+            switchFrame(departReportDangerListPage.iframe_goDetail());
+        } else if (elements.size() > 1) {
+            log.warn("根据输入的字符串【" + string + "】找到" + elements.size() + "个对应的元素信息。不能执行查看操作！！");
+        } else {
+            log.warn("根据输入的字符串【" + string + "】未找到对应的元素信息。不能执行查看操作！！");
+        }
     }
 
     public int getTempNum() {

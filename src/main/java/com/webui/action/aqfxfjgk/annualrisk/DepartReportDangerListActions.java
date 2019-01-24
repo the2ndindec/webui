@@ -800,7 +800,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      */
     public void closeDetail() throws IOException {
         elementAction.switchToDefaultFrame();
-        elementAction.clickByJS(departReportDangerListPage.closeBtn());
+        elementAction.clickByJS(departReportDangerListPage.close_btn());
     }
 
     public int getTempNum() {

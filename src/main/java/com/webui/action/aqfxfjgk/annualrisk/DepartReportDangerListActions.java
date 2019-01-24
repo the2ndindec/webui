@@ -794,6 +794,15 @@ public class DepartReportDangerListActions extends TestBaseCase {
         }
     }
 
+    /**
+     * 关闭详情弹框
+     * @throws IOException
+     */
+    public void closeDetail() throws IOException {
+        elementAction.switchToDefaultFrame();
+        elementAction.clickByJS(departReportDangerListPage.closeBtn());
+    }
+
     public int getTempNum() {
         return tempNum;
     }

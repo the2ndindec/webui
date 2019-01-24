@@ -287,10 +287,11 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     }
 
     @Story("查看数据")
-    @Description("查看风险详情")
+    @Description("指定字符串查找相关的风险查看风险详情")
     @Test(description = "验证查看数据功能")
     public void TC_goDetail() throws IOException {
         departReportDangerListActions.goDetail("未检查顶帮情况未检查顶帮情况10000");
         Assertion.verityString(elementAction.getText(".//table[@class='formtable']//tr[1]/td[2]"),departReportDangerListActions.getDataMap().get("风险点类型"));
+        departReportDangerListActions.closeDetail();
     }
 }

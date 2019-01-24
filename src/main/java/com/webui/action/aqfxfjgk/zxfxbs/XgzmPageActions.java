@@ -30,7 +30,6 @@ public class XgzmPageActions extends TestBaseCase {
      */
     public void motifyFrame(Locator locator) {
         ea.switchToDefaultFrame();
-        ea.visibilityOfElement(ea.findElement(locator));
         ea.switchToFrame(locator);
     }
 
@@ -41,7 +40,7 @@ public class XgzmPageActions extends TestBaseCase {
      * @throws:
      */
     public void searchByName(String name) throws IOException {
-        ea.typeByJS(xgzmPage.name_search_area(), name);
+        ea.typeByJS(xgzmPage.name_area(), name);
         ea.clickByJS(xgzmPage.search_Button());
     }
 
@@ -113,21 +112,19 @@ public class XgzmPageActions extends TestBaseCase {
      * @throws:
      */
     public void addData(String name, String leaderType, String leader, String time, String teamMembers, String location, String remark) throws IOException {
-        motifyFrame(xgzmPage.iframe_xgzm());
         ea.clickByJS(xgzmPage.add_Button());
         motifyFrame(xgzmPage.iframe_add());
-        ea.typeByJS(xgzmPage.name_search_area(), name);
+        ea.typeByJS(xgzmPage.name_area(), name);
         ea.selectByText(xgzmPage.leaderType_select(), leaderType);
         ea.clickByJS(xgzmPage.leader_select());
-//        chooseElement(".//*[@id='leaderSelect']/div[3]/div", leader);//选择辨识负责人
         ea.clickByJS(".//*[@id='leaderSelect']/div[3]/div[text()='"+leader+"']");
         ea.typeByJS(xgzmPage.time_input(), time);
         ea.clickByJS(xgzmPage.teamMembers());
+        ea.sleep(1);
         chooseTeamMember(teamMembers);
         motifyFrame(xgzmPage.iframe_add());
         ea.clickByJS(xgzmPage.locationSelect());
-//        chooseElement(".//*[@id='locationSelect']/div[3]/div", location);//辨识地点
-        ea.clickByJS(".//*[@id='locationSelect']/div[3]/div[text()='"+location+"']");
+        ea.clickByJS(".//*[@id='locationSelect']/div[3]/div[text()='" + location + "']");
         ea.typeByJS(xgzmPage.remark_textarea(), remark);
         ea.switchToDefaultFrame();
         ea.clickByJS(xgzmPage.confirm_btn());
@@ -152,12 +149,4 @@ public class XgzmPageActions extends TestBaseCase {
         ea.clickByJS(xgzmPage.confirm_btn());
     }
 
-    public void chooseElement(String eleString, String string) {
-        List<WebElement> leaders = ea.findElements(eleString);
-        for (WebElement leaderElement : leaders) {
-            while (leaderElement.getText().equalsIgnoreCase(string)) {
-                leaderElement.click();
-            }
-        }
-    }
 }

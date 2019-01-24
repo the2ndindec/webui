@@ -8,7 +8,9 @@ import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
 import com.webui.utils.ReadProperties;
 import com.webui.utils.TestBaseCase;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -30,7 +32,8 @@ public class XgzmPageTests extends TestBaseCase {
     DefultPage dp = new DefultPage();
     DefultPageActions dpa = new DefultPageActions();
 
-    @Feature("添加风险评估")
+    @Story("添加风险评估")
+    @Description("添加新工作面风险评估")
     @Test(description = "验证添加风险评估功能")
     public void TC_addData() throws IOException {
         dpa.openMenu(dp.aqfxfjgk_menu(),dp.zxfxbs(),dp.xgzm());

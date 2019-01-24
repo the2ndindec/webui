@@ -138,9 +138,9 @@ public Locator searchReset_Btn() throws IOException
 * 查询条件--辨识名称
 * @throws IOException
 */
-public Locator name_search_area() throws IOException
+public Locator name_area() throws IOException
  {
-   Locator locator=getLocator("name_search_area");
+   Locator locator=getLocator("name_area");
    return locator;
  }
 
@@ -185,7 +185,7 @@ public Locator radio_reporting() throws IOException
  }
 
 /***
-* 查询条件--辨识结束时间
+* 已上报
 * @throws IOException
 */
 public Locator radio_reported() throws IOException
@@ -271,6 +271,46 @@ public Locator remark_textarea() throws IOException
 public Locator hazard_tip() throws IOException
  {
    Locator locator=getLocator("hazard_tip");
+   return locator;
+ }
+
+/***
+* 选择辨识人员：拼音索引搜索框
+* @throws IOException
+*/
+public Locator Members_pysy() throws IOException
+ {
+   Locator locator=getLocator("Members_pysy");
+   return locator;
+ }
+
+/***
+* 选择辨识人员：用户账号搜索框
+* @throws IOException
+*/
+public Locator Members_userName() throws IOException
+ {
+   Locator locator=getLocator("Members_userName");
+   return locator;
+ }
+
+/***
+* 选择辨识人员：用户名称搜索框
+* @throws IOException
+*/
+public Locator Members_realName() throws IOException
+ {
+   Locator locator=getLocator("Members_realName");
+   return locator;
+ }
+
+/***
+* 选择辨识人员：左侧树全选框
+* @throws IOException
+*/
+public Locator tree_checkbox() throws IOException
+ {
+   Locator locator=getLocator("tree_checkbox");
    return locator;
  }
 

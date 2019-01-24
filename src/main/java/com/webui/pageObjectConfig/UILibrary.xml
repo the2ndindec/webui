@@ -626,12 +626,12 @@
         <!-- 搜索条件 -->
         <locator type="xpath" timeout="3" value=".//span[text()='查询']" desc="查询按钮">search_Button</locator>
         <locator type="xpath" timeout="3" value=".//span[text()='重置']" desc="重置按钮">searchReset_Btn</locator>
-        <locator type="name" timeout="3" value="name" desc="查询条件--辨识名称">name_search_area</locator>
+        <locator type="name" timeout="3" value="name" desc="查询条件--辨识名称">name_area</locator>
         <locator type="name" timeout="3" value="time_begin" desc="查询条件--辨识开始时间">time_begin_search_area</locator>
         <locator type="name" timeout="3" value="time_end" desc="查询条件--辨识结束时间">time_end_search_area</locator>
         <locator type="xpath" timeout="3" value=".//*[@id='tBSpecialEvaluationListForm']/span[3]/label[1]" desc="全部">radio_all</locator>
         <locator type="xpath" timeout="3" value=".//*[@id='tBSpecialEvaluationListForm']/span[3]/label[2]" desc="待上报">radio_reporting</locator>
-        <locator type="xpath" timeout="3" value=".//*[@id='tBSpecialEvaluationListForm']/span[3]/label[3]" desc="查询条件--辨识结束时间">radio_reported</locator>
+        <locator type="xpath" timeout="3" value=".//*[@id='tBSpecialEvaluationListForm']/span[3]/label[3]" desc="已上报">radio_reported</locator>
         <!-- 录入/修改/查看界面 -->
         <locator type="xpath" timeout="3" value=".//*[@name='leaderType']" desc="辨识人类型">leaderType_select</locator>
         <locator type="xpath" timeout="3" value=".//*[@id='leaderSelect']/div[2]" desc="辨识负责人下拉框">leader_select</locator>
@@ -642,8 +642,13 @@
         <locator type="xpath" timeout="3" value=".//*[@id='locationSelect']/div[2]" desc="辨识地点下拉框">locationSelect</locator>
         <!-- .//*[@id='locationSelect']/div[3]/div -->
         <locator type="xpath" timeout="3" value=".//*[@id='remark']" desc="辨识结论">remark_textarea</locator>
-
         <locator type="xpath" timeout="3" value=".//*[@id='formobj']//span[contains(@class,'Validform_wrong')]" desc="提示信息">hazard_tip</locator>
+		<!--选择辨识人员-->
+		<locator type="name" timeout="3" value="pysy" desc="选择辨识人员：拼音索引搜索框">Members_pysy</locator>
+		<locator type="name" timeout="3" value="userName" desc="选择辨识人员：用户账号搜索框">Members_userName</locator>
+		<locator type="name" timeout="3" value="realName" desc="选择辨识人员：用户名称搜索框">Members_realName</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formtree']/li/div/span[3]" desc="选择辨识人员：左侧树全选框">tree_checkbox</locator>
+
         <locator type="xpath" timeout="3" value=".//*[@class='layui-layer-btn0']" desc="删除部分：确定按钮">del_confirm</locator>
         <locator type="xpath" timeout="3" value=".//*[@class='layui-layer-btn1']" desc="删除部分：取消按钮">del_cancel</locator>
 

@@ -749,13 +749,14 @@ public class DepartReportDangerListActions extends TestBaseCase {
         trElements.get(temp).click(); //  根据当前页面上的数据,随机选择
         /**
          * 根据定位数据的所在行，查找相关列数据内容，即各字段及相关的内容值，已Map的形式存放
-         * elementAction.getAttribute(tdElements.get(i),"field") 获取Key值
+         * elementAction.getAttribute(headElements.get(i),"innerText") 获取Key值
          * elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")),"innerText") 获取Value值
-         * 其中 tdElements.get(i) 表示第几列的内容
+         * 其中 Elements.get(i) 表示第几列的内容
          */
+        List<WebElement> headElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[1]//tbody/tr/td//span[1]"));
         List<WebElement> tdElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr["+(temp + 1) +"]/td"));
         for (int i = 1; i < tdElements.size(); i++) {
-            dataMap.put(elementAction.getAttribute(tdElements.get(i),"field")
+            dataMap.put(elementAction.getAttribute(headElements.get(i),"innerText")
                     ,elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")),"innerText"));
         }
         elementAction.clickByJS(departReportDangerListPage.detail_Button());

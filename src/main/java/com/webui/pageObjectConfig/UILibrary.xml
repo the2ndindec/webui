@@ -761,6 +761,7 @@
 		<locator type="xpath" timeout="3" value=".//table[@class='formtable']//tr[3]//[@id='magicsuggest']/div[2]" desc="地点下拉框">magicsuggest</locator>
 		<!-- .//*[@id='hdLocationSelect']/div[3]/div -->
 		<locator type="xpath" timeout="3" value=".//*[@id='sjjcDept']" desc="上级检查部门">sjjcDept</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='sjjcCheckMan']" desc="监察人">sjjcCheckMan</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='dangerName']" desc="危险源">dangerName</locator>
 		<!-- 选择危险源界面 -->
 		<locator type="xpath" timeout="3" value=".//*[@name='yeRecognizeYear']" desc="辨识时间">yeRecognizeYear</locator>
@@ -793,6 +794,7 @@
 		<locator type="xpath" timeout="3" value=".//*[@id='dealType_xianchang']" desc="现场处理">dealType_xianchang</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='reviewManNameSelect']/div[2]" desc="复查人">reviewMan</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='handleEntity.rectMeasures']" desc="整改措施">rectMeasures</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='handleEntity.reviewReport']" desc="复查情况">reviewReport</locator>
 
 		<locator type="xpath" timeout="3" value=".//input[@value='保存']" desc="保存按钮">btn_draft</locator>
 		<locator type="xpath" timeout="3" value=".//input[@value='保存并上报']" desc="保存并上报按钮">btn_subRep</locator>

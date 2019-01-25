@@ -2,6 +2,7 @@ package com.webui.utils;
 
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,10 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class ElementAction extends TestBaseCase {
@@ -552,11 +550,6 @@ public class ElementAction extends TestBaseCase {
     public int getOption(Locator locator) {
         Select select = new Select(findElement(locator));
         List<WebElement> webElements = select.getOptions();
-//        List<String> downs = new ArrayList<>();
-//        for (WebElement webElement : webElements
-//        ) {
-//            downs.add(webElement.getText());
-//        }
         int num = webElements.size();
         Random random = new Random();
         return random.nextInt(num - 1) + 1;
@@ -983,6 +976,36 @@ public class ElementAction extends TestBaseCase {
             }
         }
         return temp;
+    }
+
+
+    public Map<String, String> getDataMap() {
+        return dataMap;
+    }
+
+    public void setDataMap(Map<String, String> dataMap) {
+        this.dataMap = dataMap;
+    }
+
+    Map<String, String> dataMap = new HashMap<>();
+
+    public void customMapData(int tdNum){
+        /**
+         * 根据定位数据的所在行，查找相关列数据内容，即各字段及相关的内容值，已Map的形式存放
+         * getAttribute(headElements.get(i),"innerText") 获取Key值
+         * getAttribute(tdElements.get(i).findElement(By.tagName("div")),"innerText") 获取Value值
+         * 其中 Elements.get(i) 表示第几列的内容
+         */
+        List<WebElement> headElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[1]//tbody/tr/td//span[1]"));
+        List<WebElement> tdElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + (tdNum) + "]/td"));
+        for (int i = 1; i < tdElements.size(); i++) {
+            String s1 = getAttribute(headElements.get(i), "innerText");
+            String s2 = getAttribute(tdElements.get(i).findElement(By.tagName("div")), "innerText");
+            dataMap.put(getAttribute(headElements.get(i), "innerText")
+                    , getAttribute(tdElements.get(i).findElement(By.tagName("div")), "innerText"));
+            log.info("dsdasdsadasdsd");
+        }
+//        return dataMap;
     }
 
 }

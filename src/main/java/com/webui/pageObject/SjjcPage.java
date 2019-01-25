@@ -245,6 +245,16 @@ public Locator sjjcDept() throws IOException
  }
 
 /***
+* 监察人
+* @throws IOException
+*/
+public Locator sjjcCheckMan() throws IOException
+ {
+   Locator locator=getLocator("sjjcCheckMan");
+   return locator;
+ }
+
+/***
 * 危险源
 * @throws IOException
 */
@@ -531,6 +541,16 @@ public Locator reviewMan() throws IOException
 public Locator rectMeasures() throws IOException
  {
    Locator locator=getLocator("rectMeasures");
+   return locator;
+ }
+
+/***
+* 复查情况
+* @throws IOException
+*/
+public Locator reviewReport() throws IOException
+ {
+   Locator locator=getLocator("reviewReport");
    return locator;
  }
 

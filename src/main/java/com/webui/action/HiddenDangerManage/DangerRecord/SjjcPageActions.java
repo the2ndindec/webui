@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public class SjjcPageActions extends TestBaseCase {
         ea.switchToDefaultFrame();
         ea.switchToFrame(locator);
     }
+
 
     /**
      * 根据开始时间查询数据。需输入正确格式的日期，2019-01-25.否则不会按照输入的日期进行查询
@@ -348,7 +350,7 @@ public class SjjcPageActions extends TestBaseCase {
      * @param dataStr
      * @throws IOException
      */
-    public void chooseDate(String dataStr) throws IOException {
+    public void chooseData(String dataStr) throws IOException {
         if (ea.isElementDisplayedByLocator(sjjcp.data_tbody())) {
             List<WebElement> dataList = ea.findElements("");
             if (dataList.size() == 1) {
@@ -361,5 +363,37 @@ public class SjjcPageActions extends TestBaseCase {
         } else {
             log.warn("暂无数据");
         }
+    }
+
+    /**
+     * 获取指定字符串的内容
+     * @param fieldStr
+     * @return
+     * @throws IOException
+     */
+    public List<String> getSearchData(String fieldStr) throws IOException {
+        List<String> dataList = new ArrayList<>();
+        if (ea.isElementDisplayedByLocator(sjjcp.data_tbody())) {
+            switch (fieldStr) {
+                case "班次":
+                    List<WebElement> shiftElements = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='shift']/div"));
+                    for (int j = 0; j < shiftElements.size(); j++) {
+                        dataList.add(shiftElements.get(j).getText());
+                    }
+                    break;
+
+                case "日期":
+                    List<WebElement> examDate = driver.findElements(
+                            By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr/td[@field='examDate']/div"));
+                    for (int j = 0; j < examDate.size(); j++) {
+                        dataList.add(examDate.get(j).getText());
+                    }
+                    break;
+            }
+        } else {
+            log.info("根据查询条件>>无相关结果");
+        }
+        return dataList;
     }
 }

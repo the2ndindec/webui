@@ -116,7 +116,7 @@ public class FunctionUtil extends TestBaseCase {
      * @return: boolean
      * @throws:
      */
-    public static boolean isValidDate(String str) {
+    public boolean isValidDate(String str) {
         boolean convertSuccess = true;
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {

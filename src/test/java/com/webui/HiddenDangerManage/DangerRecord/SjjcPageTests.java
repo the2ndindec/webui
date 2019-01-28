@@ -32,14 +32,13 @@ public class SjjcPageTests extends TestBaseCase {
     public void TC_searchexamDateEnd() throws IOException, ParseException {
         openMenu();
         sjjcpa.searchByexamDateEnd("2019-01-04");
-        for (String data:sjjcpa.getSearchData("日期")
-             ) {
-            Assertion.verifyTimeEnd("2019-01-04",data);
+        for (String data : sjjcpa.getSearchData("日期")) {
+            Assertion.verifyTimeEnd("2019-01-04", data);
         }
     }
 
     public void openMenu() throws IOException {
-        dpa.openMenu(dp.yhpczl(),dp.aqxxlr(),dp.sjjc());
+        dpa.openMenu(dp.yhpczl(), dp.aqxxlr(), dp.sjjc());
         ea.switchToFrame(sjjp.iframe_sjjc());
     }
 }

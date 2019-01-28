@@ -728,9 +728,9 @@ public Locator cancel_btn() throws IOException
 * 提示信息
 * @throws IOException
 */
-public Locator hazard_tip() throws IOException
+public Locator checkTip() throws IOException
  {
-   Locator locator=getLocator("hazard_tip");
+   Locator locator=getLocator("checkTip");
    return locator;
  }
 

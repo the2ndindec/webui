@@ -28,6 +28,16 @@ public class SjjcPageActions extends TestBaseCase {
         ea.switchToFrame(locator);
     }
 
+    /**
+     * 切换页面，
+     * @param btnLocator
+     * @param frameLocator
+     */
+    public void switchPage(Locator btnLocator,Locator frameLocator){
+      ea.clickByJS(btnLocator);
+      motifyFrame(frameLocator);
+    }
+
 
     /**
      * 根据开始时间查询数据。需输入正确格式的日期，2019-01-25.否则不会按照输入的日期进行查询
@@ -146,8 +156,6 @@ public class SjjcPageActions extends TestBaseCase {
     public void editDanger() throws IOException {
         ea.clickByJS(sjjcp.dangerName());
         motifyFrame(sjjcp.iframe_chooseDangerSource());
-        ea.typeByJS(sjjcp.yeRecognizeYear(), "2018");
-        ea.clickByJS(sjjcp.search_Button());
         chooseDataRand();
         ea.switchToDefaultFrame();
         ea.clickByJS(sjjcp.confirm_btn());  //选择危险源结束
@@ -326,20 +334,11 @@ public class SjjcPageActions extends TestBaseCase {
     }
 
     /**
-     * 关闭
+     * 关闭.关闭当前界面
      * @throws IOException
      */
     public void doClose() throws IOException {
-        ea.clickByJS(sjjcp.btn_close());
-    }
-
-    /**
-     * 关闭当前界面。由于上级检查录入数据完成后，不会自动关闭该录入页面，需手动关闭
-     * @throws IOException
-     */
-    public void closePage() throws IOException {
-      ea.switchToDefaultFrame();
-      ea.clickByJS(sjjcp.close_tag());
+        ea.clickByJS(".//input[@value='关闭']");
     }
 
     /**

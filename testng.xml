@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="通用矿版">
-    <listeners>
-        <listener class-name="com.webui.Listener.AllureReporterListener"/>
-    </listeners>
+    <!--<listeners>-->
+        <!--<listener class-name="com.webui.Listener.AllureReporterListener"/>-->
+    <!--</listeners>-->
     <parameter name="driver" value="ChromeDriver"/>
     <parameter name="url" value="http://192.168.3.194:8080/sdzk/"/> <!--测试地址-->
     <test verbose="2" preserve-order="true" name="登录功能">
@@ -11,7 +11,7 @@
             <class name="com.webui.LoginPageTests">
                 <methods>
                     <include name="TC_login"/>
-                    <exclude name="TC_Login_noUser"/>
+                    <exclude name="Tc_cookies"/>
                     <exclude name="TC_Login_noPwd"/>
                 </methods>
             </class>
@@ -190,7 +190,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="上级检查" enabled="true">
+    <test verbose="2" preserve-order="true" name="上级检查" enabled="false">
         <classes>
             <class name="com.webui.HiddenDangerManage.DangerRecord.SjjcPageTests">
                 <methods>

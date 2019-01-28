@@ -8,10 +8,12 @@ import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
 import com.webui.utils.TestBaseCase;
 import io.qameta.allure.*;
+import org.openqa.selenium.Cookie;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.Set;
 
 /**
  * @author the2n
@@ -30,6 +32,11 @@ public class LoginPageTests extends TestBaseCase {
     public void TC_login() throws IOException {
         loginPageActions.signInInit("admin", "123456");
         Assertion.verityString(elementAction.getText(defultPage.userName_1()), "admin");
+    }
+
+    @Test
+    public void Tc_cookies(){
+      loginPageActions.testCookies();
     }
 
     @Test(description = "使用用户名，不使用密码")

@@ -4,7 +4,7 @@
     <listeners>
         <listener class-name="com.webui.Listener.AllureReporterListener"/>
     </listeners>
-    <parameter name="driver" value="FirefoxDriver"/>
+    <parameter name="driver" value="ChromeDriver"/>
     <parameter name="url" value="http://192.168.3.194:8080/sdzk/"/> <!--测试地址-->
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
@@ -194,7 +194,8 @@
         <classes>
             <class name="com.webui.HiddenDangerManage.DangerRecord.SjjcPageTests">
                 <methods>
-                    <include name="TC_searchexamDateEnd"/>
+                    <exclude name="TC_searchexamDateEnd"/>
+                    <include name="TC_add"/>
                 </methods>
             </class>
         </classes>
@@ -203,7 +204,7 @@
         <classes>
             <class name="com.webui.aqfxfjgk.RiskPointManagement.ManagelistPageTests">
                 <methods>
-                    <include name="TC"/>
+                    <include name="TC_add"/>
                 </methods>
             </class>
         </classes>

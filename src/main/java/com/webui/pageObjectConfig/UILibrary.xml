@@ -813,6 +813,7 @@
 		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
 		<locator type="xpath" timeout="3" value=".//input[@value='取消']" desc="取消按钮">cancel_btn</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//span[contains(@class,'Validform_wrong')]" desc="提示信息">checkTip</locator>
+		<locator type="xpath" timeout="3" value=".//div[contains(@class,'layui-layer')]/div[contains(@class,'layui-layer-content')]" desc="提示信息">tip</locator>
 		<locator type="xpath" timeout="3" value=".//*[@class='layui-layer-btn0']" desc="删除部分：确定按钮">del_confirm</locator>
 		<locator type="xpath" timeout="3" value=".//*[@class='layui-layer-btn1']" desc="删除部分：取消按钮">del_cancel</locator>
 	</page>

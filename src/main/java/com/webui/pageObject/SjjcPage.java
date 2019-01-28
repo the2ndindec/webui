@@ -735,6 +735,16 @@ public Locator checkTip() throws IOException
  }
 
 /***
+* 提示信息
+* @throws IOException
+*/
+public Locator tip() throws IOException
+ {
+   Locator locator=getLocator("tip");
+   return locator;
+ }
+
+/***
 * 删除部分：确定按钮
 * @throws IOException
 */

@@ -585,6 +585,16 @@ public Locator btn_close() throws IOException
  }
 
 /***
+* 当前选中页面关闭标签
+* @throws IOException
+*/
+public Locator close_tag() throws IOException
+ {
+   Locator locator=getLocator("close_tag");
+   return locator;
+ }
+
+/***
 * 数据列表
 * @throws IOException
 */

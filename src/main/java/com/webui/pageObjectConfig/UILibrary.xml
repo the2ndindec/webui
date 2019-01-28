@@ -736,9 +736,7 @@
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goAdd')]" desc="录入数据部分iframe标记">iframe_add</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goUpdate')]" desc="查看/编辑数据部分iframe标记">iframe_update</locator>
 		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'chooseDangerSource')]" desc="选择危险源部分iframe标记">iframe_chooseDangerSource</locator>
-
 		<!-- 操作按钮 -->
-
 		<locator type="xpath" timeout="3" value=".//span[text()='查看罚款']" desc="查看罚款按钮">goLinkFine_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='录入罚款']" desc="录入罚款">goAddFine_Button</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='上报']" desc="上报">reportHiddenDanger_Button</locator>
@@ -776,7 +774,6 @@
 		<locator type="xpath" timeout="3" value=".//*[@name='yeStandard']" desc="标准内容">yeStandard</locator>
 		<locator type="xpath" timeout="3" value=".//*[@name='hiddenLevel']" desc="隐患等级">hiddenLevel</locator>
 
-
 		<locator type="xpath" timeout="3" value=".//*[@id='magicsuggestDutyUnitSel']/div[2]" desc="责任单位">dutyUnit</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='magicsuggestDutyMan']/div[2]" desc="责任人">dutyMan</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='magicsuggestSuperviseUnitSel']/div[2]" desc="督办单位">superviseUnit</locator>
@@ -799,6 +796,7 @@
 		<locator type="xpath" timeout="3" value=".//input[@value='保存']" desc="保存按钮">btn_draft</locator>
 		<locator type="xpath" timeout="3" value=".//input[@value='保存并上报']" desc="保存并上报按钮">btn_subRep</locator>
 		<locator type="xpath" timeout="3" value=".//input[@value='btn_subRep']" desc="btn_subRep按钮">btn_close</locator>
+		<locator type="xpath" timeout="3" value=".//div[@class='page-tabs-content']/a[contains(@class,'active')]/i" desc="当前选中页面关闭标签">close_tag</locator>
 
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 

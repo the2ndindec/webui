@@ -575,7 +575,7 @@ public Locator btn_subRep() throws IOException
  }
 
 /***
-* btn_subRep按钮
+* 关闭按钮
 * @throws IOException
 */
 public Locator btn_close() throws IOException

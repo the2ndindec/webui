@@ -143,7 +143,7 @@ public class Assertion extends TestBaseCase {
         Boolean flag = false;
         log.info(verityStr);
         try {
-            exceptStr = "//*[contains(text(),'" + exceptStr + "')]";
+            exceptStr = ".//*[contains(text(),'" + exceptStr + "')]";
             log.info("定位信息：" + exceptStr);
             driver.findElements(By.xpath(exceptStr));
             if (driver.findElements(By.xpath(exceptStr)).size() > 0) {
@@ -166,8 +166,10 @@ public class Assertion extends TestBaseCase {
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
             ElementAction ea = new ElementAction();
-            ea.highlightElementByXpath(".//*[text()='" + exceptStr + "']");
+//            ea.highlightElementByXpath(".//*[text()='" + exceptStr + "']");
+            ea.highlightElementByXpath(exceptStr);
             Assertion.snapshotInfo();
+
         }
     }
 

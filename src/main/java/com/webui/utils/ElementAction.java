@@ -409,12 +409,20 @@ public class ElementAction extends TestBaseCase {
     public void clickByJS(String string) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
-            WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
+                WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
+//            WebElement newElement = wait.until(new ExpectedCondition<WebElement>() {
+//                @Override
+//                public WebElement apply(WebDriver driver) {
+//                    return driver.findElement(By.xpath(string));
+//                }
+//            });
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
         } catch (NoSuchElementException e) {
             log.error("找不到元素，click失败:" + "]");
             e.printStackTrace();
             throw e;
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -989,7 +997,7 @@ public class ElementAction extends TestBaseCase {
 
     Map<String, String> dataMap = new HashMap<>();
 
-    public void customMapData(int tdNum){
+    public void customMapData(int tdNum) {
         /**
          * 根据定位数据的所在行，查找相关列数据内容，即各字段及相关的内容值，已Map的形式存放
          * getAttribute(headElements.get(i),"innerText") 获取Key值

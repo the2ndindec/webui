@@ -277,7 +277,7 @@ public class SjjcPageActions extends TestBaseCase {
      * 选择处理方式为现场处理
      * @throws IOException
      */
-    public void choosedealType_xianchang() throws IOException {
+    public void chooseDealType_xianchang() throws IOException {
         ea.clickByJS(sjjcp.dealType_xianchang());
     }
 
@@ -286,7 +286,7 @@ public class SjjcPageActions extends TestBaseCase {
      * @param reviewManName
      * @throws IOException
      */
-    public void editreviewManName(String reviewManName) throws IOException {
+    public void editReviewManName(String reviewManName) throws IOException {
         ea.clickByJS(sjjcp.reviewMan());
         ea.clickByJS(".//*[@id='reviewManNameSelect']//div[text()='" + reviewManName + "']");
     }
@@ -331,6 +331,15 @@ public class SjjcPageActions extends TestBaseCase {
      */
     public void doClose() throws IOException {
         ea.clickByJS(sjjcp.btn_close());
+    }
+
+    /**
+     * 关闭当前界面。由于上级检查录入数据完成后，不会自动关闭该录入页面，需手动关闭
+     * @throws IOException
+     */
+    public void closePage() throws IOException {
+      ea.switchToDefaultFrame();
+      ea.clickByJS(sjjcp.close_tag());
     }
 
     /**

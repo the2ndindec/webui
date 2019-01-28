@@ -756,7 +756,7 @@
 		<locator type="xpath" timeout="3" value=".//div[@id='searchColums']//label[3]" desc="已退回选择项">ROLLBACK_radio</locator>
 		<!-- 录入/修改/查看界面 -->
 		<locator type="xpath" timeout="3" value=".//*[@id='examDate']" desc="排查日期">examDate</locator>
-		<locator type="xpath" timeout="3" value=".//table[@class='formtable']//tr[3]//[@id='magicsuggest']/div[2]" desc="地点下拉框">magicsuggest</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='magicsuggest']/div[2]" desc="地点下拉框">magicsuggest</locator>
 		<!-- .//*[@id='hdLocationSelect']/div[3]/div -->
 		<locator type="xpath" timeout="3" value=".//*[@id='sjjcDept']" desc="上级检查部门">sjjcDept</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='sjjcCheckMan']" desc="监察人">sjjcCheckMan</locator>

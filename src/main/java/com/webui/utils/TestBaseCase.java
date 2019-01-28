@@ -52,8 +52,8 @@ public class TestBaseCase {
                 firefoxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.ms-excel"); //指定要下载页面的Content-type 值，“application/octet-stream”为文件的类型
                 TestBaseCase.driver = new FirefoxDriver(firefoxProfile);
                 break;
-            case "ChormeDriver":
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/drives/ChromeDriver 2.41/chromedriver.exe");
+            case "ChromeDriver":
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/drives/chromeDriver2.45/chromedriver.exe");
                 ChromeOptions options = new ChromeOptions();
                 // ----设置chrome加载flash插件
                 Map<String, Object> prefs = new HashMap<String, Object>();

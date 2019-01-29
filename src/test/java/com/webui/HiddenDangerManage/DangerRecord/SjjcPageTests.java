@@ -54,24 +54,25 @@ public class SjjcPageTests extends TestBaseCase {
         sjjcpa.switchPage(sjjp.add_Button(),sjjp.iframe_add());
         sjjcpa.editShift("1");
         sjjcpa.editAddress("测试风险点1");
-        sjjcpa.editSjjcDept("auto_add1");
+        sjjcpa.editSjjcDept("auto_add111");
         sjjcpa.editsjjcCheckMan("测试员");
         sjjcpa.editDanger();
         sjjcpa.editDutyUnit("xx煤矿");
         sjjcpa.editDutyMan("管理员");
         sjjcpa.editHiddenNature("一般隐患A级");
         sjjcpa.editHiddenType("通风");
-        sjjcpa.editProblemDesc("aotu自动输入内容2");
+        sjjcpa.editProblemDesc("aotu自动输入内容3");
         sjjcpa.editLimitDate("2019-01-31");
         sjjcpa.doDraft();
         Assertion.verityCationString(ea.getAttribute(sjjp.tip(),"innerText"),"隐患检查添加成功");
         sjjcpa.doClose();
         ea.switchToFrame(sjjp.iframe_sjjc());
-        Assertion.verityTextPresent("aotu自动输入内容2");
+        Assertion.verityTextPresent("auto_add111");
     }
 
     public void openMenu() throws IOException {
         dpa.openMenu(dp.yhpczl(), dp.aqxxlr(), dp.sjjc());
         ea.switchToFrame(sjjp.iframe_sjjc());
+        ea.sleep(1);
     }
 }

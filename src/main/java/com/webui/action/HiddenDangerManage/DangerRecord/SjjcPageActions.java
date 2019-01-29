@@ -33,9 +33,10 @@ public class SjjcPageActions extends TestBaseCase {
      * @param btnLocator
      * @param frameLocator
      */
-    public void switchPage(Locator btnLocator,Locator frameLocator){
-      ea.clickByJS(btnLocator);
-      motifyFrame(frameLocator);
+    public void switchPage(Locator btnLocator, Locator frameLocator) {
+        ea.clickByJS(btnLocator);
+        ea.sleep(1);
+        motifyFrame(frameLocator);
     }
 
 
@@ -238,7 +239,8 @@ public class SjjcPageActions extends TestBaseCase {
      * @throws IOException
      */
     public void editProblemDesc(String problemDesc) throws IOException {
-        ea.typeByJS(sjjcp.problemDesc(), problemDesc);
+        if ((ea.getText(sjjcp.problemDesc())) == null)
+            ea.typeByJS(sjjcp.problemDesc(), problemDesc);
     }
 
     /**
@@ -273,12 +275,12 @@ public class SjjcPageActions extends TestBaseCase {
      * @param limitDate
      * @throws IOException
      */
-    public void  editLimitDate(String limitDate) throws IOException {
-      if(functionUtil.isValidDate(limitDate)){
-          ea.typeByJS(sjjcp.limitDate(),limitDate);
-      }else {
-          log.warn("输入的时间【" + limitDate + "】格式不正确");
-      }
+    public void editLimitDate(String limitDate) throws IOException {
+        if (functionUtil.isValidDate(limitDate)) {
+            ea.typeByJS(sjjcp.limitDate(), limitDate);
+        } else {
+            log.warn("输入的时间【" + limitDate + "】格式不正确");
+        }
     }
 
     /**
@@ -305,7 +307,7 @@ public class SjjcPageActions extends TestBaseCase {
      * @throws IOException
      */
     public void editRectMeasures(String rectMeasures) throws IOException {
-        ea.typeByJS(sjjcp.rectMeasures(),rectMeasures);
+        ea.typeByJS(sjjcp.rectMeasures(), rectMeasures);
     }
 
     /**
@@ -314,7 +316,7 @@ public class SjjcPageActions extends TestBaseCase {
      * @throws IOException
      */
     public void editReviewReport(String reviewReport) throws IOException {
-        ea.typeByJS(sjjcp.reviewReport(),reviewReport);
+        ea.typeByJS(sjjcp.reviewReport(), reviewReport);
     }
 
     /**

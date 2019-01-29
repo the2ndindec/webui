@@ -453,8 +453,7 @@ public class ElementAction extends TestBaseCase {
         try {
             WebElement webElement = findElement(locator);
             Select select = new Select(webElement);
-            log.info("选择select标签：" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
-                    + locator.getElement() + "]");
+            log.info("选择select标签：" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement() + "]");
             try {
                 // select.selectByValue(value);
                 select.selectByVisibleText(text);
@@ -672,13 +671,28 @@ public class ElementAction extends TestBaseCase {
         try {
             WebElement webElement = findElement(locator);
             webElement.clear();
-            log.info("清除input值:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement()
-                    + "]");
+            log.info("清除input值:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement() + "]");
         } catch (Exception e) {
-            log.error("清除input值失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
-                    + locator.getElement() + "]");
+            log.error("清除input值失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement() + "]");
             throw e;
         }
+    }
+
+    /**
+     * 设置select下拉框为默认值。！！！只针对select元素有效
+     * @param locator 待操作的select元素
+     */
+    public void resetSelect(Locator locator){
+      try{
+          WebElement webElement = findElement(locator);
+          Select select = new Select(webElement);
+          webElement.click();
+          select.selectByVisibleText("---请选择---");
+          log.info("设置下拉框为默认值:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement() + "]");
+      }catch (Exception e){
+          log.error("置下拉框为默认值失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement() + "]");
+          throw e;
+      }
     }
 
     /**

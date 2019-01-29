@@ -20,7 +20,7 @@ public class LoginPageActions extends TestBaseCase {
 		ea.type(lp.userName_Text(), username);
 		ea.type(lp.password_Text(), password);
 		ea.click(lp.login_btn());
-		wtriteC();
+//		wtriteC();
 	}
 
 	public void testCookies(){

@@ -420,7 +420,7 @@ public class ElementAction extends TestBaseCase {
             log.error("找不到元素，click失败:" + "]");
             e.printStackTrace();
             throw e;
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -686,6 +686,7 @@ public class ElementAction extends TestBaseCase {
      * @param locator 元素locator
      */
     public void switchToFrame(Locator locator) {
+//        new WebDriverWait(driver,10).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator.getElement()));
         WebElement frameElement = findElement(locator);
         driver.switchTo().frame(frameElement);
         log.info("切换frame成功");

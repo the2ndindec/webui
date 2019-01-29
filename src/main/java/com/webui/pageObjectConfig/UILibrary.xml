@@ -793,9 +793,9 @@
 		<locator type="xpath" timeout="3" value=".//*[@id='handleEntity.rectMeasures']" desc="整改措施">rectMeasures</locator>
 		<locator type="xpath" timeout="3" value=".//*[@id='handleEntity.reviewReport']" desc="复查情况">reviewReport</locator>
 
-		<locator type="xpath" timeout="3" value=".//input[@value='保存']" desc="保存按钮">btn_draft</locator>
-		<locator type="xpath" timeout="3" value=".//input[@value='保存并上报']" desc="保存并上报按钮">btn_subRep</locator>
-		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">btn_close</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='btn_draft']" desc="保存按钮">btn_draft</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='btn_subRep']" desc="保存并上报按钮">btn_subRep</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='btn_close']" desc="关闭按钮">btn_close</locator>
 		<locator type="xpath" timeout="3" value=".//div[@class='page-tabs-content']/a[contains(@class,'active')]/i" desc="当前选中页面关闭标签">close_tag</locator>
 
 		<locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>

@@ -393,8 +393,7 @@ public class ElementAction extends TestBaseCase {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", webElement);
             log.info("click元素：" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement() + "]成功！");
         } catch (NoSuchElementException e) {
-            log.error("找不到元素，click失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":"
-                    + locator.getElement() + "]");
+            log.error("找不到元素，click失败:" + locator.getLocalorName() + "[" + "By." + locator.getBy() + ":" + locator.getElement() + "]");
             e.printStackTrace();
             throw e;
         }
@@ -409,7 +408,7 @@ public class ElementAction extends TestBaseCase {
     public void clickByJS(String string) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
-                WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
+            WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(string)));
 //            WebElement newElement = wait.until(new ExpectedCondition<WebElement>() {
 //                @Override
 //                public WebElement apply(WebDriver driver) {

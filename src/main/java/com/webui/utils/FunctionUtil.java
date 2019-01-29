@@ -93,14 +93,19 @@ public class FunctionUtil extends TestBaseCase {
     }
 
     /**
-     * 生成随机数
+     * 生成随机数,返回介于0(含)和num(不含)伪随机，均匀分布的int值
      * @param num
      * @return: int
      * @throws:
      */
     public int random(int num) {
-        Random random = new Random();
-        int rand = random.nextInt(num);
+        int rand = 0;
+        try {
+            Random random = new Random();
+            rand = random.nextInt(num);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         return rand;
     }
 

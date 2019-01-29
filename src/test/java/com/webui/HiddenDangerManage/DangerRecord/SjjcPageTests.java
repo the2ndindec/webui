@@ -6,6 +6,7 @@ import com.webui.pageObject.DefultPage;
 import com.webui.pageObject.SjjcPage;
 import com.webui.utils.Assertion;
 import com.webui.utils.ElementAction;
+import com.webui.utils.ReadProperties;
 import com.webui.utils.TestBaseCase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Story;
@@ -25,6 +26,8 @@ public class SjjcPageTests extends TestBaseCase {
     DefultPageActions dpa = new DefultPageActions();
     DefultPage dp = new DefultPage();
     ElementAction ea = new ElementAction();
+    ReadProperties rp = new ReadProperties();
+    private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
 
     @Story("查询")
     @Test(description = "验证结束时间进行查询")
@@ -49,12 +52,13 @@ public class SjjcPageTests extends TestBaseCase {
     @Story("添加数据")
     @Test(description = "添加数据")
     @Description("录入数据")
-    public void TC_add() throws IOException {
+    public void TC_add() throws IOException, InterruptedException {
         openMenu();
         sjjcpa.switchPage(sjjp.add_Button(),sjjp.iframe_add());
-        sjjcpa.editShift("1");
+//        sjjcpa.editShift("1");
+        sjjcpa.editShift();
         sjjcpa.editAddress("测试风险点1");
-        sjjcpa.editSjjcDept("auto_add111");
+        sjjcpa.editSjjcDept(rp.readPropertiesFile(filePath,"SjjcDept"));
         sjjcpa.editsjjcCheckMan("测试员");
         sjjcpa.editDanger();
         sjjcpa.editDutyUnit("xx煤矿");
@@ -67,7 +71,7 @@ public class SjjcPageTests extends TestBaseCase {
         Assertion.verityCationString(ea.getAttribute(sjjp.tip(),"innerText"),"隐患检查添加成功");
         sjjcpa.doClose();
         ea.switchToFrame(sjjp.iframe_sjjc());
-        Assertion.verityTextPresent("auto_add111");
+        Assertion.verityTextPresent(rp.readPropertiesFile(filePath,"SjjcDept"));
     }
 
     public void openMenu() throws IOException {

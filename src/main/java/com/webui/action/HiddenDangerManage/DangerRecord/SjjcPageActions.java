@@ -1,10 +1,7 @@
 package com.webui.action.HiddenDangerManage.DangerRecord;
 
 import com.webui.pageObject.SjjcPage;
-import com.webui.utils.ElementAction;
-import com.webui.utils.FunctionUtil;
-import com.webui.utils.Locator;
-import com.webui.utils.TestBaseCase;
+import com.webui.utils.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -22,6 +19,8 @@ public class SjjcPageActions extends TestBaseCase {
     SjjcPage sjjcp = new SjjcPage();
     ElementAction ea = new ElementAction();
     FunctionUtil functionUtil = new FunctionUtil();
+    ReadProperties rp = new ReadProperties();
+    private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
 
     public void motifyFrame(Locator locator) {
         ea.switchToDefaultFrame();
@@ -120,6 +119,15 @@ public class SjjcPageActions extends TestBaseCase {
     public void editShift(String shift) throws IOException {
         ea.clickByJS(sjjcp.shift_area());
         ea.selectByValue(sjjcp.shift_area(), shift);
+    }
+
+    /**
+     * 随机选择班次
+     * @throws IOException
+     */
+    public void editShift() throws IOException {
+        ea.clickByJS(sjjcp.shift_area());
+        ea.selectByValue(sjjcp.shift_area(), String.valueOf(functionUtil.random(3)+1));
     }
 
     /**
@@ -323,15 +331,68 @@ public class SjjcPageActions extends TestBaseCase {
      * 保存
      * @throws IOException
      */
-    public void doDraft() throws IOException {
+    public void doDraft() throws IOException, InterruptedException {
+        doCheckTips();
         ea.clickByJS(sjjcp.btn_draft());
+    }
+
+    /**
+     * 此方法用于在提交或者保存前判断页面上必填内容是否存在空值的情况
+     * 判断页面上是否有相应的提示信息
+     * @throws InterruptedException
+     * @throws IOException
+     */
+    public void doCheckTips() throws InterruptedException, IOException {
+        while (ea.isElementsPresent(sjjcp.checkTip(), 1)){
+            List<WebElement> checkTips = ea.findElements(sjjcp.checkTip());
+            if (checkTips.size() != 0){
+                for (WebElement tip:checkTips) {
+                    String s = tip.getText();
+                    switch (tip.getText()){
+                        case "请选择班次！":
+                            editShift("1");
+                            break;
+                        case "请填写地点！":
+                            editAddress("测试风险点1");
+                            break;
+                        case "请填写上级检查部门！":
+                            editSjjcDept(rp.readPropertiesFile(filePath,"SjjcDept"));
+                            break;
+                        case "请填写责任单位！":
+                            editDutyUnit("xx煤矿");
+                            break;
+                        case "请填写责任人！":
+                            editDutyMan("管理员");
+                            break;
+                        case "请选择隐患类别！":
+                            editHiddenCategory("隐患排查治理");
+                            break;
+                        case "请选择隐患等级！":
+                            editHiddenNature("一般隐患B级");
+                            break;
+                        case "请选择隐患类型！":
+                            editHiddenType("通风");
+                            break;
+                        case "请填写问题描述！":
+                            editProblemDesc("aotu自动输入内容3");
+                            break;
+                        case "请填写限期日期！":
+                            editLimitDate("2019-01-31");
+                            break;
+                    }
+                }
+            }else {
+                log.info("未发现提示信息");
+            }
+        }
     }
 
     /**
      * 保存并上报
      * @throws IOException
      */
-    public void doSubRep() throws IOException {
+    public void doSubRep() throws IOException, InterruptedException {
+        doCheckTips();
         ea.clickByJS(sjjcp.btn_subRep());
     }
 
@@ -340,8 +401,11 @@ public class SjjcPageActions extends TestBaseCase {
      * @throws IOException
      */
     public void doClose() throws IOException {
-        ea.clickByJS(".//input[@value='关闭']");
+//        ea.clickByJS(sjjcp.close_btn());
+        ea.clickByJS(".//div[@class='ui_buttons']/input[@id='btn_close']");
     }
+
+
 
     /**
      * 针对当前页面上数据列表中的数据，随机选择一条数据

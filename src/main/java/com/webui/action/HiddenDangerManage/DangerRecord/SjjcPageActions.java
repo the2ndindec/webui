@@ -405,6 +405,15 @@ public class SjjcPageActions extends TestBaseCase {
         ea.clickByJS(".//div[@class='ui_buttons']/input[@id='btn_close']");
     }
 
+    /**
+     * 重置查询条件
+     * @throws IOException
+     */
+    public void reset() throws IOException {
+        ea.clear(sjjcp.examDate_begin_area());
+        ea.clear(sjjcp.examDate_end_area());
+        ea.resetSelect(sjjcp.shift_area());
+    }
 
 
     /**

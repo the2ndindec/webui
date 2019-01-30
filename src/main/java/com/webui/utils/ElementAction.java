@@ -1009,9 +1009,9 @@ public class ElementAction extends TestBaseCase {
         this.dataMap = dataMap;
     }
 
-    Map<String, String> dataMap = new HashMap<>();
+    Map<String, String> dataMap = new HashMap<String,String>();
 
-    public void customMapData(int tdNum) {
+    public Map<String,String> customMapData(int tdNum) {
         /**
          * 根据定位数据的所在行，查找相关列数据内容，即各字段及相关的内容值，已Map的形式存放
          * getAttribute(headElements.get(i),"innerText") 获取Key值
@@ -1027,7 +1027,7 @@ public class ElementAction extends TestBaseCase {
                     , getAttribute(tdElements.get(i).findElement(By.tagName("div")), "innerText"));
             log.info("dsdasdsadasdsd");
         }
-//        return dataMap;
+        return dataMap;
     }
 
 }

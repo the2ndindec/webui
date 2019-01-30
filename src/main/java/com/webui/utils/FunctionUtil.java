@@ -1,11 +1,10 @@
 package com.webui.utils;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author the2n
@@ -133,6 +132,26 @@ public class FunctionUtil extends TestBaseCase {
             convertSuccess = false;
         }
         return convertSuccess;
+    }
+
+    /**
+     * 1.去除空格：s = s.replace('\\s','');
+     * 2.去除回车：s = s.replace('\n','');
+     * \n 回车(\u000a)
+     * \t 水平制表符(\u0009)
+     * \s 空格(\u0008)
+     * \r 换行(\u000d)
+     * @param string
+     * @return
+     */
+    public static String replaceBlank(String string){
+        String dest = "";
+        if (string!=null){
+            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+            Matcher m = p.matcher(string);
+            dest = m.replaceAll("");
+        }
+        return dest;
     }
 
     public static void main(String[] args) {

@@ -8,7 +8,9 @@ import org.openqa.selenium.WebElement;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author the2n
@@ -127,7 +129,7 @@ public class SjjcPageActions extends TestBaseCase {
      */
     public void editShift() throws IOException {
         ea.clickByJS(sjjcp.shift_area());
-        ea.selectByValue(sjjcp.shift_area(), String.valueOf(functionUtil.random(3)+1));
+        ea.selectByValue(sjjcp.shift_area(), String.valueOf(functionUtil.random(3) + 1));
     }
 
     /**
@@ -343,12 +345,12 @@ public class SjjcPageActions extends TestBaseCase {
      * @throws IOException
      */
     public void doCheckTips() throws InterruptedException, IOException {
-        while (ea.isElementsPresent(sjjcp.checkTip(), 1)){
+        while (ea.isElementsPresent(sjjcp.checkTip(), 1)) {
             List<WebElement> checkTips = ea.findElements(sjjcp.checkTip());
-            if (checkTips.size() != 0){
-                for (WebElement tip:checkTips) {
+            if (checkTips.size() != 0) {
+                for (WebElement tip : checkTips) {
                     String s = tip.getText();
-                    switch (tip.getText()){
+                    switch (tip.getText()) {
                         case "请选择班次！":
                             editShift("1");
                             break;
@@ -356,7 +358,7 @@ public class SjjcPageActions extends TestBaseCase {
                             editAddress("测试风险点1");
                             break;
                         case "请填写上级检查部门！":
-                            editSjjcDept(rp.readPropertiesFile(filePath,"SjjcDept"));
+                            editSjjcDept(rp.readPropertiesFile(filePath, "SjjcDept"));
                             break;
                         case "请填写责任单位！":
                             editDutyUnit("xx煤矿");
@@ -381,7 +383,7 @@ public class SjjcPageActions extends TestBaseCase {
                             break;
                     }
                 }
-            }else {
+            } else {
                 log.info("未发现提示信息");
             }
         }
@@ -478,5 +480,56 @@ public class SjjcPageActions extends TestBaseCase {
             log.info("根据查询条件>>无相关结果");
         }
         return dataList;
+    }
+
+    public Map<String, String> getDataMap() {
+        return dataMap;
+    }
+
+    public void setDataMap(Map<String, String> dataMap) {
+        this.dataMap = dataMap;
+    }
+
+    Map<String, String> dataMap = new HashMap<String, String>();
+
+    public void viewDetail(String string) throws IOException {
+        List<WebElement> elements = ea.getElementsByValue(string);
+        if (elements.size() == 1) {
+            elements.get(0).click();
+            /**
+             * 根据定位数据的所在行，查找相关列数据内容，即各字段及相关的内容值，已Map的形式存放
+             * elementAction.getAttribute(headElements.get(i),"innerText") 获取Key值
+             * elementAction.getAttribute(tdElements.get(i).findElement(By.tagName("div")),"innerText") 获取Value值
+             * 其中 Elements.get(i) 表示第几列的内容
+             */
+            List<WebElement> headElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[1]//tbody/tr/td//span[1]"));
+            List<WebElement> tdElements = driver.findElements(By.xpath(".//div[@class='datagrid-view2']/div[2]//tbody/tr[" + ea.getTrNum(string) + "]/td"));
+            for (int i = 1; i < tdElements.size(); i++) {
+                if ((FunctionUtil.replaceBlank((ea.getAttribute(driver.findElement(By.xpath(".//td[@field='reviewMan']")), "innerText"))).equalsIgnoreCase("复查人"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("隐患类别"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("下井时间开始"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("下井时间结束"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("限期班次"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("检查类型"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("创建人名称"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("创建人登录名称"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("创建日期"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("创建日期"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("更新人名称"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("更新人登录名称"))
+                        || (FunctionUtil.replaceBlank((ea.getAttribute(headElements.get(i), "innerText"))).equalsIgnoreCase("更新日期")))
+                    continue;
+                String s1 = ea.getAttribute(headElements.get(i), "innerText");
+                String s2 = ea.getAttribute(tdElements.get(i), "innerText");
+                dataMap.put(ea.getAttribute(headElements.get(i), "innerText")
+                        , ea.getAttribute(tdElements.get(i).findElement(By.tagName("div")), "innerText"));
+            }
+            ea.clickByJS(sjjcp.detail_Button());
+            motifyFrame(sjjcp.iframe_update());
+        } else if (elements.size() > 1) {
+            log.warn("根据输入的字符串【" + string + "】找到" + elements.size() + "个对应的元素信息。不能执行查看操作！！");
+        } else {
+            log.warn("根据输入的字符串【" + string + "】未找到对应的元素信息。不能执行查看操作！！");
+        }
     }
 }

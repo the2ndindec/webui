@@ -6,7 +6,7 @@
     <!--</listeners>-->
     <parameter name="driver" value="ChromeDriver"/>
     <!--<parameter name="driver" value="FirefoxDriver"/>-->
-    <parameter name="url" value="http://192.168.3.194:8080/sdzk/"/> <!--测试地址-->
+    <parameter name="url" value="http://192.168.3.241:8080/sdzk/"/> <!--测试地址-->
     <test verbose="2" preserve-order="true" name="登录功能">
         <classes>
             <class name="com.webui.LoginPageTests">
@@ -195,8 +195,9 @@
         <classes>
             <class name="com.webui.HiddenDangerManage.DangerRecord.SjjcPageTests">
                 <methods>
-                    <exclude name="TC_searchexamDateEnd"/>
-                    <include name="TC_add"/>
+                    <include name="TC_searchexamDateEnd"/>
+                    <include name="TC_searchByShift"/>
+                    <include name="TC_viewDetail"/>
                 </methods>
             </class>
         </classes>

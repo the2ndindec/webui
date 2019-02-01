@@ -41,6 +41,7 @@ public class TestBaseCase {
         log.info("-------------结束测试，并关闭退出浏览器-------------");
     }
 
+    String downloadFilepath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\autoDownload";
     @Step(value = "初始化浏览器driver")
     private WebDriver setDriver(String browsername) {
         switch (browsername) {
@@ -48,7 +49,7 @@ public class TestBaseCase {
                 FirefoxProfile firefoxProfile = new FirefoxProfile();
                 firefoxProfile.setPreference("browser.download.folderList", 2); //设置成0 代表下载到浏览器默认下载路径；设置成2 则可以保存到指定目录。
                 firefoxProfile.setPreference("browser.download.manager.showWhenStarting", false); //设置成0 代表下载到浏览器默认下载路径；设置成2 则可以保存到指定目录。
-                firefoxProfile.setPreference("browser.download.dir", "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\autoDownload");   //用于指定你所下载文件的目录。
+                firefoxProfile.setPreference("browser.download.dir",downloadFilepath );   //用于指定你所下载文件的目录。
                 firefoxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.ms-excel"); //指定要下载页面的Content-type 值，“application/octet-stream”为文件的类型
                 TestBaseCase.driver = new FirefoxDriver(firefoxProfile);
                 break;
@@ -62,9 +63,12 @@ public class TestBaseCase {
                 prefs.put("profile.content_settings.plugin_whitelist.adobe-flash-player", 1);
                 prefs.put("profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player", 1);
                 prefs.put("PluginsAllowedForUrls", "https://arlo.netgear.com");
+                prefs.put("profile.default_content_settings.popups", 0);
+                prefs.put("download.default_directory", downloadFilepath);
                 options.setExperimentalOption("prefs", prefs);
                 // ----设置chrome加载flash插件结束
                 options.addArguments("disable-infobars");
+                options.addArguments("--test-type");
 
                 TestBaseCase.driver = new ChromeDriver(options);
                 break;

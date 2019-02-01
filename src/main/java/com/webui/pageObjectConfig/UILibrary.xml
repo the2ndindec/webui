@@ -105,6 +105,20 @@
 		<locator type="xpath" timeout="3" value=".//span[text()='职工个人基本信息']" desc="职工个人基本信息">employeeInfoList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='系统管理']" desc="系统管理">systemManageList</locator>
 		<locator type="xpath" timeout="3" value=".//span[text()='用户管理']" desc="用户管理">userManageList</locator>
+
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'hplushome')]" desc="首页页面iframe标记">iframe_hplushome</locator>
+		<locator type="xpath" timeout="3" value=".//iframe[contains(@src,'goEditUserChildWin')]" desc="首页配置界面iframe标记">iframe_edit</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='startDate']" desc="搜索条件：开始时间">startDate</locator>
+		<locator type="xpath" timeout="3" value=".//input[@id='endDate']" desc="搜索条件：结束时间">endDate</locator>
+		<locator type="xpath" timeout="3" value=".//span[text()='刷新']" desc="刷新">search</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tr[2]/td[2]" desc="左上">left_up</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tr[3]/td[2]" desc="中上">midd_up</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tr[4]/td[2]" desc="右上">right_up</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tr[5]/td[2]" desc="左下">left_down</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tr[6]/td[2]" desc="中下">midd_down</locator>
+		<locator type="xpath" timeout="3" value=".//*[@id='formobj']//tr[7]/td[2]" desc="右下">right_down</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='确定']" desc="确定按钮">confirm_btn</locator>
+		<locator type="xpath" timeout="3" value=".//input[@value='关闭']" desc="关闭按钮">close_btn</locator>
 	</page>
     <page pagename="com.webui.pageObject.ManagelistPage" value="" desc="风险区域管理页面">
         <locator type="name" timeout="3" value="iframe1" desc="风险区域管理页面iframe标记">iframe_managelist</locator>

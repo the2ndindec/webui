@@ -753,4 +753,134 @@ public Locator userManageList() throws IOException
    Locator locator=getLocator("userManageList");
    return locator;
  }
+
+/***
+* 首页页面iframe标记
+* @throws IOException
+*/
+public Locator iframe_hplushome() throws IOException
+ {
+   Locator locator=getLocator("iframe_hplushome");
+   return locator;
+ }
+
+/***
+* 首页配置界面iframe标记
+* @throws IOException
+*/
+public Locator iframe_edit() throws IOException
+ {
+   Locator locator=getLocator("iframe_edit");
+   return locator;
+ }
+
+/***
+* 搜索条件：开始时间
+* @throws IOException
+*/
+public Locator startDate() throws IOException
+ {
+   Locator locator=getLocator("startDate");
+   return locator;
+ }
+
+/***
+* 搜索条件：结束时间
+* @throws IOException
+*/
+public Locator endDate() throws IOException
+ {
+   Locator locator=getLocator("endDate");
+   return locator;
+ }
+
+/***
+* 刷新
+* @throws IOException
+*/
+public Locator search() throws IOException
+ {
+   Locator locator=getLocator("search");
+   return locator;
+ }
+
+/***
+* 左上
+* @throws IOException
+*/
+public Locator left_up() throws IOException
+ {
+   Locator locator=getLocator("left_up");
+   return locator;
+ }
+
+/***
+* 中上
+* @throws IOException
+*/
+public Locator midd_up() throws IOException
+ {
+   Locator locator=getLocator("midd_up");
+   return locator;
+ }
+
+/***
+* 右上
+* @throws IOException
+*/
+public Locator right_up() throws IOException
+ {
+   Locator locator=getLocator("right_up");
+   return locator;
+ }
+
+/***
+* 左下
+* @throws IOException
+*/
+public Locator left_down() throws IOException
+ {
+   Locator locator=getLocator("left_down");
+   return locator;
+ }
+
+/***
+* 中下
+* @throws IOException
+*/
+public Locator midd_down() throws IOException
+ {
+   Locator locator=getLocator("midd_down");
+   return locator;
+ }
+
+/***
+* 右下
+* @throws IOException
+*/
+public Locator right_down() throws IOException
+ {
+   Locator locator=getLocator("right_down");
+   return locator;
+ }
+
+/***
+* 确定按钮
+* @throws IOException
+*/
+public Locator confirm_btn() throws IOException
+ {
+   Locator locator=getLocator("confirm_btn");
+   return locator;
+ }
+
+/***
+* 关闭按钮
+* @throws IOException
+*/
+public Locator close_btn() throws IOException
+ {
+   Locator locator=getLocator("close_btn");
+   return locator;
+ }
 }

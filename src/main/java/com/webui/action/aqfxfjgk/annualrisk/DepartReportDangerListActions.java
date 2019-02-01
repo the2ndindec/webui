@@ -534,6 +534,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      * @throws:
      */
     public void searchByyeRecognizeTime_begin(String yeRecognizeTime_begin) throws IOException {
+        /** 判断输入的时间格式是否正确*/
         if (functionUtil.isValidDate(yeRecognizeTime_begin)) {
             elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);
             elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -550,6 +551,7 @@ public class DepartReportDangerListActions extends TestBaseCase {
      */
     @Step("输入辨识结束时间:{0}")
     public void searchByyeRecognizeTime_end(String end) throws IOException {
+        /** 判断输入的时间格式是否正确*/
         if (functionUtil.isValidDate(end)) {
             elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_end_textarea(), end);
             elementAction.clickByJS(departReportDangerListPage.search_Button());
@@ -567,7 +569,9 @@ public class DepartReportDangerListActions extends TestBaseCase {
      */
     @Step("输入辨识开始时间：{0}，输入辨识结束时间:{1}")
     public void searchByyeRecognizeTime(String yeRecognizeTime_begin, String end) throws IOException, ParseException {
+        /** 判断输入的时间格式是否正确*/
         if (functionUtil.isValidDate(yeRecognizeTime_begin) && functionUtil.isValidDate(end)) {
+            /** 比较开始时间和结束时间的先后顺序*/
             if (functionUtil.compareTime(yeRecognizeTime_begin, end)) {
                 elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_begin_textarea(), yeRecognizeTime_begin);
                 elementAction.typeByJS(departReportDangerListPage.s_yeRecognizeTime_end_textarea(), end);
@@ -792,6 +796,37 @@ public class DepartReportDangerListActions extends TestBaseCase {
         } else {
             log.warn("根据输入的字符串【" + string + "】未找到对应的元素信息。不能执行查看操作！！");
         }
+    }
+
+    /**
+     * 年度辨识复制。根据输入的时间复制时间段内的风险数据
+     * @param fromTime 复制开始时间
+     * @param endTime 复制结束时间
+     * @throws IOException
+     * @throws ParseException
+     */
+    public void cloneYearDanger(String fromTime, String endTime) throws IOException, ParseException {
+        elementAction.clickByJS(departReportDangerListPage.goCloneYearDanger_Button());
+        switchFrame(departReportDangerListPage.iframe_goCloneYearDanger());
+        /** 判断输入的时间格式是否正确*/
+        if ((functionUtil.isValidDate(fromTime)) && (functionUtil.isValidDate(endTime))) {
+            /** 判断时间先后顺序*/
+            if (functionUtil.compareTime(fromTime, endTime)) {
+                elementAction.typeByJS(departReportDangerListPage.cloneFrom(), fromTime);
+                elementAction.typeByJS(departReportDangerListPage.cloneTo(), endTime);
+            } else {
+                log.warn("输入的时间段不正确：开始时间：【" + fromTime + "】晚于结束时间：【" + endTime + "】");
+//                elementAction.typeByJS(departReportDangerListPage.cloneFrom(), endTime);
+//                elementAction.typeByJS(departReportDangerListPage.cloneTo(), fromTime);
+            }
+        } else {
+            if (functionUtil.isValidDate(fromTime))
+                log.warn("输入的时间【" + fromTime + "不正确");
+            if (functionUtil.isValidDate(endTime))
+                log.warn("输入的时间【" + endTime + "不正确");
+        }
+        elementAction.switchToDefaultFrame();
+        elementAction.clickByJS(departReportDangerListPage.confirm_btn());
     }
 
     /**

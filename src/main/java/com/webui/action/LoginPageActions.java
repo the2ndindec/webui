@@ -15,12 +15,42 @@ public class LoginPageActions extends TestBaseCase {
 	ElementAction ea = new ElementAction();
 	LoginPage lp = new LoginPage();
 
-	@Step(value = "useraname:{0}/password:{1}")
+	@Step("用户名:{0}/密码:{1}")
 	public void signInInit(String username, String password) throws IOException {
 		ea.type(lp.userName_Text(), username);
 		ea.type(lp.password_Text(), password);
 		ea.click(lp.login_btn());
 //		wtriteC();
+	}
+
+	/**
+	 * 不输入用户名密码
+	 * @throws IOException
+	 */
+	public void loginExcludeNameAndPwd() throws IOException {
+		ea.click(lp.login_btn());
+	}
+
+	/**
+	 * 不输入密码
+	 * @param username
+	 * @throws IOException
+	 */
+	public void loginExcludePwd(String username) throws IOException {
+		ea.type(lp.userName_Text(), username);
+		ea.click(lp.login_btn());
+	}
+
+	/**
+	 * 用户名和密码不匹配
+	 * @param username
+	 * @param password
+	 * @throws IOException
+	 */
+	public void loginIncorrectPwd(String username, String password) throws IOException {
+		ea.type(lp.userName_Text(), username);
+		ea.type(lp.password_Text(), password);
+		ea.click(lp.login_btn());
 	}
 
 	public void testCookies(){

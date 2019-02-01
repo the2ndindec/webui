@@ -625,6 +625,26 @@ public Locator closeBtn() throws IOException
  }
 
 /***
+* 复制开始时间
+* @throws IOException
+*/
+public Locator cloneFrom() throws IOException
+ {
+   Locator locator=getLocator("cloneFrom");
+   return locator;
+ }
+
+/***
+* 复制结束时间
+* @throws IOException
+*/
+public Locator cloneTo() throws IOException
+ {
+   Locator locator=getLocator("cloneTo");
+   return locator;
+ }
+
+/***
 * 数据列表
 * @throws IOException
 */

@@ -498,7 +498,10 @@
         <locator type="xpath" timeout="3" value=".//input[@id='btn_save']" desc="保存按钮">save_btn</locator>
         <locator type="xpath" timeout="3" value=".//input[@id='btn_subRep']" desc="保存并提交按钮">subRep_btn</locator>
         <locator type="xpath" timeout="3" value=".//input[@id='closeBtn']" desc="关闭按钮">closeBtn</locator>
-
+        <!--年度复制-->
+        <locator type="xpath" timeout="3" value=".//input[@id='cloneFrom']" desc="复制开始时间">cloneFrom</locator>
+        <locator type="xpath" timeout="3" value=".//input[@id='cloneTo']" desc="复制结束时间">cloneTo</locator>
+        
         <locator type="xpath" timeout="3" value=".//div[@class='datagrid-view2']/div[2]//tbody" desc="数据列表">data_tbody</locator>
 
         <locator type="xpath" timeout="3" value=".//span[contains(@class,'Validform_checktip Validform_wrong')]" desc="提示信息">error_tip</locator>

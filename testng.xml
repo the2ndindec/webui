@@ -19,7 +19,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="部门风险清单:查询功能验证" enabled="false">
+    <test verbose="2" preserve-order="true" name="部门风险清单:查询功能验证" enabled="true">
         <classes>
             <!--查询操作-->
             <class name="com.webui.aqfxfjgk.annualrisk.DepartReportDangerListPageTests">
@@ -28,13 +28,13 @@
                     <include name="TC_searchByYeRecognizeTime_end"/>
                     <include name="TC_searchByYeRecognizeTime"/>
                     <include name="TC_searchByYeMhazardDesc"/>
-                    <parameter name="yeProfession" value="冲击地压"/>
+                    <parameter name="yeProfession" value="监控与通信"/>
                     <include name="TC_searchByyeProfession"/>
-                    <parameter name="damageType" value="车辆伤害"/>
+                    <parameter name="damageType" value="火药爆炸"/>
                     <include name="TC_searchBydamageType"/>
-                    <parameter name="yePossiblyHazard" value="3"/>
+                    <parameter name="yePossiblyHazard" value="活矸危岩掉落造成作业人员伤害50"/>
                     <include name="TC_searchByyePossiblyHazard"/>
-                    <parameter name="activity" value="作业活动1"/>
+                    <parameter name="activity" value="作业活动2"/>
                     <include name="TC_searchByactivity"/>
                     <parameter name="yeRiskGrade" value="低风险"/>
                     <include name="TC_searchByyeRiskGrade"/>

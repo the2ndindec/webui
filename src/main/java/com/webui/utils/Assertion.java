@@ -194,14 +194,12 @@ public class Assertion extends TestBaseCase {
             Assert.assertTrue(flag);
             AssertPassLog();
             assertInfolList.add(verityStr + ":pass");
-            System.out.println(flag);
         } catch (Error f) {
             AssertFailedLog();
             errors.add(f);
             errorIndex++;
             assertInfolList.add(verityStr + ":failed");
             Assertion.snapshotInfo();
-            System.out.println(flag);
             f.printStackTrace();
         }
     }
@@ -388,7 +386,7 @@ public class Assertion extends TestBaseCase {
      * 验证某输入框是否不可编辑
      * @param locator 元素定位信息
      */
-    public static void VertityNoEdit(Locator locator) {
+    public static void vertityNoEdit(Locator locator) {
         Boolean status = false;
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
@@ -421,7 +419,7 @@ public class Assertion extends TestBaseCase {
      * @param locator 元素定位信息
      * @param Message 验证中文描述
      */
-    public static void VertityNoEdit(Locator locator, String Message) {
+    public static void vertityNoEdit(Locator locator, String Message) {
         Boolean status = false;
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
@@ -455,7 +453,7 @@ public class Assertion extends TestBaseCase {
      * 验证某元素可编辑
      * @param locator 元素定位信息
      */
-    public static void VertityEdit(Locator locator) {
+    public static void vertityEdit(Locator locator) {
         Boolean status = false;
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
@@ -489,7 +487,7 @@ public class Assertion extends TestBaseCase {
      * @param locator 元素定位信息
      * @param Message 验证中文描述
      */
-    public static void VertityEdit(Locator locator, String Message) {
+    public static void vertityEdit(Locator locator, String Message) {
         Boolean status = false;
         ElementAction action = new ElementAction();
         WebElement webElement = action.findElement(locator);
@@ -614,7 +612,7 @@ public class Assertion extends TestBaseCase {
     /*
      * 判断用例是否含有验证失败的断言，如果有此方法会抛出异常，让testng监听器检测到， 如果没有不会抛出异常，testng监听器会认为用例成功
      */
-    public static void VerityError() {
+    public static void verityError() {
         Assert.assertEquals(errors.size(), 0);
         // 有找不到元素的异常也认为用例失败
         Assert.assertEquals(ElementAction.noSuchElementExceptions.size(), 0);
@@ -628,7 +626,7 @@ public class Assertion extends TestBaseCase {
      * @throws:
      */
     public static void verifyTimeBegin(String searchTime, String verifyTime) throws ParseException {
-        String verityStr = "【Assert验证】:" + "查询结果中" + "【" + "预期值：" + verifyTime + "】" + "时间是否正确";
+        String verityStr = "【Assert验证】:查询结果中【" + verifyTime + "】是否等于或者晚于查询时间【" + searchTime + "】";
         log.info(verityStr);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date bt = sdf.parse(searchTime);
@@ -654,21 +652,30 @@ public class Assertion extends TestBaseCase {
      * @throws:
      */
     public static void verifyTimeEnd(String searchTime, String verifyTime) throws ParseException {
-        String verityStr = "【Assert验证】:" + "查询结果中" + "【" + "预期值：" + verifyTime + "】" + "时间是否正确";
+        String verityStr = "【Assert验证】:查询结果中【" + verifyTime + "】是否等于或者早于查询时间【" + searchTime + "】";
         log.info(verityStr);
+        Boolean flag = false;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date bt = sdf.parse(verifyTime);
         Date et = sdf.parse(searchTime);
+
         if (bt.before(et) || bt.equals(et)) {
-            AssertPassLog();
-            assertInfolList.add(verityStr + ":pass");
+            flag = true;
         } else {
-            AssertFailedLog();
-            errorIndex++;
-            assertInfolList.add(verityStr + ":failed");
+            flag = false;
+        }
+        try {
+            Assert.assertTrue(bt.before(et) || bt.equals(et));
+//            AssertPassLog();
+//            assertInfolList.add(verityStr + ":pass");
+        } catch (Error error) {
+            error.printStackTrace();
+//            AssertFailedLog();
+//            errorIndex++;
+//            assertInfolList.add(verityStr + ":failed");
             ElementAction ea = new ElementAction();
             ea.highlightElementByXpath(".//*[text()='" + verifyTime + "']");
-            Assertion.snapshotInfo();
+//            Assertion.snapshotInfo();
         }
     }
 
@@ -681,7 +688,7 @@ public class Assertion extends TestBaseCase {
      * @throws:
      */
     public static void verifyTime(String searchTimeBegin, String searchTimeEnd, String verifyTime) throws ParseException {
-        String verityStr = "【Assert验证】:" + "查询结果中" + "【" + "预期值：" + verifyTime + "】" + "时间是否正确";
+        String verityStr = "【Assert验证】:查询结果中时间【" + verifyTime + "】是否在开始时间【" + searchTimeBegin + "】，结束时间【" + searchTimeEnd + "】段内";
         log.info(verityStr);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date vt = sdf.parse(verifyTime);

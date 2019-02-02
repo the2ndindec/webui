@@ -4,11 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import io.qameta.allure.Attachment;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.testng.IHookCallBack;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
@@ -35,6 +40,16 @@ public class TestBaseCase {
         TestBaseCase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
+    @Attachment(value = "Screenshot of {0}", type = "image/png")
+    public byte[] saveScreenshot(String name, WebDriver driver) {
+        return (byte[]) ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
+    public void run(IHookCallBack iHookCallBack, ITestResult iTestResult) {
+        iHookCallBack.runTestMethod(iTestResult);
+        if (iTestResult.getThrowable() != null) {
+            this.saveScreenshot(iTestResult.getName(), driver);
+        }
+    }
     @AfterSuite
     public void tearDown() {
         TestBaseCase.driver.quit();

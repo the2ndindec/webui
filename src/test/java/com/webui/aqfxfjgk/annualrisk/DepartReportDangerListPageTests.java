@@ -4,6 +4,7 @@ import com.webui.action.aqfxfjgk.annualrisk.DepartReportDangerListActions;
 import com.webui.pageObject.DepartReportDangerListPage;
 import com.webui.utils.*;
 import io.qameta.allure.*;
+import org.testng.IHookable;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -17,12 +18,11 @@ import java.util.Map;
  * @Data 2018/12/07 16:22
  */
 @Feature("部门风险上报")
-public class DepartReportDangerListPageTests extends TestBaseCase {
+public class DepartReportDangerListPageTests extends TestBaseCase implements IHookable {
 
     ElementAction elementAction = new ElementAction();
     DepartReportDangerListActions departReportDangerListActions = new DepartReportDangerListActions();
     DepartReportDangerListPage departReportDangerListPage = new DepartReportDangerListPage();
-    FunctionUtil functionUtil = new FunctionUtil();
     ReadProperties rp = new ReadProperties();
     private String filePath = "D:\\dev\\IdeaProjects\\webui\\src\\test\\resources\\parameters.properties";
 
@@ -32,7 +32,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test(description = "验证添加数据功能:保存并提交数据")
     @Parameters({"docSource", "sectionName", "yeStandard", "manageMeasure"})
     public void TC_addData(String docSource, String sectionName, String yeStandard, String manageMeasure) throws IOException {
-        departReportDangerListActions.modifyMenu();
+
         departReportDangerListActions.goAdd();
         departReportDangerListActions.selectAddressCate();
         departReportDangerListActions.typeYeRecognizeTime();
@@ -69,8 +69,6 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Test(description = "验证添加数据功能:保存数据")
     @Parameters({"docSource", "sectionName", "yeStandard", "manageMeasure"})
     public void TC_addDataSave(String docSource, String sectionName, String yeStandard, String manageMeasure) throws IOException {
-
-            departReportDangerListActions.modifyMenu();
 
             departReportDangerListActions.goAdd();
             departReportDangerListActions.selectAddressCate();
@@ -145,7 +143,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     public void TC_searchByYeRecognizeTime_begin() throws IOException, ParseException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.checkReported();
-        departReportDangerListActions.searchByyeRecognizeTime_begin("2019-01-04");
+        departReportDangerListActions.searchByyeRecognizeTime_begin("2019-01-22");
         for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
             Assertion.verifyTimeBegin("2019-01-04", departReportDangerListActions.getSearchData("辨识时间").get(i));
         }
@@ -156,9 +154,9 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Description("根据辨识结束时间进行查询")
     public void TC_searchByYeRecognizeTime_end() throws IOException, ParseException {
         departReportDangerListActions.doReset();
-        departReportDangerListActions.searchByyeRecognizeTime_end("2019-01-04");
+        departReportDangerListActions.searchByyeRecognizeTime_end("2019-01-21");
         for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
-            Assertion.verifyTimeEnd("2019-01-04", departReportDangerListActions.getSearchData("辨识时间").get(i));
+            Assertion.verifyTimeEnd("2019-01-20", departReportDangerListActions.getSearchData("辨识时间").get(i));
         }
     }
 
@@ -167,9 +165,9 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Description("根据辨识时间段进行查询")
     public void TC_searchByYeRecognizeTime() throws IOException, ParseException {
         departReportDangerListActions.doReset();
-        departReportDangerListActions.searchByyeRecognizeTime("2019-01-04", "2019-01-08");
+        departReportDangerListActions.searchByyeRecognizeTime("2019-01-04", "2019-01-21");
         for (int i = 0; i < departReportDangerListActions.getSearchData("辨识时间").size(); i++) {
-            Assertion.verifyTime("2019-01-04", "2019-01-08", departReportDangerListActions.getSearchData("辨识时间").get(i));
+            Assertion.verifyTime("2019-01-04", "2019-01-21", departReportDangerListActions.getSearchData("辨识时间").get(i));
         }
     }
 
@@ -178,9 +176,9 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     @Description("根据隐患描述进行查询")
     public void TC_searchByYeMhazardDesc() throws IOException {
         departReportDangerListActions.doReset();
-        departReportDangerListActions.searchByYeMhazardDesc("1");
+        departReportDangerListActions.searchByYeMhazardDesc("未检查顶帮情况未检查顶帮情况50");
         for (int i = 0; i < departReportDangerListActions.getSearchData("隐患描述").size(); i++) {
-            Assertion.verityCationString(departReportDangerListActions.getSearchData("辨识时间").get(i), "1");
+            Assertion.verityCationString(departReportDangerListActions.getSearchData("隐患描述").get(i), "未检查顶帮情况未检查顶帮情况50");
         }
     }
 
@@ -222,7 +220,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
     }
 
     @Story("查询")
-    @Test
+    @Test(description = "验证作业活动查询功能")
     @Parameters({"activity"})
     @Description("根据作业活动进行查询")
     public void TC_searchByactivity(String activity) throws IOException {
@@ -244,7 +242,7 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
             Assertion.verityString(departReportDangerListActions.getSearchData("风险等级").get(i), yeRiskGrade);
         }
     }
-
+    @Story("获取提示信息")
     @Test
     @Description("验证在未选择数据的情况下执行查看，是否有提示信息")
     public void TC_verifyTipOfDetail() throws IOException {
@@ -252,24 +250,28 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.detail_Button());
         Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择查看项目");
     }
+    @Story("获取提示信息")
     @Test
     @Description("验证在未选择数据的情况下执行编辑，是否有提示信息")
     public void TC_verifyTipOfUpdate() throws IOException {
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.update_Button());
         Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择一条需要编辑的条目");
     }
+    @Story("获取提示信息")
     @Test
     @Description("验证在未选择数据的情况下执行上报，是否有提示信息")
     public void TC_verifyTipOfReport() throws IOException {
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.goReport_Button());
         Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择需要上报的条目");
     }
+    @Story("获取提示信息")
     @Test
     @Description("验证在未选择数据的情况下执行删除，是否有提示信息")
     public void TC_verifyTipOfDelete() throws IOException {
         departReportDangerListActions.toDoWithoutData(departReportDangerListPage.deleteALLSelect_Button());
         Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择需要删除的条目");
     }
+    @Story("获取提示信息")
     @Test
     @Description("验证在未选择数据的情况下执行撤回，是否有提示信息")
     public void TC_verifyTipOfBack() throws IOException {
@@ -278,9 +280,9 @@ public class DepartReportDangerListPageTests extends TestBaseCase {
         Assertion.verityString(elementAction.getAttribute(departReportDangerListPage.tip(),"innerText"),"请选择需要撤回的数据");
     }
 
-    @Story("添加数据")
-    @Description("添加数据后保存")
-    @Test(description = "验证添加数据功能:保存数据")
+    @Story("上报数据")
+    @Description("根据指定的字符串，查询出相关数据后执行上报审核")
+    @Test(description = "查询出相应的风险后上报审核")
     public void TC_goReport() throws IOException {
         departReportDangerListActions.modifyMenu();
         departReportDangerListActions.goReport("未检查顶帮");
